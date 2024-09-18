@@ -12,17 +12,14 @@ actions:
   targets: null
   update: true
 - id: qubit spectroscopy 01
-  operation: qubit_power_spectroscopy
+  operation: qubit_spectroscopy
   parameters:
-    amplitude: 0.01
-    duration: 4000
-    freq_step: 500000
-    freq_width: 300000000
-    max_amp_factor: 2
-    min_amp_factor: 0.1
+    drive_amplitude: 0.01
+    drive_duration: 4000
+    freq_step: 100000
+    freq_width: 100000000
     nshots: 1024
     relaxation_time: 5000
-    step_amp_factor: 0.1
   targets: null
   update: true
 backend: qibolab

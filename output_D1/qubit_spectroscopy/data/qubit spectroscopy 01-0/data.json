@@ -2,5 +2,9 @@
     "\"resonator_type\"": "2D",
     "\"amplitudes\"": {
         "\"D1\"": 0.01
-    }
+    },
+    "\"fit_function\"": "lorentzian",
+    "\"phase_sign\"": false,
+    "\"power_level\"": null,
+    "\"attenuations\"": {}
 }
