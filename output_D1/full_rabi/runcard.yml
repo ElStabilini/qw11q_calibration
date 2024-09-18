@@ -1,0 +1,53 @@
+actions:
+- id: resonator_spectroscopy high power
+  operation: resonator_spectroscopy
+  parameters:
+    amplitude: 0.002
+    fit_function: s21
+    freq_step: 100000
+    freq_width: 10000000
+    nshots: 1024
+    power_level: high
+    relaxation_time: 100000
+  targets: null
+  update: true
+- id: rabi
+  operation: rabi_amplitude_signal
+  parameters:
+    max_amp_factor: 2
+    min_amp_factor: 0
+    nshots: 1024
+    pulse_length: 40
+    relaxation_time: 100000
+    step_amp_factor: 0.1
+  targets: null
+  update: true
+- id: rabi
+  operation: rabi_length_signal
+  parameters:
+    nshots: 1024
+    pulse_amplitude: 0.06
+    pulse_duration_end: 40
+    pulse_duration_start: 20
+    pulse_duration_step: 1
+    relaxation_time: 100000
+  targets: null
+  update: true
+- id: rabi amplitude frequency
+  operation: rabi_amplitude_frequency_signal
+  parameters:
+    max_amp_factor: 2
+    max_freq: 50000000
+    min_amp_factor: 0.0
+    min_freq: -50000000
+    nshots: 1024
+    pulse_length: 40
+    step_amp_factor: 0.1
+    step_freq: 1000000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D1
+update: true
