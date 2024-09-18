@@ -1,0 +1,35 @@
+{
+    "title": "qubit_flux_dependence",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-18 09:53:58.534114+00:00",
+    "end_time": "2024-09-18 09:55:04.512260+00:00",
+    "stats": {
+        "resonator_spectroscopy high power-0": {
+            "acquisition": 12.688036570325494,
+            "fit": 0.014862626791000366
+        },
+        "qubit flux dependence-0": {
+            "acquisition": 28.240181440953165,
+            "fit": 0.011959235183894634
+        },
+        "resonator flux dependence-0": {
+            "acquisition": 24.971473646350205,
+            "fit": 0.0135653680190444
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.11",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.11"
+    },
+    "date": "2024-09-18",
+    "start-time": "09:53:58",
+    "end-time": "09:55:04"
+}
