@@ -2,9 +2,22 @@
     "title": "2024-09-18-000-elisa-stabilini",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2024-09-18 13:44:34.830398+00:00",
+    "end_time": "2024-09-18 13:48:23.369489+00:00",
+    "stats": {
+        "resonator_spectroscopy high power-0": {
+            "acquisition": 12.796122969593853,
+            "fit": 0.013601153623312712
+        },
+        "rabi-0": {
+            "acquisition": 5.049421275965869,
+            "fit": 0.005654328037053347
+        },
+        "rabi amplitude frequency-0": {
+            "acquisition": 210.60179117694497,
+            "fit": 0.030797661282122135
+        }
+    },
     "author": null,
     "tag": null,
     "targets": [
@@ -16,7 +29,7 @@
         "qibolab": "0.1.9",
         "qibocal": "0.0.11"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2024-09-18",
+    "start-time": "13:44:34",
+    "end-time": "13:48:23"
 }
