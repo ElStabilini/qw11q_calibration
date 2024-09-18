@@ -2,9 +2,14 @@
     "title": "rabi_freq_ampl",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2024-09-18 09:24:36.375215+00:00",
+    "end_time": "2024-09-18 09:28:06.477534+00:00",
+    "stats": {
+        "rabi amplitude frequency-0": {
+            "acquisition": 210.07466070726514,
+            "fit": 0.0111128194257617
+        }
+    },
     "author": null,
     "tag": null,
     "targets": [
@@ -16,7 +21,7 @@
         "qibolab": "0.1.9",
         "qibocal": "0.0.11"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2024-09-18",
+    "start-time": "09:24:36",
+    "end-time": "09:28:06"
 }
