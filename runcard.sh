@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SBATCH directives (optional)
-#SBATCH --job-name=readout optimization  # Job name
+#SBATCH --job-name=readout_optimization  # Job name
 #SBATCH --time=01:00:00            # Time limit
 #SBATCH --partition=qw11q            # Partition name
 

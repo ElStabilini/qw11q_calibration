@@ -3,20 +3,20 @@ platform: qw11q
 targets: [D1]
 
 actions:
-  # - id: all_xy
+  - id: all_xy
 
-  #   operation: allxy
-  #   parameters:
-  #       nshots: 1024
-  #       relaxation_time: 200000
+    operation: allxy
+    parameters:
+        nshots: 1024
+        relaxation_time: 200000
 
 
-  # - id: state_tomography
+  - id: state_tomography
 
-  #   operation: state_tomography
-  #   parameters:
-  #       nshots: 1024
-  #       relaxation_time: 200000
+    operation: state_tomography
+    parameters:
+        nshots: 1024
+        relaxation_time: 200000
 
 
   - id: readout
