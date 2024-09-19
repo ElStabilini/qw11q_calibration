@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>ramsey</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-export
+{
+  background:#6400FF;
+  color:white;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </buttom>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Actions
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Ramsey Detuned"> Ramsey Detuned</a></li>
+                  </ul>
+                </ul>
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#T2"> T2</a></li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </buttom>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>ramsey</h1>
+        <button class="button-export" id="export-pdf">Export to pdf</button>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2024-09-19<br>
+        Start time (UTC): 06:25:55<br>
+        End time (UTC): 06:26:24
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Ramsey Detuned" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Ramsey Detuned</h4>
+        
+        <div id="--D1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - Qubit D1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td>Delta Frequency [Hz]</td>
+      <td>-8.2e4</td>
+      <td>0.5e4</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>Delta Frequency (with detuning) [Hz]</td>
+      <td>-3.082e6</td>
+      <td>0.005e6</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>Drive Frequency [Hz]</td>
+      <td>4.958181e9</td>
+      <td>0.000005e9</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>T2* [ns]</td>
+      <td>1.1e4</td>
+      <td>0.3e4</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>chi2 reduced</td>
+      <td>2.7</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="a1b411bb-d472-4290-8f2b-d441a624409b" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("a1b411bb-d472-4290-8f2b-d441a624409b")) {                    Plotly.newPlot(                        "a1b411bb-d472-4290-8f2b-d441a624409b",                        [{"legendgroup":"Probability of State 0","mode":"lines","name":"Probability of State 0","opacity":1,"showlegend":true,"x":[10.0,30.0,50.0,70.0,90.0,110.0,130.0,150.0,170.0,190.0,210.0,230.0,250.0,270.0,290.0,310.0,330.0,350.0,370.0,390.0,410.0,430.0,450.0,470.0,490.0,510.0,530.0,550.0,570.0,590.0,610.0,630.0,650.0,670.0,690.0,710.0,730.0,750.0,770.0,790.0,810.0,830.0,850.0,870.0,890.0,910.0,930.0,950.0,970.0,990.0],"y":[0.513671875,0.396484375,0.201171875,0.0654296875,0.0302734375,0.0234375,0.07421875,0.1630859375,0.345703125,0.51171875,0.6982421875,0.8193359375,0.9169921875,0.9501953125,0.8955078125,0.7841796875,0.6396484375,0.4501953125,0.2890625,0.1669921875,0.05859375,0.0361328125,0.0771484375,0.177734375,0.32421875,0.509765625,0.666015625,0.7939453125,0.927734375,0.91015625,0.888671875,0.822265625,0.66796875,0.455078125,0.306640625,0.16015625,0.0751953125,0.0419921875,0.0654296875,0.1533203125,0.322265625,0.484375,0.6416015625,0.7607421875,0.8876953125,0.912109375,0.904296875,0.7939453125,0.68359375,0.51171875],"type":"scatter"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Errors","showlegend":true,"x":[10.0,30.0,50.0,70.0,90.0,110.0,130.0,150.0,170.0,190.0,210.0,230.0,250.0,270.0,290.0,310.0,330.0,350.0,370.0,390.0,410.0,430.0,450.0,470.0,490.0,510.0,530.0,550.0,570.0,590.0,610.0,630.0,650.0,670.0,690.0,710.0,730.0,750.0,770.0,790.0,810.0,830.0,850.0,870.0,890.0,910.0,930.0,950.0,970.0,990.0,990.0,970.0,950.0,930.0,910.0,890.0,870.0,850.0,830.0,810.0,790.0,770.0,750.0,730.0,710.0,690.0,670.0,650.0,630.0,610.0,590.0,570.0,550.0,530.0,510.0,490.0,470.0,450.0,430.0,410.0,390.0,370.0,350.0,330.0,310.0,290.0,270.0,250.0,230.0,210.0,190.0,170.0,150.0,130.0,110.0,90.0,70.0,50.0,30.0,10.0],"y":[0.5292910326525553,0.4117708489083812,0.21369925718477048,0.0731572661739295,0.035627772455378515,0.02816526287378835,0.0824102046239295,0.1746310644181587,0.36056553019725185,0.5273394578760617,0.7125865854665467,0.8313590499680318,0.925613875924719,0.9569934754959971,0.9050671241749427,0.7970356315749789,0.6546516374810603,0.4657426034210391,0.3032289688246133,0.17864746547614185,0.06593321167751827,0.04196470491176332,0.08548677587211699,0.1896809057359239,0.33884631895668105,0.52538764448349,0.6807541935395025,0.8065850066583752,0.9358258505759051,0.9190924305508746,0.8985011885004744,0.8342121557359239,0.6826856918682203,0.47063993551266575,0.3210499641515633,0.17161721575004774,0.08343613229043263,0.04826004041507424,0.0731572661739295,0.164579561921435,0.3368701275946944,0.49999236874191355,0.6565868742374551,0.7740743879927258,0.8975622170468895,0.9209573677453732,0.9134901149621246,0.8065850066583752,0.6981272960202523,0.5273394578760617,0.4960980421239383,0.6690602039797477,0.7813056183416248,0.8951036350378754,0.9032613822546268,0.8778284079531105,0.7474099870072742,0.6266162507625449,0.46875763125808645,0.3076611224053056,0.142061063078565,0.057702108826070506,0.03572433458492576,0.06695449270956737,0.14869528424995226,0.2922312858484367,0.43951631448733425,0.6532518081317797,0.8103190942640761,0.8788425614995256,0.9012200694491254,0.9196428994240949,0.7813056183416248,0.6512770564604975,0.4941436055165101,0.30959118104331895,0.1657878442640761,0.06881009912788301,0.030300920088236673,0.05125428832248173,0.15533690952385815,0.2748960311753867,0.4346480215789609,0.6246452375189397,0.7713237434250211,0.8859485008250573,0.9433971495040029,0.908370499075281,0.8073128250319682,0.6838977895334533,0.4960980421239383,0.33084071980274815,0.1515408105818413,0.0660272953760705,0.01870973712621165,0.024919102544621482,0.057702108826070506,0.18864449281522952,0.3811979010916188,0.4980527173474447],"type":"scatter"},{"line":{"dash":"dot"},"name":"Fit","x":[10.0,30.0,50.0,70.0,90.0,110.0,130.0,150.0,170.0,190.0,210.0,230.0,250.0,270.0,290.0,310.0,330.0,350.0,370.0,390.0,410.0,430.0,450.0,470.0,490.0,510.0,530.0,550.0,570.0,590.0,610.0,630.0,650.0,670.0,690.0,710.0,730.0,750.0,770.0,790.0,810.0,830.0,850.0,870.0,890.0,910.0,930.0,950.0,970.0,990.0],"y":[0.5834973241405219,0.40142711280084287,0.23189441641079195,0.0999276543902296,0.02490594726348505,0.017713815637888375,0.0791628652591721,0.19990919149057285,0.36187315925684155,0.5409459782960852,0.710577969293253,0.8457145144377354,0.9264962462674933,0.9411770683909395,0.8878313208995291,0.7746020906035957,0.6184593626830936,0.4426572312118527,0.27327110054927567,0.13533046901418017,0.04912078563053224,0.02720073171485604,0.07257343183738713,0.17827779460253756,0.3284551473150994,0.5007279176179501,0.6695336614759415,0.8099177607668666,0.9012221198293473,0.9301246645217103,0.8925824948169381,0.7943953612809871,0.6503112524641717,0.4818118026141081,0.3139099806486076,0.17143737564777628,0.07537211180120329,0.03975036789034031,0.06961613881305162,0.16030862353165032,0.29818766689225096,0.4626846115633403,0.6293702980116392,0.7735826533609491,0.8740752440066012,0.9161470685365167,0.8937926020059785,0.8105577277831795,0.6789797697896773,0.5186997118001331],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"showlegend":true,"xaxis":{"title":{"text":"Time [ns]"}},"yaxis":{"title":{"text":"Excited state probability"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+      <div id="T2" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          T2</h4>
+        
+        <div id="--D1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - Qubit D1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td>T2 [ns]</td>
+      <td>1.12e4</td>
+      <td>0.08e4</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>chi2 reduced</td>
+      <td>4.0</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="e5d96ce3-c6d1-4cf0-a5e6-f84159eef5bd" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("e5d96ce3-c6d1-4cf0-a5e6-f84159eef5bd")) {                    Plotly.newPlot(                        "e5d96ce3-c6d1-4cf0-a5e6-f84159eef5bd",                        [{"legendgroup":"Probability of 1","mode":"lines","name":"Probability of 1","opacity":1,"showlegend":true,"x":[10.0,1010.0,2010.0,3010.0,4010.0,5010.0,6010.0,7010.0,8010.0,9010.0,10010.0,11010.0,12010.0,13010.0,14010.0,15010.0,16010.0,17010.0,18010.0,19010.0,20010.0,21010.0,22010.0,23010.0,24010.0,25010.0,26010.0,27010.0,28010.0,29010.0,30010.0,31010.0,32010.0,33010.0,34010.0,35010.0,36010.0,37010.0,38010.0,39010.0,40010.0,41010.0,42010.0,43010.0,44010.0,45010.0,46010.0,47010.0,48010.0,49010.0],"y":[0.9404296875,0.93359375,0.9111328125,0.8662109375,0.8408203125,0.8291015625,0.8154296875,0.7646484375,0.744140625,0.703125,0.6748046875,0.6484375,0.6484375,0.6171875,0.6171875,0.5771484375,0.5595703125,0.5341796875,0.5341796875,0.5146484375,0.486328125,0.49609375,0.5,0.4794921875,0.4794921875,0.4951171875,0.4638671875,0.466796875,0.4736328125,0.4658203125,0.478515625,0.4716796875,0.462890625,0.4638671875,0.498046875,0.490234375,0.5048828125,0.4580078125,0.501953125,0.5048828125,0.474609375,0.4765625,0.4912109375,0.4990234375,0.4892578125,0.4970703125,0.5,0.4560546875,0.4794921875,0.4951171875],"type":"scatter"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Errors","showlegend":true,"x":[10.0,1010.0,2010.0,3010.0,4010.0,5010.0,6010.0,7010.0,8010.0,9010.0,10010.0,11010.0,12010.0,13010.0,14010.0,15010.0,16010.0,17010.0,18010.0,19010.0,20010.0,21010.0,22010.0,23010.0,24010.0,25010.0,26010.0,27010.0,28010.0,29010.0,30010.0,31010.0,32010.0,33010.0,34010.0,35010.0,36010.0,37010.0,38010.0,39010.0,40010.0,41010.0,42010.0,43010.0,44010.0,45010.0,46010.0,47010.0,48010.0,49010.0,49010.0,48010.0,47010.0,46010.0,45010.0,44010.0,43010.0,42010.0,41010.0,40010.0,39010.0,38010.0,37010.0,36010.0,35010.0,34010.0,33010.0,32010.0,31010.0,30010.0,29010.0,28010.0,27010.0,26010.0,25010.0,24010.0,23010.0,22010.0,21010.0,20010.0,19010.0,18010.0,17010.0,16010.0,15010.0,14010.0,13010.0,12010.0,11010.0,10010.0,9010.0,8010.0,7010.0,6010.0,5010.0,4010.0,3010.0,2010.0,1010.0,10.0],"y":[0.947826219254859,0.941374715102775,0.9200250608406941,0.8768492356695711,0.8522529239291207,0.8408646935255176,0.8275530810889643,0.7779052607920887,0.7577763488196779,0.7174025307785288,0.6894436805796741,0.6633580679595679,0.6633580679595679,0.6323772853811546,0.6323772853811546,0.5925863208008876,0.5750840217179741,0.5497681369048028,0.5497681369048028,0.5302667305379959,0.5019472826525553,0.5117182731555656,0.515625,0.4951040391436903,0.4951040391436903,0.5107414424241759,0.47945133471424795,0.4823873854503908,0.489236071481479,0.48140876190480275,0.494126194011855,0.4872796036124266,0.47847253101955534,0.47945133471424795,0.5136717557902557,0.50585639448349,0.5205070674241759,0.4735776104935366,0.5175780057902557,0.5205070674241759,0.4902142156252534,0.49217032442228964,0.5068335233253829,0.5146484076976492,0.5048792060027728,0.5126950442767964,0.515625,0.4716192207980595,0.4951040391436903,0.5107414424241759,0.4794929325758241,0.4638803358563097,0.4404901542019405,0.484375,0.4814455807232037,0.47363641899722725,0.4833984673023508,0.47558835167461705,0.46095467557771036,0.4590045343747466,0.4892585575758241,0.4863282442097443,0.4424380145064634,0.4892585575758241,0.4746123555165101,0.4824219942097443,0.44828304028575205,0.44730871898044466,0.4560797713875734,0.462905055988145,0.45023186309519725,0.458029553518521,0.4512063645496092,0.44828304028575205,0.4794929325758241,0.4638803358563097,0.4638803358563097,0.484375,0.4804692268444344,0.4707089673474447,0.4990301444620041,0.5185912380951972,0.5185912380951972,0.5440566032820259,0.5617105541991124,0.6019977146188454,0.6019977146188454,0.6335169320404321,0.6335169320404321,0.6601656944203259,0.6888474692214712,0.7305049011803221,0.7513916142079113,0.8033062939110357,0.8173384314744824,0.8293877010708793,0.8555726393304289,0.9022405641593059,0.925812784897225,0.933033155745141],"type":"scatter"},{"line":{"dash":"dot"},"name":"Fit","x":[10.0,504.949494949495,999.89898989899,1494.848484848485,1989.79797979798,2484.747474747475,2979.69696969697,3474.6464646464647,3969.59595959596,4464.545454545455,4959.49494949495,5454.444444444444,5949.39393939394,6444.343434343435,6939.292929292929,7434.242424242425,7929.19191919192,8424.141414141415,8919.09090909091,9414.040404040405,9908.9898989899,10403.939393939394,10898.888888888889,11393.838383838385,11888.78787878788,12383.737373737375,12878.68686868687,13373.636363636364,13868.585858585859,14363.535353535355,14858.48484848485,15353.434343434345,15848.38383838384,16343.333333333334,16838.28282828283,17333.232323232325,17828.18181818182,18323.131313131315,18818.08080808081,19313.030303030304,19807.9797979798,20302.929292929293,20797.878787878788,21292.828282828283,21787.777777777777,22282.727272727276,22777.67676767677,23272.626262626265,23767.57575757576,24262.525252525254,24757.47474747475,25252.424242424244,25747.37373737374,26242.323232323233,26737.272727272728,27232.222222222223,27727.171717171717,28222.121212121212,28717.07070707071,29212.020202020205,29706.9696969697,30201.919191919194,30696.86868686869,31191.818181818184,31686.76767676768,32181.717171717173,32676.666666666668,33171.61616161616,33666.56565656566,34161.51515151515,34656.46464646465,35151.41414141414,35646.36363636364,36141.31313131313,36636.26262626263,37131.21212121212,37626.16161616162,38121.11111111112,38616.06060606061,39111.010101010106,39605.9595959596,40100.909090909096,40595.85858585859,41090.808080808085,41585.757575757576,42080.707070707074,42575.656565656565,43070.606060606064,43565.555555555555,44060.50505050505,44555.45454545455,45050.40404040404,45545.35353535354,46040.30303030303,46535.25252525253,47030.20202020202,47525.15151515152,48020.10101010101,48515.05050505051,49010.0],"y":[0.9786858284089224,0.9560708835144478,0.9344305975043954,0.9137229645306224,0.8939077891130105,0.874946608116224,0.8568026160891159,0.8394405938218554,0.8228268399821008,0.8069291056975153,0.7917165319576471,0.7771595897136623,0.7632300225596599,0.749900791884307,0.737146024386329,0.7249409618519781,0.7132619130969902,0.7020862079797499,0.6913921533963943,0.6811589911724407,0.6713668577692005,0.6619967457267659,0.6530304667687277,0.6444506164970045,0.6362405406082552,0.6283843025662965,0.620866652667774,0.6136729984410408,0.6067893763207869,0.600202424543433,0.5938993572106804,0.5878679394708692,0.5820964637699708,0.5765737271261142,0.5712890093835361,0.5662320524037412,0.5613930401534823,0.5567625796509084,0.5523316827328958,0.548091748608171,0.5440345471623587,0.5401522029825492,0.5364371800703744,0.5328822672139208,0.529480563990082,0.5262254673701837,0.5231106589028783,0.5201300924494314,0.5172779824475928,0.5145487926812716,0.5119372255342152,0.5094382117068339,0.5070469003762093,0.5047586497801869,0.5025690182072753,0.5004737553748628,0.4984687941790158,0.4965502427998441,0.4947143771471093,0.4929576336314123,0.4912766022469283,0.4896680199522619,0.48812876433657415,0.4866558475586871,0.4852464105474005,0.48389771745176313,0.48260715033052703,0.48137220407047476,0.4801904815237572,0.4790596888548021,0.47797763108776153,0.47694220784585584,0.47595140927434265,0.47500331213919833,0.4740960760939384,0.47322794010733027,0.4723972190450645,0.4716023003987494,0.47084164115587923,0.47011376480470035,0.4694172584681621,0.46875077016138833,0.4681130061673463,0.4675027285256194,0.4669187526294086,0.4663599449260979,0.4658252207169215,0.4653135420514607,0.4648239157128831,0.46435539129001524,0.46390705933250365,0.463478049585486,0.4630675293003434,0.4626747016182568,0.4622988040234279,0.4619391068629641,0.46159491193055274,0.4612655511111765,0.46095038508423875,0.4606488020825817],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"showlegend":true,"xaxis":{"title":{"text":"Time [ns]"}},"yaxis":{"title":{"text":"Probability of State 1"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in .</p>
+
+      <div class="table-responsive col-md-5 col-lg-3">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.11</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.1.9</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.0.11</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+       var exportPDFButton = document.getElementById("export-pdf");
+
+       exportPDFButton.addEventListener("click", function() {
+
+        document.body.classList.add("impresion");
+
+        var doc = new jsPDF({orientation: 'landscape',});
+
+        var iframes = document.querySelectorAll("iframe.gh-fit")
+        source = ""
+        for(var id = 0; id < iframes.length; id++) {
+            var win = iframes[id].contentWindow
+            var doc = win.document
+            var html = doc.documentElement
+            var body = doc.body
+            var ifrm = iframes[id] // or win.frameElement
+            source = source + html
+        }
+
+        print(source)
+
+        doc.fromHTML(source, 0, 0, {
+        width: 210,
+        margins: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+        }
+        });
+
+        // Guardar el PDF
+        doc.save("report.pdf");
+    });
+    </script>
+
+</body>
+
+</html>

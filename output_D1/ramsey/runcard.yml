@@ -1,0 +1,27 @@
+actions:
+- id: ramsey detuned
+  operation: ramsey
+  parameters:
+    delay_between_pulses_end: 1000
+    delay_between_pulses_start: 10
+    delay_between_pulses_step: 20
+    detuning: 3000000
+    nshots: 1024
+    relaxation_time: 200000
+  targets: null
+  update: true
+- id: t2
+  operation: t2
+  parameters:
+    delay_between_pulses_end: 50000
+    delay_between_pulses_start: 10
+    delay_between_pulses_step: 1000
+    nshots: 1024
+    relaxation_time: 200000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D1
+update: true
