@@ -1,0 +1,10 @@
+{
+    "\"nshots\"": 5000,
+    "\"savedir\"": " ",
+    "\"qubit_frequencies\"": {
+        "\"D1\"": 4958263653
+    },
+    "\"classifiers_list\"": [
+        "qubit_fit"
+    ]
+}
