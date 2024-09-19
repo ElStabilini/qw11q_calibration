@@ -1,0 +1,9 @@
+id: readout
+operation: readout_characterization
+parameters:
+  delay: 1000
+  nshots: 5000
+  relaxation_time: 200000
+targets:
+- D1
+update: true

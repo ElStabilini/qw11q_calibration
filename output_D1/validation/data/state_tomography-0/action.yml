@@ -1,0 +1,8 @@
+id: state_tomography
+operation: state_tomography
+parameters:
+  nshots: 1024
+  relaxation_time: 200000
+targets:
+- D1
+update: true

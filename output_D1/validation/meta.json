@@ -1,0 +1,35 @@
+{
+    "title": "validation",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-19 07:09:18.096277+00:00",
+    "end_time": "2024-09-19 07:10:34.525603+00:00",
+    "stats": {
+        "all_xy-0": {
+            "acquisition": 52.809175689704716,
+            "fit": 5.742069333791733e-06
+        },
+        "state_tomography-0": {
+            "acquisition": 10.043506618123502,
+            "fit": 0.0180928697809577
+        },
+        "readout-0": {
+            "acquisition": 13.471359266899526,
+            "fit": 0.0029677017591893673
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.11",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.11"
+    },
+    "date": "2024-09-19",
+    "start-time": "07:09:18",
+    "end-time": "07:10:34"
+}
