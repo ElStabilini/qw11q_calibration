@@ -1,0 +1,27 @@
+{
+    "title": "randomized_benchmarking",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-19 07:19:35.625900+00:00",
+    "end_time": "2024-09-19 07:24:47.690856+00:00",
+    "stats": {
+        "standard rb-0": {
+            "acquisition": 312.0446161329746,
+            "fit": 0.007273800205439329
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.11",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.11"
+    },
+    "date": "2024-09-19",
+    "start-time": "07:19:35",
+    "end-time": "07:24:47"
+}
