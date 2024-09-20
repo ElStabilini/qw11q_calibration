@@ -1,0 +1,27 @@
+{
+    "title": "resonator_characterization_2",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-20 08:27:18.227566+00:00",
+    "end_time": "2024-09-20 08:27:22.870419+00:00",
+    "stats": {
+        "resonator_spectroscopy high power-0": {
+            "acquisition": 4.616235954221338,
+            "fit": 0.016631669830530882
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D2"
+    ],
+    "versions": {
+        "qibo": "0.2.11",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.11"
+    },
+    "date": "2024-09-20",
+    "start-time": "08:27:18",
+    "end-time": "08:27:22"
+}
