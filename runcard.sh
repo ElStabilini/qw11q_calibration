@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/qubit_spectroscopy.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D2/qubit_spectroscopy
+qq auto /home/users/elisa.stabilini/cal_qw11q/resonator_characterization.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D2/resonator_characterization_1

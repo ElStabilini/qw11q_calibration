@@ -2,18 +2,18 @@
     "title": "resonator_spectroscopy_high",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": "2024-09-18 13:42:01.008327+00:00",
-    "end_time": "2024-09-18 13:42:13.476094+00:00",
+    "start_time": "2024-09-20 08:21:16.662908+00:00",
+    "end_time": "2024-09-20 08:21:21.813171+00:00",
     "stats": {
         "resonator_spectroscopy high power-0": {
-            "acquisition": 12.447914951015264,
-            "fit": 0.003968347795307636
+            "acquisition": 5.130112560931593,
+            "fit": 0.003000279888510704
         }
     },
-    "author": "elisa.stabilini",
+    "author": null,
     "tag": null,
     "targets": [
-        "D2"
+        "D3"
     ],
     "versions": {
         "qibo": "0.2.11",
@@ -21,7 +21,7 @@
         "qibolab": "0.1.9",
         "qibocal": "0.0.11"
     },
-    "date": "2024-09-18",
-    "start-time": "13:42:01",
-    "end-time": "13:42:13"
+    "date": "2024-09-20",
+    "start-time": "08:21:16",
+    "end-time": "08:21:21"
 }
