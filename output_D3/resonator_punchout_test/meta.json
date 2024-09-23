@@ -14,7 +14,7 @@
         "qibo": "0.2.12",
         "numpy": "1.26.4",
         "qibolab": "0.1.9",
-        "qibocal": "0.0.11"
+        "qibocal": "0.0.12"
     },
     "date": null,
     "start-time": null,
