@@ -1,0 +1,157 @@
+[Qibo 0.2.12|INFO|2024-09-23 16:31:45]: Loading platform dummy
+[Qibo 0.2.12|INFO|2024-09-23 16:31:46]: Loading platform /nfs/tools/qibolab_platforms_qrc/iqm5q
+[38;20m[Qibocal 0.0.11|INFO|2024-09-23 16:31:46]: Creating directory /home/users/elisa.stabilini/protocolstest/output/es_spectroscopy.[0m
+[Qibo 0.2.12|INFO|2024-09-23 16:31:46]: Connecting to instrument <qibolab.instruments.qblox.controller.QbloxController object at 0x7f3ad838dd80>.
+[Qibo 0.2.12|ERROR|2024-09-23 16:31:46]: Cannot establish connection to <qibolab.instruments.qblox.controller.QbloxController object at 0x7f3ad838dd80> instruments. Error captured: 'Unable to connect:
+Qblox Instruments package version (`qblox-instruments==0.14.1`) is not compatible with the firmware that is installed on the hardware. Here are the device versions of what is expected by `qblox-instruments==0.14.1` and what is installed on the hardware (actual):
+
+                Expected:                 Actual:
+Firmware
+       Version: 0.9.0                     0.7.0
+          Date: 30/07/2024-12:43:40       04/03/2024-15:36:54
+          Hash: 0x80063CC5                0x11DE3AFE
+         Dirty: 0                         0
+Kernel module
+       Version: 0.9.1                     0.7.0
+          Date: 12/09/2024-14:05:21       08/03/2024-16:11:34
+          Hash: 0x642F5389                0x52F6CFA5
+         Dirty: 0                         0
+Application
+       Version: 0.9.1                     0.7.0
+          Date: 12/09/2024-14:05:21       08/03/2024-16:11:34
+          Hash: 0x642F5389                0x52F6CFA5
+         Dirty: 0                         0
+
+To Resolve this issue:
+- Update your device's firmware (0.9.0) to a compatible version. 
+- Alternatively, install a compatible version of the python `qblox-instruments` package that matches your current device firmware (version 0.9.0).
+For information on version compatibility refer to https://gitlab.com/qblox/packages/software/qblox_instruments#compatibility-matrixFor detailed instructions on updating firmware or installing a compatible version of the Qblox Instruments package, please refer to our troubleshooting guide, https://qblox-qblox-instruments.readthedocs-hosted.com/en/master/cluster/troubleshooting.html.
+
+Support: 
+If you require assistance or encounter any issues during the update process, please contact our support team at support@qblox.com or visit our support page.
+'
+Traceback (most recent call last):
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qibolab/instruments/qblox/controller.py", line 73, in connect
+    self.cluster = QbloxCluster(self.name, self.address)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qcodes/instrument/instrument_meta.py", line 36, in __call__
+    new_inst = super().__call__(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qblox_instruments/qcodes_drivers/cluster.py", line 69, in __init__
+    super().__init__(identifier, port, debug, dummy_cfg)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qblox_instruments/native/cluster.py", line 99, in __init__
+    super().__init__(self._transport, debug)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qblox_instruments/scpi/cluster.py", line 111, in __init__
+    raise ConnectionError(
+ConnectionError: Qblox Instruments package version (`qblox-instruments==0.14.1`) is not compatible with the firmware that is installed on the hardware. Here are the device versions of what is expected by `qblox-instruments==0.14.1` and what is installed on the hardware (actual):
+
+                Expected:                 Actual:
+Firmware
+       Version: 0.9.0                     0.7.0
+          Date: 30/07/2024-12:43:40       04/03/2024-15:36:54
+          Hash: 0x80063CC5                0x11DE3AFE
+         Dirty: 0                         0
+Kernel module
+       Version: 0.9.1                     0.7.0
+          Date: 12/09/2024-14:05:21       08/03/2024-16:11:34
+          Hash: 0x642F5389                0x52F6CFA5
+         Dirty: 0                         0
+Application
+       Version: 0.9.1                     0.7.0
+          Date: 12/09/2024-14:05:21       08/03/2024-16:11:34
+          Hash: 0x642F5389                0x52F6CFA5
+         Dirty: 0                         0
+
+To Resolve this issue:
+- Update your device's firmware (0.9.0) to a compatible version. 
+- Alternatively, install a compatible version of the python `qblox-instruments` package that matches your current device firmware (version 0.9.0).
+For information on version compatibility refer to https://gitlab.com/qblox/packages/software/qblox_instruments#compatibility-matrixFor detailed instructions on updating firmware or installing a compatible version of the Qblox Instruments package, please refer to our troubleshooting guide, https://qblox-qblox-instruments.readthedocs-hosted.com/en/master/cluster/troubleshooting.html.
+
+Support: 
+If you require assistance or encounter any issues during the update process, please contact our support team at support@qblox.com or visit our support page.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qibolab/platform/platform.py", line 149, in connect
+    instrument.connect()
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qibolab/instruments/qblox/controller.py", line 83, in connect
+    raise ConnectionError(f"Unable to connect:\n{str(exception)}\n")
+ConnectionError: Unable to connect:
+Qblox Instruments package version (`qblox-instruments==0.14.1`) is not compatible with the firmware that is installed on the hardware. Here are the device versions of what is expected by `qblox-instruments==0.14.1` and what is installed on the hardware (actual):
+
+                Expected:                 Actual:
+Firmware
+       Version: 0.9.0                     0.7.0
+          Date: 30/07/2024-12:43:40       04/03/2024-15:36:54
+          Hash: 0x80063CC5                0x11DE3AFE
+         Dirty: 0                         0
+Kernel module
+       Version: 0.9.1                     0.7.0
+          Date: 12/09/2024-14:05:21       08/03/2024-16:11:34
+          Hash: 0x642F5389                0x52F6CFA5
+         Dirty: 0                         0
+Application
+       Version: 0.9.1                     0.7.0
+          Date: 12/09/2024-14:05:21       08/03/2024-16:11:34
+          Hash: 0x642F5389                0x52F6CFA5
+         Dirty: 0                         0
+
+To Resolve this issue:
+- Update your device's firmware (0.9.0) to a compatible version. 
+- Alternatively, install a compatible version of the python `qblox-instruments` package that matches your current device firmware (version 0.9.0).
+For information on version compatibility refer to https://gitlab.com/qblox/packages/software/qblox_instruments#compatibility-matrixFor detailed instructions on updating firmware or installing a compatible version of the Qblox Instruments package, please refer to our troubleshooting guide, https://qblox-qblox-instruments.readthedocs-hosted.com/en/master/cluster/troubleshooting.html.
+
+Support: 
+If you require assistance or encounter any issues during the update process, please contact our support team at support@qblox.com or visit our support page.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/nfs/users/elisa.stabilini/test_venv/bin/qq", line 8, in <module>
+    sys.exit(command())
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qibocal/cli/_base.py", line 75, in auto
+    autocalibrate(runcard, folder, force, update)
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qibocal/cli/autocalibration.py", line 38, in autocalibrate
+    platform.connect()
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qibolab/platform/platform.py", line 151, in connect
+    raise_error(
+  File "/nfs/users/elisa.stabilini/test_venv/lib/python3.10/site-packages/qibo/config.py", line 46, in raise_error
+    raise exception(message)
+RuntimeError: Cannot establish connection to <qibolab.instruments.qblox.controller.QbloxController object at 0x7f3ad838dd80> instruments. Error captured: 'Unable to connect:
+Qblox Instruments package version (`qblox-instruments==0.14.1`) is not compatible with the firmware that is installed on the hardware. Here are the device versions of what is expected by `qblox-instruments==0.14.1` and what is installed on the hardware (actual):
+
+                Expected:                 Actual:
+Firmware
+       Version: 0.9.0                     0.7.0
+          Date: 30/07/2024-12:43:40       04/03/2024-15:36:54
+          Hash: 0x80063CC5                0x11DE3AFE
+         Dirty: 0                         0
+Kernel module
+       Version: 0.9.1                     0.7.0
+          Date: 12/09/2024-14:05:21       08/03/2024-16:11:34
+          Hash: 0x642F5389                0x52F6CFA5
+         Dirty: 0                         0
+Application
+       Version: 0.9.1                     0.7.0
+          Date: 12/09/2024-14:05:21       08/03/2024-16:11:34
+          Hash: 0x642F5389                0x52F6CFA5
+         Dirty: 0                         0
+
+To Resolve this issue:
+- Update your device's firmware (0.9.0) to a compatible version. 
+- Alternatively, install a compatible version of the python `qblox-instruments` package that matches your current device firmware (version 0.9.0).
+For information on version compatibility refer to https://gitlab.com/qblox/packages/software/qblox_instruments#compatibility-matrixFor detailed instructions on updating firmware or installing a compatible version of the Qblox Instruments package, please refer to our troubleshooting guide, https://qblox-qblox-instruments.readthedocs-hosted.com/en/master/cluster/troubleshooting.html.
+
+Support: 
+If you require assistance or encounter any issues during the update process, please contact our support team at support@qblox.com or visit our support page.
+'
