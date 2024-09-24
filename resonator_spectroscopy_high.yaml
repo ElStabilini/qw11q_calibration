@@ -1,6 +1,6 @@
-platform: qw11q
+platform: dummy
 
-targets: [D3]
+targets: [0]
 
 actions:
 
