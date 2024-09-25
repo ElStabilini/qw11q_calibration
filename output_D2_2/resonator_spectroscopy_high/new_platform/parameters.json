@@ -680,7 +680,7 @@
                     "duration": 1000,
                     "amplitude": 0.0028,
                     "shape": "Rectangular()",
-                    "frequency": 7360281826,
+                    "frequency": 7373638243,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -1566,8 +1566,8 @@
                 "mixer_readout_phi": 0.0
             },
             "D2": {
-                "bare_resonator_frequency": 7360281826,
-                "readout_frequency": 7360281826,
+                "bare_resonator_frequency": 7373638243,
+                "readout_frequency": 7373638243,
                 "drive_frequency": 5564039126,
                 "anharmonicity": -211000000,
                 "sweetspot": -0.4192448541412081,
