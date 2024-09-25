@@ -12,6 +12,6 @@ actions:
       amplitude: 0.05
       power_level: high
       nshots: 1024
-      relaxation_time: 100_000
+      relaxation_time: 5000
       fit_function: "s21"
 

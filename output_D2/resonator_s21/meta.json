@@ -1,0 +1,25 @@
+{
+    "title": "resonator_s21",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-25 12:47:58.249757+00:00",
+    "end_time": "2024-09-25 12:48:06.904058+00:00",
+    "stats": {
+        "resonator_spectroscopy high power-0": {
+            "acquisition": 8.517574316821992,
+            "fit": 0.12352561205625534
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.12"
+    },
+    "date": "2024-09-25",
+    "start-time": "12:47:58",
+    "end-time": "12:48:06"
+}
