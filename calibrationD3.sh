@@ -9,4 +9,4 @@
 #module load qibo
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/qubit_spectroscopy.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D3/qubit_spectroscopy_4
+qq auto /home/users/elisa.stabilini/cal_qw11q/qubit_spectroscopy.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D3/qubit_spectroscopy_5
