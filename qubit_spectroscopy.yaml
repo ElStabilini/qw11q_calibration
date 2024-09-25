@@ -19,7 +19,7 @@ actions:
 
     operation: qubit_spectroscopy
     parameters:
-        drive_amplitude: 0.01
+        drive_amplitude: 0.001
         drive_duration: 4000
         freq_width: 20_000_000
         freq_step: 500_000
