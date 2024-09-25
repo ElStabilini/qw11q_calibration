@@ -9,4 +9,4 @@
 module load qibo
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/resonator_s21.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D2/resonator_s21
+qq auto /home/users/elisa.stabilini/cal_qw11q/resonator_s21.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D2/resonator_s21_1
