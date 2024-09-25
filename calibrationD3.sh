@@ -9,4 +9,4 @@
 #module load qibo
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/resonator_spectroscopy_high.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D3/resonator_spectroscopy_high
+qq auto /home/users/elisa.stabilini/cal_qw11q/resonator_spectroscopy_high.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D3/resonator_spectroscopy_high_2
