@@ -9,4 +9,4 @@
 #module load qibo
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/resonator_punchout.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D3/resonator_punchout_1
+qq auto /home/users/elisa.stabilini/cal_qw11q/resonator_spectroscopy_low.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D3/resonator_low
