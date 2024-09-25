@@ -21,7 +21,7 @@ actions:
     parameters:
         drive_amplitude: 0.02
         drive_duration: 4000
-        freq_width: 70_000_000
+        freq_width: 30_000_000
         freq_step: 100_000
         nshots: 1024
         relaxation_time: 10_000
