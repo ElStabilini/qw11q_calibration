@@ -33,7 +33,7 @@ actions:
     parameters:
         amplitude: 0.01
         min_amp_factor: 0.1
-        max_amp_factor: 5
+        max_amp_factor: 2 
         step_amp_factor: 0.1
         duration: 40000
         freq_width: 20_000_000
