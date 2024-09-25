@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [D2]
+targets: [D3]
 
 actions:
 
@@ -21,8 +21,8 @@ actions:
     parameters:
         drive_amplitude: 0.01
         drive_duration: 4000
-        freq_width: 100_000_000
-        freq_step: 100_000
+        freq_width: 20_000_000
+        freq_step: 1_000_000
         nshots: 1024
         relaxation_time: 5000
 
@@ -33,10 +33,10 @@ actions:
     parameters:
         amplitude: 0.01
         min_amp_factor: 0.1
-        max_amp_factor: 2
+        max_amp_factor: 5
         step_amp_factor: 0.1
-        duration: 4000
-        freq_width: 300_000_000
-        freq_step: 500_000
+        duration: 40000
+        freq_width: 20_000_000
+        freq_step: 1_000_000
         nshots: 1024
         relaxation_time: 5000

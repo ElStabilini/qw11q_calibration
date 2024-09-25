@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [D1]
+targets: [D3]
 
 actions:
 
@@ -9,8 +9,7 @@ actions:
     parameters:
         freq_width: 10_000_000
         freq_step: 100_000
-        amplitude: 0.002
-        fit_function: s21
+        amplitude: 0.02
         power_level: high
         nshots: 1024
         relaxation_time: 100000
