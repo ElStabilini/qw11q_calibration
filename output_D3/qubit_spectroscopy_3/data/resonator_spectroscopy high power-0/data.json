@@ -1,0 +1,12 @@
+{
+    "\"resonator_type\"": "2D",
+    "\"amplitudes\"": {
+        "\"D3\"": 0.002
+    },
+    "\"fit_function\"": "s21",
+    "\"phase_sign\"": true,
+    "\"power_level\"": "high",
+    "\"attenuations\"": {
+        "\"D3\"": null
+    }
+}
