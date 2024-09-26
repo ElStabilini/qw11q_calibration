@@ -1,0 +1,41 @@
+{
+    "title": "test_rx_calibration",
+    "backend": "qibolab",
+    "platform": "dummy",
+    "start_time": "2024-09-26 07:17:55.348471+00:00",
+    "end_time": "2024-09-26 07:17:55.423579+00:00",
+    "stats": {
+        "rabi_amplitude-0": {
+            "acquisition": 0.003241765996790491,
+            "fit": 0.041418027991312556
+        },
+        "ramsey-0": {
+            "acquisition": 0.0007211030024336651,
+            "fit": 0.006811708997702226
+        },
+        "rabi_amplitude-1": {
+            "acquisition": 0.001446779991965741,
+            "fit": 0.004823894007131457
+        },
+        "drag_tuning-0": {
+            "acquisition": 0.0034644780098460615,
+            "fit": 0.004567854994093068
+        },
+        "rabi_amplitude-2": {
+            "acquisition": 0.0011277830053586513,
+            "fit": 0.00535031700565014
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.12"
+    },
+    "date": "2024-09-26",
+    "start-time": "07:17:55",
+    "end-time": "07:17:55"
+}
