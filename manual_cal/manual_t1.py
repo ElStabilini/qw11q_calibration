@@ -1,5 +1,5 @@
 #import pathlib
-#from qibolab import create_platform
+from qibolab import create_platform
 
 from qibocal.auto.execute import Executor
 from qibocal.cli.report import report
@@ -25,6 +25,7 @@ with Executor.open(
   ) 
 
 report(e.path, e.history)
+
 
 """
 allocate platform
