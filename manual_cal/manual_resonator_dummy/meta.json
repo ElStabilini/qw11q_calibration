@@ -1,0 +1,25 @@
+{
+    "title": "manual_resonator_dummy",
+    "backend": "qibolab",
+    "platform": "dummy",
+    "start_time": "2024-09-28 17:25:45.916698+00:00",
+    "end_time": "2024-09-28 17:25:45.938247+00:00",
+    "stats": {
+        "resonator_spectroscopy-0": {
+            "acquisition": 0.0004660889972001314,
+            "fit": 0.020364164956845343
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.12"
+    },
+    "date": "2024-09-28",
+    "start-time": "17:25:45",
+    "end-time": "17:25:45"
+}

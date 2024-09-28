@@ -8,11 +8,11 @@ high power spectroscopy using the API and qibocal as library instead of using
 from qibocal.auto.execute import Executor
 from qibocal.cli.report import report
 
-target = "D2"
+target = 0 
 with Executor.open(
     "myexec",
-    path="manual_resonator_D2",
-    platform="qw11q",
+    path="manual_resonator_dummy",
+    platform="dummy",
     targets=[target],
     update=True,
     force=True,
