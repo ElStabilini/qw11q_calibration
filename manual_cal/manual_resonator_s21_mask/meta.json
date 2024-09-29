@@ -1,0 +1,25 @@
+{
+    "title": "manual_resonator_s21_mask",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-29 08:29:48.815388+00:00",
+    "end_time": "2024-09-29 08:30:18.227312+00:00",
+    "stats": {
+        "resonator_spectroscopy-0": {
+            "acquisition": 23.174355360213667,
+            "fit": 0.04745351197198033
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-09-29",
+    "start-time": "08:29:48",
+    "end-time": "08:30:18"
+}
