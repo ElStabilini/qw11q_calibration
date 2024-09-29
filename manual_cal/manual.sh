@@ -5,4 +5,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 #run the script
-python manual_resonator_D2.py 
+python manual_resonator_s21.py 
