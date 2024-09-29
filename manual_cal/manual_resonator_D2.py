@@ -11,7 +11,7 @@ from qibocal.cli.report import report
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="manual_resonator_D2",
+    path="manual_resonator_D2_mask",
     platform="qw11q",
     targets=[target],
     update=True,
