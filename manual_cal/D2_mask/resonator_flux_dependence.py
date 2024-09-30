@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="resonator_flux_dependence_1",
+    path="resonator_flux_dependence_2",
     platform="qw11q",
     targets=[target],
     update=True,
@@ -14,9 +14,10 @@ with Executor.open(
 
     resonator_flux = e.resonator_flux(
         bias_step = 0.05,
-        bias_width = 0.95,
+        bias_width = 1,
         freq_step = 100000, 
         freq_width = 10000000,
+        drive_amplitude = 0.008,
         relaxation_time = 20000,
     )
 
