@@ -15,9 +15,8 @@ with Executor.open(
     resonator_flux = e.resonator_flux(
         bias_step = 0.05,
         bias_width = 1,
-        freq_step = 100000, 
-        freq_width = 10000000,
-        drive_amplitude = 0.008,
+        freq_step = 10000, 
+        freq_width = 500000,
         relaxation_time = 20000,
     )
 
