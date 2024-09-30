@@ -13,9 +13,9 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     resonator_low = e.resonator_spectroscopy(
-        amplitude = 0.05,
-        freq_step = 100000,
-        freq_width = 20000000,
+        amplitude = 0.03,
+        freq_step = 200000,
+        freq_width = 60000000,
         power_level = "low",
         relaxation_time = 100000,
     )

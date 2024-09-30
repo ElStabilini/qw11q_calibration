@@ -10,19 +10,14 @@ with Executor.open(
     update=True,
     force=True,
 ) as e:
-    e.platform.settings.nshots = 5000
-
-    allxy = e.allxy(
-        relaxation_time = ,
-    )
-
-    state_tomography = e.state_tomography(
-        relaxation_time = ,
-    )
-
-    readout_characterization = e.readout_characterization(
-        delay = ,
-        relaxation_time = ,
+    e.platform.settings.nshots = 2048
+        amplitude = 0.05,
+        freq_step = 2000000,
+        freq_width = 40000000,
+        max_amp_factor = 2,
+        min_amp_factor = 0,
+        relaxation_time = 5000,
+        step_amp_factor = 0.1,    
     )
 
 report(e.path, e.history)

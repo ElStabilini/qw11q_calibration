@@ -678,9 +678,9 @@
                 },
                 "MZ": {
                     "duration": 1000,
-                    "amplitude": 0.05,
+                    "amplitude": 0.03,
                     "shape": "Rectangular()",
-                    "frequency": 7360823089,
+                    "frequency": 7350997478,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -1567,7 +1567,7 @@
             },
             "D2": {
                 "bare_resonator_frequency": 7377323622,
-                "readout_frequency": 7360823089,
+                "readout_frequency": 7350997478,
                 "drive_frequency": 5564039126,
                 "anharmonicity": -211000000,
                 "sweetspot": -0.4192448541412081,
