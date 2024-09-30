@@ -5,4 +5,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 #run the script
-python qubit_flux_dependence.py
+python resonator_flux_dependence.py

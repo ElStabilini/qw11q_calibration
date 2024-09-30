@@ -1,0 +1,25 @@
+{
+    "title": "resonator_flux_dependence",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-30 17:29:29.589519+00:00",
+    "end_time": "2024-09-30 17:30:00.877799+00:00",
+    "stats": {
+        "resonator_flux-0": {
+            "acquisition": 24.39398234291002,
+            "fit": 0.01500307908281684
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-09-30",
+    "start-time": "17:29:29",
+    "end-time": "17:30:00"
+}
