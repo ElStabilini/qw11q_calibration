@@ -1,17 +1,10 @@
-'''REPLICATE RESULTS FOR D2 CALIBRATION 
-
-goal of this script is to replicate the results obtained for the D2 calibration for 
-high power spectroscopy using the API and qibocal as library instead of using
-
-''' 
-
 from qibocal.auto.execute import Executor
 from qibocal.cli.report import report
 
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="manual_resonator_D2_mask",
+    path="qubit_flux_dependence",
     platform="qw11q",
     targets=[target],
     update=True,
@@ -19,12 +12,14 @@ with Executor.open(
 ) as e:
     e.platform.settings.nshots = 1024
 
-    resonator_high = e.resonator_spectroscopy(
-        amplitude = 0.05,
-        freq_step = 100000,
-        freq_width = 20000000,
-        power_level = "high",
-        relaxation_time = 100000,
+    qubit_flux = e.qubit_flux(
+        bias_step = ,
+        bias_width = ,
+        drive_amplitude = ,
+        drive_duration = ,
+        freq_step = ,
+        freq_width = ,
+        relaxation_time = ,
     )
 
 report(e.path, e.history)

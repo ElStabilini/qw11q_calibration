@@ -1,17 +1,10 @@
-'''REPLICATE RESULTS FOR D2 CALIBRATION 
-
-goal of this script is to replicate the results obtained for the D2 calibration for 
-high power spectroscopy using the API and qibocal as library instead of using
-
-''' 
-
 from qibocal.auto.execute import Executor
 from qibocal.cli.report import report
 
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="manual_resonator_D2_mask",
+    path="resonator_spectroscopy_high",
     platform="qw11q",
     targets=[target],
     update=True,

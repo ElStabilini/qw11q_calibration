@@ -4,19 +4,24 @@ from qibocal.cli.report import report
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="resonator_flux_dependence",
+    path="validation",
     platform="qw11q",
     targets=[target],
     update=True,
     force=True,
 ) as e:
-    e.platform.settings.nshots = 1024
+    e.platform.settings.nshots = 5000
 
-    resonator_flux = e.resonator_flux(
-        bias_step = ,
-        bias_width = ,
-        freq_step = , 
-        freq_width = ,
+    allxy = e.allxy(
+        relaxation_time = ,
+    )
+
+    state_tomography = e.state_tomography(
+        relaxation_time = ,
+    )
+
+    readout_characterization = e.readout_characterization(
+        delay = ,
         relaxation_time = ,
     )
 

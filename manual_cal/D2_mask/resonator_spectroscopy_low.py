@@ -11,7 +11,7 @@ from qibocal.cli.report import report
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="manual_resonator_D2_mask",
+    path="resonator_spectroscopy_low",
     platform="qw11q",
     targets=[target],
     update=True,
@@ -19,11 +19,11 @@ with Executor.open(
 ) as e:
     e.platform.settings.nshots = 1024
 
-    resonator_high = e.resonator_spectroscopy(
+    resonator_low = e.resonator_spectroscopy(
         amplitude = 0.05,
         freq_step = 100000,
         freq_width = 20000000,
-        power_level = "high",
+        power_level = "low",
         relaxation_time = 100000,
     )
 
