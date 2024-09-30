@@ -2,9 +2,14 @@
     "title": "rabi",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2024-09-30 16:44:42.075135+00:00",
+    "end_time": "2024-09-30 16:48:18.201162+00:00",
+    "stats": {
+        "rabi_amplitude_frequency_signal-0": {
+            "acquisition": 209.81017701607198,
+            "fit": 0.038905153051018715
+        }
+    },
     "author": null,
     "tag": null,
     "targets": null,
@@ -14,7 +19,7 @@
         "qibolab": "0.1.9",
         "qibocal": "0.1.1"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2024-09-30",
+    "start-time": "16:44:42",
+    "end-time": "16:48:18"
 }
