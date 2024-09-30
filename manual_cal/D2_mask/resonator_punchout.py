@@ -11,6 +11,8 @@ with Executor.open(
     force=True,
 ) as e:
     e.platform.settings.nshots = 2048
+
+    resonator_punchout = e.resonator_punchout(
         amplitude = 0.05,
         freq_step = 2000000,
         freq_width = 40000000,
@@ -18,6 +20,6 @@ with Executor.open(
         min_amp_factor = 0,
         relaxation_time = 5000,
         step_amp_factor = 0.1,    
-    )
+)
 
 report(e.path, e.history)
