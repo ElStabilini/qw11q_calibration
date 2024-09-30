@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="qubit_spectroscopy_1",
+    path="qubit_spectroscopy_22",
     platform="qw11q",
     targets=[target],
     update=True,
@@ -13,7 +13,7 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     qubit_spectroscopy = e.qubit_spectroscopy(
-        drive_amplitude = 0.01,
+        drive_amplitude = 0.006,
         drive_duration = 4000,
         freq_step = 100000,
         freq_width = 50000000,
