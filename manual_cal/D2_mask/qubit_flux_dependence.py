@@ -13,13 +13,13 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     qubit_flux = e.qubit_flux(
-        bias_step = ,
-        bias_width = ,
-        drive_amplitude = ,
-        drive_duration = ,
-        freq_step = ,
-        freq_width = ,
-        relaxation_time = ,
+        bias_step = 0.002 ,
+        bias_width = 0.1,
+        drive_amplitude = 0.001,
+        drive_duration = 4000,
+        freq_step = 500000,
+        freq_width = 10000000,
+        relaxation_time = 20000,
     )
 
 report(e.path, e.history)

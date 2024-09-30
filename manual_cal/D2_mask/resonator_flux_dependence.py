@@ -13,11 +13,11 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     resonator_flux = e.resonator_flux(
-        bias_step = ,
-        bias_width = ,
-        freq_step = , 
-        freq_width = ,
-        relaxation_time = ,
+        bias_step = 0.05,
+        bias_width = 0.5,
+        freq_step = 100000, 
+        freq_width = 10000000,
+        relaxation_time = 20000,
     )
 
 report(e.path, e.history)
