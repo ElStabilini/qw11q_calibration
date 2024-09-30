@@ -14,14 +14,13 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     rabi = e.rabi_amplitude_frequency_signal(
-        min_amp_factor = ,
-        max_amp_factor = ,
-        step_amp_factor = ,
-        min_freq = ,
-        max_freq = ,
-        step_freq = ,
-        pulse_length = ,
-        nshots = , 
+        min_amp_factor = 0.0,
+        max_amp_factor = 2,
+        step_amp_factor = 0.1,
+        min_freq = -50000000,
+        max_freq = 50000000,
+        step_freq = 1000000,
+        pulse_length = 40,
     )
 
 report(e.path, e.history)
