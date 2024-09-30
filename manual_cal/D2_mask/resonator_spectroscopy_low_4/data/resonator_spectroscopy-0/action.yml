@@ -1,0 +1,11 @@
+id: resonator_spectroscopy
+operation: resonator_spectroscopy
+parameters:
+  amplitude: 0.005
+  freq_step: 100000
+  freq_width: 25000000
+  power_level: low
+  relaxation_time: 100000
+targets:
+- D2
+update: true
