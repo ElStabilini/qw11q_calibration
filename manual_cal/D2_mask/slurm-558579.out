@@ -1,3 +1,0 @@
-  File "/nfs/users/elisa.stabilini/cal_qw11q/manual_cal/D2_mask/resonator_punchout.py", line 14
-    amplitude = 0.05,
-IndentationError: unexpected indent
