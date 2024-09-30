@@ -1,0 +1,25 @@
+{
+    "title": "qubit_power_spectroscopy_1",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-30 16:16:17.492310+00:00",
+    "end_time": "2024-09-30 16:17:09.287673+00:00",
+    "stats": {
+        "qubit_power_spectroscopy-0": {
+            "acquisition": 45.14739576401189,
+            "fit": 6.07222318649292e-06
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-09-30",
+    "start-time": "16:16:17",
+    "end-time": "16:17:09"
+}
