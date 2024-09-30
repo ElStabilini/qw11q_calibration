@@ -1,0 +1,20 @@
+{
+    "title": "classification",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-09-30 19:52:35.850693+00:00",
+    "end_time": "2024-09-30 19:52:43.348406+00:00",
+    "stats": {},
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-09-30",
+    "start-time": "19:52:35",
+    "end-time": "19:52:43"
+}
