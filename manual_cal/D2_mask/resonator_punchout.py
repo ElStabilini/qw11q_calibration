@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="validation",
+    path="resonator_punchout",
     platform="qw11q",
     targets=[target],
     update=True,
