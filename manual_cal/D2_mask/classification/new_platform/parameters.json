@@ -1,7 +1,7 @@
 {
     "nqubits": 16,
     "settings": {
-        "nshots": 5000,
+        "nshots": 1024,
         "relaxation_time": 100000
     },
     "qubits": [
@@ -1593,8 +1593,8 @@
                 "Ec": 211000000,
                 "Ej": 0.0,
                 "g": 0.05816245005686524,
-                "assignment_fidelity": 0.9645229869784746,
-                "readout_fidelity": 0.9290459739569492,
+                "assignment_fidelity": 0.5619186819027372,
+                "readout_fidelity": 0.12383736380547439,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -1606,15 +1606,15 @@
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    -0.0034646746663365225,
-                    -0.0007541728461924357
+                    -0.005662647309965522,
+                    -0.001129022574389654
                 ],
                 "mean_exc_states": [
-                    -0.002512826982993507,
-                    -0.002209661525003206
+                    -0.005704299164893872,
+                    -0.0015101835533576603
                 ],
-                "threshold": -0.0004594811041015061,
-                "iq_angle": 0.9916344627111336,
+                "threshold": 0.003144693840788312,
+                "iq_angle": 1.6796407325224636,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
