@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D3" 
 with Executor.open(
     "myexec",
-    path="resonator_punchout_1",
+    path="resonator_punchout_2",
     platform="qw11q",
     targets=[target],
     update=True,
@@ -15,7 +15,7 @@ with Executor.open(
     resonator_punchout = e.resonator_punchout(
         amplitude = 0.05,
         freq_step = 200000,
-        freq_width = 30000000,
+        freq_width = 2000000,
         max_amp_factor = 2,
         min_amp_factor = 0,
         relaxation_time = 5000,
