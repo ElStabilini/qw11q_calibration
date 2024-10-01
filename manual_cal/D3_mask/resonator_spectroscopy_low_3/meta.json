@@ -2,9 +2,14 @@
     "title": "resonator_spectroscopy_low_3",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2024-10-01 10:08:48.927794+00:00",
+    "end_time": "2024-10-01 10:11:33.061863+00:00",
+    "stats": {
+        "resonator_spectroscopy-0": {
+            "acquisition": 157.47339706216007,
+            "fit": 0.009375160094350576
+        }
+    },
     "author": null,
     "tag": null,
     "targets": null,
@@ -14,7 +19,7 @@
         "qibolab": "0.1.9",
         "qibocal": "0.1.1"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2024-10-01",
+    "start-time": "10:08:48",
+    "end-time": "10:11:33"
 }
