@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/resonator_spectroscopy_high.yaml -o /home/users/elisa.stabilini/cal_qw11q/output_D2_2/resonator_spectroscopy_high
+qq auto /home/users/elisa.stabilini/cal_qw11q/classification.yaml -o /home/users/elisa.stabilini/cal_qw11q/manual_cal/D2_mask/classification_1

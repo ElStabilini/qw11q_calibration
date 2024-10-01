@@ -1,9 +1,9 @@
 platform: qw11q
 
-targets: [D1]
+targets: [D2]
 
 actions:
-  - id: single shot classification 1
+  - id: single shot classification 
 
     operation: single_shot_classification
     parameters:
