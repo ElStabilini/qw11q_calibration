@@ -13,9 +13,9 @@ with Executor.open(
     e.platform.settings.nshots = 2048
 
     resonator_punchout = e.resonator_punchout(
-        amplitude = 0.05,
-        freq_step = 10000,
-        freq_width = 2000000,
+        amplitude = 0.01,
+        freq_step = 100000,
+        freq_width = 150000000,
         max_amp_factor = 2,
         min_amp_factor = 0,
         relaxation_time = 5000,
