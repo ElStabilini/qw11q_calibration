@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D3" 
 with Executor.open(
     "myexec",
-    path="resonator_spectroscopy_low_1",
+    path="resonator_spectroscopy_low_2",
     platform="qw11q",
     targets=[target],
     update=True,
@@ -17,7 +17,7 @@ with Executor.open(
         freq_step = 200000,
         freq_width = 30000000,
         power_level = "low",
-        #fit_function = "s21",
+        fit_function = "s21",
         relaxation_time = 100000,
     )
 
