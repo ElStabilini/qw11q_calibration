@@ -7,5 +7,5 @@ parameters:
   power_level: high
   relaxation_time: 100000
 targets:
-- D2
+- D3
 update: true

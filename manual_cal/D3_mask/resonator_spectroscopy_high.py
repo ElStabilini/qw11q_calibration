@@ -1,7 +1,7 @@
 from qibocal.auto.execute import Executor
 from qibocal.cli.report import report
 
-target = "D2" 
+target = "D3" 
 with Executor.open(
     "myexec",
     path="resonator_spectroscopy_high",
