@@ -5,4 +5,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 #run the script
-python rabi.py
+python rabi_amplitude.py
