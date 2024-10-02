@@ -2,9 +2,14 @@
     "title": "rabi_amplitude",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": "2024-10-02 20:07:25.411318+00:00",
-    "end_time": "2024-10-02 20:07:31.736364+00:00",
-    "stats": {},
+    "start_time": "2024-10-02 20:29:36.757051+00:00",
+    "end_time": "2024-10-02 20:29:48.970296+00:00",
+    "stats": {
+        "rabi_amplitude_signal-0": {
+            "acquisition": 5.013146654237062,
+            "fit": 0.00709198322147131
+        }
+    },
     "author": null,
     "tag": null,
     "targets": null,
@@ -15,6 +20,6 @@
         "qibocal": "0.0.12"
     },
     "date": "2024-10-02",
-    "start-time": "20:07:25",
-    "end-time": "20:07:31"
+    "start-time": "20:29:36",
+    "end-time": "20:29:48"
 }

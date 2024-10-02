@@ -660,7 +660,7 @@
             "D2": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.04778586506293083,
+                    "amplitude": 0.05484696308853965,
                     "shape": "Gaussian(5)",
                     "frequency": 5563853654,
                     "relative_start": 0,

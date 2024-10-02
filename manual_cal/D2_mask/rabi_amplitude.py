@@ -13,13 +13,11 @@ with Executor.open(
 ) as e:
     e.platform.settings.nshots = 1024
 
-    rabi = e.rabi_amplitude(
+    rabi = e.rabi_amplitude_signal(
         min_amp_factor = 0.0,
         max_amp_factor = 2,
         step_amp_factor = 0.1,
-        min_freq = -50000000,
-        max_freq = 50000000,
-        step_freq = 1000000,
+        relaxation_time = 100000,
         pulse_length = 40,
     )
 

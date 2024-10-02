@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/nfs/users/elisa.stabilini/cal_qw11q/manual_cal/D2_mask/rabi_amplitude.py", line 3, in <module>
-    with Executor.open(
-NameError: name 'Executor' is not defined
