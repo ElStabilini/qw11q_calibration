@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="classification",
+    path="classification_2",
     platform="qw11q",
     targets=[target],
     update=True,
