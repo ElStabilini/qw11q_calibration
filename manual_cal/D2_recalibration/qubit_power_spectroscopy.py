@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D2" 
 with Executor.open(
     "myexec",
-    path="qubit_power_spectroscopy_1",
+    path="qubit_power_spectroscopy",
     platform="qw11q",
     targets=[target],
     update=True,

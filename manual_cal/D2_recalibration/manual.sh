@@ -5,4 +5,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 #run the script
-python qubit_spectroscopy.py
+python qubit_power_spectroscopy.py
