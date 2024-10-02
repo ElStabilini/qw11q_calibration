@@ -2,12 +2,12 @@
     "title": "qubit_spectroscopy_1",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": "2024-10-02 10:12:13.388011+00:00",
-    "end_time": "2024-10-02 10:12:33.357427+00:00",
+    "start_time": "2024-10-02 10:18:18.821827+00:00",
+    "end_time": "2024-10-02 10:18:32.857043+00:00",
     "stats": {
         "qubit_spectroscopy-0": {
-            "acquisition": 13.670328362379223,
-            "fit": 0.005957267712801695
+            "acquisition": 8.01216532010585,
+            "fit": 0.007968007121235132
         }
     },
     "author": null,
@@ -20,6 +20,6 @@
         "qibocal": "0.1.1"
     },
     "date": "2024-10-02",
-    "start-time": "10:12:13",
-    "end-time": "10:12:33"
+    "start-time": "10:18:18",
+    "end-time": "10:18:32"
 }

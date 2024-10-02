@@ -1,7 +1,7 @@
 {
     "\"resonator_type\"": "2D",
     "\"amplitudes\"": {
-        "\"D2\"": 0.006
+        "\"D2\"": 0.002
     },
     "\"fit_function\"": "lorentzian",
     "\"phase_sign\"": false,

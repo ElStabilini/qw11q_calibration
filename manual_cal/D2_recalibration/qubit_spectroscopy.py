@@ -13,10 +13,10 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     qubit_spectroscopy = e.qubit_spectroscopy(
-        drive_amplitude = 0.006,
+        drive_amplitude = 0.002,
         drive_duration = 4000,
         freq_step = 100000,
-        freq_width = 100000000,
+        freq_width = 50000000,
         relaxation_time = 5000,
     )
 
