@@ -2,24 +2,24 @@
     "title": "rabi",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": "2024-09-30 16:44:42.075135+00:00",
-    "end_time": "2024-09-30 16:48:18.201162+00:00",
+    "start_time": "2024-10-02 19:43:53.283700+00:00",
+    "end_time": "2024-10-02 19:47:30.211172+00:00",
     "stats": {
         "rabi_amplitude_frequency_signal-0": {
-            "acquisition": 209.81017701607198,
-            "fit": 0.038905153051018715
+            "acquisition": 210.19509561406448,
+            "fit": 0.036687190644443035
         }
     },
-    "author": "elisa.stabilini",
+    "author": null,
     "tag": null,
     "targets": null,
     "versions": {
         "qibo": "0.2.12",
         "numpy": "1.26.4",
         "qibolab": "0.1.9",
-        "qibocal": "0.1.1"
+        "qibocal": "0.0.12"
     },
-    "date": "2024-09-30",
-    "start-time": "16:44:42",
-    "end-time": "16:48:18"
+    "date": "2024-10-02",
+    "start-time": "19:43:53",
+    "end-time": "19:47:30"
 }

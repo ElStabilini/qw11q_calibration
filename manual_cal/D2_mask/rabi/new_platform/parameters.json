@@ -660,9 +660,9 @@
             "D2": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.013223502968793318,
+                    "amplitude": 0.052759308918625174,
                     "shape": "Gaussian(5)",
-                    "frequency": 5562619540,
+                    "frequency": 5562853654,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -680,7 +680,7 @@
                     "duration": 1000,
                     "amplitude": 0.005,
                     "shape": "Rectangular()",
-                    "frequency": 7379392375,
+                    "frequency": 7379292458,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -1566,11 +1566,11 @@
                 "mixer_readout_phi": 0.0
             },
             "D2": {
-                "bare_resonator_frequency": 7357323622,
-                "readout_frequency": 7379392375,
-                "drive_frequency": 5562619540,
+                "bare_resonator_frequency": 7373727633,
+                "readout_frequency": 7379292458,
+                "drive_frequency": 5562853654,
                 "anharmonicity": -211000000,
-                "sweetspot": -0.4192448541412081,
+                "sweetspot": -0.42139253315245123,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
@@ -1585,14 +1585,14 @@
                     "B4": 0.0,
                     "B5": 0.0,
                     "D1": 0.0,
-                    "D2": 0.9352024996285585,
+                    "D2": 0.8396871373428377,
                     "D3": 0.0,
                     "D4": 0.0,
                     "D5": 0.0
                 },
                 "Ec": 211000000,
                 "Ej": 0.0,
-                "g": 0.0,
+                "g": 0.10035752026912427,
                 "assignment_fidelity": 0.9645229869784746,
                 "readout_fidelity": 0.9290459739569492,
                 "gate_fidelity": 0.0,
