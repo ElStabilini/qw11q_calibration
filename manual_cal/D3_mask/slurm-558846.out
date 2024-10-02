@@ -20,3 +20,4 @@ Connected to: Rohde&Schwarz SGS100A (serial:1416.0505k02/114167, firmware:4.2.76
 Connected to: Rohde&Schwarz SGS100A (serial:1416.0505k02/114164, firmware:4.2.76.0-4.30.046.295) in 0.14s
 2024-10-01 10:21:07,454 - qm - INFO     - Sending program to QOP for compilation
 2024-10-01 10:21:07,671 - qm - INFO     - Executing program
+slurmstepd-fahid: error: *** JOB 558846 ON fahid CANCELLED AT 2024-10-01T11:11:33 ***
