@@ -13,11 +13,11 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     ramsey = e.ramsey(
-        delay_between_pulses_end = ,
-        delay_between_pulses_start = ,
-        delay_between_pulses_step = ,
-        detuning = ,
-        relaxation_time = ,
+        delay_between_pulses_end = 1000,
+        delay_between_pulses_start = 10,
+        delay_between_pulses_step = 20,
+        detuning = 3000000,
+        relaxation_time = 200000,
     )
 
 report(e.path, e.history)

@@ -1,4 +1,0 @@
-  File "/nfs/users/elisa.stabilini/cal_qw11q/manual_cal/D2_mask/rabi_amplitude.py", line 20
-    relaxation_time = 100000
-                      ^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
