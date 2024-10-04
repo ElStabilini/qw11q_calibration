@@ -15,7 +15,7 @@ with Executor.open(
     resonator_punchout = e.resonator_punchout(
         amplitude = 0.01,
         freq_step = 100000,
-        freq_width = 1500000,
+        freq_width = 8000000,
         max_amp_factor = 2,
         min_amp_factor = 0,
         relaxation_time = 5000,
