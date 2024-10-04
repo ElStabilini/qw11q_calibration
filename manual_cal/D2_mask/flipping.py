@@ -13,8 +13,8 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     flipping = e.flipping(
-        nflips_max = ,
-        nflips_step = ,
+        nflips_max = 20,
+        nflips_step = 1,
     )
 
 report(e.path, e.history)
