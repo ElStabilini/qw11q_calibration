@@ -15,7 +15,7 @@ with Executor.open(
     qubit_spectroscopy = e.qubit_spectroscopy(
         drive_amplitude = 0.006,
         drive_duration = 4000,
-        freq_step = 100000,
+        freq_step = 20000,
         freq_width = 8000000,
         relaxation_time = 5000,
     )

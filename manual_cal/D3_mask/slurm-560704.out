@@ -1,0 +1,48 @@
+[Qibo 0.2.12|INFO|2024-10-04 08:29:55]: Loading platform dummy
+2024-10-04 08:29:56,725 - qm - INFO     - Starting session: 7e7e9aac-c7cb-45b6-bd3e-26f0162863f8
+2024-10-04 08:29:59,776 - qm - INFO     - Octave "octave2" Health check passed, current temperature 60
+2024-10-04 08:30:00,507 - qm - INFO     - Octave "octave3" Health check passed, current temperature 57
+2024-10-04 08:30:01,440 - qm - INFO     - Octave "octave4" Health check passed, current temperature 58
+2024-10-04 08:30:02,882 - qm - INFO     - Octave "octave5" Health check passed, current temperature 59
+2024-10-04 08:30:03,899 - qm - INFO     - Octave "octave6" Health check passed, current temperature 58
+2024-10-04 08:30:03,900 - qm - INFO     - Performing health check
+2024-10-04 08:30:03,920 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con1. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con2. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con3. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con4. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con5. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con6. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con7. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con8. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con9. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-10-04 08:30:03,921 - qm - INFO     - Health check passed
+Connected to: Rohde&Schwarz SGS100A (serial:1416.0505k02/114167, firmware:4.2.76.0-4.30.046.295) in 0.18s
+Connected to: Rohde&Schwarz SGS100A (serial:1416.0505k02/114164, firmware:4.2.76.0-4.30.046.295) in 0.14s
+2024-10-04 08:30:06,849 - qm - INFO     - Sending program to QOP for compilation
+2024-10-04 08:30:07,107 - qm - INFO     - Executing program
+/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/nfs/users/elisa.stabilini/qibocal/src/qibocal/protocols/utils.py:108: RuntimeWarning: invalid value encountered in divide
+  sigma / ((frequency - center) ** 2 + sigma**2)
+Traceback (most recent call last):
+  File "/nfs/users/elisa.stabilini/cal_qw11q/manual_cal/D3_mask/qubit_spectroscopy.py", line 15, in <module>
+    qubit_spectroscopy = e.qubit_spectroscopy(
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/auto/execute.py", line 226, in wrapper
+    return self.run_protocol(protocol, parameters=action, mode=mode)
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/auto/execute.py", line 131, in run_protocol
+    completed = task.run(platform=self.platform, targets=self.targets, mode=mode)
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/auto/task.py", line 160, in run
+    completed.results, completed.results_time = operation.fit(completed.data)
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/auto/operation.py", line 42, in wrapper
+    out = func(*args, **kwds)
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/protocols/qubit_spectroscopy.py", line 130, in _fit
+    fit_result = lorentzian_fit(
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/protocols/utils.py", line 169, in lorentzian_fit
+    fit_parameters, perr = curve_fit(
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/scipy/optimize/_minpack_py.py", line 1007, in curve_fit
+    res = leastsq(func, p0, Dfun=jac, full_output=1, **kwargs)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/scipy/optimize/_minpack_py.py", line 430, in leastsq
+    raise TypeError(f"Improper input: func input vector length N={n} must"
+TypeError: Improper input: func input vector length N=4 must not exceed func output vector length M=1
