@@ -1,0 +1,11 @@
+id: qubit_spectroscopy
+operation: qubit_spectroscopy
+parameters:
+  drive_amplitude: 0.04
+  drive_duration: 4000
+  freq_step: 50000
+  freq_width: 10000000
+  relaxation_time: 5000
+targets:
+- D3
+update: true

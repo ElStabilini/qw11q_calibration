@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>qubit_spectroscopy_2</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-export
+{
+  background:#6400FF;
+  color:white;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </buttom>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Actions
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Qubit_Spectroscopy"> Qubit_Spectroscopy</a></li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </buttom>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>qubit_spectroscopy_2</h1>
+        <button class="button-export" id="export-pdf">Export to pdf</button>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2024-10-04<br>
+        Start time (UTC): 08:59:50<br>
+        End time (UTC): 09:00:01
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Qubit_Spectroscopy" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Qubit_Spectroscopy</h4>
+        
+        <div id="--D3" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - Qubit D3</h5>
+
+
+            
+            An error occurred when performing the fit.
+            <div>                            <div id="99915741-1a7b-4dc7-a686-b30f8a792330" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("99915741-1a7b-4dc7-a686-b30f8a792330")) {                    Plotly.newPlot(                        "99915741-1a7b-4dc7-a686-b30f8a792330",                        [{"legendgroup":"Frequency","name":"Frequency","opacity":1,"showlegend":true,"x":[5.647526335,5.647576335,5.647626335,5.647676335000001,5.647726335000001,5.6477763350000005,5.647826335,5.647876335,5.647926335,5.647976335,5.648026335,5.648076335000001,5.648126335000001,5.6481763350000005,5.648226335,5.648276335,5.648326335,5.648376335,5.648426335,5.648476335000001,5.648526335000001,5.6485763350000004,5.648626335,5.648676335,5.648726335,5.648776335,5.648826335000001,5.648876335000001,5.6489263350000005,5.648976335,5.649026335,5.649076335,5.649126335,5.649176335,5.649226335000001,5.649276335000001,5.6493263350000005,5.649376335,5.649426335,5.649476335,5.649526335,5.649576335000001,5.649626335000001,5.6496763350000005,5.649726335,5.649776335,5.649826335,5.649876335,5.649926335,5.649976335000001,5.650026335000001,5.6500763350000005,5.650126335,5.650176335,5.650226335,5.650276335,5.650326335,5.650376335000001,5.650426335000001,5.6504763350000005,5.650526335,5.650576335,5.650626335,5.650676335,5.650726335000001,5.650776335000001,5.6508263350000005,5.650876335,5.650926335,5.650976335,5.651026335,5.651076335,5.651126335000001,5.651176335000001,5.6512263350000005,5.651276335,5.651326335,5.651376335,5.651426335,5.651476335000001,5.651526335000001,5.651576335000001,5.6516263350000004,5.651676335,5.651726335,5.651776335,5.651826335,5.651876335000001,5.651926335000001,5.6519763350000005,5.652026335,5.652076335,5.652126335,5.652176335,5.652226335,5.652276335000001,5.652326335000001,5.6523763350000005,5.652426335,5.652476335,5.652526335,5.652576335,5.652626335000001,5.652676335000001,5.6527263350000005,5.652776335,5.652826335,5.652876335,5.652926335,5.652976335,5.653026335000001,5.653076335000001,5.6531263350000005,5.653176335,5.653226335,5.653276335,5.653326335,5.653376335,5.653426335000001,5.653476335000001,5.6535263350000005,5.653576335,5.653626335,5.653676335,5.653726335,5.653776335000001,5.653826335000001,5.6538763350000005,5.653926335,5.653976335,5.654026335,5.654076335,5.654126335,5.654176335000001,5.654226335000001,5.6542763350000005,5.654326335,5.654376335,5.654426335,5.654476335,5.654526335000001,5.654576335000001,5.654626335000001,5.654676335,5.654726335,5.654776335,5.654826335,5.654876335,5.654926335000001,5.654976335000001,5.6550263350000005,5.655076335,5.655126335,5.655176335,5.655226335,5.655276335,5.655326335000001,5.655376335000001,5.6554263350000005,5.655476335,5.655526335,5.655576335,5.655626335,5.655676335000001,5.655726335000001,5.6557763350000005,5.655826335,5.655876335,5.655926335,5.655976335,5.656026335,5.656076335000001,5.656126335000001,5.6561763350000005,5.656226335,5.656276335,5.656326335,5.656376335,5.656426335,5.656476335000001,5.656526335000001,5.6565763350000005,5.656626335,5.656676335,5.656726335,5.656776335,5.656826335000001,5.656876335000001,5.6569263350000005,5.656976335,5.657026335,5.657076335,5.657126335,5.657176335,5.657226335000001,5.657276335000001,5.6573263350000005,5.657376335,5.657426335,5.657476335],"y":[0.0012414398637562492,0.0012502835990270624,0.001263962694336379,0.001262729882473844,0.0012654987553602259,0.0012841570884977796,0.0012597390528379974,0.0012675826427142132,0.0012694795121997316,0.0012833391788409662,0.0012602175562728053,0.0013031732626356887,0.0012738782941297887,0.0012687099987567084,0.0012695696450131402,0.001282925936094408,0.0012958573668173472,0.0012765760826413833,0.001295377065060225,0.0012921268578585518,0.0012627218238000098,0.0012720638249143535,0.00126506091240475,0.0012716066466439695,0.0012784286006736918,0.0012732424887395666,0.0012989592172048705,0.001301295969284053,0.0013056468284306265,0.0012813116004641296,0.0012754398996666486,0.0012704978882190632,0.0012757339462596267,0.0012777539210195917,0.001304903585075368,0.0013180363303209872,0.0013204612349194428,0.0013428140198672258,0.0012944930683416872,0.0013146770895427068,0.0013100169878648683,0.0012840073870666988,0.0012722424108675243,0.0012847025761457181,0.0013249628825850938,0.00133851180371692,0.0013696316009101628,0.001378549505198862,0.0013816736711765546,0.0013723382124781556,0.0013730650277389658,0.001336524417392304,0.001310707700985612,0.0013082231486517965,0.001299472581887206,0.0013478225775701675,0.0013762854953441688,0.0013839854297551086,0.0014178317850463062,0.0014233985904382556,0.0014308787352299863,0.0014467745021836988,0.0014364826437090346,0.0013946376275563942,0.0013632700383863162,0.001342652720951692,0.0013484752283844435,0.0012914997747925099,0.0013416510634680846,0.001393905764725094,0.0014315278309767771,0.0015005828613917011,0.0015304966790078269,0.001560988262906131,0.0015300925180861578,0.0015853291176575063,0.0015877155127029972,0.0015761170292668682,0.0015980809909000614,0.001582401257458915,0.0015768221418008426,0.001584888298500953,0.0016125132505993105,0.0015977264803332268,0.0016048570966756873,0.0015709634522987586,0.001524918773332024,0.001540540329032247,0.0015601475922490632,0.001521002354800963,0.001535326073379042,0.0015445510692289979,0.0015665106001201581,0.0015161915353040295,0.0015586859092473456,0.0015240437453260358,0.0015664008378314964,0.0015575538580100466,0.0015727867294136552,0.00158514331940829,0.001557503247265849,0.00158132253203484,0.0016198066576741902,0.0016158559686352437,0.0016197319503277086,0.0016097711974686942,0.0016225542597924397,0.0015900431532694709,0.001620428593231461,0.0015819124570174373,0.0015995860381171024,0.0015741264829142144,0.001565774228560823,0.0015363095201649999,0.0015113583011390197,0.0015075956114473366,0.0014372128216882313,0.0013963982038432158,0.0013913757501529522,0.001383046473419508,0.001365265770372416,0.0013491578463242994,0.0013620133635067705,0.001398358535001947,0.0014341302199483226,0.0014305333048257132,0.0014481700096871766,0.001453640788040567,0.0014410937520609873,0.001409303173868901,0.0013705245002681905,0.0013175133350536283,0.0012918706900730654,0.0012925600070358729,0.0013134546919047214,0.0013069750420156923,0.0013531592108339853,0.0013707244065588615,0.0013740814946910395,0.0013867614184475572,0.0013549085232924753,0.0013551451118723236,0.0012990343921529725,0.0013040886640167577,0.0013158390892636504,0.0013110405648726461,0.0013116509102164488,0.0013383289018065515,0.0013407241199343985,0.001337735522305094,0.001340802846023315,0.0013027208139377968,0.0013029142737097175,0.0012727554950787453,0.0013052911574122858,0.0012885461594766448,0.0013105347259155158,0.0012880888798446311,0.0013259525446518569,0.0013102841852252463,0.0013086348747777291,0.001309821591226718,0.0013058811416654863,0.001281981553787752,0.001300559040363172,0.0013148950511339226,0.0013438733107426575,0.0013089859462421462,0.0013139967584562533,0.001277822656300964,0.0012739314177479184,0.0012640595568035539,0.0012645509091976225,0.0013069066967022467,0.0012998770763938494,0.0013180345455564824,0.0012697822769293942,0.0012981059071439011,0.0013194703633204186,0.0012633150213917834,0.0012625085280123709,0.00127644563179994,0.0012802018003967056,0.0012553677482883433,0.0012802053695683433,0.0012622362784248514,0.001254121819148331,0.0012544531767887854,0.0012510966052376828,0.001251179614784187,0.0012611768377529247,0.0012740949867273102,0.0012907993443765865,0.001276053845618334,0.001260019796552567,0.0012625926889038178,0.0012429374335075126,0.0012358024869000013,0.0012581237525182529,0.0012648569899640894],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[5.647526335,5.647576335,5.647626335,5.647676335000001,5.647726335000001,5.6477763350000005,5.647826335,5.647876335,5.647926335,5.647976335,5.648026335,5.648076335000001,5.648126335000001,5.6481763350000005,5.648226335,5.648276335,5.648326335,5.648376335,5.648426335,5.648476335000001,5.648526335000001,5.6485763350000004,5.648626335,5.648676335,5.648726335,5.648776335,5.648826335000001,5.648876335000001,5.6489263350000005,5.648976335,5.649026335,5.649076335,5.649126335,5.649176335,5.649226335000001,5.649276335000001,5.6493263350000005,5.649376335,5.649426335,5.649476335,5.649526335,5.649576335000001,5.649626335000001,5.6496763350000005,5.649726335,5.649776335,5.649826335,5.649876335,5.649926335,5.649976335000001,5.650026335000001,5.6500763350000005,5.650126335,5.650176335,5.650226335,5.650276335,5.650326335,5.650376335000001,5.650426335000001,5.6504763350000005,5.650526335,5.650576335,5.650626335,5.650676335,5.650726335000001,5.650776335000001,5.6508263350000005,5.650876335,5.650926335,5.650976335,5.651026335,5.651076335,5.651126335000001,5.651176335000001,5.6512263350000005,5.651276335,5.651326335,5.651376335,5.651426335,5.651476335000001,5.651526335000001,5.651576335000001,5.6516263350000004,5.651676335,5.651726335,5.651776335,5.651826335,5.651876335000001,5.651926335000001,5.6519763350000005,5.652026335,5.652076335,5.652126335,5.652176335,5.652226335,5.652276335000001,5.652326335000001,5.6523763350000005,5.652426335,5.652476335,5.652526335,5.652576335,5.652626335000001,5.652676335000001,5.6527263350000005,5.652776335,5.652826335,5.652876335,5.652926335,5.652976335,5.653026335000001,5.653076335000001,5.6531263350000005,5.653176335,5.653226335,5.653276335,5.653326335,5.653376335,5.653426335000001,5.653476335000001,5.6535263350000005,5.653576335,5.653626335,5.653676335,5.653726335,5.653776335000001,5.653826335000001,5.6538763350000005,5.653926335,5.653976335,5.654026335,5.654076335,5.654126335,5.654176335000001,5.654226335000001,5.6542763350000005,5.654326335,5.654376335,5.654426335,5.654476335,5.654526335000001,5.654576335000001,5.654626335000001,5.654676335,5.654726335,5.654776335,5.654826335,5.654876335,5.654926335000001,5.654976335000001,5.6550263350000005,5.655076335,5.655126335,5.655176335,5.655226335,5.655276335,5.655326335000001,5.655376335000001,5.6554263350000005,5.655476335,5.655526335,5.655576335,5.655626335,5.655676335000001,5.655726335000001,5.6557763350000005,5.655826335,5.655876335,5.655926335,5.655976335,5.656026335,5.656076335000001,5.656126335000001,5.6561763350000005,5.656226335,5.656276335,5.656326335,5.656376335,5.656426335,5.656476335000001,5.656526335000001,5.6565763350000005,5.656626335,5.656676335,5.656726335,5.656776335,5.656826335000001,5.656876335000001,5.6569263350000005,5.656976335,5.657026335,5.657076335,5.657126335,5.657176335,5.657226335000001,5.657276335000001,5.6573263350000005,5.657376335,5.657426335,5.657476335],"y":[-0.8214339089138578,-0.8162203694396548,-0.8387622438349452,-0.8113003509738925,-0.8186567979800599,-0.8149451427018366,-0.8212365493258821,-0.818547323729284,-0.8025750898239057,-0.8150665359018041,-0.8131182766510244,-0.8158711722011026,-0.8197206075341774,-0.8321353623822472,-0.8053696281603762,-0.8186396796375033,-0.7953554235716038,-0.8145221417114902,-0.7991663897244976,-0.8181639003469324,-0.8063952370799966,-0.8103183637557148,-0.799287430621095,-0.8025376999930562,-0.8075038436572721,-0.808305442450924,-0.7839597398869863,-0.7918216580825045,-0.8032015710940036,-0.8182206647696557,-0.8047980550704306,-0.8150149591122516,-0.8337857308474846,-0.8315004780065534,-0.7960715180588614,-0.7911305503192823,-0.8103178266712867,-0.8016659482423553,-0.7811595903155312,-0.8104520796095492,-0.798165039773984,-0.8184081042387615,-0.8080652805420255,-0.8217843558321084,-0.7880557806393753,-0.7993413371677841,-0.7892240528901744,-0.7618661551146803,-0.7806046812620936,-0.7760152619521874,-0.7849852829833629,-0.7982655140552593,-0.813120453232078,-0.8052438200112803,-0.8067097705224461,-0.7815751909457149,-0.7824126248470706,-0.7791497352763315,-0.754622277422434,-0.7681608457672732,-0.7576240836396059,-0.7699142425381245,-0.7691332236168535,-0.7572973629113274,-0.7907080254373682,-0.7755121622742165,-0.7890402365585453,-0.8002206648585484,-0.7863386730490772,-0.7819391818254086,-0.7625815527882749,-0.7439220243564328,-0.7497291431984721,-0.73397354670961,-0.7164061570199338,-0.7265130685841346,-0.7157328385135445,-0.7363843056356247,-0.7354626046892909,-0.7235297258927086,-0.7383647400889225,-0.7353265599116681,-0.72910102496171,-0.7152291379783986,-0.7245614663244377,-0.7253716916365041,-0.7478038999360322,-0.7273109246921333,-0.7485978024010987,-0.7461201496897376,-0.7479053526387609,-0.7422633494056529,-0.7385092219010129,-0.7411700131224465,-0.7291967742860336,-0.7436470085775937,-0.7297834267848996,-0.7390712198333343,-0.7290564072974531,-0.7333336052385419,-0.7255447081352682,-0.7264575291711051,-0.7089825233659675,-0.7205267579199197,-0.7314480606591646,-0.7129359056005194,-0.7177452604611387,-0.7161150047897634,-0.7144833346911938,-0.7129790522148436,-0.7283608118393483,-0.733769039671217,-0.7187992742739964,-0.7440112985150648,-0.7555799929062553,-0.7471483191721624,-0.7601011380984354,-0.7751474035862369,-0.7774146691393654,-0.7886182620794022,-0.800234100489543,-0.804316352467659,-0.7933194632886691,-0.7684443546130212,-0.756900155349152,-0.7651805708533171,-0.7469433986119239,-0.7731145369390718,-0.7624579833930933,-0.7715127631357076,-0.7828264164978109,-0.7972491209777204,-0.8106562744111327,-0.804331367163834,-0.8109642524209062,-0.8052513050543935,-0.7849262190483345,-0.7841063135752985,-0.7903158360408951,-0.7894993006557015,-0.7844567026558914,-0.8029099505439925,-0.8165482872734761,-0.7866052955048057,-0.834677226366253,-0.8005122596881031,-0.7953002265793698,-0.7933802422839125,-0.8159594213805375,-0.7862699429260671,-0.7719657476293941,-0.804018391951617,-0.8112214128310498,-0.8273436926105517,-0.8213588988133221,-0.8071209243711385,-0.8111278855119961,-0.7902138938070167,-0.8060792739376791,-0.8046746552656551,-0.7977323617713411,-0.7964260065264128,-0.8081274757482853,-0.8012791477430816,-0.8265920210294718,-0.800931378524467,-0.8170813087638873,-0.8121440793808058,-0.7896008455184946,-0.8102224698109554,-0.7976921629051504,-0.7950556307247127,-0.8126372087790826,-0.8218240586691207,-0.8002144569133692,-0.8134007070770154,-0.8063881683224254,-0.8155675915821562,-0.7974043989295556,-0.8002431064270504,-0.8290031554174883,-0.8196026511678824,-0.8091836547412716,-0.8137944984951083,-0.8104422714748325,-0.7906098195643556,-0.8236498461401853,-0.8215500548959098,-0.8212810091702251,-0.8157518791157463,-0.828121296271582,-0.8063771535239754,-0.8298122609312892,-0.8029063361616432,-0.8305294097520608,-0.8154391610319117,-0.8177822635044804,-0.8072640757396644,-0.8178918043777622,-0.8263441230634806],"type":"scatter","xaxis":"x2","yaxis":"y2"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Frequency [GHz]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Frequency [GHz]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in .</p>
+
+      <div class="table-responsive col-md-5 col-lg-3">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.12</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.1.9</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.1.1</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+       var exportPDFButton = document.getElementById("export-pdf");
+
+       exportPDFButton.addEventListener("click", function() {
+
+        document.body.classList.add("impresion");
+
+        var doc = new jsPDF({orientation: 'landscape',});
+
+        var iframes = document.querySelectorAll("iframe.gh-fit")
+        source = ""
+        for(var id = 0; id < iframes.length; id++) {
+            var win = iframes[id].contentWindow
+            var doc = win.document
+            var html = doc.documentElement
+            var body = doc.body
+            var ifrm = iframes[id] // or win.frameElement
+            source = source + html
+        }
+
+        print(source)
+
+        doc.fromHTML(source, 0, 0, {
+        width: 210,
+        margins: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+        }
+        });
+
+        // Guardar el PDF
+        doc.save("report.pdf");
+    });
+    </script>
+
+</body>
+
+</html>
