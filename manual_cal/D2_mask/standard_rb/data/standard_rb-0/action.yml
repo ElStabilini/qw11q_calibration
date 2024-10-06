@@ -1,0 +1,12 @@
+id: standard_rb
+operation: standard_rb
+parameters:
+  depths:
+  - 1
+  - 5
+  - 10
+  - 20
+  niter: 20
+targets:
+- D2
+update: true

@@ -1,0 +1,25 @@
+{
+    "title": "standard_rb",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-10-06 08:53:04.854321+00:00",
+    "end_time": "2024-10-06 08:58:03.824721+00:00",
+    "stats": {
+        "standard_rb-0": {
+            "acquisition": 292.4881552189763,
+            "fit": 0.01074273101403378
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.12"
+    },
+    "date": "2024-10-06",
+    "start-time": "08:53:04",
+    "end-time": "08:58:03"
+}
