@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [D3]
+targets: [D1]
 
 actions:
 
@@ -14,28 +14,28 @@ actions:
         nshots: 1024
         relaxation_time: 100000
 
-  - id: rabi
+          #  - id: rabi
 
-    operation: rabi_amplitude_signal
-    parameters:
-        min_amp_factor: 0
-        max_amp_factor: 2
-        step_amp_factor: 0.1
-        pulse_length: 40
-        relaxation_time: 100_000
-        nshots: 1024
+          #operation: rabi_amplitude_signal
+          #parameters:
+          #min_amp_factor: 0
+          #max_amp_factor: 2
+          #step_amp_factor: 0.1
+          #pulse_length: 40
+          #relaxation_time: 100_000
+          #nshots: 1024
 
 
-  - id: rabi
+          #- id: rabi
 
-    operation: rabi_length
-    parameters:
-        pulse_duration_start: 20
-        pulse_duration_end: 40
-        pulse_duration_step: 1
-        pulse_amplitude: 0.06
-        relaxation_time: 100_000
-        nshots: 1024
+          #operation: rabi_length
+          #parameters:
+          #pulse_duration_start: 20
+          #pulse_duration_end: 40
+          #pulse_duration_step: 1
+          #pulse_amplitude: 0.06
+          #relaxation_time: 100_000
+          #nshots: 1024
 
   - id: rabi amplitude frequency
     
@@ -44,7 +44,7 @@ actions:
       min_amp_factor: 0.0
       max_amp_factor: 2
       step_amp_factor: 0.1
-      min_freq: -50_000_000
+      min_freq: -50000000
       max_freq: 50_000_000
       step_freq: 1_000_000
       pulse_length: 40

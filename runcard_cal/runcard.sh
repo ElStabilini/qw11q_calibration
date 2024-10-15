@@ -6,6 +6,6 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/qubit_power_spectroscopy.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalD1_for_opt/qubit_power_spectroscopy
+qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/rabi.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalD1_for_opt/rabi
 
 
