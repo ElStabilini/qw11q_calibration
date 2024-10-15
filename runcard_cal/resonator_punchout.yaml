@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [D3]
+targets: [D1]
 
 actions:
   - id: resonator punchout
@@ -11,7 +11,7 @@ actions:
         freq_step: 100_000
         amplitude: 0.05
         min_amp_factor: 0.1
-        max_amp_factor: 2
+        max_amp_factor: 1
         step_amp_factor: 0.01
         nshots: 2048
         relaxation_time: 5000
