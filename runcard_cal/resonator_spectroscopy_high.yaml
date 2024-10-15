@@ -1,15 +1,15 @@
 platform: qw11q
 
-targets: [D2]
+targets: [D1]
 
 actions:
 
   - id: resonator_spectroscopy high power
     operation: resonator_spectroscopy
     parameters:
-        freq_width: 20000000
+        freq_width: 10000000
         freq_step: 100000
-        amplitude: 0.05
+        amplitude: 0.2
         power_level: high
         nshots: 1024
         relaxation_time: 100000

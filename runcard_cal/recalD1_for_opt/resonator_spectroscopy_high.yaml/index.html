@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>resonator_spectroscopy_high.yaml</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-export
+{
+  background:#6400FF;
+  color:white;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </buttom>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Actions
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Resonator_Spectroscopy High Power"> Resonator_Spectroscopy High Power</a></li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </buttom>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>resonator_spectroscopy_high.yaml</h1>
+        <button class="button-export" id="export-pdf">Export to pdf</button>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2024-10-15<br>
+        Start time (UTC): 10:32:50<br>
+        End time (UTC): 10:33:03
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Resonator_Spectroscopy High Power" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Resonator_Spectroscopy High Power</h4>
+        
+        <div id="--D1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - Qubit D1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td>Bare Resonator Frequency [Hz]</td>
+      <td>7.134390e+09</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>Amplitude</td>
+      <td>2.000000e-01</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="221112be-e10f-4391-884f-5c5495c7eb3a" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("221112be-e10f-4391-884f-5c5495c7eb3a")) {                    Plotly.newPlot(                        "221112be-e10f-4391-884f-5c5495c7eb3a",                        [{"legendgroup":"Frequency","name":"Frequency","opacity":1,"showlegend":true,"x":[7.13192,7.132020000000001,7.1321200000000005,7.13222,7.132320000000001,7.132420000000001,7.13252,7.13262,7.132720000000001,7.132820000000001,7.13292,7.13302,7.133120000000001,7.133220000000001,7.13332,7.13342,7.133520000000001,7.1336200000000005,7.13372,7.13382,7.133920000000001,7.1340200000000005,7.13412,7.13422,7.134320000000001,7.13442,7.13452,7.134620000000001,7.134720000000001,7.13482,7.13492,7.135020000000001,7.135120000000001,7.13522,7.13532,7.135420000000001,7.1355200000000005,7.13562,7.13572,7.135820000000001,7.1359200000000005,7.13602,7.13612,7.136220000000001,7.13632,7.13642,7.136520000000001,7.136620000000001,7.13672,7.13682,7.136920000000001,7.137020000000001,7.13712,7.13722,7.137320000000001,7.1374200000000005,7.13752,7.13762,7.137720000000001,7.1378200000000005,7.13792,7.13802,7.138120000000001,7.1382200000000005,7.13832,7.138420000000001,7.138520000000001,7.13862,7.13872,7.138820000000001,7.138920000000001,7.13902,7.13912,7.139220000000001,7.1393200000000006,7.13942,7.13952,7.139620000000001,7.1397200000000005,7.13982,7.13992,7.140020000000001,7.1401200000000005,7.14022,7.140320000000001,7.140420000000001,7.14052,7.14062,7.140720000000001,7.140820000000001,7.14092,7.14102,7.141120000000001,7.141220000000001,7.14132,7.14142,7.141520000000001,7.1416200000000005,7.14172,7.14182],"y":[0.10327779656482865,0.10324238076499255,0.10326244541301027,0.10332946420053149,0.1033265621153586,0.10341632725070563,0.10350597749139656,0.10352947595726046,0.10357493882547394,0.10366137557124028,0.10362099511901282,0.10361852738497207,0.10362942681217042,0.10358793221262018,0.10360696320461825,0.10363785033508087,0.10349569872746489,0.10330678579595162,0.10296387824322423,0.1025778738049657,0.1018187639594369,0.1006245740731022,0.098602299863606,0.09580465970563116,0.09306303788463853,0.09220874133165201,0.09399549686125885,0.09689602479711124,0.09932992273543652,0.10116939688475994,0.10245581692015254,0.10341814805760488,0.10390196058779395,0.10437401325923369,0.10462802000175868,0.10477746832232869,0.10494487878526472,0.10512130627044604,0.10525366393073823,0.10537353838853844,0.1054384622826484,0.1056025006186345,0.10568072867686085,0.10566625127966939,0.10576281929456122,0.10590728733864442,0.10596001752832677,0.10600942623629955,0.10608143009709492,0.10614813100022792,0.1062163875400398,0.10635033021637981,0.10631215398350408,0.10638713333673507,0.1065123693464625,0.10654468152979904,0.10659112119119078,0.10660781541491887,0.10668929527624757,0.10664331190808801,0.10668591631595571,0.10670039255913541,0.10672466678462476,0.1067840406315601,0.10679998059525979,0.10682795433602192,0.10685873914428388,0.10692162471711322,0.10694721115067282,0.10695564053479883,0.1069480455794843,0.10695528943744621,0.10695501333125691,0.10697621339926493,0.10701150474904655,0.10704182531331452,0.10698835875740738,0.10698943868303638,0.10699251072054158,0.10698020733165,0.1069974703150873,0.10698842503499525,0.10704802875768078,0.10697501685952795,0.10698999740162668,0.10694533732954402,0.10688323623929076,0.10685544782203799,0.106953617053663,0.10693759054041076,0.10687636007248176,0.10681466225419786,0.10675847991149014,0.10685105723096669,0.10677941254460264,0.10674471876948656,0.10671283730865681,0.10666836742939437,0.10660627250687185,0.10659568623363039],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[7.13192,7.132020000000001,7.1321200000000005,7.13222,7.132320000000001,7.132420000000001,7.13252,7.13262,7.132720000000001,7.132820000000001,7.13292,7.13302,7.133120000000001,7.133220000000001,7.13332,7.13342,7.133520000000001,7.1336200000000005,7.13372,7.13382,7.133920000000001,7.1340200000000005,7.13412,7.13422,7.134320000000001,7.13442,7.13452,7.134620000000001,7.134720000000001,7.13482,7.13492,7.135020000000001,7.135120000000001,7.13522,7.13532,7.135420000000001,7.1355200000000005,7.13562,7.13572,7.135820000000001,7.1359200000000005,7.13602,7.13612,7.136220000000001,7.13632,7.13642,7.136520000000001,7.136620000000001,7.13672,7.13682,7.136920000000001,7.137020000000001,7.13712,7.13722,7.137320000000001,7.1374200000000005,7.13752,7.13762,7.137720000000001,7.1378200000000005,7.13792,7.13802,7.138120000000001,7.1382200000000005,7.13832,7.138420000000001,7.138520000000001,7.13862,7.13872,7.138820000000001,7.138920000000001,7.13902,7.13912,7.139220000000001,7.1393200000000006,7.13942,7.13952,7.139620000000001,7.1397200000000005,7.13982,7.13992,7.140020000000001,7.1401200000000005,7.14022,7.140320000000001,7.140420000000001,7.14052,7.14062,7.140720000000001,7.140820000000001,7.14092,7.14102,7.141120000000001,7.141220000000001,7.14132,7.14142,7.141520000000001,7.1416200000000005,7.14172,7.14182],"y":[1.7246352599107606,1.94372049770969,2.163108962218513,2.3830097930280214,2.6033637425189626,2.82367722050788,3.0437171237687792,-3.019602770354887,-2.800229320242181,-2.5804147320934727,-2.359728209653968,-2.137077656928278,-1.911395468371423,-1.6822372749457002,-1.4497027781191927,-1.2149753244386932,-0.9786063068129092,-0.7435361260131661,-0.5105358148108232,-0.2818446399386933,-0.06111522756278303,0.14719492014456012,0.33696916455408904,0.49264612765270605,0.6012326525442476,0.6699400539428388,0.7405895537074375,0.8499753556731053,1.0072447090258632,1.2012109308901975,1.4195777624611463,1.6518988505726069,1.8917135256808235,2.134531135040376,2.377783316965605,2.618949063735879,2.856883523944994,3.0908745905445976,-2.963023099780521,-2.73705339392745,-2.5141294631391324,-2.292543035800663,-2.0716196256894484,-1.850696762917115,-1.629690656387096,-1.4084933195131097,-1.187278333431578,-0.9667963349329909,-0.7460988482913621,-0.5270711324616042,-0.30901765354159944,-0.0908660697259358,0.1261726660521071,0.3439280359427366,0.5614556082703417,0.7786690639146958,0.9967275922736171,1.2143793578533248,1.432568562481485,1.6500497522774424,1.8671882480922182,2.084214595915519,2.3008575789557097,2.5177300746347653,2.7340801441173794,2.9507839968108525,-3.115833691475848,-2.898240740690069,-2.6816114381978795,-2.464717585062772,-2.2475201788359724,-2.031123281193011,-1.8145094906760462,-1.5981364125152473,-1.3818475652607662,-1.1652005640011347,-0.9490290455469559,-0.7324784976109675,-0.5157584680159014,-0.29925217745367927,-0.08244961736890911,0.13409996739965138,0.3503370065123594,0.5670391146743639,0.7835823273344696,0.9995584631018813,1.2159514288092865,1.4324378988358037,1.6491348166845878,1.8656475644760644,2.082342020907757,2.2985466267547925,2.515318594894465,2.7316202236311797,2.9478474171131066,-3.1191206323114833,-2.9023329880028403,-2.6860616015185577,-2.4697624555131426,-2.2532024635888845],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"name":"Fit","x":[7.13192,7.131969748743718,7.132019497487438,7.132069246231156,7.132118994974874,7.132168743718593,7.132218492462312,7.13226824120603,7.132317989949748,7.132367738693468,7.132417487437186,7.132467236180904,7.1325169849246235,7.132566733668342,7.13261648241206,7.132666231155779,7.132715979899498,7.132765728643216,7.132815477386934,7.1328652261306535,7.132914974874372,7.13296472361809,7.133014472361809,7.133064221105528,7.133113969849246,7.133163718592965,7.133213467336684,7.133263216080402,7.13331296482412,7.1333627135678395,7.133412462311558,7.133462211055276,7.133511959798995,7.133561708542714,7.133611457286432,7.133661206030151,7.1337109547738695,7.133760703517588,7.133810452261306,7.133860201005025,7.133909949748744,7.133959698492462,7.134009447236181,7.1340591959799,7.134108944723618,7.134158693467337,7.134208442211055,7.134258190954774,7.134307939698492,7.134357688442211,7.13440743718593,7.134457185929648,7.134506934673367,7.1345566834170855,7.134606432160804,7.134656180904523,7.134705929648241,7.13475567839196,7.134805427135678,7.134855175879397,7.1349049246231155,7.134954673366834,7.135004422110553,7.135054170854271,7.13510391959799,7.135153668341709,7.135203417085427,7.135253165829146,7.135302914572865,7.135352663316583,7.1354024120603015,7.13545216080402,7.135501909547739,7.135551658291457,7.135601407035176,7.135651155778895,7.135700904522613,7.1357506532663315,7.135800402010051,7.135850150753769,7.135899899497487,7.135949648241206,7.135999396984925,7.136049145728643,7.136098894472362,7.136148643216081,7.136198391959799,7.136248140703517,7.136297889447237,7.136347638190955,7.136397386934673,7.136447135678392,7.136496884422111,7.136546633165829,7.1365963819095475,7.136646130653267,7.136695879396985,7.136745628140703,7.136795376884423,7.136845125628141,7.136894874371859,7.1369446231155775,7.136994371859297,7.137044120603015,7.137093869346733,7.137143618090453,7.137193366834171,7.137243115577889,7.1372928643216085,7.137342613065327,7.137392361809045,7.1374421105527635,7.137491859296483,7.137541608040201,7.137591356783919,7.1376411055276385,7.137690854271357,7.137740603015075,7.137790351758794,7.137840100502513,7.137889849246231,7.137939597989949,7.137989346733669,7.138039095477387,7.138088844221105,7.1381385929648244,7.138188341708543,7.138238090452261,7.13828783919598,7.138337587939699,7.138387336683417,7.138437085427135,7.1384868341708545,7.138536582914573,7.138586331658291,7.13863608040201,7.138685829145729,7.138735577889447,7.138785326633166,7.1388350753768846,7.138884824120603,7.138934572864322,7.13898432160804,7.139034070351759,7.139083819095477,7.139133567839196,7.139183316582915,7.139233065326633,7.139282814070352,7.1393325628140705,7.139382311557789,7.139432060301508,7.139481809045226,7.139531557788945,7.139581306532663,7.139631055276382,7.1396808040201005,7.139730552763819,7.139780301507538,7.139830050251256,7.139879798994975,7.139929547738694,7.139979296482412,7.140029045226131,7.140078793969849,7.140128542713568,7.140178291457286,7.140228040201005,7.140277788944724,7.140327537688442,7.140377286432161,7.14042703517588,7.140476783919598,7.1405265326633165,7.140576281407035,7.140626030150754,7.140675778894472,7.140725527638191,7.14077527638191,7.140825025125628,7.1408747738693465,7.140924522613066,7.140974271356784,7.141024020100502,7.141073768844221,7.14112351758794,7.141173266331658,7.141223015075377,7.141272763819096,7.141322512562814,7.1413722613065325,7.141422010050252,7.14147175879397,7.141521507537688,7.141571256281407,7.141621005025126,7.141670753768844,7.1417205025125625,7.141770251256282,7.14182],"y":[0.10601448280178748,0.10600207364529317,0.10598890102234815,0.1059749015907749,0.10596000536806019,0.10594413488759324,0.1059272042286977,0.10590911789871893,0.10588976954120373,0.10586904043904703,0.10584679777520087,0.1058228926058309,0.10579715749136114,0.10576940371918495,0.10573941803741765,0.10570695880122695,0.10567175141107334,0.10563348289452593,0.10559179544876436,0.10554627871756322,0.1054964605222622,0.10544179569800607,0.10538165260091818,0.10531529674441194,0.10524187088846058,0.10516037073853376,0.10506961520494108,0.10496820992346209,0.10485450244269869,0.10472652714899312,0.1045819376506615,0.10441792403990964,0.1042311123233793,0.10401744362176804,0.10377203198910982,0.10348900283563058,0.10316132067313935,0.10278062828645904,0.10233714467207784,0.1018197145506037,0.10121618006342592,0.10051436910002784,0.09970416880732898,0.09878133850160421,0.0977537553612402,0.09665028094183176,0.0955307070924808,0.09449180430289547,0.09366070702934233,0.09316785831145233,0.09310356945809678,0.09348035962590892,0.09422729502920082,0.09522066486738241,0.09632867999840002,0.09744442373401008,0.09849779531678175,0.09945207462481877,0.10029439527365808,0.10102629424916659,0.10165669098507321,0.10219744345550992,0.10266085137708245,0.10305841438104948,0.10340032100203217,0.10369532900673946,0.10395083631275814,0.10417303138330325,0.10436706529723278,0.1045372176908569,0.10468704488731602,0.10481950677604875,0.10493707294595109,0.1050418102414318,0.10513545442287983,0.10521946857569728,0.10529509064147755,0.10536337210044133,0.1054252094918689,0.1054813701514497,0.10553251328151209,0.1055792072520208,0.10562194385265053,0.10566115007309632,0.10569719787423308,0.10573041232131634,0.10576107837765428,0.10578944659922151,0.10581573792448737,0.1058401477168902,0.10586284918791096,0.10588399630505949,0.10590372627011192,0.1059221616376182,0.10593941213133319,0.10595557620617826,0.10597074239518665,0.10598499047422437,0.10599839247181904,0.1060110135469612,0.10602291275405462,0.10603414371114116,0.10604475518501072,0.10605479160470399,0.10606429351317405,0.10607329796540668,0.10608183888008041,0.10608994735081942,0.10609765192222151,0.10610497883511671,0.10611195224489166,0.10611859441618585,0.10612492589682254,0.10613096567345244,0.10613673131106485,0.10614223907823776,0.10614750405976159,0.10615254025806435,0.10615736068468568,0.10616197744289574,0.10616640180242184,0.10617064426712772,0.10617471463639294,0.10617862206085053,0.10618237509306637,0.10618598173367519,0.10618944947343173,0.10619278533158413,0.1061959958909305,0.10619908732988163,0.10620206545181811,0.10620493571199788,0.106207703242245,0.10621037287362538,0.10621294915729469,0.10621543638368408,0.10621783860017288,0.10622015962738365,0.10622240307421957,0.10622457235175406,0.1062266706860718,0.10622870113014982,0.10623066657485962,0.10623256975916456,0.10623441327957768,0.10623619959894147,0.1062379310545838,0.10623960986590078,0.10624123814141116,0.10624281788532441,0.10624435100366039,0.10624583930995479,0.10624728453058226,0.10624868830972632,0.10625005221402228,0.10625137773689747,0.10625266630263126,0.10625391927015543,0.10625513793661315,0.10625632354069443,0.10625747726576379,0.10625860024279454,0.10625969355312344,0.10626075823103823,0.10626179526620919,0.10626280560597576,0.10626379015749754,0.10626474978977934,0.10626568533557813,0.10626659759319976,0.10626748732819308,0.10626835527494756,0.10626920213820086,0.10627002859446222,0.10627083529335678,0.10627162285889588,0.10627239189067801,0.10627314296502467,0.10627387663605507,0.10627459343670342,0.10627529387968249,0.10627597845839627,0.10627664764780508,0.10627730190524588,0.10627794167121037,0.10627856737008319,0.10627917941084294,0.10627977818772773,0.10628036408086748,0.10628093745688486,0.10628149866946666,0.1062820480599071,0.10628258595762467,0.10628311268065428,0.10628362853611552,0.10628413382065872,0.10628462882088999,0.10628511381377614,0.10628558906703087,0.10628605483948278],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Frequency [GHz]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Frequency [GHz]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in .</p>
+
+      <div class="table-responsive col-md-5 col-lg-3">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.12</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.1.9</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.0.12</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+       var exportPDFButton = document.getElementById("export-pdf");
+
+       exportPDFButton.addEventListener("click", function() {
+
+        document.body.classList.add("impresion");
+
+        var doc = new jsPDF({orientation: 'landscape',});
+
+        var iframes = document.querySelectorAll("iframe.gh-fit")
+        source = ""
+        for(var id = 0; id < iframes.length; id++) {
+            var win = iframes[id].contentWindow
+            var doc = win.document
+            var html = doc.documentElement
+            var body = doc.body
+            var ifrm = iframes[id] // or win.frameElement
+            source = source + html
+        }
+
+        print(source)
+
+        doc.fromHTML(source, 0, 0, {
+        width: 210,
+        margins: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+        }
+        });
+
+        // Guardar el PDF
+        doc.save("report.pdf");
+    });
+    </script>
+
+</body>
+
+</html>
