@@ -10,7 +10,7 @@ actions:
     parameters:
         bias_step: 0.002
         bias_width: 0.1
-        drive_amplitude: 0.005
+        drive_amplitude: 0.0005
         drive_duration: 4000
         freq_step: 100000
         freq_width: 8000000
