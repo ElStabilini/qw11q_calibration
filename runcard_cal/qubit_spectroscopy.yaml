@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [D3]
+targets: [D1]
 
 actions:
 
@@ -19,12 +19,12 @@ actions:
 
     operation: qubit_spectroscopy
     parameters:
-        drive_amplitude: 0.05
+        drive_amplitude: 0.01
         drive_duration: 4000
-        freq_width: 10_000_000
-        freq_step: 200_000
+        freq_width: 100_000_000
+        freq_step: 100_000
         nshots: 1024
-        relaxation_time: 20_000
+        relaxation_time: 5000
 
 
           #- id: qubit spectroscopy 01
