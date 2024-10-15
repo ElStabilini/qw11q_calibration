@@ -12,7 +12,7 @@ actions:
         bias_width: 0.1
         drive_amplitude: 0.001
         drive_duration: 4000
-        freq_step: 200000
-        freq_width: 8000000
+        freq_step: 100000
+        freq_width: 5000000
         nshots: 1024
         relaxation_time: 20_000
