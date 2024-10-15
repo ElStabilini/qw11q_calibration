@@ -1,0 +1,46 @@
+2024-10-15 14:01:38,479 - qm - INFO     - Starting session: 4a013da5-e447-458e-a356-e650a6bf3455
+Traceback (most recent call last):
+  File "/nfs/users/elisa.stabilini/my_calibration/bin/qq", line 8, in <module>
+    sys.exit(command())
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/cli/_base.py", line 68, in auto
+    runcard = Runcard.load(yaml.safe_load(runcard.read_text(encoding="utf-8")))
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/composer.py", line 82, in compose_node
+    node = self.compose_sequence_node(anchor)
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/composer.py", line 110, in compose_sequence_node
+    while not self.check_event(SequenceEndEvent):
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/nfs/users/elisa.stabilini/my_calibration/lib/python3.10/site-packages/yaml/parser.py", line 392, in parse_block_sequence_entry
+    raise ParserError("while parsing a block collection", self.marks[-1],
+yaml.parser.ParserError: while parsing a block collection
+  in "<unicode string>", line 7, column 5:
+        - id: qubit spectroscopy 01
+        ^
+expected <block end>, but found '?'
+  in "<unicode string>", line 9, column 5:
+        operation: qubit_power_spectroscopy
+        ^
