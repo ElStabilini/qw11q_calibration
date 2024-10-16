@@ -8,11 +8,11 @@ actions:
 
     operation: qubit_flux
     parameters:
-        bias_step: 0.002
-        bias_width: 0.08
-        drive_amplitude: 0.0008
+        bias_step: 0.001
+        bias_width: 0.07
+        drive_amplitude: 0.001
         drive_duration: 4000
-        freq_step: 100000
-        freq_width: 6000000
+        freq_step: 200000
+        freq_width: 8000000
         nshots: 1024
         relaxation_time: 20_000
