@@ -1538,8 +1538,8 @@
                 "Ec": 0.0,
                 "Ej": 0.0,
                 "g": 0.0,
-                "assignment_fidelity": 0.9677119319691736,
-                "readout_fidelity": 0.9354238639383471,
+                "assignment_fidelity": 0.951767207015679,
+                "readout_fidelity": 0.9035344140313579,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -1551,15 +1551,15 @@
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    0.00042141139595017955,
-                    0.002166372860198931
+                    0.0016192549892948183,
+                    0.0005891099871241667
                 ],
                 "mean_exc_states": [
-                    -0.0006892893769276639,
-                    0.001668103774818942
+                    0.002455516839847899,
+                    0.0012484012355267163
                 ],
-                "threshold": -0.0006522335888964211,
-                "iq_angle": 2.719897043736127,
+                "threshold": 0.0022039122792283927,
+                "iq_angle": -0.6676146650106904,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,

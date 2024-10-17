@@ -1,13 +1,13 @@
 {
-    "title": "classification",
+    "title": "classification_1",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": "2024-10-17 15:04:55.292505+00:00",
-    "end_time": "2024-10-17 15:05:02.158350+00:00",
+    "start_time": "2024-10-17 15:14:47.515673+00:00",
+    "end_time": "2024-10-17 15:14:54.510055+00:00",
     "stats": {
         "single shot classification-0": {
-            "acquisition": 5.437998272944242,
-            "fit": 0.021965919993817806
+            "acquisition": 5.602667629951611,
+            "fit": 0.02223411900922656
         }
     },
     "author": null,
@@ -22,6 +22,6 @@
         "qibocal": "0.0.12"
     },
     "date": "2024-10-17",
-    "start-time": "15:04:55",
-    "end-time": "15:05:02"
+    "start-time": "15:14:47",
+    "end-time": "15:14:54"
 }
