@@ -1,0 +1,16 @@
+platform: qw11q
+
+targets: [D1]
+
+actions:
+
+  - id: t2
+
+    operation: t2
+    parameters:
+        delay_between_pulses_end: 50_000
+        delay_between_pulses_start: 10
+        delay_between_pulses_step: 1000
+        detuning: 3_000_000
+        nshots: 1024
+        relaxation_time: 200000
