@@ -1513,7 +1513,7 @@
             "D1": {
                 "bare_resonator_frequency": 0,
                 "readout_frequency": 7136920000,
-                "drive_frequency": 4958263653,
+                "drive_frequency": 4958263600,
                 "anharmonicity": -200000000,
                 "sweetspot": 0.22322496600648412,
                 "asymmetry": 0.0,

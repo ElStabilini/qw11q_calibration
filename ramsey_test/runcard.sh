@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq auto /home/elisa/Desktop/Qibo/Qibocal/cal_qw11q/ramsey_test/resonator_spectroscopy_high.yaml -o /home/elisa/Desktop/Qibo/Qibocal/cal_qw11q/ramsey_test/reportD1/resonator_spectroscopy_high
+qq auto /home/users/elisa.stabilini/cal_qw11q/ramsey_test/ramsey.yaml -o /home/users/elisa.stabilini/cal_qw11q/ramsey_test/reportD1/ramsey
