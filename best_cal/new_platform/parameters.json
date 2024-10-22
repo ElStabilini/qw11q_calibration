@@ -633,7 +633,7 @@
                     "duration": 40,
                     "amplitude": 0.041570229140026074,
                     "shape": "Gaussian(5)",
-                    "frequency": 4958263653,
+                    "frequency": 4958263600,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
