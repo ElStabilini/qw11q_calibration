@@ -1,4 +1,4 @@
-2024-10-23 08:47:39,679 - qm - INFO     - Starting session: 3b5c8939-cb88-4917-91d2-bf445cf9ce41
+2024-10-23 09:22:15,475 - qm - INFO     - Starting session: ced18478-d1d6-4d0a-8180-b6114ecef3d7
 Traceback (most recent call last):
   File "/nfs/users/elisa.stabilini/calibration/bin/qq", line 8, in <module>
     sys.exit(command())
@@ -26,21 +26,17 @@ Traceback (most recent call last):
     node = self.compose_node(None, None)
   File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
     node = self.compose_mapping_node(anchor)
-  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
-    item_value = self.compose_node(node, item_key)
-  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/yaml/composer.py", line 82, in compose_node
-    node = self.compose_sequence_node(anchor)
-  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/yaml/composer.py", line 110, in compose_sequence_node
-    while not self.check_event(SequenceEndEvent):
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
   File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/yaml/parser.py", line 98, in check_event
     self.current_event = self.state()
-  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/yaml/parser.py", line 392, in parse_block_sequence_entry
-    raise ParserError("while parsing a block collection", self.marks[-1],
-yaml.parser.ParserError: while parsing a block collection
-  in "<unicode string>", line 6, column 5:
-        - id: allxy
-        ^
-expected <block end>, but found '?'
-  in "<unicode string>", line 8, column 5:
-        operation: allxy
-        ^
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/yaml/parser.py", line 438, in parse_block_mapping_key
+    raise ParserError("while parsing a block mapping", self.marks[-1],
+yaml.parser.ParserError: while parsing a block mapping
+  in "<unicode string>", line 1, column 1:
+    platform: qw11q
+    ^
+expected <block end>, but found '<block mapping start>'
+  in "<unicode string>", line 5, column 3:
+      actions:
+      ^
