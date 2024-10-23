@@ -1,0 +1,27 @@
+{
+    "title": "allxy",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-10-23 09:05:10.199955+00:00",
+    "end_time": "2024-10-23 09:06:04.757275+00:00",
+    "stats": {
+        "all_xy-0": {
+            "acquisition": 54.54469300783239,
+            "fit": 5.239853635430336e-06
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.12"
+    },
+    "date": "2024-10-23",
+    "start-time": "09:05:10",
+    "end-time": "09:06:04"
+}
