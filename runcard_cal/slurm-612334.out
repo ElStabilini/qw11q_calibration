@@ -1,0 +1,24 @@
+2024-10-23 08:01:08,836 - qm - INFO     - Starting session: dc69a48d-04ed-48fc-bf33-6c3719e8d6c1
+Traceback (most recent call last):
+  File "/nfs/users/elisa.stabilini/calibration/bin/qq", line 8, in <module>
+    sys.exit(command())
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/cli/_base.py", line 68, in auto
+    runcard = Runcard.load(yaml.safe_load(runcard.read_text(encoding="utf-8")))
+  File "/nfs/users/elisa.stabilini/qibocal/src/qibocal/auto/runcard.py", line 45, in load
+    return cls(**runcard)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/pydantic/_internal/_dataclasses.py", line 141, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Runcard
+actions.0.parameters
+  Input should be a valid dictionary [type=dict_type, input_value='beta_start = -4, beta_end = 4, beta_step = 0.5', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.9/v/dict_type
