@@ -2,9 +2,14 @@
     "title": "t2",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2024-10-23 07:43:10.818384+00:00",
+    "end_time": "2024-10-23 07:43:24.732117+00:00",
+    "stats": {
+        "t2-0": {
+            "acquisition": 13.895525922067463,
+            "fit": 0.010088189970701933
+        }
+    },
     "author": null,
     "tag": null,
     "targets": [
@@ -16,7 +21,7 @@
         "qibolab": "0.1.9",
         "qibocal": "0.0.12"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2024-10-23",
+    "start-time": "07:43:10",
+    "end-time": "07:43:24"
 }
