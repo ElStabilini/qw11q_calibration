@@ -1545,7 +1545,7 @@
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0,
                 "resonator_depletion_time": 0,
-                "T1": 0,
+                "T1": 10964,
                 "T2": 0,
                 "T2_spin_echo": 0,
                 "state0_voltage": 0,
