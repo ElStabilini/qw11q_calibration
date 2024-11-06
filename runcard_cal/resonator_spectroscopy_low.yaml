@@ -11,5 +11,6 @@ actions:
         freq_step: 50_000
         amplitude: 0.01
         power_level: low
+        fit_function: "s21"
         nshots: 1024
         relaxation_time: 100000
