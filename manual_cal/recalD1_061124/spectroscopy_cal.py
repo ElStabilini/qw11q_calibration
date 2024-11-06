@@ -4,10 +4,10 @@ from qibocal.cli.report import report
 target = "D1" 
 with Executor.open(
     "myexec",
-    path="spectroscopy_calibration",
+    path="spectroscopy_calibration_2",
     platform="qw11q",
     targets=[target],
-    update=False,
+    update=True,
     force=True,
 ) as e:
     e.platform.settings.nshots = 1024
@@ -19,13 +19,6 @@ with Executor.open(
         power_level = "high",
         relaxation_time = 100000,
     )
-
-    if resonator_high.results.chi2[target][0] > 2:
-        raise RuntimeError(
-            f"Rabi fit has chi2 {resonator_high.results.chi2[target][0]} greater than 2. Stopping."
-        )
-    else:
-        resonator_high.update_platform(e.platform)
     
     resonator_punchout = e.resonator_punchout(
         amplitude = 0.05,
@@ -44,15 +37,8 @@ with Executor.open(
         freq_step = 50000,
         freq_width = 20000000,
         power_level = "low",
-        #fit_function = "s21",
+        fit_function = "s21",
         relaxation_time = 100000,
     )
-
-    if resonator_low.results.chi2[target][0] > 2:
-        raise RuntimeError(
-            f"Rabi fit has chi2 {resonator_low.results.chi2[target][0]} greater than 2. Stopping."
-        )
-    else:
-        resonator_low.update_platform(e.platform)
 
 report(e.path, e.history)
