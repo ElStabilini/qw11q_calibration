@@ -2,16 +2,16 @@
     "title": "qubit_spectroscopy",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": "2024-11-06 12:27:31.423670+00:00",
-    "end_time": "2024-11-06 12:27:49.728585+00:00",
+    "start_time": "2024-11-06 14:41:33.399905+00:00",
+    "end_time": "2024-11-06 14:41:51.456842+00:00",
     "stats": {
         "resonator_spectroscopy high power-0": {
-            "acquisition": 3.9710201201960444,
-            "fit": 0.0129151102155447
+            "acquisition": 4.01981253689155,
+            "fit": 0.017168179620057344
         },
         "qubit spectroscopy 01-0": {
-            "acquisition": 14.284254379570484,
-            "fit": 0.006700281053781509
+            "acquisition": 13.983227425720543,
+            "fit": 0.008083013817667961
         }
     },
     "author": null,
@@ -26,6 +26,6 @@
         "qibocal": "0.1.1"
     },
     "date": "2024-11-06",
-    "start-time": "12:27:31",
-    "end-time": "12:27:49"
+    "start-time": "14:41:33",
+    "end-time": "14:41:51"
 }
