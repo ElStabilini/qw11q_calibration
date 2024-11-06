@@ -2,9 +2,18 @@
     "title": "qubit_calibration",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2024-11-06 11:39:18.563640+00:00",
+    "end_time": "2024-11-06 11:49:40.199451+00:00",
+    "stats": {
+        "qubit_spectroscopy-0": {
+            "acquisition": 13.108854953665286,
+            "fit": 0.008766900282353163
+        },
+        "qubit_power_spectroscopy-0": {
+            "acquisition": 602.1418671272695,
+            "fit": 3.459397703409195e-06
+        }
+    },
     "author": null,
     "tag": null,
     "targets": null,
@@ -14,7 +23,7 @@
         "qibolab": "0.1.9",
         "qibocal": "0.1.1"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2024-11-06",
+    "start-time": "11:39:18",
+    "end-time": "11:49:40"
 }
