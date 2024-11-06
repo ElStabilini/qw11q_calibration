@@ -7,5 +7,5 @@ actions:
 
     operation: flipping
     parameters:
-        nflips_max: 50
+        nflips_max: 20
         nflips_step: 1
