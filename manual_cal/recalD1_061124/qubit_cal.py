@@ -10,6 +10,7 @@ with Executor.open(
     update=True,
     force=True,
 ) as e:
+    
     e.platform.settings.nshots = 1024
 
     qubit_spectroscopy = e.qubit_spectroscopy(
