@@ -1,0 +1,21 @@
+2024-11-06 17:39:58,642 - qm - INFO     - Starting session: 5549378b-c80e-4bb7-8a70-760f60d31d17
+2024-11-06 17:40:01,736 - qm - INFO     - Octave "octave2" Health check passed, current temperature 60
+2024-11-06 17:40:02,965 - qm - INFO     - Octave "octave3" Health check passed, current temperature 57
+2024-11-06 17:40:03,978 - qm - INFO     - Octave "octave4" Health check passed, current temperature 58
+2024-11-06 17:40:05,206 - qm - INFO     - Octave "octave5" Health check passed, current temperature 59
+2024-11-06 17:40:06,223 - qm - INFO     - Octave "octave6" Health check passed, current temperature 58
+2024-11-06 17:40:06,224 - qm - INFO     - Performing health check
+2024-11-06 17:40:06,244 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con1. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,244 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con2. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,244 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con3. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,245 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con4. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,245 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con5. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,245 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con6. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,245 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con7. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,245 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con8. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,245 - qm - WARNING  - Health check warning: Inter-OPX connectivity issues in OPX: con9. Missing ports are: 12, 11, 10, 9. See QM-App for more info.
+2024-11-06 17:40:06,245 - qm - INFO     - Health check passed
+Connected to: Rohde&Schwarz SGS100A (serial:1416.0505k02/114167, firmware:4.2.76.0-4.30.046.295) in 0.18s
+Connected to: Rohde&Schwarz SGS100A (serial:1416.0505k02/114164, firmware:4.2.76.0-4.30.046.295) in 0.14s
+2024-11-06 17:40:08,958 - qm - INFO     - Sending program to QOP for compilation
+2024-11-06 17:40:09,137 - qm - INFO     - Executing program
