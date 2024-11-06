@@ -633,7 +633,7 @@
                     "duration": 40,
                     "amplitude": 0.04078652957483714,
                     "shape": "Gaussian(5)",
-                    "frequency": 4958219256,
+                    "frequency": 4967384566,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -651,7 +651,7 @@
                     "duration": 1000,
                     "amplitude": 0.01,
                     "shape": "Rectangular()",
-                    "frequency": 7137619308,
+                    "frequency": 7137618334,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -1511,9 +1511,9 @@
                 "mixer_readout_phi": 0.0
             },
             "D1": {
-                "bare_resonator_frequency": 7137619308,
-                "readout_frequency": 7137619308,
-                "drive_frequency": 4958219256,
+                "bare_resonator_frequency": 7137618334,
+                "readout_frequency": 7137618334,
+                "drive_frequency": 4967384566,
                 "anharmonicity": -200000000,
                 "sweetspot": 0.22026332468990614,
                 "asymmetry": 0.0,
