@@ -1,0 +1,5 @@
+2024-11-07 17:12:25,569 - qm - INFO     - Starting session: 5a2721ff-69ee-4c43-ad92-09fb5a4fa339
+Usage: qq auto [OPTIONS] RUNCARD
+Try 'qq auto -h' for help.
+
+Error: Invalid value for 'RUNCARD': Path '/home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalibration.yaml' does not exist.
