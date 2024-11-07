@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D1" 
 with Executor.open(
     "myexec",
-    path="qubit_calibration",
+    path="recalD1_061124/ramseys",
     platform="qw11q",
     targets=[target],
     update=True,
@@ -23,12 +23,7 @@ with Executor.open(
             relaxation_time = 200000,
         )
 
-        if ramsey_output.results.chi2[target][0] > 2:
-            raise RuntimeError(
-                f"Ramsey fit has chi2 {ramsey_output.results.chi2[target][0]} greater than 2. Stopping."
-            )
-
-        else:
+        if ramsey_output.results.chi2[target][0] < 2:
             ramsey_output.update_platform(e.platform)
 
         e.platform.settings.nshots = 5000
