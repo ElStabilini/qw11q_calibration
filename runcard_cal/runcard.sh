@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/classification.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalD1_for_opt/classification_true
+qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/half_calibration.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recal_071124/half_calibration
