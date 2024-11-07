@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalibration.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalD1_061124/recalibration_2
+qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/calibration.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalD1_061124/recalibration_2
