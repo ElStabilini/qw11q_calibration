@@ -1,5 +1,0 @@
-2024-11-07 14:56:20,038 - qm - INFO     - Starting session: fbab5b31-0b87-48f1-a890-e6f23121e266
-Usage: qq auto [OPTIONS] RUNCARD
-Try 'qq auto -h' for help.
-
-Error: Invalid value for 'RUNCARD': Path '/home/users/elisa.stabilini/cal_qw11q/runcard_cal/rabi.yaml' does not exist.
