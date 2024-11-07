@@ -4,15 +4,16 @@ targets: [D1]
 
 actions:
 
-  - id: resonator_spectroscopy high power
+  - id: resonator_spectroscopy low power
     operation: resonator_spectroscopy
     parameters:
-        freq_width: 10_000_000
-        freq_step: 100_000
-        amplitude: 0.02
-        power_level: high
+        freq_width: 8000000
+        freq_step: 50000
+        amplitude: 0.001
+        power_level: low
+        fit_function: "s21"
         nshots: 1024
-        relaxation_time: 100000
+        relaxation_time: 5000
 
           #  - id: rabi
 
