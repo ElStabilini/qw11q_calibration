@@ -4,7 +4,7 @@ from qibocal.cli.report import report
 target = "D1" 
 with Executor.open(
     "myexec",
-    path="recalD1_061124/ramseys",
+    path="recalD1_061124/ramseys_1",
     platform="qw11q",
     targets=[target],
     update=True,
