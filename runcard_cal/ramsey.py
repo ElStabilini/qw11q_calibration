@@ -25,6 +25,7 @@ with Executor.open(
 
     e.platform.settings.nshots = 5000
     classification = e.classification(
+        unrolling = False,
     )
 
 report(e.path, e.history)

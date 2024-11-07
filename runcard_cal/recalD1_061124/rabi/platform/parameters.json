@@ -1,7 +1,7 @@
 {
     "nqubits": 16,
     "settings": {
-        "nshots": 5000,
+        "nshots": 2048,
         "relaxation_time": 100000
     },
     "qubits": [
@@ -631,9 +631,9 @@
             "D1": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.04088463511128789,
+                    "amplitude": 0.04078652957483714,
                     "shape": "Gaussian(5)",
-                    "frequency": 4958291249,
+                    "frequency": 4958297248,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -1513,7 +1513,7 @@
             "D1": {
                 "bare_resonator_frequency": 7134060689,
                 "readout_frequency": 7137566929,
-                "drive_frequency": 4958291249,
+                "drive_frequency": 4958297248,
                 "anharmonicity": -200000000,
                 "sweetspot": 0.21995402496168967,
                 "asymmetry": 0.0,
