@@ -1,0 +1,18 @@
+{
+    "\"resonator_type\"": "2D",
+    "\"qubit_frequency\"": {
+        "\"D1\"": 4956083006
+    },
+    "\"offset\"": {
+        "\"D1\"": -0.1802531152969167
+    },
+    "\"bare_resonator_frequency\"": {
+        "\"D1\"": 7131362678
+    },
+    "\"matrix_element\"": {
+        "\"D1\"": 0.818352830870427
+    },
+    "\"charging_energy\"": {
+        "\"D1\"": 200000000
+    }
+}

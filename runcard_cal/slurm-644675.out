@@ -1,0 +1,42 @@
+2024-11-07 17:22:53,285 - qm - INFO     - Starting session: 3306e3cc-370c-4e79-b2f0-7d378c1cab85
+Traceback (most recent call last):
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibo/backends/__init__.py", line 229, in construct_backend
+    return getattr(module, "MetaBackend").load(**kwargs)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibolab/backends.py", line 186, in load
+    return QibolabBackend(platform=platform)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibolab/backends.py", line 45, in __init__
+    self.platform = create_platform(platform)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibolab/platform/load.py", line 64, in create_platform
+    return _load(_search(name, _platforms_paths()))
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibolab/platform/load.py", line 44, in _load
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/users/elisa.stabilini/qibolab_platforms_qrc/qw11q/platform.py", line 3, in <module>
+    from qibolab import (
+ImportError: cannot import name 'AcquisitionChannel' from 'qibolab' (/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibolab/__init__.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/nfs/users/elisa.stabilini/calibration/bin/qq", line 8, in <module>
+    sys.exit(command())
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibocal/cli/_base.py", line 75, in auto
+    autocalibrate(runcard, folder, force, update)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibocal/cli/autocalibration.py", line 20, in autocalibrate
+    backend = construct_backend(backend=runcard.backend, platform=runcard.platform)
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibo/backends/__init__.py", line 234, in construct_backend
+    raise_error(
+  File "/nfs/users/elisa.stabilini/calibration/lib/python3.10/site-packages/qibo/config.py", line 46, in raise_error
+    raise exception(message)
+qibo.backends.MissingBackend: The 'qibolab' backends' provider is not available. Check that a Python package named 'qibolab' is installed, and it is exposing valid Qibo backends.
