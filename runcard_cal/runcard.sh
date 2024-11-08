@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/resonator_spectroscopy_high.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recal_071124/second_try/resonator_spectroscopy_high
+qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/resonator_punchout.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalD1_061124/second_try/resonator_punchout
