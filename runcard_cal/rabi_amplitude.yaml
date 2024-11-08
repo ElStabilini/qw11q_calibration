@@ -14,7 +14,7 @@ actions:
         fit_function: "s21"
         nshots: 1024
         relaxation_time: 5000
-  
+ 
   - id: rabi
     operation: rabi_amplitude_signal
     parameters:
