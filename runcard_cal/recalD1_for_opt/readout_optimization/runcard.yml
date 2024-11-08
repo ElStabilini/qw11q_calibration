@@ -1,0 +1,21 @@
+actions:
+- id: dispersive_shift
+  operation: dispersive_shift
+  parameters:
+    freq_step: 100000
+    freq_width: 10000000
+  targets: null
+  update: true
+- id: resonator_amplitude
+  operation: resonator_amplitude
+  parameters:
+    amplitude_start: 0.001
+    amplitude_step: 0.0005
+    amplitude_stop: 0.005
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D1
+update: true

@@ -1,0 +1,14 @@
+id: qubit_power_spectroscopy
+operation: qubit_power_spectroscopy
+parameters:
+  amplitude: 0.01
+  duration: 4000
+  freq_step: 100000
+  freq_width: 300000000
+  max_amp_factor: 2
+  min_amp_factor: 0.1
+  relaxation_time: 5000
+  step_amp_factor: 0.1
+targets:
+- D1
+update: true

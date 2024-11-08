@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SBATCH directives (optional)
-#SBATCH --job-name=classification  # Job name
+#SBATCH --job-name=allxy  # Job name
 #SBATCH --time=01:00:00            # Time limit
 #SBATCH --partition=qw11q            # Partition name
 
