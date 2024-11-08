@@ -1,0 +1,33 @@
+{
+    "title": "spectroscopy_calibration_1",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-06 11:13:04.316517+00:00",
+    "end_time": "2024-11-06 11:14:39.938792+00:00",
+    "stats": {
+        "resonator_spectroscopy-0": {
+            "acquisition": 12.764389791991562,
+            "fit": 0.003442765213549137
+        },
+        "resonator_punchout-0": {
+            "acquisition": 32.323395423125476,
+            "fit": 0.012662236113101244
+        },
+        "resonator_spectroscopy-1": {
+            "acquisition": 43.569116008933634,
+            "fit": 0.01566206105053425
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": null,
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-06",
+    "start-time": "11:13:04",
+    "end-time": "11:14:39"
+}

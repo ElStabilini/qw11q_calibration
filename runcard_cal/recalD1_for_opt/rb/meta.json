@@ -1,0 +1,27 @@
+{
+    "title": "rb",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-10-23 09:24:25.783668+00:00",
+    "end_time": "2024-10-23 09:29:56.146982+00:00",
+    "stats": {
+        "standard rb-0": {
+            "acquisition": 330.3391053280793,
+            "fit": 0.009111745981499553
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.0.12"
+    },
+    "date": "2024-10-23",
+    "start-time": "09:24:25",
+    "end-time": "09:29:56"
+}

@@ -1,0 +1,11 @@
+platform: qw11q
+
+targets: [D1]
+
+actions:
+
+  - id: all_xy
+    operation: allxy
+    parameters:
+      nshots: 2000
+      relaxation_time: 200000

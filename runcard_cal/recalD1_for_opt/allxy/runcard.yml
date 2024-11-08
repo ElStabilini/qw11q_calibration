@@ -1,0 +1,13 @@
+actions:
+- id: all_xy
+  operation: allxy
+  parameters:
+    nshots: 2000
+    relaxation_time: 200000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D1
+update: true

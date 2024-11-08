@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>t1</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-export
+{
+  background:#6400FF;
+  color:white;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </buttom>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Actions
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#T1"> T1</a></li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </buttom>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>t1</h1>
+        <button class="button-export" id="export-pdf">Export to pdf</button>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2024-10-23<br>
+        Start time (UTC): 07:32:51<br>
+        End time (UTC): 07:33:30
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="T1" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          T1</h4>
+        
+        <div id="--D1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - Qubit D1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td>T1 [ns]</td>
+      <td>1.1e4</td>
+      <td>0.01e4</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>chi2 reduced</td>
+      <td>9.0e-1</td>
+      <td>1e-1</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="3716e50a-4b6f-472f-b2c0-4b238b485353" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("3716e50a-4b6f-472f-b2c0-4b238b485353")) {                    Plotly.newPlot(                        "3716e50a-4b6f-472f-b2c0-4b238b485353",                        [{"legendgroup":"Probability of 1","mode":"lines","name":"Probability of 1","opacity":1,"showlegend":true,"x":[10.0,1010.0,2010.0,3010.0,4010.0,5010.0,6010.0,7010.0,8010.0,9010.0,10010.0,11010.0,12010.0,13010.0,14010.0,15010.0,16010.0,17010.0,18010.0,19010.0,20010.0,21010.0,22010.0,23010.0,24010.0,25010.0,26010.0,27010.0,28010.0,29010.0,30010.0,31010.0,32010.0,33010.0,34010.0,35010.0,36010.0,37010.0,38010.0,39010.0,40010.0,41010.0,42010.0,43010.0,44010.0,45010.0,46010.0,47010.0,48010.0,49010.0,50010.0,51010.0,52010.0,53010.0,54010.0,55010.0,56010.0,57010.0,58010.0,59010.0,60010.0,61010.0,62010.0,63010.0,64010.0,65010.0,66010.0,67010.0,68010.0,69010.0,70010.0,71010.0,72010.0,73010.0,74010.0,75010.0,76010.0,77010.0,78010.0,79010.0,80010.0,81010.0,82010.0,83010.0,84010.0,85010.0,86010.0,87010.0,88010.0,89010.0,90010.0,91010.0,92010.0,93010.0,94010.0,95010.0,96010.0,97010.0,98010.0,99010.0],"y":[0.94921875,0.8818359375,0.8134765625,0.7451171875,0.650390625,0.5830078125,0.560546875,0.5146484375,0.4892578125,0.453125,0.3994140625,0.3798828125,0.3271484375,0.310546875,0.2626953125,0.26171875,0.2421875,0.220703125,0.1982421875,0.2021484375,0.1708984375,0.1552734375,0.1591796875,0.1357421875,0.1376953125,0.1337890625,0.1123046875,0.115234375,0.1044921875,0.0927734375,0.099609375,0.0830078125,0.0751953125,0.07421875,0.0712890625,0.0703125,0.0595703125,0.064453125,0.0546875,0.05859375,0.046875,0.05078125,0.05859375,0.052734375,0.048828125,0.0673828125,0.044921875,0.044921875,0.0400390625,0.04296875,0.04296875,0.029296875,0.041015625,0.03515625,0.0380859375,0.02734375,0.0341796875,0.0283203125,0.03125,0.037109375,0.041015625,0.0322265625,0.0283203125,0.0283203125,0.033203125,0.03515625,0.025390625,0.03125,0.0322265625,0.03125,0.033203125,0.0263671875,0.037109375,0.0244140625,0.0302734375,0.025390625,0.0283203125,0.02734375,0.037109375,0.025390625,0.0361328125,0.029296875,0.01953125,0.037109375,0.0419921875,0.029296875,0.0283203125,0.0234375,0.0302734375,0.0400390625,0.0341796875,0.0263671875,0.0390625,0.01953125,0.033203125,0.0361328125,0.02734375,0.0302734375,0.02734375,0.03125],"type":"scatter"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Errors","showlegend":true,"x":[10.0,1010.0,2010.0,3010.0,4010.0,5010.0,6010.0,7010.0,8010.0,9010.0,10010.0,11010.0,12010.0,13010.0,14010.0,15010.0,16010.0,17010.0,18010.0,19010.0,20010.0,21010.0,22010.0,23010.0,24010.0,25010.0,26010.0,27010.0,28010.0,29010.0,30010.0,31010.0,32010.0,33010.0,34010.0,35010.0,36010.0,37010.0,38010.0,39010.0,40010.0,41010.0,42010.0,43010.0,44010.0,45010.0,46010.0,47010.0,48010.0,49010.0,50010.0,51010.0,52010.0,53010.0,54010.0,55010.0,56010.0,57010.0,58010.0,59010.0,60010.0,61010.0,62010.0,63010.0,64010.0,65010.0,66010.0,67010.0,68010.0,69010.0,70010.0,71010.0,72010.0,73010.0,74010.0,75010.0,76010.0,77010.0,78010.0,79010.0,80010.0,81010.0,82010.0,83010.0,84010.0,85010.0,86010.0,87010.0,88010.0,89010.0,90010.0,91010.0,92010.0,93010.0,94010.0,95010.0,96010.0,97010.0,98010.0,99010.0,99010.0,98010.0,97010.0,96010.0,95010.0,94010.0,93010.0,92010.0,91010.0,90010.0,89010.0,88010.0,87010.0,86010.0,85010.0,84010.0,83010.0,82010.0,81010.0,80010.0,79010.0,78010.0,77010.0,76010.0,75010.0,74010.0,73010.0,72010.0,71010.0,70010.0,69010.0,68010.0,67010.0,66010.0,65010.0,64010.0,63010.0,62010.0,61010.0,60010.0,59010.0,58010.0,57010.0,56010.0,55010.0,54010.0,53010.0,52010.0,51010.0,50010.0,49010.0,48010.0,47010.0,46010.0,45010.0,44010.0,43010.0,42010.0,41010.0,40010.0,39010.0,38010.0,37010.0,36010.0,35010.0,34010.0,33010.0,32010.0,31010.0,30010.0,29010.0,28010.0,27010.0,26010.0,25010.0,24010.0,23010.0,22010.0,21010.0,20010.0,19010.0,18010.0,17010.0,16010.0,15010.0,14010.0,13010.0,12010.0,11010.0,10010.0,9010.0,8010.0,7010.0,6010.0,5010.0,4010.0,3010.0,2010.0,1010.0,10.0],"y":[0.9560797097150373,0.8919235089852591,0.8256493278221874,0.7587357913739898,0.6652920805940156,0.5984159862853129,0.5760568917963539,0.5302667305379959,0.5048792060027728,0.4686811839082754,0.41471962435855014,0.3950502330377395,0.3418100615594237,0.3250067978414875,0.27644838336768374,0.2754553217774739,0.25557522448325704,0.23366314674715585,0.2107007995516348,0.21469851090601622,0.1826615685255176,0.16659109849067028,0.17061229892912064,0.14644576851367588,0.14846343464396508,0.14442736066957104,0.12217159204688952,0.1252126430765247,0.11405149917494271,0.10183952120922578,0.10896807684412016,0.09162950092471905,0.08343613229043263,0.0824102046239295,0.0793299086680056,0.0783022793808367,0.06696684425485896,0.07212682448250435,0.06179278916545666,0.06593321167751827,0.053480346317611664,0.0576422097150373,0.06593321167751827,0.059718834639682854,0.055562767483738375,0.07521668134331663,0.05139476770626365,0.05139476770626365,0.04616565157751513,0.049305833668172566,0.049305833668172566,0.03456679332716918,0.047213323626703364,0.04091170665728822,0.04406730496102876,0.03244009417606155,0.0398575155108079,0.033504260116491665,0.03668726988557619,0.043016556580558765,0.047213323626703364,0.03774535241787602,0.033504260116491665,0.033504260116491665,0.03880208185476831,0.04091170665728822,0.03030651333946851,0.03668726988557619,0.03774535241787602,0.03668726988557619,0.03880208185476831,0.031374209807327386,0.043016556580558765,0.02923690204750949,0.035627772455378515,0.03030651333946851,0.033504260116491665,0.03244009417606155,0.043016556580558765,0.03030651333946851,0.04196470491176332,0.03456679332716918,0.023855710347636318,0.043016556580558765,0.04826004041507424,0.03456679332716918,0.033504260116491665,0.02816526287378835,0.035627772455378515,0.04616565157751513,0.0398575155108079,0.031374209807327386,0.045116990609197875,0.023855710347636318,0.03880208185476831,0.04196470491176332,0.03244009417606155,0.035627772455378515,0.03244009417606155,0.03668726988557619,0.025812730114423806,0.02224740582393845,0.024919102544621482,0.02224740582393845,0.030300920088236673,0.027604168145231693,0.015206789652363684,0.033008009390802125,0.021360165192672614,0.0285018594891921,0.03391247342248487,0.024919102544621482,0.01870973712621165,0.023136364883508332,0.024026956672830824,0.03572433458492576,0.031202193419441235,0.015206789652363684,0.024026956672830824,0.030300920088236673,0.02047473666053149,0.031202193419441235,0.02224740582393845,0.023136364883508332,0.02047473666053149,0.024919102544621482,0.01959122295249051,0.031202193419441235,0.021360165192672614,0.027604168145231693,0.025812730114423806,0.026707772582123982,0.025812730114423806,0.02047473666053149,0.029400793342711777,0.027604168145231693,0.023136364883508332,0.023136364883508332,0.026707772582123982,0.034817926373296636,0.031202193419441235,0.025812730114423806,0.023136364883508332,0.0285018594891921,0.02224740582393845,0.03210457003897124,0.029400793342711777,0.034817926373296636,0.024026956672830824,0.036631666331827434,0.036631666331827434,0.03391247342248487,0.03844898229373635,0.03844898229373635,0.059548943656683374,0.042093482516261625,0.045749915360317146,0.05125428832248173,0.0439202902849627,0.040269653682388336,0.05125428832248173,0.04758221083454334,0.05677942551749565,0.052173780745141035,0.062322720619163295,0.0632482163319944,0.0660272953760705,0.06695449270956737,0.07438612407528095,0.09025067315587984,0.08370735379077422,0.09493287582505729,0.10525610692347531,0.10243778295311048,0.12315076433042897,0.12692719035603492,0.12503860648632412,0.14774707607087936,0.14395577650932972,0.1591353064744824,0.18959836409398378,0.1857835754483652,0.20774310325284415,0.22879977551674296,0.24798217822252608,0.2489422416323163,0.2960869521585125,0.3124868134405763,0.3647153919622605,0.38410850064144986,0.4375688160917246,0.47363641899722725,0.4990301444620041,0.5450368582036461,0.5675996387146871,0.6354891694059844,0.7314985836260102,0.8013037971778126,0.8717483660147409,0.9423577902849627],"type":"scatter"},{"line":{"dash":"dot"},"name":"Fit","x":[10.0,507.48743718592965,1004.9748743718593,1502.462311557789,1999.9497487437186,2497.4371859296484,2994.924623115578,3492.4120603015076,3989.899497487437,4487.386934673367,4984.874371859297,5482.361809045226,5979.849246231156,6477.336683417086,6974.824120603015,7472.311557788945,7969.798994974874,8467.286432160805,8964.773869346735,9462.261306532664,9959.748743718594,10457.236180904523,10954.723618090453,11452.211055276382,11949.698492462312,12447.185929648242,12944.673366834171,13442.1608040201,13939.64824120603,14437.13567839196,14934.62311557789,15432.11055276382,15929.597989949749,16427.08542713568,16924.57286432161,17422.06030150754,17919.54773869347,18417.0351758794,18914.52261306533,19412.010050251258,19909.497487437187,20406.984924623117,20904.472361809047,21401.959798994976,21899.447236180906,22396.934673366835,22894.422110552765,23391.909547738695,23889.396984924624,24386.884422110554,24884.371859296483,25381.859296482413,25879.346733668342,26376.834170854272,26874.3216080402,27371.80904522613,27869.29648241206,28366.78391959799,28864.27135678392,29361.75879396985,29859.24623115578,30356.73366834171,30854.22110552764,31351.708542713568,31849.195979899498,32346.683417085427,32844.17085427136,33341.65829145729,33839.14572864322,34336.633165829146,34834.12060301508,35331.608040201005,35829.09547738694,36326.582914572864,36824.0703517588,37321.55778894472,37819.04522613066,38316.53266331658,38814.020100502516,39311.50753768844,39808.994974874375,40306.4824120603,40803.969849246234,41301.45728643216,41798.94472361809,42296.43216080402,42793.91959798995,43291.40703517588,43788.89447236181,44286.38190954774,44783.86934673367,45281.3567839196,45778.84422110553,46276.331658291456,46773.81909547739,47271.306532663315,47768.79396984925,48266.281407035174,48763.76884422111,49261.25628140703,49758.74371859297,50256.23115577889,50753.718592964826,51251.20603015075,51748.693467336685,52246.18090452261,52743.668341708544,53241.15577889447,53738.6432160804,54236.13065326633,54733.61809045226,55231.10552763819,55728.59296482412,56226.08040201005,56723.56783919598,57221.05527638191,57718.54271356784,58216.030150753766,58713.5175879397,59211.005025125625,59708.49246231156,60205.979899497484,60703.46733668342,61200.95477386934,61698.44221105528,62195.9296482412,62693.417085427136,63190.90452261306,63688.391959798995,64185.87939698493,64683.366834170854,65180.85427135679,65678.34170854272,66175.82914572864,66673.31658291457,67170.8040201005,67668.29145728644,68165.77889447236,68663.26633165829,69160.75376884422,69658.24120603016,70155.72864321608,70653.21608040201,71150.70351758794,71648.19095477388,72145.6783919598,72643.16582914573,73140.65326633166,73638.1407035176,74135.62814070351,74633.11557788945,75130.60301507538,75628.09045226131,76125.57788944723,76623.06532663316,77120.5527638191,77618.04020100503,78115.52763819095,78613.01507537688,79110.50251256282,79607.98994974875,80105.47738693467,80602.9648241206,81100.45226130653,81597.93969849247,82095.42713567839,82592.91457286432,83090.40201005025,83587.88944723619,84085.3768844221,84582.86432160804,85080.35175879397,85577.8391959799,86075.32663316582,86572.81407035176,87070.30150753769,87567.78894472362,88065.27638190954,88562.76381909547,89060.25125628141,89557.73869346734,90055.22613065326,90552.7135678392,91050.20100502513,91547.68844221106,92045.17587939698,92542.66331658291,93040.15075376884,93537.63819095478,94035.1256281407,94532.61306532663,95030.10050251256,95527.5879396985,96025.07537688443,96522.56281407035,97020.05025125628,97517.53768844221,98015.02512562815,98512.51256281407,99010.0],"y":[0.9522805695797255,0.9113247099412713,0.8721856376443822,0.8347827606498818,0.7990390619527382,0.7648809409948228,0.7322380621125422,0.7010432097072807,0.6712321498404293,0.64274349796801,0.6155185925425453,0.589501374221903,0.5646382704363953,0.5408780850764384,0.5181718930736293,0.49647293965816774,0.4757365440851842,0.4559200076317319,0.43698252567500145,0.418885103670713,0.4015904768586779,0.38506303353019217,0.36926874169926244,0.35417507902666867,0.33975096585257136,0.3259667011997682,0.3127939016158238,0.30020544272813987,0.28817540339162273,0.27667901231393954,0.2656925970484599,0.2551935352498516,0.2451602080919616,0.23557195575206205,0.22640903486980102,0.21765257789325723,0.2092845542283904,0.20128773311188788,0.1936456481309585,0.1863425633170157,0.179363440743433,0.17269390956065114,0.1663202364048773,0.1602292971194435,0.15440854973059548,0.14884600862206634,0.1435302198552563,0.13845023758420122,0.1335956015167639,0.12895631537563942,0.1245228263148229,0.12028600524915431,0.11623712805643907,0.11236785761343465,0.1086702266287152,0.10513662123706402,0.10175976532161257,0.09853270553144422,0.09544879696381176,0.09250168948148618,0.08968531463706361,0.08699387317730489,0.08442182310177829,0.08196386825121678,0.07961494740209143,0.0773702238449458,0.07522507542503168,0.0731750850247388,0.07121603146822009,0.06934388082948535,0.0675547781260639,0.06584503938113412,0.06421114403777353,0.06264972770971049,0.06115757525364963,0.059731614148906716,0.05836890817072027,0.05706665134421322,0.05582216216655421,0.054632878085422165,0.05349635022240394,0.05241023833046031,0.05137230597507689,0.050380415929177594,0.04943252577231788,0.048526683685096564,0.04766102443012557,0.04683376551128287,0.046043203503339306,0.045287710544402,0.04456573098395162,0.04387577817957167,0.043216431435773514,0.04258633307861428,0.04198418566008344,0.04140874928650198,0.04085883906543269,0.040333322665844766,0.03983111798650845,0.039351190927819024,0.0388925532624618,0.038454260600533675,0.03803541044493117,0.03763514033300077,0.03725262606062499,0.036887079985087334,0.0365377494032216,0.03620391500150587,0.03588488937490974,0.03558001561144507,0.03528866593950544,0.03501024043520928,0.0347441657870846,0.03448989411555208,0.034246901844775315,0.03401468862455548,0.03379277630005029,0.033580707927195905,0.03337804683180437,0.0331843757103991,0.03299929577093707,0.0328224259116482,0.03265340193630113,0.0324918758042796,0.032337514913925045,0.03219000141767001,0.032049031567551865,0.031914315089759386,0.03178557458692419,0.03166254496692633,0.03154497289703786,0.03143261628228036,0.031325243766922424,0.03122263425809045,0.031124576470511936,0.03103086849145379,0.03094131736495983,0.030855738694531336,0.030773956263432573,0.03069580167183942,0.030621113990083958,0.030549739427280998,0.03048153101465422,0.030416348302909874,0.030354057073034818,0.030294529059923532,0.03023764168826487,0.030183277820144815,0.03013132551384548,0.03008167779334371,0.030034232428034616,0.029988891722226515,0.029945562313973804,0.029904154982833525,0.02986458446614978,0.029826769283487705,0.029790631568855506,0.02975609691036903,0.029723094197028798,0.029691555472293938,0.029661415794151512,0.02963261310139314,0.029605088085823537,0.029578784070137823,0.029553646891216177,0.02952962478859547,0.029506668297888283,0.029484730148929793,0.029463765168442846,0.02944373018702077,0.029424583950236397,0.029406287033694245,0.029388801761850967,0.0293720921304369,0.029356123732318957,0.02934086368665221,0.029326280571174295,0.029312344357503226,0.029299026349305327,0.02928629912320607,0.029274136472322042,0.029262513352297848,0.029251405829736774,0.029240791032919055,0.029230647104706266,0.029220953157534858,0.02921168923040616,0.02920283624778428,0.02919437598031731,0.029186291007300906,0.029178564680806946,0.029171181091403476,0.029164125035395276,0.029157381983517628,0.029150938051018815,0.029144779969069768,0.02913889505744194,0.029133271198397214,0.02912789681173601,0.029122760830952277],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"showlegend":true,"xaxis":{"title":{"text":"Time [ns]"}},"yaxis":{"title":{"text":"Probability of State 1"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in .</p>
+
+      <div class="table-responsive col-md-5 col-lg-3">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.12</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.1.9</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.0.12</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+       var exportPDFButton = document.getElementById("export-pdf");
+
+       exportPDFButton.addEventListener("click", function() {
+
+        document.body.classList.add("impresion");
+
+        var doc = new jsPDF({orientation: 'landscape',});
+
+        var iframes = document.querySelectorAll("iframe.gh-fit")
+        source = ""
+        for(var id = 0; id < iframes.length; id++) {
+            var win = iframes[id].contentWindow
+            var doc = win.document
+            var html = doc.documentElement
+            var body = doc.body
+            var ifrm = iframes[id] // or win.frameElement
+            source = source + html
+        }
+
+        print(source)
+
+        doc.fromHTML(source, 0, 0, {
+        width: 210,
+        margins: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+        }
+        });
+
+        // Guardar el PDF
+        doc.save("report.pdf");
+    });
+    </script>
+
+</body>
+
+</html>

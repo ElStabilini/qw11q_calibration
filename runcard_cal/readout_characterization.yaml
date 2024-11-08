@@ -1,10 +1,11 @@
-platform: <platform_name>
+platform: qw11q
 
-qubits: [0]
+qubits: [D1]
 
 actions:
-  - id: readout characterization
-
+  - id: readout
     operation: readout_characterization
     parameters:
-        nshots: 5000
+      delay: 1000
+      nshots: 5000
+      relaxation_time: 200000
