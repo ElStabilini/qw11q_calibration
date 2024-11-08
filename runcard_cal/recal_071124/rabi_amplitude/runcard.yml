@@ -1,0 +1,17 @@
+actions:
+- id: rabi
+  operation: rabi_amplitude_signal
+  parameters:
+    max_amp_factor: 2
+    min_amp_factor: 0
+    nshots: 1024
+    pulse_length: 40
+    relaxation_time: 100000
+    step_amp_factor: 0.1
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D1
+update: true
