@@ -1,0 +1,55 @@
+{
+    "title": "recalibration_2",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-07 17:42:20.646366+00:00",
+    "end_time": "2024-11-07 17:48:40.385050+00:00",
+    "stats": {
+        "resonator_spectroscopy high power-0": {
+            "acquisition": 12.510473059955984,
+            "fit": 0.003679571207612753
+        },
+        "resonator punchout-0": {
+            "acquisition": 63.405060559976846,
+            "fit": 0.012235722038894892
+        },
+        "resonator_spectroscopy low power-0": {
+            "acquisition": 2.9815747630782425,
+            "fit": 0.010968636721372604
+        },
+        "qubit spectroscopy 01-0": {
+            "acquisition": 13.001151197124273,
+            "fit": 0.006588712800294161
+        },
+        "rabi amplitude frequency-0": {
+            "acquisition": 210.0590961771086,
+            "fit": 0.013719795271754265
+        },
+        "rabi-0": {
+            "acquisition": 4.690207905136049,
+            "fit": 0.010721883736550808
+        },
+        "resonator flux dependence-0": {
+            "acquisition": 23.922979403752834,
+            "fit": 0.011830901727080345
+        },
+        "qubit flux dependence-0": {
+            "acquisition": 48.929393481928855,
+            "fit": 0.014384737238287926
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-07",
+    "start-time": "17:42:20",
+    "end-time": "17:48:40"
+}

@@ -1,0 +1,27 @@
+{
+    "title": "flipping",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-06 20:20:48.155689+00:00",
+    "end_time": "2024-11-06 20:23:36.020144+00:00",
+    "stats": {
+        "flipping-0": {
+            "acquisition": 167.84194975020364,
+            "fit": 0.01382799120619893
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-06",
+    "start-time": "20:20:48",
+    "end-time": "20:23:36"
+}

@@ -1,9 +1,0 @@
-id: resonator_amplitude
-operation: resonator_amplitude
-parameters:
-  amplitude_start: 0.001
-  amplitude_step: 0.0005
-  amplitude_stop: 0.005
-targets:
-- D1
-update: true
