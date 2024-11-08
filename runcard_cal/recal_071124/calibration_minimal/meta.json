@@ -1,0 +1,39 @@
+{
+    "title": "calibration_minimal",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-08 06:31:44.417105+00:00",
+    "end_time": "2024-11-08 06:32:19.611998+00:00",
+    "stats": {
+        "resonator spectroscopy low power-0": {
+            "acquisition": 2.6308196801692247,
+            "fit": 0.0033086868934333324
+        },
+        "qubit spectroscopy-0": {
+            "acquisition": 6.237146340776235,
+            "fit": 0.004506261087954044
+        },
+        "rabi-0": {
+            "acquisition": 18.070658810902387,
+            "fit": 0.009430140256881714
+        },
+        "single_shot-0": {
+            "acquisition": 6.755178208928555,
+            "fit": 0.022773397155106068
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-08",
+    "start-time": "06:31:44",
+    "end-time": "06:32:19"
+}

@@ -1,0 +1,44 @@
+actions:
+- id: resonator spectroscopy low power
+  operation: resonator_spectroscopy
+  parameters:
+    freq_step: 200000
+    freq_width: 10000000
+    nshots: 1024
+    power_level: low
+    relaxation_time: 2000
+  targets: null
+  update: true
+- id: qubit spectroscopy
+  operation: qubit_spectroscopy
+  parameters:
+    drive_amplitude: 0.01
+    drive_duration: 3000
+    freq_step: 200000
+    freq_width: 50000000
+    nshots: 1024
+    relaxation_time: 10000
+  targets: null
+  update: true
+- id: rabi
+  operation: rabi_amplitude_signal
+  parameters:
+    max_amp_factor: 1.2
+    min_amp_factor: 0.2
+    nshots: 3000
+    pulse_length: 40
+    relaxation_time: 50000
+    step_amp_factor: 0.01
+  targets: null
+  update: true
+- id: single_shot
+  operation: single_shot_classification
+  parameters:
+    nshots: 5000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D1
+update: true
