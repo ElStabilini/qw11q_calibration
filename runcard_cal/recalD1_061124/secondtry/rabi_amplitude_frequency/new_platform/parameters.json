@@ -644,9 +644,9 @@
             "D1": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.05536612168507061,
+                    "amplitude": 0.0553781582907111,
                     "shape": "Gaussian(5)",
-                    "frequency": 4957515499,
+                    "frequency": 4954515499,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -664,7 +664,7 @@
                     "duration": 1000,
                     "amplitude": 0.001,
                     "shape": "Rectangular()",
-                    "frequency": 7137630476,
+                    "frequency": 7137630197,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -1547,8 +1547,8 @@
             },
             "D1": {
                 "bare_resonator_frequency": 7137592559,
-                "readout_frequency": 7137630476,
-                "drive_frequency": 4957515499,
+                "readout_frequency": 7137630197,
+                "drive_frequency": 4954515499,
                 "anharmonicity": -200000000,
                 "sweetspot": 0.22322496600648412,
                 "asymmetry": 0.0,
