@@ -1,7 +1,0 @@
-id: single_shot
-operation: single_shot_classification
-parameters:
-  nshots: 5000
-targets:
-- D1
-update: true
