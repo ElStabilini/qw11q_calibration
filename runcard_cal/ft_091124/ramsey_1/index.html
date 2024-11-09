@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>ramsey_1</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-export
+{
+  background:#6400FF;
+  color:white;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </buttom>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Actions
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Ramsey"> Ramsey</a></li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </buttom>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>ramsey_1</h1>
+        <button class="button-export" id="export-pdf">Export to pdf</button>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2024-11-09<br>
+        Start time (UTC): 10:59:46<br>
+        End time (UTC): 10:59:58
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Ramsey" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Ramsey</h4>
+        
+        <div id="--D1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - Qubit D1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td>Delta Frequency [Hz]</td>
+      <td>-7.0e4</td>
+      <td>1e4</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>Delta Frequency (with detuning) [Hz]</td>
+      <td>-3.07e6</td>
+      <td>0.01e6</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>Drive Frequency [Hz]</td>
+      <td>4.95822e9</td>
+      <td>0.00001e9</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>T2* [ns]</td>
+      <td>1.0e4</td>
+      <td>1e4</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>chi2 reduced</td>
+      <td>4.3</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="f2c47471-076c-4c2d-8c51-8e59dad229d8" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("f2c47471-076c-4c2d-8c51-8e59dad229d8")) {                    Plotly.newPlot(                        "f2c47471-076c-4c2d-8c51-8e59dad229d8",                        [{"legendgroup":"Probability of State 0","mode":"lines","name":"Probability of State 0","opacity":1,"showlegend":true,"x":[10.0,30.0,50.0,70.0,90.0,110.0,130.0,150.0,170.0,190.0,210.0,230.0,250.0,270.0,290.0,310.0,330.0,350.0,370.0,390.0,410.0,430.0,450.0,470.0,490.0,510.0,530.0,550.0,570.0,590.0,610.0,630.0,650.0,670.0,690.0,710.0,730.0,750.0,770.0,790.0,810.0,830.0,850.0,870.0,890.0,910.0,930.0,950.0,970.0,990.0],"y":[0.818359375,0.7890625,0.64453125,0.623046875,0.6416015625,0.6328125,0.654296875,0.6806640625,0.755859375,0.810546875,0.8837890625,0.9453125,0.9814453125,0.9853515625,0.9619140625,0.9208984375,0.861328125,0.80078125,0.7333984375,0.638671875,0.6064453125,0.6328125,0.630859375,0.7060546875,0.802734375,0.8173828125,0.9091796875,0.9384765625,0.9736328125,0.9794921875,0.96875,0.91015625,0.857421875,0.7861328125,0.7138671875,0.6533203125,0.6484375,0.6337890625,0.654296875,0.689453125,0.7666015625,0.8603515625,0.8876953125,0.9462890625,0.9775390625,0.970703125,0.9560546875,0.9072265625,0.82421875,0.779296875],"type":"scatter"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Errors","showlegend":true,"x":[10.0,30.0,50.0,70.0,90.0,110.0,130.0,150.0,170.0,190.0,210.0,230.0,250.0,270.0,290.0,310.0,330.0,350.0,370.0,390.0,410.0,430.0,450.0,470.0,490.0,510.0,530.0,550.0,570.0,590.0,610.0,630.0,650.0,670.0,690.0,710.0,730.0,750.0,770.0,790.0,810.0,830.0,850.0,870.0,890.0,910.0,930.0,950.0,970.0,990.0,990.0,970.0,950.0,930.0,910.0,890.0,870.0,850.0,830.0,810.0,790.0,770.0,750.0,730.0,710.0,690.0,670.0,650.0,630.0,610.0,590.0,570.0,550.0,530.0,510.0,490.0,470.0,450.0,430.0,410.0,390.0,370.0,350.0,330.0,310.0,290.0,270.0,250.0,230.0,210.0,190.0,170.0,150.0,130.0,110.0,90.0,70.0,50.0,30.0,10.0],"y":[0.8304077519471313,0.8018116908097138,0.659489222299935,0.6381913442150436,0.6565868742374551,0.6478761941903344,0.6691592801972519,0.6952334176636229,0.7692836410204607,0.8227927543463183,0.8938039905912653,0.9524177891654567,0.9856623736285921,0.9891059688667649,0.9678954299610287,0.9293327253903233,0.8721282437278262,0.8132629021455166,0.7472166337721402,0.6536839180523448,0.6217121255757861,0.6478761941903344,0.6459397528749143,0.7202911622271065,0.8151698293776837,0.8294563239219617,0.9181594816222465,0.9459855612771303,0.9786398348073274,0.9839212333779658,0.9741872698855762,0.9190924305508746,0.8683481908564453,0.798946380047402,0.7279906949609273,0.6681925838416043,0.6633580679595679,0.6488443151248164,0.6691592801972519,0.7039130478414874,0.779820113284276,0.8711834973187561,0.8975622170468895,0.9533342620439542,0.9821695959072191,0.9759730433271692,0.9624601083311933,0.9162926462092258,0.8361135608659022,0.7922568967471558,0.7663368532528442,0.8123239391340978,0.8981604787907742,0.9496492666688067,0.9654332066728308,0.9729085290927809,0.9392438629560458,0.8778284079531105,0.8495196276812439,0.753383011715724,0.6749932021585126,0.6394344698027481,0.6187338098751836,0.6335169320404321,0.6384480411583957,0.6997436800390727,0.773319244952598,0.8464955591435547,0.9012200694491254,0.9633127301144238,0.9750631416220342,0.9686257901926726,0.9309675637228697,0.9001998933777535,0.8053093010780383,0.7902989206223163,0.6918182127728935,0.6157789971250857,0.6177488058096656,0.5911784994242139,0.6236598319476552,0.7195802412278598,0.7882995978544834,0.8505280062721738,0.9124641496096767,0.9559326950389713,0.9815971561332351,0.9772282513714079,0.9382072108345433,0.8737741344087347,0.7983009956536817,0.7424351089795393,0.6660947073363771,0.6394344698027481,0.6177488058096656,0.6266162507625449,0.6079024057849564,0.629573277700065,0.7763133091902862,0.8063109980528687],"type":"scatter"},{"line":{"dash":"dot"},"name":"Fit","x":[10.0,30.0,50.0,70.0,90.0,110.0,130.0,150.0,170.0,190.0,210.0,230.0,250.0,270.0,290.0,310.0,330.0,350.0,370.0,390.0,410.0,430.0,450.0,470.0,490.0,510.0,530.0,550.0,570.0,590.0,610.0,630.0,650.0,670.0,690.0,710.0,730.0,750.0,770.0,790.0,810.0,830.0,850.0,870.0,890.0,910.0,930.0,950.0,970.0,990.0],"y":[0.80622649665581,0.7370630932121154,0.6782363988560607,0.6383326915909402,0.623140867545856,0.6348127914724039,0.6715588994657704,0.7279220514440945,0.7955878004293864,0.8646107950638365,0.9248764336394965,0.9675829656417645,0.9865268800933833,0.9790038802276018,0.9461946112772107,0.892980170997172,0.827216122007369,0.7585729589559355,0.6971141688311566,0.6518209517328927,0.6292798612412053,0.6327251160833749,0.6615748121978667,0.7115275033656856,0.7752033375846495,0.8432342162115664,0.9056419534787903,0.9533017059724684,0.9792760537930865,0.9798247001187205,0.954942851377628,0.9083508163857202,0.846937979120219,0.7797442144009247,0.7166293247382917,0.666826328061946,0.637590857635451,0.6331442259356936,0.6540641008574216,0.6972107182552705,0.7561978475210944,0.8223379034490622,0.8859213540122121,0.9376420213019774,0.9699590622732165,0.9781963129966629,0.9612187438434763,0.921588194621642,0.86517712513787,0.8002985703864184],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"showlegend":true,"xaxis":{"title":{"text":"Time [ns]"}},"yaxis":{"title":{"text":"Ground state probability"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in .</p>
+
+      <div class="table-responsive col-md-5 col-lg-3">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.12</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.1.9</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.1.1</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+       var exportPDFButton = document.getElementById("export-pdf");
+
+       exportPDFButton.addEventListener("click", function() {
+
+        document.body.classList.add("impresion");
+
+        var doc = new jsPDF({orientation: 'landscape',});
+
+        var iframes = document.querySelectorAll("iframe.gh-fit")
+        source = ""
+        for(var id = 0; id < iframes.length; id++) {
+            var win = iframes[id].contentWindow
+            var doc = win.document
+            var html = doc.documentElement
+            var body = doc.body
+            var ifrm = iframes[id] // or win.frameElement
+            source = source + html
+        }
+
+        print(source)
+
+        doc.fromHTML(source, 0, 0, {
+        width: 210,
+        margins: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+        }
+        });
+
+        // Guardar el PDF
+        doc.save("report.pdf");
+    });
+    </script>
+
+</body>
+
+</html>

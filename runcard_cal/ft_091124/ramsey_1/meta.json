@@ -1,0 +1,27 @@
+{
+    "title": "ramsey_1",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-09 10:59:46.156746+00:00",
+    "end_time": "2024-11-09 10:59:58.980519+00:00",
+    "stats": {
+        "ramsey-0": {
+            "acquisition": 12.801617328077555,
+            "fit": 0.012338075321167707
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-09",
+    "start-time": "10:59:46",
+    "end-time": "10:59:58"
+}
