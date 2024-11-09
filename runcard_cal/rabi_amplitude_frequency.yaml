@@ -42,11 +42,11 @@ actions:
     
     operation: rabi_amplitude_frequency_signal
     parameters:
-      min_amp_factor: 0.0
-      max_amp_factor: 2
-      step_amp_factor: 0.1
+      max_amp_factor: 1.8 
+      max_freq: 50000000
+      min_amp_factor: 0.2
       min_freq: -50000000
-      max_freq: 50_000_000
-      step_freq: 1_000_000
-      pulse_length: 40
       nshots: 1024
+      pulse_length: 40
+      step_amp_factor: 0.05
+      step_freq: 1000000

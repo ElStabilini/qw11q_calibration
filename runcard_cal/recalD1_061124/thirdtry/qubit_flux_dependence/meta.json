@@ -1,0 +1,27 @@
+{
+    "title": "qubit_flux_dependence",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-08 17:06:28.047957+00:00",
+    "end_time": "2024-11-08 17:07:17.371583+00:00",
+    "stats": {
+        "qubit flux dependence-0": {
+            "acquisition": 49.29777196608484,
+            "fit": 0.014013027772307396
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-08",
+    "start-time": "17:06:28",
+    "end-time": "17:07:17"
+}
