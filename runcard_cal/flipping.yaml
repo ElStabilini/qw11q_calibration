@@ -8,5 +8,4 @@ actions:
     operation: flipping
     parameters:
         nflips_max: 20
-        delta_amplitude:
         nflips_step: 1
