@@ -1,0 +1,14 @@
+actions:
+- id: drag_tuning
+  operation: drag_tuning
+  parameters:
+    beta_end: 4
+    beta_start: -4
+    beta_step: 0.1
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D1
+update: true
