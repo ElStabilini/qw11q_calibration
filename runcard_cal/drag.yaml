@@ -9,4 +9,4 @@ actions:
     parameters:
       beta_start: -1
       beta_end: 1 
-      beta_step: 0.5
+      beta_step: 0.1

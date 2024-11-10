@@ -1,0 +1,27 @@
+{
+    "title": "drag_2",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-10 16:25:42.041463+00:00",
+    "end_time": "2024-11-10 16:26:35.816992+00:00",
+    "stats": {
+        "drag_tuning-0": {
+            "acquisition": 53.74895708495751,
+            "fit": 0.013097167015075684
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.9",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-10",
+    "start-time": "16:25:42",
+    "end-time": "16:26:35"
+}
