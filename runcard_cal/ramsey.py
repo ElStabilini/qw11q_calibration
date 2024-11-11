@@ -20,12 +20,6 @@ with Executor.open(
         relaxation_time=200000,
     )
 
-    if ramsey_output.results.chi2[target][0] < 2:
-        ramsey_output.update_platform(e.platform)
-
-    e.platform.settings.nshots = 5000
-    classification = e.classification(
-        unrolling=False,
-    )
-
 report(e.path, e.history)
+
+print(ramsey_output)
