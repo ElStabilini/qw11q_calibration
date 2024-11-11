@@ -1,7 +1,7 @@
 from qibocal.auto.execute import Executor
 from qibocal.cli.report import report
 
-target = "D2" 
+target = "D2"
 with Executor.open(
     "myexec",
     path="classification_2",
@@ -12,7 +12,6 @@ with Executor.open(
 ) as e:
     e.platform.settings.nshots = 5000
 
-    classification = e.classification(
-    )
+    classification = e.classification()
 
 report(e.path, e.history)

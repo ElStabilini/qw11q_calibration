@@ -1,7 +1,7 @@
 from qibocal.auto.execute import Executor
 from qibocal.cli.report import report
 
-target = "D3" 
+target = "D3"
 with Executor.open(
     "myexec",
     path="resonator_spectroscopy_high",
@@ -13,11 +13,11 @@ with Executor.open(
     e.platform.settings.nshots = 1024
 
     resonator_high = e.resonator_spectroscopy(
-        amplitude = 0.2,
-        freq_step = 100000,
-        freq_width = 10000000,
-        power_level = "high",
-        relaxation_time = 100000,
+        amplitude=0.2,
+        freq_step=100000,
+        freq_width=10000000,
+        power_level="high",
+        relaxation_time=100000,
     )
 
 report(e.path, e.history)

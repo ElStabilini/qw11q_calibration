@@ -10,7 +10,7 @@ with Executor.open(
 ) as e:
     e.platform.settings.nshots = 1024
 
-    rabi = e.rabi_amplitude( cambiaaaa
+    rabi = e.rabi_amplitude( 
         min_amp_factor = 0.0,
         max_amp_factor = 2,
         step_amp_factor = 0.1,
