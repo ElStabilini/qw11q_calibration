@@ -5,4 +5,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 #run the script
-python ramsey.py
+python flipping.py
