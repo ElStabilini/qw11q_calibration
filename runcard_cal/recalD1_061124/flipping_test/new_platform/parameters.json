@@ -631,7 +631,7 @@
             "D1": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.04328951744560967,
+                    "amplitude": 0.042818171650572896,
                     "shape": "Gaussian(5)",
                     "frequency": 4958222671,
                     "relative_start": 0,
