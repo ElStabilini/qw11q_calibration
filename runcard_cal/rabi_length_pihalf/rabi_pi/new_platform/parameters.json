@@ -213,8 +213,8 @@
                         "D1/drive",
                         {
                             "kind": "pulse",
-                            "duration": 96.0,
-                            "amplitude": 0.041,
+                            "duration": 41.0,
+                            "amplitude": 0.09,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
