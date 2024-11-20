@@ -42,7 +42,7 @@
         },
         "D1/probe": {
             "kind": "iq",
-            "frequency": 7137633650.8516
+            "frequency": 7137640090.551328
         },
         "D1/acquisition": {
             "kind": "qm-acquisition",
@@ -214,7 +214,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.05903361089859995,
+                            "amplitude": 0.08407633960510656,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
