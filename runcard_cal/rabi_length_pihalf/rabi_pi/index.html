@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>rabi_pi</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-export
+{
+  background:#6400FF;
+  color:white;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </buttom>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Actions
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Rabi Length"> Rabi Length</a></li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </buttom>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>rabi_pi</h1>
+        <button class="button-export" id="export-pdf">Export to pdf</button>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2024-11-20<br>
+        Start time (UTC): 10:56:40<br>
+        End time (UTC): 10:56:55
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Rabi Length" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Rabi Length</h4>
+        
+        <div id="--D1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - Qubit D1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td>Pi pulse amplitude [a.u.]</td>
+      <td>4.0e-2</td>
+      <td>0e-2</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>Pi pulse length [ns]</td>
+      <td>9.7e1</td>
+      <td>0.7e1</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>chi2 reduced</td>
+      <td>3.0</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="f27b1774-da5e-429f-8b49-dacefd51f80b" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("f27b1774-da5e-429f-8b49-dacefd51f80b")) {                    Plotly.newPlot(                        "f27b1774-da5e-429f-8b49-dacefd51f80b",                        [{"legendgroup":"Probability","mode":"lines","name":"Probability","opacity":1,"showlegend":true,"x":[20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.43366666666666664,0.4483333333333333,0.44633333333333336,0.43866666666666665,0.4176666666666667,0.49666666666666665,0.497,0.5006666666666667,0.4826666666666667,0.5593333333333333,0.5633333333333334,0.552,0.5656666666666667,0.6076666666666667,0.613,0.6336666666666667,0.6393333333333333,0.666,0.668,0.6843333333333333,0.6716666666666666,0.7136666666666667,0.7006666666666667,0.7006666666666667,0.7206666666666667,0.726,0.7383333333333333,0.7603333333333333,0.7526666666666667,0.7676666666666667,0.7726666666666666,0.781,0.781,0.797,0.8173333333333334,0.8126666666666666,0.8253333333333334,0.829,0.8426666666666667,0.8526666666666667,0.8586666666666667,0.861,0.8736666666666667,0.8826666666666667,0.8796666666666667,0.8696666666666667,0.8786666666666667,0.8953333333333333,0.8906666666666667,0.9003333333333333,0.9033333333333333,0.9126666666666666,0.9106666666666666,0.917,0.9183333333333333,0.9276666666666666,0.9263333333333333,0.9246666666666666,0.919,0.9286666666666666,0.9176666666666666,0.9226666666666666,0.914,0.9206666666666666,0.9196666666666666,0.925,0.9173333333333333,0.9033333333333333,0.909,0.9023333333333333],"type":"scatter"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Errors","showlegend":true,"x":[20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0,89.0,88.0,87.0,86.0,85.0,84.0,83.0,82.0,81.0,80.0,79.0,78.0,77.0,76.0,75.0,74.0,73.0,72.0,71.0,70.0,69.0,68.0,67.0,66.0,65.0,64.0,63.0,62.0,61.0,60.0,59.0,58.0,57.0,56.0,55.0,54.0,53.0,52.0,51.0,50.0,49.0,48.0,47.0,46.0,45.0,44.0,43.0,42.0,41.0,40.0,39.0,38.0,37.0,36.0,35.0,34.0,33.0,32.0,31.0,30.0,29.0,28.0,27.0,26.0,25.0,24.0,23.0,22.0,21.0,20.0],"y":[0.4427146846612127,0.45741317466005915,0.4554093069062508,0.4477264352844299,0.42667076244252006,0.5057951730959589,0.5061285449735067,0.5097953678440076,0.4917898889694052,0.5683975405160853,0.5723885139663355,0.5610792070138312,0.5747163054971925,0.6165812219722496,0.6218925249507662,0.6424631284974678,0.6481004351391797,0.6746109232954429,0.676597984259891,0.692819031541146,0.6802404747578934,0.7219198792847032,0.709027944258217,0.709027944258217,0.7288582522319937,0.7341429724302615,0.7463582367018526,0.7681270606306657,0.76054405107935,0.7753771477488378,0.7803185267649018,0.7885506953322194,0.7885506953322194,0.804343727482235,0.8243878721927145,0.8197903257347663,0.832265341753751,0.8358740817568603,0.8493144621798564,0.8591377876984051,0.8650269135754541,0.8673160905629986,0.8797322312796334,0.8885422154983993,0.8856067346298644,0.8758133881655785,0.8846279740052616,0.900922356967671,0.896364021478494,0.9058024350945071,0.908728461451127,0.917821154103914,0.9158741257043961,0.9220368971930479,0.9233332407398834,0.932396050778163,0.9311026760165162,0.9294853186988647,0.9239812648996013,0.9333657761173636,0.9226851178073924,0.9275435812954351,0.9191187237992817,0.9256008858063602,0.9246291891733793,0.9298088460154179,0.9223610196431213,0.908728461451127,0.9142509999047801,0.9077532930161135,0.8969133736505531,0.90374900009522,0.8979382052155397,0.9123056470235453,0.9201911539845822,0.9147041441599539,0.915732447526973,0.9088812762007183,0.9177897520378981,0.9126482155259409,0.9239675572159697,0.9140187351003988,0.9198480146344685,0.9215639906501505,0.9229372825551703,0.9133334259267832,0.9119631028069521,0.9054592076289372,0.9075121792294193,0.8979382052155397,0.8948642315721596,0.8849693118548394,0.8897443096989957,0.8727053593280718,0.8635199451677549,0.873726598703469,0.8767911178349341,0.8676011020537,0.8546839094370013,0.8523064197578792,0.8461955456349283,0.836018871153477,0.8221259182431396,0.8184013249129157,0.805543007598567,0.8102787944739522,0.789656272517765,0.7734493046677806,0.7734493046677806,0.7650148065684315,0.7599561855844956,0.7447892822539834,0.7525396060360009,0.7303084299648139,0.7178570275697385,0.7124750811013396,0.6923053890751163,0.6923053890751163,0.7054134540486301,0.6630928585754399,0.6758476351255207,0.659402015740109,0.6573890767045572,0.6305662315274869,0.6248702048358656,0.6041074750492338,0.5987521113610837,0.5566170278361408,0.5429207929861689,0.5542781527003312,0.5502691261505814,0.4735434443639282,0.4915379654893258,0.4878714550264934,0.4875381602373744,0.4086625708908133,0.4296068980489034,0.4372573597604159,0.43925349200660746,0.42461864867212057],"type":"scatter"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[20.0,20.496402877697843,20.992805755395683,21.489208633093526,21.985611510791365,22.48201438848921,22.97841726618705,23.47482014388489,23.971223021582734,24.467625899280577,24.964028776978417,25.46043165467626,25.956834532374103,26.453237410071942,26.949640287769785,27.44604316546763,27.942446043165468,28.438848920863308,28.93525179856115,29.431654676258994,29.928057553956833,30.424460431654676,30.92086330935252,31.41726618705036,31.913669064748202,32.410071942446045,32.906474820143885,33.40287769784173,33.89928057553957,34.39568345323741,34.89208633093526,35.388489208633096,35.884892086330936,36.38129496402878,36.877697841726615,37.37410071942446,37.8705035971223,38.36690647482014,38.86330935251799,39.35971223021583,39.856115107913666,40.35251798561151,40.84892086330935,41.34532374100719,41.84172661870504,42.33812949640288,42.83453237410072,43.330935251798564,43.827338129496404,44.32374100719424,44.82014388489209,45.31654676258993,45.81294964028777,46.309352517985616,46.805755395683455,47.302158273381295,47.79856115107914,48.29496402877698,48.79136690647482,49.28776978417267,49.78417266187051,50.280575539568346,50.77697841726619,51.273381294964025,51.76978417266187,52.26618705035971,52.76258992805756,53.2589928057554,53.75539568345324,54.251798561151084,54.74820143884892,55.24460431654676,55.7410071942446,56.23741007194245,56.73381294964029,57.23021582733813,57.726618705035975,58.223021582733814,58.719424460431654,59.2158273381295,59.71223021582734,60.20863309352518,60.705035971223026,61.201438848920866,61.697841726618705,62.19424460431655,62.69064748201439,63.18705035971223,63.68345323741008,64.17985611510792,64.67625899280576,65.17266187050359,65.66906474820144,66.16546762589928,66.66187050359713,67.15827338129498,67.65467625899281,68.15107913669064,68.64748201438849,69.14388489208633,69.64028776978418,70.13669064748203,70.63309352517986,71.12949640287769,71.62589928057554,72.12230215827338,72.61870503597123,73.11510791366906,73.61151079136691,74.10791366906474,74.60431654676259,75.10071942446044,75.59712230215828,76.09352517985612,76.58992805755396,77.0863309352518,77.58273381294964,78.07913669064749,78.57553956834533,79.07194244604317,79.56834532374101,80.06474820143885,80.56115107913669,81.05755395683454,81.55395683453239,82.05035971223022,82.54676258992805,83.0431654676259,83.53956834532374,84.03597122302159,84.53237410071942,85.02877697841727,85.52517985611512,86.02158273381295,86.5179856115108,87.01438848920864,87.51079136690647,88.00719424460432,88.50359712230217,89.0],"y":[0.4243815862584535,0.42985646137462763,0.43543148880840626,0.4411009762378094,0.4468593211930006,0.45270101197375806,0.45862062849224744,0.4646128430424994,0.47067242099800377,0.4767942214388355,0.4829731977097337,0.4892043979105574,0.4954829653205426,0.5018041387577918,0.5081632528754219,0.5145557383958,0.5209771222842965,0.5274230278639787,0.5338891748726722,0.5403713794638072,0.5468655541524703,0.5533677077080699,0.559873944995026,0.5663804667628825,0.572883569387238,0.5793796445628809,0.5858651789505108,0.5923367537784129,0.5987910444004516,0.6052248198117337,0.6116349421232831,0.6180183659970595,0.6243721380426442,0.6306933961768966,0.6369793689478844,0.6432273748243702,0.6494348214521253,0.6555992048783308,0.661718108745313,0.6677892034548395,0.6738102453041984,0.6797790755952593,0.6856936197177048,0.6915518862076036,0.6973519657824836,0.7030920303540434,0.7087703320196284,0.7143852020335794,0.7199350497595456,0.7254183616048367,0.7308336999378737,0.736179701989777,0.7414550787411187,0.7466586137948441,0.7517891622363502,0.7568456494816957,0.7618270701148938,0.766732486715223,0.7715610286754763,0.776311891012047,0.7809843331677326,0.7855776778081207,0.7900913096124057,0.7945246740594561,0.7988772762099524,0.8031486794853745,0.8073385044446234,0.8114464275590234,0.8154721799864443,0.8194155463452656,0.8232763634888757,0.8270545192813972,0.8307499513752962,0.8343626459915277,0.837892636702841,0.8413400032208618,0.8447048701875425,0.8479874059715543,0.8511878214701878,0.8543063689172944,0.857343340697802,0.8602990681693073,0.8631739204912371,0.8659683034620549,0.868682658364967,0.8713174608225739,0.8738732196608865,0.8763504757831235,0.8787498010536763,0.8810717971926236,0.8833170946811568,0.88548635167826,0.8875802529489824,0.8895995088046127,0.8915448540550637,0.8934170469737488,0.8952168682752288,0.8969451201058845,0.8986026250478597,0.9001902251365101,0.9017087808915694,0.9031591703622434,0.9045422881864194,0.9058590446641709,0.9071103648457236,0.9082971876340359,0.9094204649021358,0.9104811606253423,0.9114802500284915,0.9124187187482701,0.9132975620107553,0.9141177838242411,0.9148803961874271,0.9155864183130308,0.9162368758668755,0.9168328002224981,0.9173752277313048,0.9178651990083018,0.918303758233411,0.9186919524683769,0.9190308309892574,0.9193214446344868,0.9195648451684879,0.9197620846608023,0.9199142148807018,0.9200222867072329,0.920087349554641,0.9201104508131139,0.9200926353047747,0.9200349447548496,0.9199384172779277,0.9198040868792253,0.9196329829707586,0.9194261299023241,0.9191845465071804,0.9189092456623182,0.9186012338632009,0.9182615108128516,0.9178910690251602,0.9174908934422756],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"showlegend":true,"xaxis":{"title":{"text":"Time [ns]"}},"yaxis":{"title":{"text":"Excited state probability"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in .</p>
+
+      <div class="table-responsive col-md-5 col-lg-3">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.12</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.2.2</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.1.1</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+       var exportPDFButton = document.getElementById("export-pdf");
+
+       exportPDFButton.addEventListener("click", function() {
+
+        document.body.classList.add("impresion");
+
+        var doc = new jsPDF({orientation: 'landscape',});
+
+        var iframes = document.querySelectorAll("iframe.gh-fit")
+        source = ""
+        for(var id = 0; id < iframes.length; id++) {
+            var win = iframes[id].contentWindow
+            var doc = win.document
+            var html = doc.documentElement
+            var body = doc.body
+            var ifrm = iframes[id] // or win.frameElement
+            source = source + html
+        }
+
+        print(source)
+
+        doc.fromHTML(source, 0, 0, {
+        width: 210,
+        margins: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+        }
+        });
+
+        // Guardar el PDF
+        doc.save("report.pdf");
+    });
+    </script>
+
+</body>
+
+</html>
