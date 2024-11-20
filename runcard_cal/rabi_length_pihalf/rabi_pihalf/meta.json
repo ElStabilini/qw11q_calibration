@@ -1,0 +1,27 @@
+{
+    "title": "rabi_pihalf",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-20 11:38:11.541050+00:00",
+    "end_time": "2024-11-20 11:38:27.350010+00:00",
+    "stats": {
+        "Rabi length-0": {
+            "acquisition": 15.788816522806883,
+            "fit": 0.0021266709081828594
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.2",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-20",
+    "start-time": "11:38:11",
+    "end-time": "11:38:27"
+}

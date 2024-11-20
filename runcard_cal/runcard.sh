@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq auto /home/users/elisa.stabilini/cal_qw11q/runcard_cal/classification.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/ft_091124/classification_postDRAG
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/rabi_length.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/rabi_length_pihalf/rabi_pihalf

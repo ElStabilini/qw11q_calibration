@@ -1,0 +1,31 @@
+{
+    "title": "rabi_pi02_true",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-20 04:59:13.109771+00:00",
+    "end_time": "2024-11-20 04:59:18.482959+00:00",
+    "stats": {
+        "resonator_spectroscopy low power-0": {
+            "acquisition": 2.788611055817455,
+            "fit": 0.003830523230135441
+        },
+        "rabi-0": {
+            "acquisition": 2.5349460220895708,
+            "fit": 0.006041557993739843
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.2",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-20",
+    "start-time": "04:59:13",
+    "end-time": "04:59:18"
+}

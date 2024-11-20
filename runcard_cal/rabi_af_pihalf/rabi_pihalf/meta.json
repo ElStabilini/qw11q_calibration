@@ -1,0 +1,31 @@
+{
+    "title": "rabi_pihalf",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2024-11-20 09:23:38.129017+00:00",
+    "end_time": "2024-11-20 09:41:10.603748+00:00",
+    "stats": {
+        "resonator_spectroscopy low power-0": {
+            "acquisition": 2.980037485715002,
+            "fit": 0.004416246898472309
+        },
+        "rabi amplitude frequency-0": {
+            "acquisition": 1049.4349682889879,
+            "fit": 0.009775595739483833
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "D1"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.2",
+        "qibocal": "0.1.1"
+    },
+    "date": "2024-11-20",
+    "start-time": "09:23:38",
+    "end-time": "09:41:10"
+}

@@ -1,0 +1,12 @@
+id: rabi
+operation: rabi_amplitude_signal
+parameters:
+  max_amp: 0.15
+  min_amp: 0.01
+  nshots: 1024
+  pulse_length: 40
+  relaxation_time: 50000
+  step_amp: 0.01
+targets:
+- D1
+update: true
