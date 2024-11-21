@@ -16,7 +16,7 @@ actions:
         relaxation_time: 5000
  
   - id: rabi
-    operation: rabi_amplitude
+    operation: rabi_amplitude_signal
     parameters:
       max_amp: 0.16
       min_amp: 0.01
