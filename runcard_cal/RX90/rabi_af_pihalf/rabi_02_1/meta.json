@@ -1,20 +1,20 @@
 {
-    "title": "rabi_pihalf",
+    "title": "rabi_02_1",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": "2024-11-20 09:23:38.129017+00:00",
-    "end_time": "2024-11-20 09:41:10.603748+00:00",
+    "start_time": "2024-11-20 09:05:05.750177+00:00",
+    "end_time": "2024-11-20 09:13:54.201220+00:00",
     "stats": {
         "resonator_spectroscopy low power-0": {
-            "acquisition": 2.980037485715002,
-            "fit": 0.004416246898472309
+            "acquisition": 2.809815062675625,
+            "fit": 0.004888447932898998
         },
         "rabi amplitude frequency-0": {
-            "acquisition": 1049.4349682889879,
-            "fit": 0.009775595739483833
+            "acquisition": 525.5788101241924,
+            "fit": 0.009891635738313198
         }
     },
-    "author": null,
+    "author": "elisa.stabilini",
     "tag": null,
     "targets": [
         "D1"
@@ -26,6 +26,6 @@
         "qibocal": "0.1.1"
     },
     "date": "2024-11-20",
-    "start-time": "09:23:38",
-    "end-time": "09:41:10"
+    "start-time": "09:05:05",
+    "end-time": "09:13:54"
 }
