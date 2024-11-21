@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q            # Partition name
 
 # Run the qq acquire command
-qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/resonator_spectroscopy_low.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/RX90/rabi_length_pihalf/resonator_spectroscopy_low
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/resonator_spectroscopy_low.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/calibration02/resonator_spectroscopy_low

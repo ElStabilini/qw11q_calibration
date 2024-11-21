@@ -42,7 +42,7 @@
         },
         "D1/probe": {
             "kind": "iq",
-            "frequency": 7137603595.162905
+            "frequency": 7137597314.342002
         },
         "D1/acquisition": {
             "kind": "qm-acquisition",

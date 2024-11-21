@@ -3,7 +3,7 @@
     "\"amplitudes\"": {
         "\"D1\"": 0.001
     },
-    "\"fit_function\"": "s21",
+    "\"fit_function\"": "lorentzian",
     "\"phase_sign\"": true,
     "\"power_level\"": "low"
 }
