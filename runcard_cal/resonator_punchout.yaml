@@ -9,7 +9,7 @@ actions:
     parameters:
         freq_width: 100000
         freq_step: 100_000
-        min_amp: 0.0025
+        min_amp: 0.0005
         max_amp: 0.05
         step_amp: 0.0005
         nshots: 2048
