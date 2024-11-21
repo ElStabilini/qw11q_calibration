@@ -7,10 +7,10 @@ actions:
 
     operation: resonator_punchout
     parameters:
-        freq_width: 5_000_000
+        freq_width: 100000
         freq_step: 100_000
         min_amp: 0.0025
         max_amp: 0.05
-        step_amp: 0.005
+        step_amp: 0.0005
         nshots: 2048
         relaxation_time: 5000
