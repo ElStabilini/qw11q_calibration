@@ -9,9 +9,8 @@ actions:
     parameters:
         freq_width: 5_000_000
         freq_step: 100_000
-        amplitude: 0.05
-        min_amp_factor: 0.05
-        max_amp_factor: 1
-        step_amp_factor: 0.01
+        min_amp: 0.0025
+        max_amp: 0.05
+        step_amp: 0.005
         nshots: 2048
         relaxation_time: 5000

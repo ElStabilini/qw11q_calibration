@@ -2,9 +2,14 @@
     "title": "resonator_punchout",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2024-11-21 12:38:02.984365+00:00",
+    "end_time": "2024-11-21 12:38:12.297210+00:00",
+    "stats": {
+        "resonator punchout-0": {
+            "acquisition": 9.277707661502063,
+            "fit": 0.005724184215068817
+        }
+    },
     "author": null,
     "tag": null,
     "targets": [
@@ -16,7 +21,7 @@
         "qibolab": "0.1.11",
         "qibocal": "0.1.1"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2024-11-21",
+    "start-time": "12:38:02",
+    "end-time": "12:38:12"
 }

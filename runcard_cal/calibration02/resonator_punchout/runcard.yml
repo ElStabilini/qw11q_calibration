@@ -2,14 +2,13 @@ actions:
 - id: resonator punchout
   operation: resonator_punchout
   parameters:
-    amplitude: 0.05
     freq_step: 100000
     freq_width: 5000000
-    max_amp_factor: 1
-    min_amp_factor: 0.05
+    max_amp: 0.05
+    min_amp: 0.0025
     nshots: 2048
     relaxation_time: 5000
-    step_amp_factor: 0.01
+    step_amp: 0.005
   targets: null
   update: true
 backend: qibolab
