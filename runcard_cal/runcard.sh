@@ -3,7 +3,7 @@
 # SBATCH directives (optional)
 #SBATCH --job-name=qq  # Job name
 #SBATCH --time=01:00:00            # Time limit
-#SBATCH --partition=qw11q            # Partition name
+#SBATCH --partition=sim          # Partition name
 
 # Run the qq acquire command
-qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/qubit_spectroscopy.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/calibration02/qubit_spectroscopy
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/rabi_amplitude_signal.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/calibration02/rabi_amplitude_signal
