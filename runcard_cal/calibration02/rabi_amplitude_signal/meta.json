@@ -2,16 +2,16 @@
     "title": "rabi_amplitude_signal",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": "2024-11-22 06:08:02.045206+00:00",
-    "end_time": "2024-11-22 06:08:10.929083+00:00",
+    "start_time": "2024-11-22 06:41:29.168973+00:00",
+    "end_time": "2024-11-22 06:41:38.159526+00:00",
     "stats": {
         "resonator_spectroscopy low power-0": {
-            "acquisition": 2.6113291569054127,
-            "fit": 0.03225582931190729
+            "acquisition": 2.719860835932195,
+            "fit": 0.0035707512870430946
         },
         "rabi-0": {
-            "acquisition": 6.166662015020847,
-            "fit": 0.031830369494855404
+            "acquisition": 6.219745607115328,
+            "fit": 0.007958111353218555
         }
     },
     "author": null,
@@ -26,6 +26,6 @@
         "qibocal": "0.1.1"
     },
     "date": "2024-11-22",
-    "start-time": "06:08:02",
-    "end-time": "06:08:10"
+    "start-time": "06:41:29",
+    "end-time": "06:41:38"
 }

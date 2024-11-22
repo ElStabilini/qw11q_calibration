@@ -42,7 +42,7 @@
         },
         "D1/probe": {
             "kind": "iq",
-            "frequency": 7137630632.373899
+            "frequency": 7137634498.694816
         },
         "D1/acquisition": {
             "kind": "qm-acquisition",
@@ -214,7 +214,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.08315840530217135,
+                            "amplitude": 0.0830336681381323,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -223,6 +223,7 @@
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "D1/drive12",
@@ -277,6 +278,7 @@
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "D2/drive12",
@@ -331,6 +333,7 @@
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "D3/drive12",
@@ -385,6 +388,7 @@
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "D4/drive12",
@@ -439,6 +443,7 @@
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "D5/drive12",
