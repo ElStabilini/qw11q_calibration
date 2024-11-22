@@ -2,9 +2,18 @@
     "title": "rabi_amplitude_signal_pihalf",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2024-11-22 13:25:32.547610+00:00",
+    "end_time": "2024-11-22 13:25:41.544914+00:00",
+    "stats": {
+        "resonator_spectroscopy low power-0": {
+            "acquisition": 2.7325499849393964,
+            "fit": 0.0033509433269500732
+        },
+        "rabi-0": {
+            "acquisition": 6.20950723439455,
+            "fit": 0.006912995129823685
+        }
+    },
     "author": null,
     "tag": null,
     "targets": [
@@ -16,7 +25,7 @@
         "qibolab": "0.1.11",
         "qibocal": "0.1.1"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2024-11-22",
+    "start-time": "13:25:32",
+    "end-time": "13:25:41"
 }
