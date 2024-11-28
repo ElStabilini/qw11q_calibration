@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>rabi_length</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-export
+{
+  background:#6400FF;
+  color:white;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </buttom>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Actions
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Rabi Length"> Rabi Length</a></li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <buttom class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </buttom>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>rabi_length</h1>
+        <button class="button-export" id="export-pdf">Export to pdf</button>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2024-11-28<br>
+        Start time (UTC): 08:52:24<br>
+        End time (UTC): 08:52:41
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Rabi Length" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Rabi Length</h4>
+        
+        <div id="--D1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - Qubit D1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td>Pi pulse amplitude [a.u.]</td>
+      <td>9.0e-2</td>
+      <td>0e-2</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>Pi pulse length [ns]</td>
+      <td>4.13e1</td>
+      <td>0.05e1</td>
+    </tr>
+    <tr>
+      <td>D1</td>
+      <td>chi2 reduced</td>
+      <td>6.61e1</td>
+      <td>0.02e1</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="aa56c086-49bf-4a59-8549-511bfb2cc41c" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("aa56c086-49bf-4a59-8549-511bfb2cc41c")) {                    Plotly.newPlot(                        "aa56c086-49bf-4a59-8549-511bfb2cc41c",                        [{"legendgroup":"Probability","mode":"lines","name":"Probability","opacity":1,"showlegend":true,"x":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0],"y":[0.14166666666666666,0.13,0.138,0.125,0.133,0.13933333333333334,0.138,0.14166666666666666,0.13966666666666666,0.13833333333333334,0.14866666666666667,0.14033333333333334,0.13566666666666666,0.14,0.14,0.14666666666666667,0.12466666666666666,0.12366666666666666,0.143,0.13,0.14833333333333334,0.16933333333333334,0.16066666666666668,0.153,0.164,0.429,0.416,0.4053333333333333,0.3963333333333333,0.6633333333333333,0.6776666666666666,0.6633333333333333,0.675,0.744,0.7336666666666667,0.752,0.7546666666666667,0.759,0.752,0.7493333333333333,0.7503333333333333,0.7296666666666667,0.7276666666666667,0.7053333333333334,0.6826666666666666,0.6833333333333333,0.6513333333333333,0.637,0.6176666666666667,0.604,0.5883333333333334,0.5623333333333334,0.5316666666666666,0.49666666666666665,0.4703333333333333,0.445,0.42333333333333334,0.3923333333333333,0.36766666666666664,0.33166666666666667,0.31266666666666665,0.3006666666666667,0.26966666666666667,0.25766666666666665,0.21466666666666667,0.22833333333333333,0.19133333333333333,0.17866666666666667,0.15866666666666668,0.14933333333333335,0.14333333333333334,0.146,0.13233333333333333,0.14833333333333334,0.14733333333333334,0.153,0.138,0.17,0.16766666666666666,0.183],"type":"scatter"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Errors","showlegend":true,"x":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,79.0,78.0,77.0,76.0,75.0,74.0,73.0,72.0,71.0,70.0,69.0,68.0,67.0,66.0,65.0,64.0,63.0,62.0,61.0,60.0,59.0,58.0,57.0,56.0,55.0,54.0,53.0,52.0,51.0,50.0,49.0,48.0,47.0,46.0,45.0,44.0,43.0,42.0,41.0,40.0,39.0,38.0,37.0,36.0,35.0,34.0,33.0,32.0,31.0,30.0,29.0,28.0,27.0,26.0,25.0,24.0,23.0,22.0,21.0,20.0,19.0,18.0,17.0,16.0,15.0,14.0,13.0,12.0,11.0,10.0,9.0,8.0,7.0,6.0,5.0,4.0,3.0,2.0,1.0,0.0],"y":[0.14803317335459273,0.1361400325732035,0.14429698340477407,0.1310380736442456,0.13919975805979556,0.14565576840102562,0.14429698340477407,0.14803317335459273,0.14599543402661097,0.14463669810204277,0.15516191849367816,0.146674728786725,0.14191863228350063,0.1463350874763758,0.1463350874763758,0.15312565408874132,0.13069783263710413,0.12967702500934536,0.14939142654916202,0.1361400325732035,0.154822569435155,0.1761807064441342,0.16737121459795654,0.15957244246836744,0.17076027612848274,0.43803620495562157,0.42499896290320904,0.41429693049485694,0.40526367901947974,0.6719612381045243,0.6861996332386461,0.6719612381045243,0.6835513156882436,0.7519679357427128,0.7417371868665235,0.7598844995613757,0.7625225538198126,0.766808520986717,0.7598844995613757,0.7572460422855799,0.7582355107172831,0.7377753702667543,0.7357941486237652,0.713656758554203,0.6911643700601114,0.6918262497717325,0.6600338739721332,0.6457793507732634,0.6265389935984916,0.6129290537012608,0.5973184547797807,0.5713908266502056,0.5407770494288822,0.5057951730959589,0.47944595990106686,0.4540733125152835,0.43235409128785546,0.4012478886389162,0.37646984580621407,0.34026247744651533,0.32113043694990373,0.3090385685259064,0.2777690645741908,0.2656515389377293,0.22216299663292102,0.23599704049158302,0.19851490439842506,0.18566058995499082,0.16533728771610318,0.1558405828518547,0.14973096020816978,0.15244680799569316,0.13851991079916537,0.154822569435155,0.15380445436507176,0.15957244246836744,0.14429698340477407,0.17685808525270236,0.17448709078729033,0.19005953256242933,0.17594046743757066,0.160846242546043,0.16314191474729767,0.13170301659522596,0.14642755753163256,0.14086221230159493,0.1418440972315117,0.1261467558675013,0.13955319200430683,0.1369357064584969,0.142826083814812,0.15199604561723018,0.1716727433783425,0.1841517622682416,0.22066962617508365,0.20717033670041232,0.249681794395604,0.2615642687591425,0.292294764807427,0.30420289638342957,0.323070855886818,0.3588634875271192,0.38341877802775043,0.4143125753788112,0.4359266874847165,0.4612207067655998,0.4875381602373744,0.5225562839044511,0.5532758400164611,0.579348211886886,0.5950709462987391,0.6087943397348418,0.6282206492267366,0.6426327926945334,0.6748404168949342,0.6741689632732218,0.6970099081124638,0.7195391847095681,0.721557963066579,0.7424311559493835,0.7414206243810867,0.7441155004386243,0.751191479013283,0.7468107795135208,0.7441155004386243,0.7255961464668099,0.7360320642572872,0.6664486843117565,0.6547054285621423,0.6691337000946872,0.6547054285621423,0.3874029876471869,0.3963697361718097,0.4070010370967909,0.4199637950443784,0.15723972387151727,0.14642755753163256,0.15396211873537682,0.16248596022253248,0.1418440972315117,0.1238599674267965,0.13660857345083796,0.11765630832398796,0.11863550069622919,0.14020767924459202,0.13366491252362422,0.13366491252362422,0.1294147010498327,0.13399193787994168,0.14217141483965517,0.1320299685646239,0.13333789930672235,0.1353001599787406,0.13170301659522596,0.13301089826564105,0.12680024194020445,0.1189619263557544,0.13170301659522596,0.1238599674267965,0.1353001599787406],"type":"scatter"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[0.0,0.4968553459119497,0.9937106918238994,1.490566037735849,1.9874213836477987,2.4842767295597485,2.981132075471698,3.4779874213836477,3.9748427672955975,4.471698113207547,4.968553459119497,5.465408805031447,5.962264150943396,6.459119496855346,6.955974842767295,7.452830188679245,7.949685534591195,8.446540880503145,8.943396226415095,9.440251572327044,9.937106918238994,10.433962264150944,10.930817610062894,11.427672955974844,11.924528301886792,12.421383647798741,12.918238993710691,13.415094339622641,13.91194968553459,14.40880503144654,14.90566037735849,15.40251572327044,15.89937106918239,16.39622641509434,16.89308176100629,17.38993710691824,17.88679245283019,18.38364779874214,18.88050314465409,19.37735849056604,19.87421383647799,20.371069182389938,20.867924528301888,21.364779874213838,21.861635220125788,22.358490566037737,22.855345911949687,23.352201257861637,23.849056603773583,24.345911949685533,24.842767295597483,25.339622641509433,25.836477987421382,26.333333333333332,26.830188679245282,27.32704402515723,27.82389937106918,28.32075471698113,28.81761006289308,29.31446540880503,29.81132075471698,30.30817610062893,30.80503144654088,31.30188679245283,31.79874213836478,32.295597484276726,32.79245283018868,33.289308176100626,33.78616352201258,34.283018867924525,34.77987421383648,35.276729559748425,35.77358490566038,36.270440251572325,36.76729559748428,37.264150943396224,37.76100628930818,38.257861635220124,38.75471698113208,39.25157232704402,39.74842767295598,40.24528301886792,40.742138364779876,41.23899371069182,41.735849056603776,42.23270440251572,42.729559748427675,43.22641509433962,43.723270440251575,44.22012578616352,44.716981132075475,45.21383647798742,45.710691823899374,46.20754716981132,46.704402515723274,47.20125786163522,47.698113207547166,48.19496855345912,48.691823899371066,49.18867924528302,49.685534591194966,50.18238993710692,50.679245283018865,51.17610062893082,51.672955974842765,52.16981132075472,52.666666666666664,53.16352201257862,53.660377358490564,54.15723270440252,54.65408805031446,55.15094339622642,55.64779874213836,56.144654088050316,56.64150943396226,57.138364779874216,57.63522012578616,58.132075471698116,58.62893081761006,59.125786163522015,59.62264150943396,60.119496855345915,60.61635220125786,61.113207547169814,61.61006289308176,62.106918238993714,62.60377358490566,63.100628930817614,63.59748427672956,64.09433962264151,64.59119496855345,65.0880503144654,65.58490566037736,66.08176100628931,66.57861635220125,67.0754716981132,67.57232704402516,68.06918238993711,68.56603773584905,69.062893081761,69.55974842767296,70.05660377358491,70.55345911949685,71.0503144654088,71.54716981132076,72.04402515723271,72.54088050314465,73.0377358490566,73.53459119496856,74.03144654088051,74.52830188679245,75.0251572327044,75.52201257861635,76.01886792452831,76.51572327044025,77.0125786163522,77.50943396226415,78.00628930817611,78.50314465408805,79.0],"y":[0.24497937712692738,0.2296161425008581,0.21477456328684097,0.20049120867210957,0.18680110593545743,0.17373765506173863,0.1613325477883637,0.14961569127855828,0.13861513660369185,0.1283570122040948,0.11886546248449292,0.11016259168654113,0.10226841316696528,0.09520080419555393,0.08897546637273357,0.08360589175172872,0.07910333473540992,0.0754767898028933,0.07273297510582194,0.07087632195906585,0.06990897023536813,0.06983076965827367,0.07063928697254657,0.07232981895625035,0.07489541122376847,0.07832688275432259,0.08261285606603447,0.08773979294131695,0.09369203559540396,0.1004518531661669,0.10799949339006559,0.11631323931615978,0.1253694708976099,0.13514273128804438,0.14560579765860093,0.15672975634038355,0.16848408208654994,0.1808367212382702,0.19375417856941662,0.20720160757605868,0.22114290396868774,0.23554080211758502,0.25035697419490555,0.2655521317508802,0.2810861294560723,0.2969180707368448,0.31300641502715454,0.32930908635644895,0.34578358299084344,0.36238708784289253,0.37907657936412875,0.3958089426341679,0.4125410803604978,0.42923002350416783,0.4458330412483844,0.4623077500295514,0.478612221353532,0.49470508812384295,0.5105456492131397,0.5260939720146324,0.5413109927160709,0.5561586140455183,0.5705998002453951,0.5845986690390926,0.5981205803628917,0.6111322216448966,0.623601689422209,0.6354985670975875,0.6467939986473452,0.6574607581031906,0.6674733146420937,0.6768078931300334,0.6854425299776098,0.6933571241779719,0.700533483410255,0.7069553651047564,0.7126085123793098,0.7174806847697676,0.721561683691093,0.7248433725792868,0.7273196916781801,0.7289866674489822,0.7298424165943516,0.7298871447026076,0.7291231395315041,0.7275547589646911,0.7251884136875777,0.7220325446427286,0.7180975953381558,0.7133959790948701,0.7079420413327944,0.7017520170065921,0.694843983315087,0.6872378078197243,0.678955092118906,0.6700191112360233,0.6604547488895327,0.6502884288235141,0.6395480423867299,0.628262872557278,0.6164635146184871,0.6041817936996836,0.5914506794028792,0.5783041977432598,0.5647773406375836,0.5509059731801842,0.5367267389512689,0.5222769636065112,0.5075945570006186,0.4927179141005847,0.47768581494666124,0.46253732392079294,0.44731168858325,0.432048238338532,0.4167862831912876,0.40156501285198903,0.3864233964504302,0.371400083112787,0.3565333036550221,0.34186077364177203,0.3274195980556408,0.31324617781693237,0.29937611838842126,0.2858441406936809,0.2726839945709014,0.2599283749769289,0.2476088411485895,0.23575573892012427,0.22439812638689613,0.2135637030963431,0.2032787429375854,0.19356803089106764,0.1844548037892371,0.17596069522850563,0.16810568476166912,0.1609080514885839,0.15438433215125275,0.1485492838275912,0.143415851306057,0.1389951392110631,0.1352963889366826,0.13232696043363606,0.1300923188819612,0.12859602626911115,0.12783973788058256,0.12782320369752986,0.12854427468323915,0.12999891392783747,0.1321812126082207,0.1350834107079517,0.13869592242981438,0.14300736622186216,0.14800459932618115,0.15367275674824848,0.15999529453370936,0.1669540372286771,0.17452922938927645,0.18269959099615535,0.19144237662008634,0.2007334381756053],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"showlegend":true,"xaxis":{"title":{"text":"Time [ns]"}},"yaxis":{"title":{"text":"Excited state probability"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in .</p>
+
+      <div class="table-responsive col-md-5 col-lg-3">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.12</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.1.11</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.1.1</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+       var exportPDFButton = document.getElementById("export-pdf");
+
+       exportPDFButton.addEventListener("click", function() {
+
+        document.body.classList.add("impresion");
+
+        var doc = new jsPDF({orientation: 'landscape',});
+
+        var iframes = document.querySelectorAll("iframe.gh-fit")
+        source = ""
+        for(var id = 0; id < iframes.length; id++) {
+            var win = iframes[id].contentWindow
+            var doc = win.document
+            var html = doc.documentElement
+            var body = doc.body
+            var ifrm = iframes[id] // or win.frameElement
+            source = source + html
+        }
+
+        print(source)
+
+        doc.fromHTML(source, 0, 0, {
+        width: 210,
+        margins: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+        }
+        });
+
+        // Guardar el PDF
+        doc.save("report.pdf");
+    });
+    </script>
+
+</body>
+
+</html>
