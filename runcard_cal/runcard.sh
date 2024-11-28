@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q          # Partition name
 
 # Run the qq acquire command
-qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/flipping.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/RX90/flip/rx/flipping
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/flipping.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/RX90/flip/rx90/flipping

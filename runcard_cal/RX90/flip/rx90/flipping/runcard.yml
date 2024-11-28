@@ -1,0 +1,15 @@
+actions:
+- id: flipping
+  operation: flipping
+  parameters:
+    delta_amplitude: 6.0e-05
+    nflips_max: 20
+    nflips_step: 1
+    rx90: true
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D1
+update: true

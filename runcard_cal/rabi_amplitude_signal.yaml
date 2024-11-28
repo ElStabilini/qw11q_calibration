@@ -24,4 +24,4 @@ actions:
       pulse_length: 40
       relaxation_time: 50000
       nshots: 1024
-      rx90: False
+      rx90: True
