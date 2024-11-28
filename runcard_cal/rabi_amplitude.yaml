@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [D1]
+targets: [D1] 
 
 actions:
 
@@ -24,4 +24,4 @@ actions:
       pulse_length: 40
       relaxation_time: 50000
       nshots: 1024
-      rx90: True
+      rx90: False 

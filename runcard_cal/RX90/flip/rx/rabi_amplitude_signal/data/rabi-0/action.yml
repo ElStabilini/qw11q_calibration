@@ -6,7 +6,8 @@ parameters:
   nshots: 1024
   pulse_length: 40
   relaxation_time: 50000
+  rx90: false
   step_amp: 0.002
 targets:
-- 0
+- D1
 update: true

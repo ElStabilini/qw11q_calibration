@@ -9,5 +9,5 @@ parameters:
   power_level: low
   relaxation_time: 5000
 targets:
-- 0
+- D1
 update: true
