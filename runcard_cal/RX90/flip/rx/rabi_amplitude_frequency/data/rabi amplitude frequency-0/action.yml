@@ -1,0 +1,14 @@
+id: rabi amplitude frequency
+operation: rabi_amplitude_frequency_signal
+parameters:
+  max_amp: 0.4
+  max_freq: 100000000
+  min_amp: 0.0
+  min_freq: -100000000
+  nshots: 1024
+  pulse_length: 40
+  step_amp: 0.004
+  step_freq: 2000000
+targets:
+- D1
+update: true
