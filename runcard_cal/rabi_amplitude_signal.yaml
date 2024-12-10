@@ -18,8 +18,8 @@ actions:
   - id: rabi
     operation: rabi_amplitude_signal
     parameters:
-      max_amp: 0.16
-      min_amp: 0.01
+      max_amp: 0.1
+      min_amp: 0.002
       step_amp: 0.002    
       pulse_length: 40
       relaxation_time: 50000

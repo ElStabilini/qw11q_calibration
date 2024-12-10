@@ -6,4 +6,4 @@
 #SBATCH --partition=qw11q          # Partition name
 
 # Run the qq acquire command
-qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/rabi_amplitude_signal.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalibration/rabi_amplitude_signal
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/rabi_amplitude_signal.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/recalibration/rabi_amplitude_signal_1
