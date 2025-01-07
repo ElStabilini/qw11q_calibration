@@ -1,5 +1,5 @@
 
-# Single QUA script generated at 2025-01-06 15:46:53.700139
+# Single QUA script generated at 2025-01-07 15:30:42.764183
 # QUA library version: 1.1.6
 
 from qm.qua import *
@@ -8,25 +8,26 @@ with program() as prog:
     v1 = declare(int, )
     v2 = declare(fixed, )
     v3 = declare(fixed, )
+    v4 = declare(int, )
     set_dc_offset("D1/flux", "single", 0.2205)
     set_dc_offset("D2/flux", "single", -0.421)
     set_dc_offset("D3/flux", "single", -0.2095)
     set_dc_offset("D4/flux", "single", 0.0)
     set_dc_offset("D5/flux", "single", -0.04)
     wait((4+(0*(Cast.to_int(v2)+Cast.to_int(v3)))), "D1/acquisition")
-    with for_(v1,0,(v1<5000),(v1+1)):
-        align()
-        play("9219116139808008129", "D1/drive")
-        wait(11, "D1/acquisition")
-        measure("3047196529737456070", "D1/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        r1 = declare_stream()
-        save(v2, r1)
-        r2 = declare_stream()
-        save(v3, r2)
-        wait(25000, )
+    with for_(v1,0,(v1<1024),(v1+1)):
+        with for_(v4,-317363546,(v4<=-307563546),(v4+200000)):
+            update_frequency("D1/acquisition", v4, "Hz", False)
+            align()
+            measure("445961442023084492", "D1/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+            r1 = declare_stream()
+            save(v2, r1)
+            r2 = declare_stream()
+            save(v3, r2)
+            wait(25000, )
     with stream_processing():
-        r1.buffer(5000).save("3047196529737456070_D1|acquisition_I")
-        r2.buffer(5000).save("3047196529737456070_D1|acquisition_Q")
+        r1.buffer(50).buffer(1024).save("445961442023084492_D1|acquisition_I")
+        r2.buffer(50).buffer(1024).save("445961442023084492_D1|acquisition_Q")
 
 
 config = {
@@ -86,18 +87,9 @@ config = {
                     "offset": 0.0,
                     "filter": {},
                 },
-                "3": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-                "4": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
             },
             "digital_outputs": {
                 "1": {},
-                "3": {},
             },
             "analog_inputs": {
                 "1": {
@@ -117,12 +109,6 @@ config = {
             "RF_outputs": {
                 "1": {
                     "LO_frequency": 7450000000.0,
-                    "gain": 0.0,
-                    "LO_source": "internal",
-                    "output_mode": "triggered",
-                },
-                "2": {
-                    "LO_frequency": 5100000000.0,
                     "gain": 0.0,
                     "LO_source": "internal",
                     "output_mode": "triggered",
@@ -192,32 +178,16 @@ config = {
             "time_of_flight": 224.0,
             "smearing": 0.0,
             "operations": {
-                "3047196529737456070": "3047196529737456070_D1/acquisition",
-            },
-        },
-        "D1/drive": {
-            "RF_inputs": {
-                "port": ('octave5', 2),
-            },
-            "digitalInputs": {
-                "output_switch": {
-                    "port": ('con6', 3),
-                    "delay": 57,
-                    "buffer": 18,
-                },
-            },
-            "intermediate_frequency": -141729925.0,
-            "operations": {
-                "9219116139808008129": "9219116139808008129",
+                "445961442023084492": "445961442023084492_D1/acquisition",
             },
         },
     },
     "pulses": {
-        "3047196529737456070_D1/acquisition": {
+        "445961442023084492_D1/acquisition": {
             "length": 2000.0,
             "waveforms": {
-                "I": "1469259901558465031_i",
-                "Q": "1469259901558465031_q",
+                "I": "-6597967039699982677_i",
+                "Q": "-6597967039699982677_q",
             },
             "digital_marker": "ON",
             "operation": "measurement",
@@ -227,32 +197,15 @@ config = {
                 "minus_sin": "minus_sine_weights_D1/acquisition",
             },
         },
-        "9219116139808008129": {
-            "length": 40,
-            "waveforms": {
-                "I": "9219116139808008129_i",
-                "Q": "9219116139808008129_q",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
     },
     "waveforms": {
-        "1469259901558465031_i": {
-            "sample": 0.0015,
+        "-6597967039699982677_i": {
+            "sample": 0.1,
             "type": "constant",
         },
-        "1469259901558465031_q": {
+        "-6597967039699982677_q": {
             "sample": 0.0,
             "type": "constant",
-        },
-        "9219116139808008129_i": {
-            "samples": [0.002124816438085273, 0.002859253041924886, 0.003787894851291235, 0.004940346233850168, 0.006343530131501176, 0.00801897346311061, 0.009979773718483872, 0.012227474360626477, 0.014749149447807123, 0.017515048340035116, 0.02047716609988561, 0.023569073708237673, 0.02670725941270753, 0.029794100871044445, 0.03272241825550056, 0.03538137021737297, 0.03766327254531491, 0.0394707707339901, 0.040723707493702806] + [0.04136501257188307] * 2 + [0.040723707493702806, 0.0394707707339901, 0.03766327254531491, 0.03538137021737297, 0.03272241825550056, 0.029794100871044445, 0.02670725941270753, 0.023569073708237673, 0.02047716609988561, 0.017515048340035116, 0.014749149447807123, 0.012227474360626477, 0.009979773718483872, 0.00801897346311061, 0.006343530131501176, 0.004940346233850168, 0.003787894851291235, 0.002859253041924886, 0.002124816438085273],
-            "type": "arbitrary",
-        },
-        "9219116139808008129_q": {
-            "samples": [0.0] * 40,
-            "type": "arbitrary",
         },
     },
     "digital_waveforms": {
@@ -363,24 +316,6 @@ loaded_config = {
                         "feedback": [],
                     },
                 },
-                "3": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                },
-                "4": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                },
             },
             "analog_inputs": {
                 "1": {
@@ -396,10 +331,6 @@ loaded_config = {
             },
             "digital_outputs": {
                 "1": {
-                    "shareable": False,
-                    "inverted": False,
-                },
-                "3": {
                     "shareable": False,
                     "inverted": False,
                 },
@@ -465,42 +396,22 @@ loaded_config = {
             "smearing": 0,
             "intermediate_frequency": -312363546.0,
             "operations": {
-                "3047196529737456070": "3047196529737456070_D1/acquisition",
+                "445961442023084492": "445961442023084492_D1/acquisition",
             },
             "mixInputs": {
                 "I": ('con6', 1),
                 "Q": ('con6', 2),
-                "mixer": "D1/acquisition_mixer_802",
+                "mixer": "D1/acquisition_mixer_527",
                 "lo_frequency": 7450000000.0,
-            },
-        },
-        "D1/drive": {
-            "digitalInputs": {
-                "output_switch": {
-                    "delay": 57,
-                    "buffer": 18,
-                    "port": ('con6', 3),
-                },
-            },
-            "digitalOutputs": {},
-            "intermediate_frequency": -141729925.0,
-            "operations": {
-                "9219116139808008129": "9219116139808008129",
-            },
-            "mixInputs": {
-                "I": ('con6', 3),
-                "Q": ('con6', 4),
-                "mixer": "D1/drive_mixer_821",
-                "lo_frequency": 5100000000.0,
             },
         },
     },
     "pulses": {
-        "3047196529737456070_D1/acquisition": {
+        "445961442023084492_D1/acquisition": {
             "length": 2000,
             "waveforms": {
-                "I": "1469259901558465031_i",
-                "Q": "1469259901558465031_q",
+                "I": "-6597967039699982677_i",
+                "Q": "-6597967039699982677_q",
             },
             "digital_marker": "ON",
             "integration_weights": {
@@ -510,36 +421,15 @@ loaded_config = {
             },
             "operation": "measurement",
         },
-        "9219116139808008129": {
-            "length": 40,
-            "waveforms": {
-                "I": "9219116139808008129_i",
-                "Q": "9219116139808008129_q",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
     },
     "waveforms": {
-        "1469259901558465031_i": {
-            "sample": 0.0015,
+        "-6597967039699982677_i": {
+            "sample": 0.1,
             "type": "constant",
         },
-        "1469259901558465031_q": {
+        "-6597967039699982677_q": {
             "sample": 0.0,
             "type": "constant",
-        },
-        "9219116139808008129_i": {
-            "samples": [0.002124816438085273, 0.002859253041924886, 0.003787894851291235, 0.004940346233850168, 0.006343530131501176, 0.00801897346311061, 0.009979773718483872, 0.012227474360626477, 0.014749149447807123, 0.017515048340035116, 0.02047716609988561, 0.023569073708237673, 0.02670725941270753, 0.029794100871044445, 0.03272241825550056, 0.03538137021737297, 0.03766327254531491, 0.0394707707339901, 0.040723707493702806] + [0.04136501257188307] * 2 + [0.040723707493702806, 0.0394707707339901, 0.03766327254531491, 0.03538137021737297, 0.03272241825550056, 0.029794100871044445, 0.02670725941270753, 0.023569073708237673, 0.02047716609988561, 0.017515048340035116, 0.014749149447807123, 0.012227474360626477, 0.009979773718483872, 0.00801897346311061, 0.006343530131501176, 0.004940346233850168, 0.003787894851291235, 0.002859253041924886, 0.002124816438085273],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "9219116139808008129_q": {
-            "samples": [0.0] * 40,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
         },
     },
     "digital_waveforms": {
@@ -562,8 +452,7 @@ loaded_config = {
         },
     },
     "mixers": {
-        "D1/acquisition_mixer_802": [{'intermediate_frequency': -312363546.0, 'lo_frequency': 7450000000.0, 'correction': [1, 0.0, 0.0, 1]}],
-        "D1/drive_mixer_821": [{'intermediate_frequency': -141729925.0, 'lo_frequency': 5100000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "D1/acquisition_mixer_527": [{'intermediate_frequency': -312363546.0, 'lo_frequency': 7450000000.0, 'correction': [1, 0.0, 0.0, 1]}],
     },
 }
 

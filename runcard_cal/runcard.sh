@@ -9,4 +9,4 @@
 
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 
-qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/classification.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/cryoscope_tests/postprocessing/classification_${current_time}
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/resonator_spectroscopy_high.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/cryoscope_tests/postprocessing/resonator_spectroscopy_high_${current_time}
