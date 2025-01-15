@@ -418,8 +418,13 @@
             "kind": "opx-output",
             "offset": -0.2819,
             "filter": {
-                "feedforward": [],
-                "feedback": []
+                "feedforward": [
+                    1.0605851073784813,
+                    -0.9529722265285006
+                ],
+                "feedback": [
+                    0.890387119150019
+                ]
             },
             "output_mode": "direct"
         },
@@ -427,8 +432,13 @@
             "kind": "opx-output",
             "offset": 0.0307,
             "filter": {
-                "feedforward": [],
-                "feedback": []
+                "feedforward": [
+                    1.0891790415038731,
+                    -1.024484298837039
+                ],
+                "feedback": [
+                    0.935305257333166
+                ]
             },
             "output_mode": "direct"
         },
