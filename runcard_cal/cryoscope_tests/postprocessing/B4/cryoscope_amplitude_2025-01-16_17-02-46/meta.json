@@ -1,0 +1,27 @@
+{
+    "title": "cryoscope_amplitude_2025-01-16_17-02-46",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-01-16 17:02:56.605080+00:00",
+    "end_time": "2025-01-16 17:07:55.506366+00:00",
+    "stats": {
+        "cryoscope amplitude-0": {
+            "acquisition": 298.8755313176662,
+            "fit": 0.001555638387799263
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B4"
+    ],
+    "versions": {
+        "qibo": "0.2.12",
+        "numpy": "1.26.4",
+        "qibolab": "0.1.11",
+        "qibocal": "0.1.1"
+    },
+    "date": "2025-01-16",
+    "start-time": "17:02:56",
+    "end-time": "17:07:55"
+}
