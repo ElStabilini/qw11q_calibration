@@ -306,8 +306,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.0021321279781268726,
-            "iq_angle": -2.0248812226301487,
+            "threshold": 0.002215054761521925,
+            "iq_angle": -1.8353075784771593,
             "kernel": null,
             "gain": 10,
             "offset": 0.0

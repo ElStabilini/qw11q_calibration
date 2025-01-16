@@ -420,16 +420,16 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.9073157683562927,
+                "fidelity": 0.8586234387456816,
                 "coupling": null,
-                "effective_temperature": null,
+                "effective_temperature": 0.017308884768652215,
                 "ground_state": [
-                    0.0008144179379133473,
-                    0.0016964175288393256
+                    0.0007484531987549183,
+                    0.0015008987752725199
                 ],
                 "excited_state": [
-                    -0.000055293666299243685,
-                    0.003478236887063415
+                    0.00031275464231239933,
+                    0.003109486113789232
                 ],
                 "qudits_frequency": {}
             },
