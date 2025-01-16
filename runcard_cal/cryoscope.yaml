@@ -1,14 +1,14 @@
 platform: qw11q
 
-targets: [B2]
+targets: [B4]
 
 actions:
   - id: cryoscope
 
     operation: cryoscope
     parameters:
-      duration_max: 100
+      duration_max: 40
       duration_min: 1
       duration_step: 1
-      flux_pulse_amplitude: 0.5
+      flux_pulse_amplitude: 0.3
       relaxation_time: 50000
