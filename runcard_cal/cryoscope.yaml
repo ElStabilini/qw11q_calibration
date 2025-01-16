@@ -7,8 +7,8 @@ actions:
 
     operation: cryoscope
     parameters:
-      duration_max: 40
+      duration_max: 90
       duration_min: 1
       duration_step: 1
-      flux_pulse_amplitude: 0.3
+      flux_pulse_amplitude: 0.6
       relaxation_time: 50000
