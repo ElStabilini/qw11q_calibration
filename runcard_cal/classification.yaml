@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [B2]
+targets: [B5]
 
 actions:
   - id: single shot classification 
