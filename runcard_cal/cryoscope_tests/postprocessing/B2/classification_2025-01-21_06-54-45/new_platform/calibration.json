@@ -282,11 +282,7 @@
                 "maximum_frequency": null,
                 "asymmetry": null,
                 "sweetspot": -0.08233987198571363,
-                "flux_coefficients": [
-                    -1.777603661980046e-7,
-                    1.4348196108053635e-7,
-                    -2.169490188298786e-8
-                ]
+                "flux_coefficients": null
             },
             "readout": {
                 "fidelity": 0.9053096161562124,
@@ -334,16 +330,16 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.8854637257507307,
+                "fidelity": 0.9008769598724422,
                 "coupling": null,
-                "effective_temperature": 0.012708020599156048,
+                "effective_temperature": 0.012208077011407028,
                 "ground_state": [
-                    -0.002591031204020878,
-                    -0.0010621272932647351
+                    -0.00255192311942689,
+                    -0.0011431306315466845
                 ],
                 "excited_state": [
-                    -0.002876282966844965,
-                    -0.003810004074024514
+                    -0.0027900222345390697,
+                    -0.003948707924524647
                 ],
                 "qudits_frequency": {}
             },
