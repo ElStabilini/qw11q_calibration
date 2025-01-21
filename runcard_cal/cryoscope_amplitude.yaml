@@ -7,7 +7,7 @@ actions:
 
     operation: flux_amplitude_frequency
     parameters:
-      amplitude_max: 0.6
+      amplitude_max: 0.4
       amplitude_min: 0.0
       amplitude_step: 0.001
       duration: 60
