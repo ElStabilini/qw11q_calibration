@@ -7,6 +7,7 @@
 
 # Run the qq acquire command
 
+routine="classification"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 
-qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/classification.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/cryoscope_tests/postprocessing/B5/classification_${current_time}
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/cryoscope_tests/postprocessing/Bline/${routine}_${current_time}
