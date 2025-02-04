@@ -1,13 +1,13 @@
 platform: qw11q
 
-targets: [B1]
+targets: [B1, B2, B3, B4]
 
 actions:
   - id: cryoscope amplitude
 
     operation: flux_amplitude_frequency
     parameters:
-      amplitude_max: 0.7
+      amplitude_max: 0.75
       amplitude_min: 0.0
       amplitude_step: 0.001
       duration: 60
