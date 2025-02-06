@@ -1,5 +1,5 @@
 
-# Single QUA script generated at 2025-02-06 16:19:46.966107
+# Single QUA script generated at 2025-02-06 17:46:31.539207
 # QUA library version: 1.1.6
 
 from qm.qua import *
@@ -9,6 +9,16 @@ with program() as prog:
     v2 = declare(fixed, )
     v3 = declare(fixed, )
     v4 = declare(int, )
+    v5 = declare(fixed, )
+    v6 = declare(fixed, )
+    v7 = declare(int, )
+    v8 = declare(fixed, )
+    v9 = declare(fixed, )
+    v10 = declare(int, )
+    v11 = declare(fixed, )
+    v12 = declare(fixed, )
+    v13 = declare(int, )
+    v14 = declare(fixed, )
     set_dc_offset("B1/flux", "single", -0.25498290735703955)
     set_dc_offset("D1/flux", "single", -0.4530870218982913)
     set_dc_offset("B2/flux", "single", 0.10729465913983083)
@@ -19,241 +29,59 @@ with program() as prog:
     set_dc_offset("D4/flux", "single", -0.08416990010352905)
     set_dc_offset("B5/flux", "single", 0.0)
     set_dc_offset("D5/flux", "single", 0.05418914676504196)
-    wait((4+(0*((Cast.to_int(v2)+Cast.to_int(v3))+Cast.to_int(v4)))), "B4/acquisition")
+    wait((4+(0*((Cast.to_int(v2)+Cast.to_int(v3))+Cast.to_int(v4)))), "B1/acquisition")
+    wait((4+(0*((Cast.to_int(v5)+Cast.to_int(v6))+Cast.to_int(v7)))), "B2/acquisition")
+    wait((4+(0*((Cast.to_int(v8)+Cast.to_int(v9))+Cast.to_int(v10)))), "B3/acquisition")
+    wait((4+(0*((Cast.to_int(v11)+Cast.to_int(v12))+Cast.to_int(v13)))), "B4/acquisition")
     with for_(v1,0,(v1<2048),(v1+1)):
-        align()
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("8799194169894379639", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        r1 = declare_stream()
-        save(v4, r1)
-        wait(25540, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("6474636087807543186", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25540, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("5326814270630674413", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25540, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("5548308329829389661", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25540, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("-2216580398785240768", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25539, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("3347710634848188396", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25539, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("-4319644421673361973", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25539, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("5933248546224464045", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25539, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("6154742605423179293", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25538, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("8131008234227630908", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25538, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("8352502293426346156", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25538, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("2806323093265109255", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25538, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("-4861031963256441114", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25537, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("-4639537904057725866", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25537, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("-2663272275253274251", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25537, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("-2441778216054559003", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25537, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("-3589600033231427776", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25536, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("2791431600972205343", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25536, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        play("659901007629859579", "B4/drive")
-        wait(11, "B4/flux")
-        play("-5790197728212629041", "B4/flux")
-        wait(46, "B4/drive")
-        play("1420991636853421448", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
-        assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
-        save(v4, r1)
-        wait(25536, "B4/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25000, )
+        with for_(v14,0.0,(v14<1.9928510028653295),(v14+0.005702005730659025)):
+            align()
+            play("6800472996984863031", "B1/drive")
+            wait(11, "B1/flux")
+            play("6701173326010017541"*amp(v14), "B1/flux")
+            wait(16, "B1/drive")
+            play("7561563626208424900", "B1/drive")
+            wait(36, "B1/acquisition")
+            measure("7525071781088544451", "B1/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+            assign(v4, Cast.to_int((((v2*-0.9979082255587788)-(v3*-0.06464652629592395))>0.00099163965831088)))
+            r1 = declare_stream()
+            save(v4, r1)
+            play("6029284606121305508", "B2/drive")
+            wait(11, "B2/flux")
+            play("6701173326010017541"*amp(v14), "B2/flux")
+            wait(16, "B2/drive")
+            play("6790375235344867377", "B2/drive")
+            wait(36, "B2/acquisition")
+            measure("3241409630305846721", "B2/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v5), dual_demod.full("minus_sin", "out1", "cos", "out2", v6))
+            assign(v7, Cast.to_int((((v5*-0.19080553858813715)-(v6*-0.9816278553729467))>0.0026123324466526855)))
+            r2 = declare_stream()
+            save(v7, r2)
+            play("-6731998646725726864", "B3/drive")
+            wait(11, "B3/flux")
+            play("6701173326010017541"*amp(v14), "B3/flux")
+            wait(16, "B3/drive")
+            play("-5970908017502164995", "B3/drive")
+            wait(36, "B3/acquisition")
+            measure("6958900402344083437", "B3/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v8), dual_demod.full("minus_sin", "out1", "cos", "out2", v9))
+            assign(v10, Cast.to_int((((v8*0.49095249936396523)-(v9*0.8711863425055949))>0.0026888725240183766)))
+            r3 = declare_stream()
+            save(v10, r3)
+            play("9173421093205777587", "B4/drive")
+            wait(11, "B4/flux")
+            play("6701173326010017541"*amp(v14), "B4/flux")
+            wait(16, "B4/drive")
+            play("-8512232351280212160", "B4/drive")
+            wait(36, "B4/acquisition")
+            measure("73321484572913153", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v11), dual_demod.full("minus_sin", "out1", "cos", "out2", v12))
+            assign(v13, Cast.to_int((((v11*0.9730343180892005)-(v12*-0.2306603906627328))>-0.0004384486988547942)))
+            r4 = declare_stream()
+            save(v13, r4)
+            wait(25000, )
     with stream_processing():
-        r1.buffer(19).average().save("-7050225023228966441_B4|acquisition_shots")
+        r1.buffer(350).average().save("7525071781088544451_B1|acquisition_shots")
+        r2.buffer(350).average().save("3241409630305846721_B2|acquisition_shots")
+        r3.buffer(350).average().save("6958900402344083437_B3|acquisition_shots")
+        r4.buffer(350).average().save("73321484572913153_B4|acquisition_shots")
 
 
 config = {
@@ -345,30 +173,6 @@ config = {
                 },
             },
         },
-        "con3": {
-            "type": "opx1",
-            "analog_outputs": {
-                "7": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-                "8": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-            },
-            "digital_outputs": {
-                "7": {},
-            },
-            "analog_inputs": {
-                "1": {
-                    "offset": 0,
-                },
-                "2": {
-                    "offset": 0,
-                },
-            },
-        },
         "con2": {
             "type": "opx1",
             "analog_outputs": {
@@ -380,9 +184,27 @@ config = {
                     "offset": 0.0,
                     "filter": {},
                 },
+                "3": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
+                "4": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
+                "7": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
+                "8": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
             },
             "digital_outputs": {
                 "1": {},
+                "3": {},
+                "7": {},
             },
             "analog_inputs": {
                 "1": {
@@ -395,26 +217,59 @@ config = {
                 },
             },
         },
-    },
-    "octaves": {
-        "octave3": {
-            "connectivity": "con3",
-            "RF_outputs": {
-                "4": {
-                    "LO_frequency": 6700000000.0,
-                    "gain": 0.0,
-                    "LO_source": "internal",
-                    "output_mode": "triggered",
+        "con3": {
+            "type": "opx1",
+            "analog_outputs": {
+                "1": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
+                "2": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
+                "7": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
+                "8": {
+                    "offset": 0.0,
+                    "filter": {},
                 },
             },
-            "RF_inputs": {},
+            "digital_outputs": {
+                "1": {},
+                "7": {},
+            },
+            "analog_inputs": {
+                "1": {
+                    "offset": 0,
+                },
+                "2": {
+                    "offset": 0,
+                },
+            },
         },
+    },
+    "octaves": {
         "octave2": {
             "connectivity": "con2",
             "RF_outputs": {
                 "1": {
                     "LO_frequency": 7370000000.0,
                     "gain": -10.0,
+                    "LO_source": "internal",
+                    "output_mode": "triggered",
+                },
+                "2": {
+                    "LO_frequency": 4900000000.0,
+                    "gain": 0.0,
+                    "LO_source": "internal",
+                    "output_mode": "triggered",
+                },
+                "4": {
+                    "LO_frequency": 5900000000.0,
+                    "gain": 0.0,
                     "LO_source": "internal",
                     "output_mode": "triggered",
                 },
@@ -428,6 +283,24 @@ config = {
                 },
             },
         },
+        "octave3": {
+            "connectivity": "con3",
+            "RF_outputs": {
+                "1": {
+                    "LO_frequency": 5800000000.0,
+                    "gain": 0.0,
+                    "LO_source": "internal",
+                    "output_mode": "triggered",
+                },
+                "4": {
+                    "LO_frequency": 6700000000.0,
+                    "gain": 0.0,
+                    "LO_source": "internal",
+                    "output_mode": "triggered",
+                },
+            },
+            "RF_inputs": {},
+        },
     },
     "elements": {
         "B1/flux": {
@@ -435,7 +308,10 @@ config = {
                 "port": ('con4', 1),
             },
             "intermediate_frequency": 0,
-            "operations": {},
+            "operations": {
+                "439344534200857157": "439344534200857157",
+                "6701173326010017541": "6701173326010017541",
+            },
         },
         "D1/flux": {
             "singleInput": {
@@ -449,7 +325,10 @@ config = {
                 "port": ('con4', 2),
             },
             "intermediate_frequency": 0,
-            "operations": {},
+            "operations": {
+                "439344534200857157": "439344534200857157",
+                "6701173326010017541": "6701173326010017541",
+            },
         },
         "D2/flux": {
             "singleInput": {
@@ -463,7 +342,10 @@ config = {
                 "port": ('con4', 3),
             },
             "intermediate_frequency": 0,
-            "operations": {},
+            "operations": {
+                "439344534200857157": "439344534200857157",
+                "6701173326010017541": "6701173326010017541",
+            },
         },
         "D3/flux": {
             "singleInput": {
@@ -478,25 +360,8 @@ config = {
             },
             "intermediate_frequency": 0,
             "operations": {
-                "8799194169894379639": "8799194169894379639",
-                "6474636087807543186": "6474636087807543186",
-                "5326814270630674413": "5326814270630674413",
-                "5548308329829389661": "5548308329829389661",
-                "-2216580398785240768": "-2216580398785240768",
-                "3347710634848188396": "3347710634848188396",
-                "-4319644421673361973": "-4319644421673361973",
-                "5933248546224464045": "5933248546224464045",
-                "6154742605423179293": "6154742605423179293",
-                "8131008234227630908": "8131008234227630908",
-                "8352502293426346156": "8352502293426346156",
-                "2806323093265109255": "2806323093265109255",
-                "-4861031963256441114": "-4861031963256441114",
-                "-4639537904057725866": "-4639537904057725866",
-                "-2663272275253274251": "-2663272275253274251",
-                "-2441778216054559003": "-2441778216054559003",
-                "-3589600033231427776": "-3589600033231427776",
-                "2791431600972205343": "2791431600972205343",
-                "-5790197728212629041": "-5790197728212629041",
+                "439344534200857157": "439344534200857157",
+                "6701173326010017541": "6701173326010017541",
             },
         },
         "D4/flux": {
@@ -520,21 +385,84 @@ config = {
             "intermediate_frequency": 0,
             "operations": {},
         },
-        "B4/drive": {
+        "B1/acquisition": {
             "RF_inputs": {
-                "port": ('octave3', 4),
+                "port": ('octave2', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave2', 1),
             },
             "digitalInputs": {
                 "output_switch": {
-                    "port": ('con3', 7),
+                    "port": ('con2', 1),
                     "delay": 57,
                     "buffer": 18,
                 },
             },
-            "intermediate_frequency": 109615374.0,
+            "intermediate_frequency": -237451236.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
             "operations": {
-                "659901007629859579": "659901007629859579",
-                "1420991636853421448": "1420991636853421448",
+                "7525071781088544451": "7525071781088544451_B1/acquisition",
+            },
+        },
+        "B1/drive": {
+            "RF_inputs": {
+                "port": ('octave2', 2),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con2', 3),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 100388701.0,
+            "operations": {
+                "6800472996984863031": "6800472996984863031",
+                "7561563626208424900": "7561563626208424900",
+            },
+        },
+        "B2/acquisition": {
+            "RF_inputs": {
+                "port": ('octave2', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave2', 1),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con2', 1),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 10040944.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
+            "operations": {
+                "3241409630305846721": "3241409630305846721_B2/acquisition",
+            },
+        },
+        "B3/acquisition": {
+            "RF_inputs": {
+                "port": ('octave2', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave2', 1),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con2', 1),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 110622376.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
+            "operations": {
+                "6958900402344083437": "6958900402344083437_B3/acquisition",
             },
         },
         "B4/acquisition": {
@@ -555,33 +483,153 @@ config = {
             "time_of_flight": 224.0,
             "smearing": 0.0,
             "operations": {
-                "-7050225023228966441": "-7050225023228966441_B4/acquisition",
+                "73321484572913153": "73321484572913153_B4/acquisition",
+            },
+        },
+        "B3/drive": {
+            "RF_inputs": {
+                "port": ('octave3', 1),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con3', 1),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": -115376210.0,
+            "operations": {
+                "-6731998646725726864": "-6731998646725726864",
+                "-5970908017502164995": "-5970908017502164995",
+            },
+        },
+        "B4/drive": {
+            "RF_inputs": {
+                "port": ('octave3', 4),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con3', 7),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 109615374.0,
+            "operations": {
+                "9173421093205777587": "9173421093205777587",
+                "-8512232351280212160": "-8512232351280212160",
+            },
+        },
+        "B2/drive": {
+            "RF_inputs": {
+                "port": ('octave2', 4),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con2', 7),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 63761228.0,
+            "operations": {
+                "6029284606121305508": "6029284606121305508",
+                "6790375235344867377": "6790375235344867377",
             },
         },
     },
     "pulses": {
-        "659901007629859579": {
+        "6800472996984863031": {
             "length": 40,
             "waveforms": {
-                "I": "659901007629859579_i",
-                "Q": "659901007629859579_q",
+                "I": "6800472996984863031_i",
+                "Q": "6800472996984863031_q",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2401715869113018409": {
-            "length": 16,
+        "439344534200857157": {
+            "length": 60,
             "waveforms": {
-                "single": "2401715869113018409",
+                "single": "439344534200857157",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7050225023228966441_B4/acquisition": {
+        "7525071781088544451_B1/acquisition": {
             "length": 2000.0,
             "waveforms": {
-                "I": "-3717283734561976361_i",
-                "Q": "-3717283734561976361_q",
+                "I": "5482685722712171864_i",
+                "Q": "5482685722712171864_q",
+            },
+            "digital_marker": "ON",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_B1/acquisition",
+                "sin": "sine_weights_B1/acquisition",
+                "minus_sin": "minus_sine_weights_B1/acquisition",
+            },
+        },
+        "6029284606121305508": {
+            "length": 40,
+            "waveforms": {
+                "I": "6029284606121305508_i",
+                "Q": "6029284606121305508_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "3241409630305846721_B2/acquisition": {
+            "length": 2000.0,
+            "waveforms": {
+                "I": "3112765845605495382_i",
+                "Q": "3112765845605495382_q",
+            },
+            "digital_marker": "ON",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_B2/acquisition",
+                "sin": "sine_weights_B2/acquisition",
+                "minus_sin": "minus_sine_weights_B2/acquisition",
+            },
+        },
+        "-6731998646725726864": {
+            "length": 40,
+            "waveforms": {
+                "I": "-6731998646725726864_i",
+                "Q": "-6731998646725726864_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "6958900402344083437_B3/acquisition": {
+            "length": 2000.0,
+            "waveforms": {
+                "I": "-2996867380106966489_i",
+                "Q": "-2996867380106966489_q",
+            },
+            "digital_marker": "ON",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_B3/acquisition",
+                "sin": "sine_weights_B3/acquisition",
+                "minus_sin": "minus_sine_weights_B3/acquisition",
+            },
+        },
+        "9173421093205777587": {
+            "length": 40,
+            "waveforms": {
+                "I": "9173421093205777587_i",
+                "Q": "9173421093205777587_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "73321484572913153_B4/acquisition": {
+            "length": 2000.0,
+            "waveforms": {
+                "I": "8347779664135400588_i",
+                "Q": "8347779664135400588_q",
             },
             "digital_marker": "ON",
             "operation": "measurement",
@@ -591,978 +639,153 @@ config = {
                 "minus_sin": "minus_sine_weights_B4/acquisition",
             },
         },
-        "8905053041377849346": {
-            "length": 16,
-            "waveforms": {
-                "single": "8905053041377849346",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1237697984856298977": {
-            "length": 16,
-            "waveforms": {
-                "single": "1237697984856298977",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "4056783440746159384": {
-            "length": 16,
-            "waveforms": {
-                "single": "4056783440746159384",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1391862087321997457": {
-            "length": 16,
-            "waveforms": {
-                "single": "-1391862087321997457",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6139104608147432921": {
-            "length": 16,
-            "waveforms": {
-                "single": "-6139104608147432921",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-8935256756737912638": {
-            "length": 16,
-            "waveforms": {
-                "single": "-8935256756737912638",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4814093777169546724": {
-            "length": 16,
-            "waveforms": {
-                "single": "-4814093777169546724",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6737497068734745775": {
-            "length": 16,
-            "waveforms": {
-                "single": "-6737497068734745775",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6260601476906649000": {
-            "length": 16,
-            "waveforms": {
-                "single": "6260601476906649000",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1513358956081213536": {
-            "length": 16,
-            "waveforms": {
-                "single": "1513358956081213536",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8458361164909815863": {
-            "length": 16,
-            "waveforms": {
-                "single": "8458361164909815863",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "693472436295185434": {
-            "length": 16,
-            "waveforms": {
-                "single": "693472436295185434",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5313323878478268810": {
-            "length": 16,
-            "waveforms": {
-                "single": "5313323878478268810",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6867035752500438632": {
-            "length": 16,
-            "waveforms": {
-                "single": "6867035752500438632",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8843301381304890247": {
-            "length": 16,
-            "waveforms": {
-                "single": "8843301381304890247",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "9064795440503605495": {
-            "length": 20,
-            "waveforms": {
-                "single": "9064795440503605495",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-5702450690201351597": {
-            "length": 20,
-            "waveforms": {
-                "single": "-5702450690201351597",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-5480956631002636349": {
-            "length": 20,
-            "waveforms": {
-                "single": "-5480956631002636349",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-8332010762379648031": {
-            "length": 20,
-            "waveforms": {
-                "single": "-8332010762379648031",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1950979128176014912": {
-            "length": 24,
-            "waveforms": {
-                "single": "-1950979128176014912",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4303344796938309132": {
-            "length": 24,
-            "waveforms": {
-                "single": "-4303344796938309132",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1950012874027294860": {
-            "length": 24,
-            "waveforms": {
-                "single": "1950012874027294860",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "468274619025867199": {
-            "length": 24,
-            "waveforms": {
-                "single": "468274619025867199",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-7725576486785858399": {
-            "length": 28,
-            "waveforms": {
-                "single": "-7725576486785858399",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "3127624708091622077": {
-            "length": 28,
-            "waveforms": {
-                "single": "3127624708091622077",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-8222941867566916755": {
-            "length": 28,
-            "waveforms": {
-                "single": "-8222941867566916755",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-17412578339924976": {
-            "length": 28,
-            "waveforms": {
-                "single": "-17412578339924976",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5546878455293504188": {
-            "length": 32,
-            "waveforms": {
-                "single": "5546878455293504188",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-73112922557211942": {
-            "length": 32,
-            "waveforms": {
-                "single": "-73112922557211942",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3268298418404914954": {
-            "length": 32,
-            "waveforms": {
-                "single": "-3268298418404914954",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-7172721112144941626": {
-            "length": 32,
-            "waveforms": {
-                "single": "-7172721112144941626",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5931818671688578572": {
-            "length": 36,
-            "waveforms": {
-                "single": "5931818671688578572",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "7357856582472719267": {
-            "length": 36,
-            "waveforms": {
-                "single": "7357856582472719267",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-8613933399817663272": {
-            "length": 36,
-            "waveforms": {
-                "single": "-8613933399817663272",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2661864142811125322": {
-            "length": 36,
-            "waveforms": {
-                "single": "-2661864142811125322",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "7203250601713591910": {
-            "length": 40,
-            "waveforms": {
-                "single": "7203250601713591910",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-464104454807958459": {
-            "length": 40,
-            "waveforms": {
-                "single": "-464104454807958459",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-340144067702323271": {
-            "length": 40,
-            "waveforms": {
-                "single": "-340144067702323271",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-961469835589016815": {
-            "length": 40,
-            "waveforms": {
-                "single": "-961469835589016815",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2443208090590444476": {
-            "length": 44,
-            "waveforms": {
-                "single": "-2443208090590444476",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3591029907767313249": {
-            "length": 44,
-            "waveforms": {
-                "single": "-3591029907767313249",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "7188359109420687998": {
-            "length": 44,
-            "waveforms": {
-                "single": "7188359109420687998",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6736067194198860302": {
-            "length": 44,
-            "waveforms": {
-                "single": "-6736067194198860302",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1171776160565431138": {
-            "length": 48,
-            "waveforms": {
-                "single": "-1171776160565431138",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3206089691372238865": {
-            "length": 48,
-            "waveforms": {
-                "single": "-3206089691372238865",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2984595632173523617": {
-            "length": 48,
-            "waveforms": {
-                "single": "-2984595632173523617",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6179781128021226629": {
-            "length": 48,
-            "waveforms": {
-                "single": "-6179781128021226629",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "916396370029786155": {
-            "length": 52,
-            "waveforms": {
-                "single": "916396370029786155",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1408161712057050298": {
-            "length": 52,
-            "waveforms": {
-                "single": "-1408161712057050298",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8844731255840775720": {
-            "length": 52,
-            "waveforms": {
-                "single": "8844731255840775720",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "9066225315039490968": {
-            "length": 52,
-            "waveforms": {
-                "single": "9066225315039490968",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8347365875059717364": {
-            "length": 56,
-            "waveforms": {
-                "single": "8347365875059717364",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6865627620058289703": {
-            "length": 56,
-            "waveforms": {
-                "single": "6865627620058289703",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3375587164424270134": {
-            "length": 56,
-            "waveforms": {
-                "single": "-3375587164424270134",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1949549253640129439": {
-            "length": 56,
-            "waveforms": {
-                "single": "-1949549253640129439",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1857622652602494212": {
+        "6701173326010017541": {
             "length": 60,
             "waveforms": {
-                "single": "1857622652602494212",
+                "single": "6701173326010017541",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "248210434363037424": {
-            "length": 60,
-            "waveforms": {
-                "single": "248210434363037424",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6502512617383624924": {
-            "length": 60,
-            "waveforms": {
-                "single": "-6502512617383624924",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "4276876399804376323": {
-            "length": 60,
-            "waveforms": {
-                "single": "4276876399804376323",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8799194169894379639": {
-            "length": 64,
-            "waveforms": {
-                "single": "8799194169894379639",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6474636087807543186": {
-            "length": 64,
-            "waveforms": {
-                "single": "6474636087807543186",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5326814270630674413": {
-            "length": 64,
-            "waveforms": {
-                "single": "5326814270630674413",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5548308329829389661": {
-            "length": 64,
-            "waveforms": {
-                "single": "5548308329829389661",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2216580398785240768": {
-            "length": 68,
-            "waveforms": {
-                "single": "-2216580398785240768",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "3347710634848188396": {
-            "length": 68,
-            "waveforms": {
-                "single": "3347710634848188396",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4319644421673361973": {
-            "length": 68,
-            "waveforms": {
-                "single": "-4319644421673361973",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5933248546224464045": {
-            "length": 68,
-            "waveforms": {
-                "single": "5933248546224464045",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6154742605423179293": {
-            "length": 72,
-            "waveforms": {
-                "single": "6154742605423179293",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8131008234227630908": {
-            "length": 72,
-            "waveforms": {
-                "single": "8131008234227630908",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8352502293426346156": {
-            "length": 72,
-            "waveforms": {
-                "single": "8352502293426346156",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "2806323093265109255": {
-            "length": 72,
-            "waveforms": {
-                "single": "2806323093265109255",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4861031963256441114": {
-            "length": 76,
-            "waveforms": {
-                "single": "-4861031963256441114",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4639537904057725866": {
-            "length": 76,
-            "waveforms": {
-                "single": "-4639537904057725866",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2663272275253274251": {
-            "length": 76,
-            "waveforms": {
-                "single": "-2663272275253274251",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2441778216054559003": {
-            "length": 76,
-            "waveforms": {
-                "single": "-2441778216054559003",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3589600033231427776": {
-            "length": 80,
-            "waveforms": {
-                "single": "-3589600033231427776",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "2791431600972205343": {
-            "length": 80,
-            "waveforms": {
-                "single": "2791431600972205343",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-5790197728212629041": {
-            "length": 80,
-            "waveforms": {
-                "single": "-5790197728212629041",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1420991636853421448": {
+        "7561563626208424900": {
             "length": 40,
             "waveforms": {
-                "I": "1420991636853421448_i",
-                "Q": "1420991636853421448_q",
+                "I": "7561563626208424900_i",
+                "Q": "7561563626208424900_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "6790375235344867377": {
+            "length": 40,
+            "waveforms": {
+                "I": "6790375235344867377_i",
+                "Q": "6790375235344867377_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-5970908017502164995": {
+            "length": 40,
+            "waveforms": {
+                "I": "-5970908017502164995_i",
+                "Q": "-5970908017502164995_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-8512232351280212160": {
+            "length": 40,
+            "waveforms": {
+                "I": "-8512232351280212160_i",
+                "Q": "-8512232351280212160_q",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
     },
     "waveforms": {
-        "659901007629859579_i": {
-            "samples": [0.0003245581697577897, 0.00041434379264958276, 0.0005192451877881844, 0.0006385249144990762, 0.000770192387926079, 0.0009108005732581571, 0.0010553365498202035, 0.0011972457129536531, 0.0013286216753579422, 0.0014405792538840596, 0.0015238070380387695, 0.001569271028816185, 0.0015690150341873355, 0.001516981055392401, 0.0014097580972250404, 0.0012471643221047002, 0.0010325773968537242, 0.0007729513005631867, 0.00047849244520435603, 0.00016200920159745652, -0.00016200920159745196, -0.0004784924452043516, -0.0007729513005631823, -0.0010325773968537198, -0.0012471643221046963, -0.001409758097225037, -0.0015169810553923976, -0.0015690150341873324, -0.0015692710288161824, -0.0015238070380387673, -0.0014405792538840579, -0.0013286216753579405, -0.0011972457129536518, -0.0010553365498202022, -0.0009108005732581562, -0.0007701923879260784, -0.0006385249144990755, -0.000519245187788184, -0.00041434379264958243, -0.0003245581697577895],
+        "6800472996984863031_i": {
+            "samples": [-0.00022142740157317373, -0.0002826829761606054, -0.00035425117413348615, -0.0004356288820668947, -0.0005254580382221801, -0.0006213869286926811, -0.0007199955255671921, -0.0008168119984833208, -0.0009064422734077392, -0.0009828245001067717, -0.0010396060379057538, -0.0010706235080575682, -0.0010704488576227164, -0.0010349490619260794, -0.0009617969948137154, -0.0008508685989463798, -0.0007044682624354848, -0.0005273402858847709, -0.00032644791808218227, -0.00011052957492162269, 0.00011052957492162535, 0.0003264479180821849, 0.0005273402858847735, 0.0007044682624354872, 0.0008508685989463821, 0.0009617969948137175, 0.001034949061926081, 0.0010704488576227182, 0.00107062350805757, 0.0010396060379057551, 0.000982824500106773, 0.0009064422734077401, 0.0008168119984833217, 0.0007199955255671927, 0.0006213869286926815, 0.0005254580382221805, 0.000435628882066895, 0.00035425117413348636, 0.0002826829761606056, 0.0002214274015731739],
             "type": "arbitrary",
         },
-        "659901007629859579_q": {
-            "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
+        "6800472996984863031_q": {
+            "samples": [0.0011180555187915678, 0.0015045081475491685, 0.0019931494632565378, 0.0025995569652476707, 0.0033378972155056613, 0.004219497446825634, 0.005251249417242201, 0.006433965280360931, 0.007760843544895696, 0.009216229744590979, 0.010774864198537374, 0.012401792672522064, 0.01405307218212388, 0.015677334902548905, 0.0172181839630987, 0.018617295840194316, 0.019818008261921365, 0.020769094336384877, 0.021428376161292048] + [0.02176582398456596] * 2 + [0.021428376161292048, 0.020769094336384877, 0.019818008261921365, 0.018617295840194316, 0.0172181839630987, 0.015677334902548905, 0.01405307218212388, 0.012401792672522064, 0.010774864198537374, 0.009216229744590979, 0.007760843544895696, 0.006433965280360931, 0.005251249417242201, 0.004219497446825634, 0.0033378972155056613, 0.0025995569652476707, 0.0019931494632565378, 0.0015045081475491685, 0.0011180555187915678],
             "type": "arbitrary",
         },
-        "2401715869113018409": {
-            "samples": [0.25] + [0.0] * 15,
-            "type": "arbitrary",
-        },
-        "-3717283734561976361_i": {
-            "sample": 0.0033,
+        "439344534200857157": {
+            "sample": 0.0875,
             "type": "constant",
         },
-        "-3717283734561976361_q": {
+        "5482685722712171864_i": {
+            "sample": 0.0031,
+            "type": "constant",
+        },
+        "5482685722712171864_q": {
             "sample": 0.0,
             "type": "constant",
         },
-        "8905053041377849346": {
-            "samples": [0.25] * 2 + [0.0] * 14,
+        "6029284606121305508_i": {
+            "samples": [0.0001847802794911338, 0.0002358978110714119, 0.00029562118555058855, 0.00036353055679122937, 0.0004384926277133374, 0.0005185449024836567, 0.000600833381512208, 0.0006816263402774137, 0.0007564224456091563, 0.0008201631077734924, 0.000867547073578488, 0.0008934310281524939, 0.0008932852830643261, 0.0008636608457810521, 0.0008026157388505544, 0.0007100464369202522, 0.0005878759426368721, 0.0004400633558467776, 0.0002724194797661072, 9.223648744893448e-05, -9.22364874489315e-05, -0.00027241947976610427, -0.00044006335584677477, -0.0005878759426368692, -0.0007100464369202496, -0.000802615738850552, -0.0008636608457810499, -0.0008932852830643241, -0.0008934310281524921, -0.0008675470735784865, -0.0008201631077734911, -0.0007564224456091552, -0.0006816263402774129, -0.0006008333815122073, -0.0005185449024836561, -0.00043849262771333695, -0.00036353055679122905, -0.0002956211855505882, -0.0002358978110714117, -0.00018478027949113364],
             "type": "arbitrary",
         },
-        "1237697984856298977": {
-            "samples": [0.25] * 3 + [0.0] * 13,
+        "6029284606121305508_q": {
+            "samples": [0.0012493039327485741, 0.0016811221929452756, 0.0022271250587747485, 0.0029047186704985986, 0.0037297326012476254, 0.004714823786424647, 0.00586769300677935, 0.007189247754539428, 0.008671888112107319, 0.010298121937161474, 0.01203972431763831, 0.013857637745628482, 0.01570276077461938, 0.017517695516533722, 0.019239424678246013, 0.020802778144181227, 0.022144442064578468, 0.023207176028356858, 0.023943850873928398] + [0.024320911659934084] * 2 + [0.023943850873928398, 0.023207176028356858, 0.022144442064578468, 0.020802778144181227, 0.019239424678246013, 0.017517695516533722, 0.01570276077461938, 0.013857637745628482, 0.01203972431763831, 0.010298121937161474, 0.008671888112107319, 0.007189247754539428, 0.00586769300677935, 0.004714823786424647, 0.0037297326012476254, 0.0029047186704985986, 0.0022271250587747485, 0.0016811221929452756, 0.0012493039327485741],
             "type": "arbitrary",
         },
-        "4056783440746159384": {
-            "samples": [0.25] * 4 + [0.0] * 12,
-            "type": "arbitrary",
-        },
-        "-1391862087321997457": {
-            "samples": [0.25] * 5 + [0.0] * 11,
-            "type": "arbitrary",
-        },
-        "-6139104608147432921": {
-            "samples": [0.25] * 6 + [0.0] * 10,
-            "type": "arbitrary",
-        },
-        "-8935256756737912638": {
-            "samples": [0.25] * 7 + [0.0] * 9,
-            "type": "arbitrary",
-        },
-        "-4814093777169546724": {
-            "samples": [0.25] * 8 + [0.0] * 8,
-            "type": "arbitrary",
-        },
-        "-6737497068734745775": {
-            "samples": [0.25] * 9 + [0.0] * 7,
-            "type": "arbitrary",
-        },
-        "6260601476906649000": {
-            "samples": [0.25] * 10 + [0.0] * 6,
-            "type": "arbitrary",
-        },
-        "1513358956081213536": {
-            "samples": [0.25] * 11 + [0.0] * 5,
-            "type": "arbitrary",
-        },
-        "8458361164909815863": {
-            "samples": [0.25] * 12 + [0.0] * 4,
-            "type": "arbitrary",
-        },
-        "693472436295185434": {
-            "samples": [0.25] * 13 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "5313323878478268810": {
-            "samples": [0.25] * 14 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "6867035752500438632": {
-            "samples": [0.25] * 15 + [0.0],
-            "type": "arbitrary",
-        },
-        "8843301381304890247": {
-            "sample": 0.25,
+        "3112765845605495382_i": {
+            "sample": 0.0021,
             "type": "constant",
         },
-        "9064795440503605495": {
-            "samples": [0.25] * 17 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "-5702450690201351597": {
-            "samples": [0.25] * 18 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-5480956631002636349": {
-            "samples": [0.25] * 19 + [0.0],
-            "type": "arbitrary",
-        },
-        "-8332010762379648031": {
-            "sample": 0.25,
+        "3112765845605495382_q": {
+            "sample": 0.0,
             "type": "constant",
         },
-        "-1950979128176014912": {
-            "samples": [0.25] * 21 + [0.0] * 3,
+        "-6731998646725726864_i": {
+            "samples": [0.00030171729028092756, 0.0003851842227735331, 0.0004827031504638384, 0.0005935885302881006, 0.0007159898654021671, 0.0008467027071136329, 0.000981066920557875, 0.0011129891833639896, 0.0012351195226318389, 0.0013391980526670656, 0.0014165686563095033, 0.001458833104968909, 0.0014585951260395835, 0.0014102230542588634, 0.0013105459442409456, 0.00115939475528007, 0.0009599094498731598, 0.0007185546187270059, 0.00044481839447977256, 0.00015060775497668046, -0.00015060775497667656, -0.00044481839447976866, -0.0007185546187270022, -0.0009599094498731563, -0.0011593947552800666, -0.0013105459442409426, -0.0014102230542588608, -0.001458595126039581, -0.001458833104968907, -0.0014165686563095015, -0.0013391980526670638, -0.0012351195226318376, -0.0011129891833639883, -0.0009810669205578741, -0.0008467027071136323, -0.0007159898654021665, -0.0005935885302881001, -0.0004827031504638381, -0.00038518422277353286, -0.00030171729028092735],
             "type": "arbitrary",
         },
-        "-4303344796938309132": {
-            "samples": [0.25] * 22 + [0.0] * 2,
+        "-6731998646725726864_q": {
+            "samples": [0.0016409510779196645, 0.0022081410314293824, 0.002925311583561483, 0.00381532556527005, 0.004898974998745269, 0.006192884670996909, 0.007707169498132072, 0.009443021464190989, 0.011390458136038771, 0.01352650371967906, 0.015814085010857203, 0.018201900274243128, 0.02062545513863524, 0.023009357920839617, 0.025270835892482323, 0.02732428860950993, 0.029086553818695706, 0.030482446681665623, 0.031450063408251405] + [0.03194532984183734] * 2 + [0.031450063408251405, 0.030482446681665623, 0.029086553818695706, 0.02732428860950993, 0.025270835892482323, 0.023009357920839617, 0.02062545513863524, 0.018201900274243128, 0.015814085010857203, 0.01352650371967906, 0.011390458136038771, 0.009443021464190989, 0.007707169498132072, 0.006192884670996909, 0.004898974998745269, 0.00381532556527005, 0.002925311583561483, 0.0022081410314293824, 0.0016409510779196645],
             "type": "arbitrary",
         },
-        "1950012874027294860": {
-            "samples": [0.25] * 23 + [0.0],
-            "type": "arbitrary",
-        },
-        "468274619025867199": {
-            "sample": 0.25,
+        "-2996867380106966489_i": {
+            "sample": 0.0017,
             "type": "constant",
         },
-        "-7725576486785858399": {
-            "samples": [0.25] * 25 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "3127624708091622077": {
-            "samples": [0.25] * 26 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-8222941867566916755": {
-            "samples": [0.25] * 27 + [0.0],
-            "type": "arbitrary",
-        },
-        "-17412578339924976": {
-            "sample": 0.25,
+        "-2996867380106966489_q": {
+            "sample": 0.0,
             "type": "constant",
         },
-        "5546878455293504188": {
-            "samples": [0.25] * 29 + [0.0] * 3,
+        "9173421093205777587_i": {
+            "samples": [0.0003245581697577897, 0.00041434379264958276, 0.0005192451877881844, 0.0006385249144990762, 0.000770192387926079, 0.0009108005732581571, 0.0010553365498202035, 0.0011972457129536531, 0.0013286216753579422, 0.0014405792538840596, 0.0015238070380387695, 0.001569271028816185, 0.0015690150341873355, 0.001516981055392401, 0.0014097580972250404, 0.0012471643221047002, 0.0010325773968537242, 0.0007729513005631867, 0.00047849244520435603, 0.00016200920159745652, -0.00016200920159745196, -0.0004784924452043516, -0.0007729513005631823, -0.0010325773968537198, -0.0012471643221046963, -0.001409758097225037, -0.0015169810553923976, -0.0015690150341873324, -0.0015692710288161824, -0.0015238070380387673, -0.0014405792538840579, -0.0013286216753579405, -0.0011972457129536518, -0.0010553365498202022, -0.0009108005732581562, -0.0007701923879260784, -0.0006385249144990755, -0.000519245187788184, -0.00041434379264958243, -0.0003245581697577895],
             "type": "arbitrary",
         },
-        "-73112922557211942": {
-            "samples": [0.25] * 30 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-3268298418404914954": {
-            "samples": [0.25] * 31 + [0.0],
-            "type": "arbitrary",
-        },
-        "-7172721112144941626": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "5931818671688578572": {
-            "samples": [0.25] * 33 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "7357856582472719267": {
-            "samples": [0.25] * 34 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-8613933399817663272": {
-            "samples": [0.25] * 35 + [0.0],
-            "type": "arbitrary",
-        },
-        "-2661864142811125322": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "7203250601713591910": {
-            "samples": [0.25] * 37 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "-464104454807958459": {
-            "samples": [0.25] * 38 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-340144067702323271": {
-            "samples": [0.25] * 39 + [0.0],
-            "type": "arbitrary",
-        },
-        "-961469835589016815": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-2443208090590444476": {
-            "samples": [0.25] * 41 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "-3591029907767313249": {
-            "samples": [0.25] * 42 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "7188359109420687998": {
-            "samples": [0.25] * 43 + [0.0],
-            "type": "arbitrary",
-        },
-        "-6736067194198860302": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-1171776160565431138": {
-            "samples": [0.25] * 45 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "-3206089691372238865": {
-            "samples": [0.25] * 46 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-2984595632173523617": {
-            "samples": [0.25] * 47 + [0.0],
-            "type": "arbitrary",
-        },
-        "-6179781128021226629": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "916396370029786155": {
-            "samples": [0.25] * 49 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "-1408161712057050298": {
-            "samples": [0.25] * 50 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "8844731255840775720": {
-            "samples": [0.25] * 51 + [0.0],
-            "type": "arbitrary",
-        },
-        "9066225315039490968": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "8347365875059717364": {
-            "samples": [0.25] * 53 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "6865627620058289703": {
-            "samples": [0.25] * 54 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-3375587164424270134": {
-            "samples": [0.25] * 55 + [0.0],
-            "type": "arbitrary",
-        },
-        "-1949549253640129439": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "1857622652602494212": {
-            "samples": [0.25] * 57 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "248210434363037424": {
-            "samples": [0.25] * 58 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-6502512617383624924": {
-            "samples": [0.25] * 59 + [0.0],
-            "type": "arbitrary",
-        },
-        "4276876399804376323": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "8799194169894379639": {
-            "samples": [0.25] * 61 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "6474636087807543186": {
-            "samples": [0.25] * 62 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "5326814270630674413": {
-            "samples": [0.25] * 63 + [0.0],
-            "type": "arbitrary",
-        },
-        "5548308329829389661": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-2216580398785240768": {
-            "samples": [0.25] * 65 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "3347710634848188396": {
-            "samples": [0.25] * 66 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-4319644421673361973": {
-            "samples": [0.25] * 67 + [0.0],
-            "type": "arbitrary",
-        },
-        "5933248546224464045": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "6154742605423179293": {
-            "samples": [0.25] * 69 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "8131008234227630908": {
-            "samples": [0.25] * 70 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "8352502293426346156": {
-            "samples": [0.25] * 71 + [0.0],
-            "type": "arbitrary",
-        },
-        "2806323093265109255": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-4861031963256441114": {
-            "samples": [0.25] * 73 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "-4639537904057725866": {
-            "samples": [0.25] * 74 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-2663272275253274251": {
-            "samples": [0.25] * 75 + [0.0],
-            "type": "arbitrary",
-        },
-        "-2441778216054559003": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-3589600033231427776": {
-            "samples": [0.25] * 77 + [0.0] * 3,
-            "type": "arbitrary",
-        },
-        "2791431600972205343": {
-            "samples": [0.25] * 78 + [0.0] * 2,
-            "type": "arbitrary",
-        },
-        "-5790197728212629041": {
-            "samples": [0.25] * 79 + [0.0],
-            "type": "arbitrary",
-        },
-        "1420991636853421448_i": {
+        "9173421093205777587_q": {
             "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
             "type": "arbitrary",
         },
-        "1420991636853421448_q": {
+        "8347779664135400588_i": {
+            "sample": 0.0033,
+            "type": "constant",
+        },
+        "8347779664135400588_q": {
+            "sample": 0.0,
+            "type": "constant",
+        },
+        "6701173326010017541": {
+            "sample": 0.08768844221105529,
+            "type": "constant",
+        },
+        "7561563626208424900_i": {
+            "samples": [0.0011180555187915678, 0.0015045081475491685, 0.0019931494632565378, 0.0025995569652476707, 0.0033378972155056613, 0.004219497446825634, 0.005251249417242201, 0.006433965280360931, 0.007760843544895696, 0.009216229744590979, 0.010774864198537374, 0.012401792672522064, 0.01405307218212388, 0.015677334902548905, 0.0172181839630987, 0.018617295840194316, 0.019818008261921365, 0.020769094336384877, 0.021428376161292048] + [0.02176582398456596] * 2 + [0.021428376161292048, 0.020769094336384877, 0.019818008261921365, 0.018617295840194316, 0.0172181839630987, 0.015677334902548905, 0.01405307218212388, 0.012401792672522064, 0.010774864198537374, 0.009216229744590979, 0.007760843544895696, 0.006433965280360931, 0.005251249417242201, 0.004219497446825634, 0.0033378972155056613, 0.0025995569652476707, 0.0019931494632565378, 0.0015045081475491685, 0.0011180555187915678],
+            "type": "arbitrary",
+        },
+        "7561563626208424900_q": {
+            "samples": [0.0002214274015731738, 0.0002826829761606055, 0.00035425117413348626, 0.00043562888206689486, 0.0005254580382221803, 0.0006213869286926813, 0.0007199955255671924, 0.0008168119984833213, 0.0009064422734077396, 0.0009828245001067724, 0.0010396060379057545, 0.001070623508057569, 0.0010704488576227173, 0.0010349490619260802, 0.0009617969948137164, 0.000850868598946381, 0.000704468262435486, 0.0005273402858847722, 0.0003264479180821836, 0.00011052957492162402, -0.00011052957492162402, -0.0003264479180821836, -0.0005273402858847722, -0.000704468262435486, -0.000850868598946381, -0.0009617969948137164, -0.0010349490619260802, -0.0010704488576227173, -0.001070623508057569, -0.0010396060379057545, -0.0009828245001067724, -0.0009064422734077396, -0.0008168119984833213, -0.0007199955255671924, -0.0006213869286926813, -0.0005254580382221803, -0.00043562888206689486, -0.00035425117413348626, -0.0002826829761606055, -0.0002214274015731738],
+            "type": "arbitrary",
+        },
+        "6790375235344867377_i": {
+            "samples": [0.0012493039327485741, 0.0016811221929452756, 0.0022271250587747485, 0.0029047186704985986, 0.0037297326012476254, 0.004714823786424647, 0.00586769300677935, 0.007189247754539428, 0.008671888112107319, 0.010298121937161474, 0.01203972431763831, 0.013857637745628482, 0.01570276077461938, 0.017517695516533722, 0.019239424678246013, 0.020802778144181227, 0.022144442064578468, 0.023207176028356858, 0.023943850873928398] + [0.024320911659934084] * 2 + [0.023943850873928398, 0.023207176028356858, 0.022144442064578468, 0.020802778144181227, 0.019239424678246013, 0.017517695516533722, 0.01570276077461938, 0.013857637745628482, 0.01203972431763831, 0.010298121937161474, 0.008671888112107319, 0.007189247754539428, 0.00586769300677935, 0.004714823786424647, 0.0037297326012476254, 0.0029047186704985986, 0.0022271250587747485, 0.0016811221929452756, 0.0012493039327485741],
+            "type": "arbitrary",
+        },
+        "6790375235344867377_q": {
+            "samples": [-0.00018478027949113372, -0.0002358978110714118, -0.0002956211855505884, -0.0003635305567912292, -0.00043849262771333716, -0.0005185449024836564, -0.0006008333815122076, -0.0006816263402774133, -0.0007564224456091558, -0.0008201631077734918, -0.0008675470735784872, -0.000893431028152493, -0.0008932852830643251, -0.000863660845781051, -0.0008026157388505532, -0.0007100464369202509, -0.0005878759426368707, -0.0004400633558467762, -0.00027241947976610573, -9.223648744893299e-05, 9.223648744893299e-05, 0.00027241947976610573, 0.0004400633558467762, 0.0005878759426368707, 0.0007100464369202509, 0.0008026157388505532, 0.000863660845781051, 0.0008932852830643251, 0.000893431028152493, 0.0008675470735784872, 0.0008201631077734918, 0.0007564224456091558, 0.0006816263402774133, 0.0006008333815122076, 0.0005185449024836564, 0.00043849262771333716, 0.0003635305567912292, 0.0002956211855505884, 0.0002358978110714118, 0.00018478027949113372],
+            "type": "arbitrary",
+        },
+        "-5970908017502164995_i": {
+            "samples": [0.0016409510779196645, 0.0022081410314293824, 0.002925311583561483, 0.00381532556527005, 0.004898974998745269, 0.006192884670996909, 0.007707169498132072, 0.009443021464190989, 0.011390458136038771, 0.01352650371967906, 0.015814085010857203, 0.018201900274243128, 0.02062545513863524, 0.023009357920839617, 0.025270835892482323, 0.02732428860950993, 0.029086553818695706, 0.030482446681665623, 0.031450063408251405] + [0.03194532984183734] * 2 + [0.031450063408251405, 0.030482446681665623, 0.029086553818695706, 0.02732428860950993, 0.025270835892482323, 0.023009357920839617, 0.02062545513863524, 0.018201900274243128, 0.015814085010857203, 0.01352650371967906, 0.011390458136038771, 0.009443021464190989, 0.007707169498132072, 0.006192884670996909, 0.004898974998745269, 0.00381532556527005, 0.002925311583561483, 0.0022081410314293824, 0.0016409510779196645],
+            "type": "arbitrary",
+        },
+        "-5970908017502164995_q": {
+            "samples": [-0.00030171729028092745, -0.00038518422277353297, -0.00048270315046383824, -0.0005935885302881004, -0.0007159898654021668, -0.0008467027071136326, -0.0009810669205578746, -0.001112989183363989, -0.0012351195226318382, -0.0013391980526670647, -0.0014165686563095024, -0.001458833104968908, -0.0014585951260395822, -0.001410223054258862, -0.001310545944240944, -0.0011593947552800683, -0.000959909449873158, -0.000718554618727004, -0.0004448183944797706, -0.0001506077549766785, 0.0001506077549766785, 0.0004448183944797706, 0.000718554618727004, 0.000959909449873158, 0.0011593947552800683, 0.001310545944240944, 0.001410223054258862, 0.0014585951260395822, 0.001458833104968908, 0.0014165686563095024, 0.0013391980526670647, 0.0012351195226318382, 0.001112989183363989, 0.0009810669205578746, 0.0008467027071136326, 0.0007159898654021668, 0.0005935885302881004, 0.00048270315046383824, 0.00038518422277353297, 0.00030171729028092745],
+            "type": "arbitrary",
+        },
+        "-8512232351280212160_i": {
+            "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
+            "type": "arbitrary",
+        },
+        "-8512232351280212160_q": {
             "samples": [-0.0003245581697577896, -0.0004143437926495826, -0.0005192451877881842, -0.0006385249144990759, -0.0007701923879260787, -0.0009108005732581567, -0.0010553365498202029, -0.0011972457129536525, -0.0013286216753579413, -0.0014405792538840587, -0.0015238070380387684, -0.0015692710288161837, -0.001569015034187334, -0.0015169810553923994, -0.0014097580972250387, -0.0012471643221046982, -0.001032577396853722, -0.0007729513005631845, -0.0004784924452043538, -0.00016200920159745424, 0.00016200920159745424, 0.0004784924452043538, 0.0007729513005631845, 0.001032577396853722, 0.0012471643221046982, 0.0014097580972250387, 0.0015169810553923994, 0.001569015034187334, 0.0015692710288161837, 0.0015238070380387684, 0.0014405792538840587, 0.0013286216753579413, 0.0011972457129536525, 0.0010553365498202029, 0.0009108005732581567, 0.0007701923879260787, 0.0006385249144990759, 0.0005192451877881842, 0.0004143437926495826, 0.0003245581697577896],
             "type": "arbitrary",
         },
@@ -1573,6 +796,42 @@ config = {
         },
     },
     "integration_weights": {
+        "cosine_weights_B1/acquisition": {
+            "cosine": [(1.0, 2000.0)],
+            "sine": [(-0.0, 2000.0)],
+        },
+        "sine_weights_B1/acquisition": {
+            "cosine": [(0.0, 2000.0)],
+            "sine": [(1.0, 2000.0)],
+        },
+        "minus_sine_weights_B1/acquisition": {
+            "cosine": [(-0.0, 2000.0)],
+            "sine": [(-1.0, 2000.0)],
+        },
+        "cosine_weights_B2/acquisition": {
+            "cosine": [(1.0, 2000.0)],
+            "sine": [(-0.0, 2000.0)],
+        },
+        "sine_weights_B2/acquisition": {
+            "cosine": [(0.0, 2000.0)],
+            "sine": [(1.0, 2000.0)],
+        },
+        "minus_sine_weights_B2/acquisition": {
+            "cosine": [(-0.0, 2000.0)],
+            "sine": [(-1.0, 2000.0)],
+        },
+        "cosine_weights_B3/acquisition": {
+            "cosine": [(1.0, 2000.0)],
+            "sine": [(-0.0, 2000.0)],
+        },
+        "sine_weights_B3/acquisition": {
+            "cosine": [(0.0, 2000.0)],
+            "sine": [(1.0, 2000.0)],
+        },
+        "minus_sine_weights_B3/acquisition": {
+            "cosine": [(-0.0, 2000.0)],
+            "sine": [(-1.0, 2000.0)],
+        },
         "cosine_weights_B4/acquisition": {
             "cosine": [(1.0, 2000.0)],
             "sine": [(-0.0, 2000.0)],
@@ -1716,9 +975,112 @@ loaded_config = {
                 },
             },
         },
+        "con2": {
+            "type": "opx1",
+            "analog_outputs": {
+                "1": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+                "2": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+                "3": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+                "4": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+                "7": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+                "8": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+            },
+            "analog_inputs": {
+                "1": {
+                    "offset": 0.0,
+                    "gain_db": 10,
+                    "shareable": False,
+                },
+                "2": {
+                    "offset": 0.0,
+                    "gain_db": 10,
+                    "shareable": False,
+                },
+            },
+            "digital_outputs": {
+                "1": {
+                    "shareable": False,
+                    "inverted": False,
+                },
+                "3": {
+                    "shareable": False,
+                    "inverted": False,
+                },
+                "7": {
+                    "shareable": False,
+                    "inverted": False,
+                },
+            },
+        },
         "con3": {
             "type": "opx1",
             "analog_outputs": {
+                "1": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+                "2": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
                 "7": {
                     "offset": 0.0,
                     "delay": 0,
@@ -1751,48 +1113,11 @@ loaded_config = {
                 },
             },
             "digital_outputs": {
-                "7": {
+                "1": {
                     "shareable": False,
                     "inverted": False,
                 },
-            },
-        },
-        "con2": {
-            "type": "opx1",
-            "analog_outputs": {
-                "1": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                },
-                "2": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                },
-            },
-            "analog_inputs": {
-                "1": {
-                    "offset": 0.0,
-                    "gain_db": 10,
-                    "shareable": False,
-                },
-                "2": {
-                    "offset": 0.0,
-                    "gain_db": 10,
-                    "shareable": False,
-                },
-            },
-            "digital_outputs": {
-                "1": {
+                "7": {
                     "shareable": False,
                     "inverted": False,
                 },
@@ -1805,6 +1130,10 @@ loaded_config = {
             "digitalInputs": {},
             "digitalOutputs": {},
             "intermediate_frequency": 0,
+            "operations": {
+                "439344534200857157": "439344534200857157",
+                "6701173326010017541": "6701173326010017541",
+            },
             "singleInput": {
                 "port": ('con4', 1),
             },
@@ -1821,6 +1150,10 @@ loaded_config = {
             "digitalInputs": {},
             "digitalOutputs": {},
             "intermediate_frequency": 0,
+            "operations": {
+                "439344534200857157": "439344534200857157",
+                "6701173326010017541": "6701173326010017541",
+            },
             "singleInput": {
                 "port": ('con4', 2),
             },
@@ -1837,6 +1170,10 @@ loaded_config = {
             "digitalInputs": {},
             "digitalOutputs": {},
             "intermediate_frequency": 0,
+            "operations": {
+                "439344534200857157": "439344534200857157",
+                "6701173326010017541": "6701173326010017541",
+            },
             "singleInput": {
                 "port": ('con4', 3),
             },
@@ -1854,25 +1191,8 @@ loaded_config = {
             "digitalOutputs": {},
             "intermediate_frequency": 0,
             "operations": {
-                "8799194169894379639": "8799194169894379639",
-                "6474636087807543186": "6474636087807543186",
-                "5326814270630674413": "5326814270630674413",
-                "5548308329829389661": "5548308329829389661",
-                "-2216580398785240768": "-2216580398785240768",
-                "3347710634848188396": "3347710634848188396",
-                "-4319644421673361973": "-4319644421673361973",
-                "5933248546224464045": "5933248546224464045",
-                "6154742605423179293": "6154742605423179293",
-                "8131008234227630908": "8131008234227630908",
-                "8352502293426346156": "8352502293426346156",
-                "2806323093265109255": "2806323093265109255",
-                "-4861031963256441114": "-4861031963256441114",
-                "-4639537904057725866": "-4639537904057725866",
-                "-2663272275253274251": "-2663272275253274251",
-                "-2441778216054559003": "-2441778216054559003",
-                "-3589600033231427776": "-3589600033231427776",
-                "2791431600972205343": "2791431600972205343",
-                "-5790197728212629041": "-5790197728212629041",
+                "439344534200857157": "439344534200857157",
+                "6701173326010017541": "6701173326010017541",
             },
             "singleInput": {
                 "port": ('con4', 4),
@@ -1902,25 +1222,103 @@ loaded_config = {
                 "port": ('con9', 7),
             },
         },
-        "B4/drive": {
+        "B1/acquisition": {
             "digitalInputs": {
                 "output_switch": {
                     "delay": 57,
                     "buffer": 18,
-                    "port": ('con3', 7),
+                    "port": ('con2', 1),
                 },
             },
             "digitalOutputs": {},
-            "intermediate_frequency": 109615374.0,
+            "outputs": {
+                "out1": ('con2', 1),
+                "out2": ('con2', 2),
+            },
+            "time_of_flight": 224,
+            "smearing": 0,
+            "intermediate_frequency": -237451236.0,
             "operations": {
-                "659901007629859579": "659901007629859579",
-                "1420991636853421448": "1420991636853421448",
+                "7525071781088544451": "7525071781088544451_B1/acquisition",
             },
             "mixInputs": {
-                "I": ('con3', 7),
-                "Q": ('con3', 8),
-                "mixer": "B4/drive_mixer_c45",
-                "lo_frequency": 6700000000.0,
+                "I": ('con2', 1),
+                "Q": ('con2', 2),
+                "mixer": "B1/acquisition_mixer_6e6",
+                "lo_frequency": 7370000000.0,
+            },
+        },
+        "B1/drive": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con2', 3),
+                },
+            },
+            "digitalOutputs": {},
+            "intermediate_frequency": 100388701.0,
+            "operations": {
+                "6800472996984863031": "6800472996984863031",
+                "7561563626208424900": "7561563626208424900",
+            },
+            "mixInputs": {
+                "I": ('con2', 3),
+                "Q": ('con2', 4),
+                "mixer": "B1/drive_mixer_19e",
+                "lo_frequency": 4900000000.0,
+            },
+        },
+        "B2/acquisition": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con2', 1),
+                },
+            },
+            "digitalOutputs": {},
+            "outputs": {
+                "out1": ('con2', 1),
+                "out2": ('con2', 2),
+            },
+            "time_of_flight": 224,
+            "smearing": 0,
+            "intermediate_frequency": 10040944.0,
+            "operations": {
+                "3241409630305846721": "3241409630305846721_B2/acquisition",
+            },
+            "mixInputs": {
+                "I": ('con2', 1),
+                "Q": ('con2', 2),
+                "mixer": "B2/acquisition_mixer_aca",
+                "lo_frequency": 7370000000.0,
+            },
+        },
+        "B3/acquisition": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con2', 1),
+                },
+            },
+            "digitalOutputs": {},
+            "outputs": {
+                "out1": ('con2', 1),
+                "out2": ('con2', 2),
+            },
+            "time_of_flight": 224,
+            "smearing": 0,
+            "intermediate_frequency": 110622376.0,
+            "operations": {
+                "6958900402344083437": "6958900402344083437_B3/acquisition",
+            },
+            "mixInputs": {
+                "I": ('con2', 1),
+                "Q": ('con2', 2),
+                "mixer": "B3/acquisition_mixer_951",
+                "lo_frequency": 7370000000.0,
             },
         },
         "B4/acquisition": {
@@ -1940,39 +1338,171 @@ loaded_config = {
             "smearing": 0,
             "intermediate_frequency": 330300527.0,
             "operations": {
-                "-7050225023228966441": "-7050225023228966441_B4/acquisition",
+                "73321484572913153": "73321484572913153_B4/acquisition",
             },
             "mixInputs": {
                 "I": ('con2', 1),
                 "Q": ('con2', 2),
-                "mixer": "B4/acquisition_mixer_534",
+                "mixer": "B4/acquisition_mixer_abd",
                 "lo_frequency": 7370000000.0,
+            },
+        },
+        "B3/drive": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con3', 1),
+                },
+            },
+            "digitalOutputs": {},
+            "intermediate_frequency": -115376210.0,
+            "operations": {
+                "-6731998646725726864": "-6731998646725726864",
+                "-5970908017502164995": "-5970908017502164995",
+            },
+            "mixInputs": {
+                "I": ('con3', 1),
+                "Q": ('con3', 2),
+                "mixer": "B3/drive_mixer_d60",
+                "lo_frequency": 5800000000.0,
+            },
+        },
+        "B4/drive": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con3', 7),
+                },
+            },
+            "digitalOutputs": {},
+            "intermediate_frequency": 109615374.0,
+            "operations": {
+                "9173421093205777587": "9173421093205777587",
+                "-8512232351280212160": "-8512232351280212160",
+            },
+            "mixInputs": {
+                "I": ('con3', 7),
+                "Q": ('con3', 8),
+                "mixer": "B4/drive_mixer_a3b",
+                "lo_frequency": 6700000000.0,
+            },
+        },
+        "B2/drive": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con2', 7),
+                },
+            },
+            "digitalOutputs": {},
+            "intermediate_frequency": 63761228.0,
+            "operations": {
+                "6029284606121305508": "6029284606121305508",
+                "6790375235344867377": "6790375235344867377",
+            },
+            "mixInputs": {
+                "I": ('con2', 7),
+                "Q": ('con2', 8),
+                "mixer": "B2/drive_mixer_d4c",
+                "lo_frequency": 5900000000.0,
             },
         },
     },
     "pulses": {
-        "659901007629859579": {
+        "6800472996984863031": {
             "length": 40,
             "waveforms": {
-                "I": "659901007629859579_i",
-                "Q": "659901007629859579_q",
+                "I": "6800472996984863031_i",
+                "Q": "6800472996984863031_q",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2401715869113018409": {
-            "length": 16,
+        "439344534200857157": {
+            "length": 60,
             "waveforms": {
-                "single": "2401715869113018409",
+                "single": "439344534200857157",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7050225023228966441_B4/acquisition": {
+        "7525071781088544451_B1/acquisition": {
             "length": 2000,
             "waveforms": {
-                "I": "-3717283734561976361_i",
-                "Q": "-3717283734561976361_q",
+                "I": "5482685722712171864_i",
+                "Q": "5482685722712171864_q",
+            },
+            "digital_marker": "ON",
+            "integration_weights": {
+                "cos": "cosine_weights_B1/acquisition",
+                "sin": "sine_weights_B1/acquisition",
+                "minus_sin": "minus_sine_weights_B1/acquisition",
+            },
+            "operation": "measurement",
+        },
+        "6029284606121305508": {
+            "length": 40,
+            "waveforms": {
+                "I": "6029284606121305508_i",
+                "Q": "6029284606121305508_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "3241409630305846721_B2/acquisition": {
+            "length": 2000,
+            "waveforms": {
+                "I": "3112765845605495382_i",
+                "Q": "3112765845605495382_q",
+            },
+            "digital_marker": "ON",
+            "integration_weights": {
+                "cos": "cosine_weights_B2/acquisition",
+                "sin": "sine_weights_B2/acquisition",
+                "minus_sin": "minus_sine_weights_B2/acquisition",
+            },
+            "operation": "measurement",
+        },
+        "-6731998646725726864": {
+            "length": 40,
+            "waveforms": {
+                "I": "-6731998646725726864_i",
+                "Q": "-6731998646725726864_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "6958900402344083437_B3/acquisition": {
+            "length": 2000,
+            "waveforms": {
+                "I": "-2996867380106966489_i",
+                "Q": "-2996867380106966489_q",
+            },
+            "digital_marker": "ON",
+            "integration_weights": {
+                "cos": "cosine_weights_B3/acquisition",
+                "sin": "sine_weights_B3/acquisition",
+                "minus_sin": "minus_sine_weights_B3/acquisition",
+            },
+            "operation": "measurement",
+        },
+        "9173421093205777587": {
+            "length": 40,
+            "waveforms": {
+                "I": "9173421093205777587_i",
+                "Q": "9173421093205777587_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "73321484572913153_B4/acquisition": {
+            "length": 2000,
+            "waveforms": {
+                "I": "8347779664135400588_i",
+                "Q": "8347779664135400588_q",
             },
             "digital_marker": "ON",
             "integration_weights": {
@@ -1982,1110 +1512,183 @@ loaded_config = {
             },
             "operation": "measurement",
         },
-        "8905053041377849346": {
-            "length": 16,
-            "waveforms": {
-                "single": "8905053041377849346",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1237697984856298977": {
-            "length": 16,
-            "waveforms": {
-                "single": "1237697984856298977",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "4056783440746159384": {
-            "length": 16,
-            "waveforms": {
-                "single": "4056783440746159384",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1391862087321997457": {
-            "length": 16,
-            "waveforms": {
-                "single": "-1391862087321997457",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6139104608147432921": {
-            "length": 16,
-            "waveforms": {
-                "single": "-6139104608147432921",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-8935256756737912638": {
-            "length": 16,
-            "waveforms": {
-                "single": "-8935256756737912638",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4814093777169546724": {
-            "length": 16,
-            "waveforms": {
-                "single": "-4814093777169546724",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6737497068734745775": {
-            "length": 16,
-            "waveforms": {
-                "single": "-6737497068734745775",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6260601476906649000": {
-            "length": 16,
-            "waveforms": {
-                "single": "6260601476906649000",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1513358956081213536": {
-            "length": 16,
-            "waveforms": {
-                "single": "1513358956081213536",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8458361164909815863": {
-            "length": 16,
-            "waveforms": {
-                "single": "8458361164909815863",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "693472436295185434": {
-            "length": 16,
-            "waveforms": {
-                "single": "693472436295185434",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5313323878478268810": {
-            "length": 16,
-            "waveforms": {
-                "single": "5313323878478268810",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6867035752500438632": {
-            "length": 16,
-            "waveforms": {
-                "single": "6867035752500438632",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8843301381304890247": {
-            "length": 16,
-            "waveforms": {
-                "single": "8843301381304890247",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "9064795440503605495": {
-            "length": 20,
-            "waveforms": {
-                "single": "9064795440503605495",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-5702450690201351597": {
-            "length": 20,
-            "waveforms": {
-                "single": "-5702450690201351597",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-5480956631002636349": {
-            "length": 20,
-            "waveforms": {
-                "single": "-5480956631002636349",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-8332010762379648031": {
-            "length": 20,
-            "waveforms": {
-                "single": "-8332010762379648031",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1950979128176014912": {
-            "length": 24,
-            "waveforms": {
-                "single": "-1950979128176014912",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4303344796938309132": {
-            "length": 24,
-            "waveforms": {
-                "single": "-4303344796938309132",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1950012874027294860": {
-            "length": 24,
-            "waveforms": {
-                "single": "1950012874027294860",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "468274619025867199": {
-            "length": 24,
-            "waveforms": {
-                "single": "468274619025867199",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-7725576486785858399": {
-            "length": 28,
-            "waveforms": {
-                "single": "-7725576486785858399",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "3127624708091622077": {
-            "length": 28,
-            "waveforms": {
-                "single": "3127624708091622077",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-8222941867566916755": {
-            "length": 28,
-            "waveforms": {
-                "single": "-8222941867566916755",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-17412578339924976": {
-            "length": 28,
-            "waveforms": {
-                "single": "-17412578339924976",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5546878455293504188": {
-            "length": 32,
-            "waveforms": {
-                "single": "5546878455293504188",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-73112922557211942": {
-            "length": 32,
-            "waveforms": {
-                "single": "-73112922557211942",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3268298418404914954": {
-            "length": 32,
-            "waveforms": {
-                "single": "-3268298418404914954",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-7172721112144941626": {
-            "length": 32,
-            "waveforms": {
-                "single": "-7172721112144941626",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5931818671688578572": {
-            "length": 36,
-            "waveforms": {
-                "single": "5931818671688578572",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "7357856582472719267": {
-            "length": 36,
-            "waveforms": {
-                "single": "7357856582472719267",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-8613933399817663272": {
-            "length": 36,
-            "waveforms": {
-                "single": "-8613933399817663272",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2661864142811125322": {
-            "length": 36,
-            "waveforms": {
-                "single": "-2661864142811125322",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "7203250601713591910": {
-            "length": 40,
-            "waveforms": {
-                "single": "7203250601713591910",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-464104454807958459": {
-            "length": 40,
-            "waveforms": {
-                "single": "-464104454807958459",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-340144067702323271": {
-            "length": 40,
-            "waveforms": {
-                "single": "-340144067702323271",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-961469835589016815": {
-            "length": 40,
-            "waveforms": {
-                "single": "-961469835589016815",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2443208090590444476": {
-            "length": 44,
-            "waveforms": {
-                "single": "-2443208090590444476",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3591029907767313249": {
-            "length": 44,
-            "waveforms": {
-                "single": "-3591029907767313249",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "7188359109420687998": {
-            "length": 44,
-            "waveforms": {
-                "single": "7188359109420687998",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6736067194198860302": {
-            "length": 44,
-            "waveforms": {
-                "single": "-6736067194198860302",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1171776160565431138": {
-            "length": 48,
-            "waveforms": {
-                "single": "-1171776160565431138",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3206089691372238865": {
-            "length": 48,
-            "waveforms": {
-                "single": "-3206089691372238865",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2984595632173523617": {
-            "length": 48,
-            "waveforms": {
-                "single": "-2984595632173523617",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6179781128021226629": {
-            "length": 48,
-            "waveforms": {
-                "single": "-6179781128021226629",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "916396370029786155": {
-            "length": 52,
-            "waveforms": {
-                "single": "916396370029786155",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1408161712057050298": {
-            "length": 52,
-            "waveforms": {
-                "single": "-1408161712057050298",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8844731255840775720": {
-            "length": 52,
-            "waveforms": {
-                "single": "8844731255840775720",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "9066225315039490968": {
-            "length": 52,
-            "waveforms": {
-                "single": "9066225315039490968",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8347365875059717364": {
-            "length": 56,
-            "waveforms": {
-                "single": "8347365875059717364",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6865627620058289703": {
-            "length": 56,
-            "waveforms": {
-                "single": "6865627620058289703",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3375587164424270134": {
-            "length": 56,
-            "waveforms": {
-                "single": "-3375587164424270134",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-1949549253640129439": {
-            "length": 56,
-            "waveforms": {
-                "single": "-1949549253640129439",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1857622652602494212": {
+        "6701173326010017541": {
             "length": 60,
             "waveforms": {
-                "single": "1857622652602494212",
+                "single": "6701173326010017541",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "248210434363037424": {
-            "length": 60,
-            "waveforms": {
-                "single": "248210434363037424",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-6502512617383624924": {
-            "length": 60,
-            "waveforms": {
-                "single": "-6502512617383624924",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "4276876399804376323": {
-            "length": 60,
-            "waveforms": {
-                "single": "4276876399804376323",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8799194169894379639": {
-            "length": 64,
-            "waveforms": {
-                "single": "8799194169894379639",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6474636087807543186": {
-            "length": 64,
-            "waveforms": {
-                "single": "6474636087807543186",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5326814270630674413": {
-            "length": 64,
-            "waveforms": {
-                "single": "5326814270630674413",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5548308329829389661": {
-            "length": 64,
-            "waveforms": {
-                "single": "5548308329829389661",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2216580398785240768": {
-            "length": 68,
-            "waveforms": {
-                "single": "-2216580398785240768",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "3347710634848188396": {
-            "length": 68,
-            "waveforms": {
-                "single": "3347710634848188396",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4319644421673361973": {
-            "length": 68,
-            "waveforms": {
-                "single": "-4319644421673361973",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "5933248546224464045": {
-            "length": 68,
-            "waveforms": {
-                "single": "5933248546224464045",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "6154742605423179293": {
-            "length": 72,
-            "waveforms": {
-                "single": "6154742605423179293",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8131008234227630908": {
-            "length": 72,
-            "waveforms": {
-                "single": "8131008234227630908",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "8352502293426346156": {
-            "length": 72,
-            "waveforms": {
-                "single": "8352502293426346156",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "2806323093265109255": {
-            "length": 72,
-            "waveforms": {
-                "single": "2806323093265109255",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4861031963256441114": {
-            "length": 76,
-            "waveforms": {
-                "single": "-4861031963256441114",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-4639537904057725866": {
-            "length": 76,
-            "waveforms": {
-                "single": "-4639537904057725866",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2663272275253274251": {
-            "length": 76,
-            "waveforms": {
-                "single": "-2663272275253274251",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-2441778216054559003": {
-            "length": 76,
-            "waveforms": {
-                "single": "-2441778216054559003",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-3589600033231427776": {
-            "length": 80,
-            "waveforms": {
-                "single": "-3589600033231427776",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "2791431600972205343": {
-            "length": 80,
-            "waveforms": {
-                "single": "2791431600972205343",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "-5790197728212629041": {
-            "length": 80,
-            "waveforms": {
-                "single": "-5790197728212629041",
-            },
-            "digital_marker": "ON",
-            "operation": "control",
-        },
-        "1420991636853421448": {
+        "7561563626208424900": {
             "length": 40,
             "waveforms": {
-                "I": "1420991636853421448_i",
-                "Q": "1420991636853421448_q",
+                "I": "7561563626208424900_i",
+                "Q": "7561563626208424900_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "6790375235344867377": {
+            "length": 40,
+            "waveforms": {
+                "I": "6790375235344867377_i",
+                "Q": "6790375235344867377_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-5970908017502164995": {
+            "length": 40,
+            "waveforms": {
+                "I": "-5970908017502164995_i",
+                "Q": "-5970908017502164995_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-8512232351280212160": {
+            "length": 40,
+            "waveforms": {
+                "I": "-8512232351280212160_i",
+                "Q": "-8512232351280212160_q",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
     },
     "waveforms": {
-        "659901007629859579_i": {
+        "6800472996984863031_i": {
+            "samples": [-0.00022142740157317373, -0.0002826829761606054, -0.00035425117413348615, -0.0004356288820668947, -0.0005254580382221801, -0.0006213869286926811, -0.0007199955255671921, -0.0008168119984833208, -0.0009064422734077392, -0.0009828245001067717, -0.0010396060379057538, -0.0010706235080575682, -0.0010704488576227164, -0.0010349490619260794, -0.0009617969948137154, -0.0008508685989463798, -0.0007044682624354848, -0.0005273402858847709, -0.00032644791808218227, -0.00011052957492162269, 0.00011052957492162535, 0.0003264479180821849, 0.0005273402858847735, 0.0007044682624354872, 0.0008508685989463821, 0.0009617969948137175, 0.001034949061926081, 0.0010704488576227182, 0.00107062350805757, 0.0010396060379057551, 0.000982824500106773, 0.0009064422734077401, 0.0008168119984833217, 0.0007199955255671927, 0.0006213869286926815, 0.0005254580382221805, 0.000435628882066895, 0.00035425117413348636, 0.0002826829761606056, 0.0002214274015731739],
+            "type": "arbitrary",
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "6800472996984863031_q": {
+            "samples": [0.0011180555187915678, 0.0015045081475491685, 0.0019931494632565378, 0.0025995569652476707, 0.0033378972155056613, 0.004219497446825634, 0.005251249417242201, 0.006433965280360931, 0.007760843544895696, 0.009216229744590979, 0.010774864198537374, 0.012401792672522064, 0.01405307218212388, 0.015677334902548905, 0.0172181839630987, 0.018617295840194316, 0.019818008261921365, 0.020769094336384877, 0.021428376161292048] + [0.02176582398456596] * 2 + [0.021428376161292048, 0.020769094336384877, 0.019818008261921365, 0.018617295840194316, 0.0172181839630987, 0.015677334902548905, 0.01405307218212388, 0.012401792672522064, 0.010774864198537374, 0.009216229744590979, 0.007760843544895696, 0.006433965280360931, 0.005251249417242201, 0.004219497446825634, 0.0033378972155056613, 0.0025995569652476707, 0.0019931494632565378, 0.0015045081475491685, 0.0011180555187915678],
+            "type": "arbitrary",
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "439344534200857157": {
+            "sample": 0.0875,
+            "type": "constant",
+        },
+        "5482685722712171864_i": {
+            "sample": 0.0031,
+            "type": "constant",
+        },
+        "5482685722712171864_q": {
+            "sample": 0.0,
+            "type": "constant",
+        },
+        "6029284606121305508_i": {
+            "samples": [0.0001847802794911338, 0.0002358978110714119, 0.00029562118555058855, 0.00036353055679122937, 0.0004384926277133374, 0.0005185449024836567, 0.000600833381512208, 0.0006816263402774137, 0.0007564224456091563, 0.0008201631077734924, 0.000867547073578488, 0.0008934310281524939, 0.0008932852830643261, 0.0008636608457810521, 0.0008026157388505544, 0.0007100464369202522, 0.0005878759426368721, 0.0004400633558467776, 0.0002724194797661072, 9.223648744893448e-05, -9.22364874489315e-05, -0.00027241947976610427, -0.00044006335584677477, -0.0005878759426368692, -0.0007100464369202496, -0.000802615738850552, -0.0008636608457810499, -0.0008932852830643241, -0.0008934310281524921, -0.0008675470735784865, -0.0008201631077734911, -0.0007564224456091552, -0.0006816263402774129, -0.0006008333815122073, -0.0005185449024836561, -0.00043849262771333695, -0.00036353055679122905, -0.0002956211855505882, -0.0002358978110714117, -0.00018478027949113364],
+            "type": "arbitrary",
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "6029284606121305508_q": {
+            "samples": [0.0012493039327485741, 0.0016811221929452756, 0.0022271250587747485, 0.0029047186704985986, 0.0037297326012476254, 0.004714823786424647, 0.00586769300677935, 0.007189247754539428, 0.008671888112107319, 0.010298121937161474, 0.01203972431763831, 0.013857637745628482, 0.01570276077461938, 0.017517695516533722, 0.019239424678246013, 0.020802778144181227, 0.022144442064578468, 0.023207176028356858, 0.023943850873928398] + [0.024320911659934084] * 2 + [0.023943850873928398, 0.023207176028356858, 0.022144442064578468, 0.020802778144181227, 0.019239424678246013, 0.017517695516533722, 0.01570276077461938, 0.013857637745628482, 0.01203972431763831, 0.010298121937161474, 0.008671888112107319, 0.007189247754539428, 0.00586769300677935, 0.004714823786424647, 0.0037297326012476254, 0.0029047186704985986, 0.0022271250587747485, 0.0016811221929452756, 0.0012493039327485741],
+            "type": "arbitrary",
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "3112765845605495382_i": {
+            "sample": 0.0021,
+            "type": "constant",
+        },
+        "3112765845605495382_q": {
+            "sample": 0.0,
+            "type": "constant",
+        },
+        "-6731998646725726864_i": {
+            "samples": [0.00030171729028092756, 0.0003851842227735331, 0.0004827031504638384, 0.0005935885302881006, 0.0007159898654021671, 0.0008467027071136329, 0.000981066920557875, 0.0011129891833639896, 0.0012351195226318389, 0.0013391980526670656, 0.0014165686563095033, 0.001458833104968909, 0.0014585951260395835, 0.0014102230542588634, 0.0013105459442409456, 0.00115939475528007, 0.0009599094498731598, 0.0007185546187270059, 0.00044481839447977256, 0.00015060775497668046, -0.00015060775497667656, -0.00044481839447976866, -0.0007185546187270022, -0.0009599094498731563, -0.0011593947552800666, -0.0013105459442409426, -0.0014102230542588608, -0.001458595126039581, -0.001458833104968907, -0.0014165686563095015, -0.0013391980526670638, -0.0012351195226318376, -0.0011129891833639883, -0.0009810669205578741, -0.0008467027071136323, -0.0007159898654021665, -0.0005935885302881001, -0.0004827031504638381, -0.00038518422277353286, -0.00030171729028092735],
+            "type": "arbitrary",
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-6731998646725726864_q": {
+            "samples": [0.0016409510779196645, 0.0022081410314293824, 0.002925311583561483, 0.00381532556527005, 0.004898974998745269, 0.006192884670996909, 0.007707169498132072, 0.009443021464190989, 0.011390458136038771, 0.01352650371967906, 0.015814085010857203, 0.018201900274243128, 0.02062545513863524, 0.023009357920839617, 0.025270835892482323, 0.02732428860950993, 0.029086553818695706, 0.030482446681665623, 0.031450063408251405] + [0.03194532984183734] * 2 + [0.031450063408251405, 0.030482446681665623, 0.029086553818695706, 0.02732428860950993, 0.025270835892482323, 0.023009357920839617, 0.02062545513863524, 0.018201900274243128, 0.015814085010857203, 0.01352650371967906, 0.011390458136038771, 0.009443021464190989, 0.007707169498132072, 0.006192884670996909, 0.004898974998745269, 0.00381532556527005, 0.002925311583561483, 0.0022081410314293824, 0.0016409510779196645],
+            "type": "arbitrary",
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-2996867380106966489_i": {
+            "sample": 0.0017,
+            "type": "constant",
+        },
+        "-2996867380106966489_q": {
+            "sample": 0.0,
+            "type": "constant",
+        },
+        "9173421093205777587_i": {
             "samples": [0.0003245581697577897, 0.00041434379264958276, 0.0005192451877881844, 0.0006385249144990762, 0.000770192387926079, 0.0009108005732581571, 0.0010553365498202035, 0.0011972457129536531, 0.0013286216753579422, 0.0014405792538840596, 0.0015238070380387695, 0.001569271028816185, 0.0015690150341873355, 0.001516981055392401, 0.0014097580972250404, 0.0012471643221047002, 0.0010325773968537242, 0.0007729513005631867, 0.00047849244520435603, 0.00016200920159745652, -0.00016200920159745196, -0.0004784924452043516, -0.0007729513005631823, -0.0010325773968537198, -0.0012471643221046963, -0.001409758097225037, -0.0015169810553923976, -0.0015690150341873324, -0.0015692710288161824, -0.0015238070380387673, -0.0014405792538840579, -0.0013286216753579405, -0.0011972457129536518, -0.0010553365498202022, -0.0009108005732581562, -0.0007701923879260784, -0.0006385249144990755, -0.000519245187788184, -0.00041434379264958243, -0.0003245581697577895],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "659901007629859579_q": {
+        "9173421093205777587_q": {
             "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "2401715869113018409": {
-            "samples": [0.25] + [0.0] * 15,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-3717283734561976361_i": {
+        "8347779664135400588_i": {
             "sample": 0.0033,
             "type": "constant",
         },
-        "-3717283734561976361_q": {
+        "8347779664135400588_q": {
             "sample": 0.0,
             "type": "constant",
         },
-        "8905053041377849346": {
-            "samples": [0.25] * 2 + [0.0] * 14,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "1237697984856298977": {
-            "samples": [0.25] * 3 + [0.0] * 13,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "4056783440746159384": {
-            "samples": [0.25] * 4 + [0.0] * 12,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-1391862087321997457": {
-            "samples": [0.25] * 5 + [0.0] * 11,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-6139104608147432921": {
-            "samples": [0.25] * 6 + [0.0] * 10,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-8935256756737912638": {
-            "samples": [0.25] * 7 + [0.0] * 9,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-4814093777169546724": {
-            "samples": [0.25] * 8 + [0.0] * 8,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-6737497068734745775": {
-            "samples": [0.25] * 9 + [0.0] * 7,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "6260601476906649000": {
-            "samples": [0.25] * 10 + [0.0] * 6,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "1513358956081213536": {
-            "samples": [0.25] * 11 + [0.0] * 5,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "8458361164909815863": {
-            "samples": [0.25] * 12 + [0.0] * 4,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "693472436295185434": {
-            "samples": [0.25] * 13 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "5313323878478268810": {
-            "samples": [0.25] * 14 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "6867035752500438632": {
-            "samples": [0.25] * 15 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "8843301381304890247": {
-            "sample": 0.25,
+        "6701173326010017541": {
+            "sample": 0.08768844221105529,
             "type": "constant",
         },
-        "9064795440503605495": {
-            "samples": [0.25] * 17 + [0.0] * 3,
+        "7561563626208424900_i": {
+            "samples": [0.0011180555187915678, 0.0015045081475491685, 0.0019931494632565378, 0.0025995569652476707, 0.0033378972155056613, 0.004219497446825634, 0.005251249417242201, 0.006433965280360931, 0.007760843544895696, 0.009216229744590979, 0.010774864198537374, 0.012401792672522064, 0.01405307218212388, 0.015677334902548905, 0.0172181839630987, 0.018617295840194316, 0.019818008261921365, 0.020769094336384877, 0.021428376161292048] + [0.02176582398456596] * 2 + [0.021428376161292048, 0.020769094336384877, 0.019818008261921365, 0.018617295840194316, 0.0172181839630987, 0.015677334902548905, 0.01405307218212388, 0.012401792672522064, 0.010774864198537374, 0.009216229744590979, 0.007760843544895696, 0.006433965280360931, 0.005251249417242201, 0.004219497446825634, 0.0033378972155056613, 0.0025995569652476707, 0.0019931494632565378, 0.0015045081475491685, 0.0011180555187915678],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-5702450690201351597": {
-            "samples": [0.25] * 18 + [0.0] * 2,
+        "7561563626208424900_q": {
+            "samples": [0.0002214274015731738, 0.0002826829761606055, 0.00035425117413348626, 0.00043562888206689486, 0.0005254580382221803, 0.0006213869286926813, 0.0007199955255671924, 0.0008168119984833213, 0.0009064422734077396, 0.0009828245001067724, 0.0010396060379057545, 0.001070623508057569, 0.0010704488576227173, 0.0010349490619260802, 0.0009617969948137164, 0.000850868598946381, 0.000704468262435486, 0.0005273402858847722, 0.0003264479180821836, 0.00011052957492162402, -0.00011052957492162402, -0.0003264479180821836, -0.0005273402858847722, -0.000704468262435486, -0.000850868598946381, -0.0009617969948137164, -0.0010349490619260802, -0.0010704488576227173, -0.001070623508057569, -0.0010396060379057545, -0.0009828245001067724, -0.0009064422734077396, -0.0008168119984833213, -0.0007199955255671924, -0.0006213869286926813, -0.0005254580382221803, -0.00043562888206689486, -0.00035425117413348626, -0.0002826829761606055, -0.0002214274015731738],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-5480956631002636349": {
-            "samples": [0.25] * 19 + [0.0],
+        "6790375235344867377_i": {
+            "samples": [0.0012493039327485741, 0.0016811221929452756, 0.0022271250587747485, 0.0029047186704985986, 0.0037297326012476254, 0.004714823786424647, 0.00586769300677935, 0.007189247754539428, 0.008671888112107319, 0.010298121937161474, 0.01203972431763831, 0.013857637745628482, 0.01570276077461938, 0.017517695516533722, 0.019239424678246013, 0.020802778144181227, 0.022144442064578468, 0.023207176028356858, 0.023943850873928398] + [0.024320911659934084] * 2 + [0.023943850873928398, 0.023207176028356858, 0.022144442064578468, 0.020802778144181227, 0.019239424678246013, 0.017517695516533722, 0.01570276077461938, 0.013857637745628482, 0.01203972431763831, 0.010298121937161474, 0.008671888112107319, 0.007189247754539428, 0.00586769300677935, 0.004714823786424647, 0.0037297326012476254, 0.0029047186704985986, 0.0022271250587747485, 0.0016811221929452756, 0.0012493039327485741],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-8332010762379648031": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-1950979128176014912": {
-            "samples": [0.25] * 21 + [0.0] * 3,
+        "6790375235344867377_q": {
+            "samples": [-0.00018478027949113372, -0.0002358978110714118, -0.0002956211855505884, -0.0003635305567912292, -0.00043849262771333716, -0.0005185449024836564, -0.0006008333815122076, -0.0006816263402774133, -0.0007564224456091558, -0.0008201631077734918, -0.0008675470735784872, -0.000893431028152493, -0.0008932852830643251, -0.000863660845781051, -0.0008026157388505532, -0.0007100464369202509, -0.0005878759426368707, -0.0004400633558467762, -0.00027241947976610573, -9.223648744893299e-05, 9.223648744893299e-05, 0.00027241947976610573, 0.0004400633558467762, 0.0005878759426368707, 0.0007100464369202509, 0.0008026157388505532, 0.000863660845781051, 0.0008932852830643251, 0.000893431028152493, 0.0008675470735784872, 0.0008201631077734918, 0.0007564224456091558, 0.0006816263402774133, 0.0006008333815122076, 0.0005185449024836564, 0.00043849262771333716, 0.0003635305567912292, 0.0002956211855505884, 0.0002358978110714118, 0.00018478027949113372],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-4303344796938309132": {
-            "samples": [0.25] * 22 + [0.0] * 2,
+        "-5970908017502164995_i": {
+            "samples": [0.0016409510779196645, 0.0022081410314293824, 0.002925311583561483, 0.00381532556527005, 0.004898974998745269, 0.006192884670996909, 0.007707169498132072, 0.009443021464190989, 0.011390458136038771, 0.01352650371967906, 0.015814085010857203, 0.018201900274243128, 0.02062545513863524, 0.023009357920839617, 0.025270835892482323, 0.02732428860950993, 0.029086553818695706, 0.030482446681665623, 0.031450063408251405] + [0.03194532984183734] * 2 + [0.031450063408251405, 0.030482446681665623, 0.029086553818695706, 0.02732428860950993, 0.025270835892482323, 0.023009357920839617, 0.02062545513863524, 0.018201900274243128, 0.015814085010857203, 0.01352650371967906, 0.011390458136038771, 0.009443021464190989, 0.007707169498132072, 0.006192884670996909, 0.004898974998745269, 0.00381532556527005, 0.002925311583561483, 0.0022081410314293824, 0.0016409510779196645],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "1950012874027294860": {
-            "samples": [0.25] * 23 + [0.0],
+        "-5970908017502164995_q": {
+            "samples": [-0.00030171729028092745, -0.00038518422277353297, -0.00048270315046383824, -0.0005935885302881004, -0.0007159898654021668, -0.0008467027071136326, -0.0009810669205578746, -0.001112989183363989, -0.0012351195226318382, -0.0013391980526670647, -0.0014165686563095024, -0.001458833104968908, -0.0014585951260395822, -0.001410223054258862, -0.001310545944240944, -0.0011593947552800683, -0.000959909449873158, -0.000718554618727004, -0.0004448183944797706, -0.0001506077549766785, 0.0001506077549766785, 0.0004448183944797706, 0.000718554618727004, 0.000959909449873158, 0.0011593947552800683, 0.001310545944240944, 0.001410223054258862, 0.0014585951260395822, 0.001458833104968908, 0.0014165686563095024, 0.0013391980526670647, 0.0012351195226318382, 0.001112989183363989, 0.0009810669205578746, 0.0008467027071136326, 0.0007159898654021668, 0.0005935885302881004, 0.00048270315046383824, 0.00038518422277353297, 0.00030171729028092745],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "468274619025867199": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-7725576486785858399": {
-            "samples": [0.25] * 25 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "3127624708091622077": {
-            "samples": [0.25] * 26 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-8222941867566916755": {
-            "samples": [0.25] * 27 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-17412578339924976": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "5546878455293504188": {
-            "samples": [0.25] * 29 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-73112922557211942": {
-            "samples": [0.25] * 30 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-3268298418404914954": {
-            "samples": [0.25] * 31 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-7172721112144941626": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "5931818671688578572": {
-            "samples": [0.25] * 33 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "7357856582472719267": {
-            "samples": [0.25] * 34 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-8613933399817663272": {
-            "samples": [0.25] * 35 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-2661864142811125322": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "7203250601713591910": {
-            "samples": [0.25] * 37 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-464104454807958459": {
-            "samples": [0.25] * 38 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-340144067702323271": {
-            "samples": [0.25] * 39 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-961469835589016815": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-2443208090590444476": {
-            "samples": [0.25] * 41 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-3591029907767313249": {
-            "samples": [0.25] * 42 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "7188359109420687998": {
-            "samples": [0.25] * 43 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-6736067194198860302": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-1171776160565431138": {
-            "samples": [0.25] * 45 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-3206089691372238865": {
-            "samples": [0.25] * 46 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-2984595632173523617": {
-            "samples": [0.25] * 47 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-6179781128021226629": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "916396370029786155": {
-            "samples": [0.25] * 49 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-1408161712057050298": {
-            "samples": [0.25] * 50 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "8844731255840775720": {
-            "samples": [0.25] * 51 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "9066225315039490968": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "8347365875059717364": {
-            "samples": [0.25] * 53 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "6865627620058289703": {
-            "samples": [0.25] * 54 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-3375587164424270134": {
-            "samples": [0.25] * 55 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-1949549253640129439": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "1857622652602494212": {
-            "samples": [0.25] * 57 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "248210434363037424": {
-            "samples": [0.25] * 58 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-6502512617383624924": {
-            "samples": [0.25] * 59 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "4276876399804376323": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "8799194169894379639": {
-            "samples": [0.25] * 61 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "6474636087807543186": {
-            "samples": [0.25] * 62 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "5326814270630674413": {
-            "samples": [0.25] * 63 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "5548308329829389661": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-2216580398785240768": {
-            "samples": [0.25] * 65 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "3347710634848188396": {
-            "samples": [0.25] * 66 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-4319644421673361973": {
-            "samples": [0.25] * 67 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "5933248546224464045": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "6154742605423179293": {
-            "samples": [0.25] * 69 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "8131008234227630908": {
-            "samples": [0.25] * 70 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "8352502293426346156": {
-            "samples": [0.25] * 71 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "2806323093265109255": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-4861031963256441114": {
-            "samples": [0.25] * 73 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-4639537904057725866": {
-            "samples": [0.25] * 74 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-2663272275253274251": {
-            "samples": [0.25] * 75 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-2441778216054559003": {
-            "sample": 0.25,
-            "type": "constant",
-        },
-        "-3589600033231427776": {
-            "samples": [0.25] * 77 + [0.0] * 3,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "2791431600972205343": {
-            "samples": [0.25] * 78 + [0.0] * 2,
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "-5790197728212629041": {
-            "samples": [0.25] * 79 + [0.0],
-            "type": "arbitrary",
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
-        },
-        "1420991636853421448_i": {
+        "-8512232351280212160_i": {
             "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "1420991636853421448_q": {
+        "-8512232351280212160_q": {
             "samples": [-0.0003245581697577896, -0.0004143437926495826, -0.0005192451877881842, -0.0006385249144990759, -0.0007701923879260787, -0.0009108005732581567, -0.0010553365498202029, -0.0011972457129536525, -0.0013286216753579413, -0.0014405792538840587, -0.0015238070380387684, -0.0015692710288161837, -0.001569015034187334, -0.0015169810553923994, -0.0014097580972250387, -0.0012471643221046982, -0.001032577396853722, -0.0007729513005631845, -0.0004784924452043538, -0.00016200920159745424, 0.00016200920159745424, 0.0004784924452043538, 0.0007729513005631845, 0.001032577396853722, 0.0012471643221046982, 0.0014097580972250387, 0.0015169810553923994, 0.001569015034187334, 0.0015692710288161837, 0.0015238070380387684, 0.0014405792538840587, 0.0013286216753579413, 0.0011972457129536525, 0.0010553365498202029, 0.0009108005732581567, 0.0007701923879260787, 0.0006385249144990759, 0.0005192451877881842, 0.0004143437926495826, 0.0003245581697577896],
             "type": "arbitrary",
             "is_overridable": False,
@@ -3098,6 +1701,42 @@ loaded_config = {
         },
     },
     "integration_weights": {
+        "cosine_weights_B1/acquisition": {
+            "cosine": [(1.0, 2000)],
+            "sine": [(0.0, 2000)],
+        },
+        "sine_weights_B1/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(1.0, 2000)],
+        },
+        "minus_sine_weights_B1/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(-1.0, 2000)],
+        },
+        "cosine_weights_B2/acquisition": {
+            "cosine": [(1.0, 2000)],
+            "sine": [(0.0, 2000)],
+        },
+        "sine_weights_B2/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(1.0, 2000)],
+        },
+        "minus_sine_weights_B2/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(-1.0, 2000)],
+        },
+        "cosine_weights_B3/acquisition": {
+            "cosine": [(1.0, 2000)],
+            "sine": [(0.0, 2000)],
+        },
+        "sine_weights_B3/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(1.0, 2000)],
+        },
+        "minus_sine_weights_B3/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(-1.0, 2000)],
+        },
         "cosine_weights_B4/acquisition": {
             "cosine": [(1.0, 2000)],
             "sine": [(0.0, 2000)],
@@ -3112,8 +1751,14 @@ loaded_config = {
         },
     },
     "mixers": {
-        "B4/drive_mixer_c45": [{'intermediate_frequency': 109615374.0, 'lo_frequency': 6700000000.0, 'correction': [1, 0.0, 0.0, 1]}],
-        "B4/acquisition_mixer_534": [{'intermediate_frequency': 330300527.0, 'lo_frequency': 7370000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B1/acquisition_mixer_6e6": [{'intermediate_frequency': -237451236.0, 'lo_frequency': 7370000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B1/drive_mixer_19e": [{'intermediate_frequency': 100388701.0, 'lo_frequency': 4900000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B2/acquisition_mixer_aca": [{'intermediate_frequency': 10040944.0, 'lo_frequency': 7370000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B3/acquisition_mixer_951": [{'intermediate_frequency': 110622376.0, 'lo_frequency': 7370000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B4/acquisition_mixer_abd": [{'intermediate_frequency': 330300527.0, 'lo_frequency': 7370000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B3/drive_mixer_d60": [{'intermediate_frequency': -115376210.0, 'lo_frequency': 5800000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B4/drive_mixer_a3b": [{'intermediate_frequency': 109615374.0, 'lo_frequency': 6700000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B2/drive_mixer_d4c": [{'intermediate_frequency': 63761228.0, 'lo_frequency': 5900000000.0, 'correction': [1, 0.0, 0.0, 1]}],
     },
 }
 
