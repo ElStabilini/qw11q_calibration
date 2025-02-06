@@ -1,5 +1,5 @@
 
-# Single QUA script generated at 2025-02-06 16:12:02.462785
+# Single QUA script generated at 2025-02-06 16:19:46.966107
 # QUA library version: 1.1.6
 
 from qm.qua import *
@@ -22,238 +22,238 @@ with program() as prog:
     wait((4+(0*((Cast.to_int(v2)+Cast.to_int(v3))+Cast.to_int(v4)))), "B4/acquisition")
     with for_(v1,0,(v1<2048),(v1+1)):
         align()
-        play("-3415895905877943771", "B4/drive")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("2624843220373211171", "B4/flux")
+        play("8799194169894379639", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         r1 = declare_stream()
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25540, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("2846337279571926419", "B4/flux")
+        play("6474636087807543186", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25540, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("1698515462395057646", "B4/flux")
+        play("5326814270630674413", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25540, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("8079547096598690765", "B4/flux")
+        play("5548308329829389661", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25540, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-7548111521221000444", "B4/flux")
+        play("-2216580398785240768", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25539, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-8169437289107693988", "B4/flux")
+        play("3347710634848188396", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25539, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("7924941115839563408", "B4/flux")
+        play("-4319644421673361973", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25539, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("2304949737988847278", "B4/flux")
+        play("5933248546224464045", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25539, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-5750183541905811877", "B4/flux")
+        play("6154742605423179293", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25538, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("4502709425992014141", "B4/flux")
+        play("8131008234227630908", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25538, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-3090833452840056999", "B4/flux")
+        play("8352502293426346156", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25538, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("4005344045210955785", "B4/flux")
+        play("2806323093265109255", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25538, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-6235870739271604052", "B4/flux")
+        play("-4861031963256441114", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25537, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-671579705638174888", "B4/flux")
+        play("-4639537904057725866", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25537, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-6291571083488891018", "B4/flux")
+        play("-2663272275253274251", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25537, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-2484399177246267367", "B4/flux")
+        play("-2441778216054559003", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25537, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("2037918592843735949", "B4/flux")
+        play("-3589600033231427776", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25536, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-286639489243100504", "B4/flux")
+        play("2791431600972205343", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25536, "B4/flux")
-        play("-3415895905877943771", "B4/drive")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
+        play("659901007629859579", "B4/drive")
         wait(11, "B4/flux")
-        play("-65145430044385256", "B4/flux")
+        play("-5790197728212629041", "B4/flux")
         wait(46, "B4/drive")
-        play("-2654805276654381902", "B4/drive")
+        play("1420991636853421448", "B4/drive")
         wait(66, "B4/acquisition")
-        measure("457828904132122927", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
+        measure("-7050225023228966441", "B4/acquisition", None, dual_demod.full("cos", "out1", "sin", "out2", v2), dual_demod.full("minus_sin", "out1", "cos", "out2", v3))
         assign(v4, Cast.to_int((((v2*0.9730343180892005)-(v3*-0.2306603906627328))>-0.0004384486988547942)))
         save(v4, r1)
-        wait(25001, "B4/acquisition")
-        wait(25501, "B4/drive")
         wait(25536, "B4/flux")
+        wait(25501, "B4/drive")
+        wait(25001, "B4/acquisition")
         wait(25000, )
     with stream_processing():
-        r1.buffer(19).average().save("457828904132122927_B4|acquisition_shots")
+        r1.buffer(19).average().save("-7050225023228966441_B4|acquisition_shots")
 
 
 config = {
@@ -345,6 +345,30 @@ config = {
                 },
             },
         },
+        "con3": {
+            "type": "opx1",
+            "analog_outputs": {
+                "7": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
+                "8": {
+                    "offset": 0.0,
+                    "filter": {},
+                },
+            },
+            "digital_outputs": {
+                "7": {},
+            },
+            "analog_inputs": {
+                "1": {
+                    "offset": 0,
+                },
+                "2": {
+                    "offset": 0,
+                },
+            },
+        },
         "con2": {
             "type": "opx1",
             "analog_outputs": {
@@ -371,32 +395,20 @@ config = {
                 },
             },
         },
-        "con3": {
-            "type": "opx1",
-            "analog_outputs": {
-                "7": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-                "8": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-            },
-            "digital_outputs": {
-                "7": {},
-            },
-            "analog_inputs": {
-                "1": {
-                    "offset": 0,
-                },
-                "2": {
-                    "offset": 0,
-                },
-            },
-        },
     },
     "octaves": {
+        "octave3": {
+            "connectivity": "con3",
+            "RF_outputs": {
+                "4": {
+                    "LO_frequency": 6700000000.0,
+                    "gain": 0.0,
+                    "LO_source": "internal",
+                    "output_mode": "triggered",
+                },
+            },
+            "RF_inputs": {},
+        },
         "octave2": {
             "connectivity": "con2",
             "RF_outputs": {
@@ -415,18 +427,6 @@ config = {
                     "IF_mode_Q": "direct",
                 },
             },
-        },
-        "octave3": {
-            "connectivity": "con3",
-            "RF_outputs": {
-                "4": {
-                    "LO_frequency": 6700000000.0,
-                    "gain": 0.0,
-                    "LO_source": "internal",
-                    "output_mode": "triggered",
-                },
-            },
-            "RF_inputs": {},
         },
     },
     "elements": {
@@ -478,25 +478,25 @@ config = {
             },
             "intermediate_frequency": 0,
             "operations": {
-                "2624843220373211171": "2624843220373211171",
-                "2846337279571926419": "2846337279571926419",
-                "1698515462395057646": "1698515462395057646",
-                "8079547096598690765": "8079547096598690765",
-                "-7548111521221000444": "-7548111521221000444",
-                "-8169437289107693988": "-8169437289107693988",
-                "7924941115839563408": "7924941115839563408",
-                "2304949737988847278": "2304949737988847278",
-                "-5750183541905811877": "-5750183541905811877",
-                "4502709425992014141": "4502709425992014141",
-                "-3090833452840056999": "-3090833452840056999",
-                "4005344045210955785": "4005344045210955785",
-                "-6235870739271604052": "-6235870739271604052",
-                "-671579705638174888": "-671579705638174888",
-                "-6291571083488891018": "-6291571083488891018",
-                "-2484399177246267367": "-2484399177246267367",
-                "2037918592843735949": "2037918592843735949",
-                "-286639489243100504": "-286639489243100504",
-                "-65145430044385256": "-65145430044385256",
+                "8799194169894379639": "8799194169894379639",
+                "6474636087807543186": "6474636087807543186",
+                "5326814270630674413": "5326814270630674413",
+                "5548308329829389661": "5548308329829389661",
+                "-2216580398785240768": "-2216580398785240768",
+                "3347710634848188396": "3347710634848188396",
+                "-4319644421673361973": "-4319644421673361973",
+                "5933248546224464045": "5933248546224464045",
+                "6154742605423179293": "6154742605423179293",
+                "8131008234227630908": "8131008234227630908",
+                "8352502293426346156": "8352502293426346156",
+                "2806323093265109255": "2806323093265109255",
+                "-4861031963256441114": "-4861031963256441114",
+                "-4639537904057725866": "-4639537904057725866",
+                "-2663272275253274251": "-2663272275253274251",
+                "-2441778216054559003": "-2441778216054559003",
+                "-3589600033231427776": "-3589600033231427776",
+                "2791431600972205343": "2791431600972205343",
+                "-5790197728212629041": "-5790197728212629041",
             },
         },
         "D4/flux": {
@@ -520,6 +520,23 @@ config = {
             "intermediate_frequency": 0,
             "operations": {},
         },
+        "B4/drive": {
+            "RF_inputs": {
+                "port": ('octave3', 4),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con3', 7),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 109615374.0,
+            "operations": {
+                "659901007629859579": "659901007629859579",
+                "1420991636853421448": "1420991636853421448",
+            },
+        },
         "B4/acquisition": {
             "RF_inputs": {
                 "port": ('octave2', 1),
@@ -538,50 +555,33 @@ config = {
             "time_of_flight": 224.0,
             "smearing": 0.0,
             "operations": {
-                "457828904132122927": "457828904132122927_B4/acquisition",
-            },
-        },
-        "B4/drive": {
-            "RF_inputs": {
-                "port": ('octave3', 4),
-            },
-            "digitalInputs": {
-                "output_switch": {
-                    "port": ('con3', 7),
-                    "delay": 57,
-                    "buffer": 18,
-                },
-            },
-            "intermediate_frequency": 109615374.0,
-            "operations": {
-                "-3415895905877943771": "-3415895905877943771",
-                "-2654805276654381902": "-2654805276654381902",
+                "-7050225023228966441": "-7050225023228966441_B4/acquisition",
             },
         },
     },
     "pulses": {
-        "-3415895905877943771": {
+        "659901007629859579": {
             "length": 40,
             "waveforms": {
-                "I": "-3415895905877943771_i",
-                "Q": "-3415895905877943771_q",
+                "I": "659901007629859579_i",
+                "Q": "659901007629859579_q",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1026877093097855471": {
+        "2401715869113018409": {
             "length": 16,
             "waveforms": {
-                "single": "1026877093097855471",
+                "single": "2401715869113018409",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "457828904132122927_B4/acquisition": {
+        "-7050225023228966441_B4/acquisition": {
             "length": 2000.0,
             "waveforms": {
-                "I": "5370586333104135786_i",
-                "Q": "5370586333104135786_q",
+                "I": "-3717283734561976361_i",
+                "Q": "-3717283734561976361_q",
             },
             "digital_marker": "ON",
             "operation": "measurement",
@@ -591,978 +591,978 @@ config = {
                 "minus_sin": "minus_sine_weights_B4/acquisition",
             },
         },
-        "7407908727301488590": {
+        "8905053041377849346": {
             "length": 16,
             "waveforms": {
-                "single": "7407908727301488590",
+                "single": "8905053041377849346",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4093833137579460699": {
+        "1237697984856298977": {
             "length": 16,
             "waveforms": {
-                "single": "-4093833137579460699",
+                "single": "1237697984856298977",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "428484632510542617": {
+        "4056783440746159384": {
             "length": 16,
             "waveforms": {
-                "single": "428484632510542617",
+                "single": "4056783440746159384",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-192841135376150927": {
+        "-1391862087321997457": {
             "length": 16,
             "waveforms": {
-                "single": "-192841135376150927",
+                "single": "-1391862087321997457",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "8679340657326501928": {
+        "-6139104608147432921": {
             "length": 16,
             "waveforms": {
-                "single": "8679340657326501928",
+                "single": "-6139104608147432921",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3337136367450470510": {
+        "-8935256756737912638": {
             "length": 16,
             "waveforms": {
-                "single": "3337136367450470510",
+                "single": "-8935256756737912638",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7569643728379882825": {
+        "-4814093777169546724": {
             "length": 16,
             "waveforms": {
-                "single": "-7569643728379882825",
+                "single": "-4814093777169546724",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-1617574471373344875": {
+        "-6737497068734745775": {
             "length": 16,
             "waveforms": {
-                "single": "-1617574471373344875",
+                "single": "-6737497068734745775",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-2160266587743370763": {
+        "6260601476906649000": {
             "length": 16,
             "waveforms": {
-                "single": "-2160266587743370763",
+                "single": "6260601476906649000",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-2437460991159372977": {
+        "1513358956081213536": {
             "length": 16,
             "waveforms": {
-                "single": "-2437460991159372977",
+                "single": "1513358956081213536",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4360864282724572028": {
+        "8458361164909815863": {
             "length": 16,
             "waveforms": {
-                "single": "-4360864282724572028",
+                "single": "8458361164909815863",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "82819835848763632": {
+        "693472436295185434": {
             "length": 16,
             "waveforms": {
-                "single": "82819835848763632",
+                "single": "693472436295185434",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3889991742091387283": {
+        "5313323878478268810": {
             "length": 16,
             "waveforms": {
-                "single": "3889991742091387283",
+                "single": "5313323878478268810",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7611750122789562006": {
+        "6867035752500438632": {
             "length": 16,
             "waveforms": {
-                "single": "-7611750122789562006",
+                "single": "6867035752500438632",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "5215002573069273480": {
+        "8843301381304890247": {
             "length": 16,
             "waveforms": {
-                "single": "5215002573069273480",
+                "single": "8843301381304890247",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "7689956664488442557": {
+        "9064795440503605495": {
             "length": 20,
             "waveforms": {
-                "single": "7689956664488442557",
+                "single": "9064795440503605495",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-1884605616518456204": {
+        "-5702450690201351597": {
             "length": 20,
             "waveforms": {
-                "single": "-1884605616518456204",
+                "single": "-5702450690201351597",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7226809906394487622": {
+        "-5480956631002636349": {
             "length": 20,
             "waveforms": {
-                "single": "-7226809906394487622",
+                "single": "-5480956631002636349",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "6915396880291381987": {
+        "-8332010762379648031": {
             "length": 20,
             "waveforms": {
-                "single": "6915396880291381987",
+                "single": "-8332010762379648031",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4563031211529087767": {
+        "-1950979128176014912": {
             "length": 24,
             "waveforms": {
-                "single": "4563031211529087767",
+                "single": "-1950979128176014912",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-3104323844992462602": {
+        "-4303344796938309132": {
             "length": 24,
             "waveforms": {
-                "single": "-3104323844992462602",
+                "single": "-4303344796938309132",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "5767857947710190253": {
+        "1950012874027294860": {
             "length": 24,
             "waveforms": {
-                "single": "5767857947710190253",
+                "single": "1950012874027294860",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4824011040818526963": {
+        "468274619025867199": {
             "length": 24,
             "waveforms": {
-                "single": "4824011040818526963",
+                "single": "468274619025867199",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4947971427924162151": {
+        "-7725576486785858399": {
             "length": 28,
             "waveforms": {
-                "single": "4947971427924162151",
+                "single": "-7725576486785858399",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-8878921203602306089": {
+        "3127624708091622077": {
             "length": 28,
             "waveforms": {
-                "single": "-8878921203602306089",
+                "single": "3127624708091622077",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-5247916620969430154": {
+        "-8222941867566916755": {
             "length": 28,
             "waveforms": {
-                "single": "-5247916620969430154",
+                "single": "-8222941867566916755",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1697085587859172173": {
+        "-17412578339924976": {
             "length": 28,
             "waveforms": {
-                "single": "1697085587859172173",
+                "single": "-17412578339924976",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-5970269468662378196": {
+        "5546878455293504188": {
             "length": 32,
             "waveforms": {
-                "single": "-5970269468662378196",
+                "single": "5546878455293504188",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-1447951698572374880": {
+        "-73112922557211942": {
             "length": 32,
             "waveforms": {
-                "single": "-1447951698572374880",
+                "single": "-73112922557211942",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4933079935631258239": {
+        "-3268298418404914954": {
             "length": 32,
             "waveforms": {
-                "single": "4933079935631258239",
+                "single": "-3268298418404914954",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2082025804254246557": {
+        "-7172721112144941626": {
             "length": 32,
             "waveforms": {
-                "single": "2082025804254246557",
+                "single": "-7172721112144941626",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2303519863452961805": {
+        "5931818671688578572": {
             "length": 36,
             "waveforms": {
-                "single": "2303519863452961805",
+                "single": "5931818671688578572",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-891665632394741207": {
+        "7357856582472719267": {
             "length": 36,
             "waveforms": {
-                "single": "-891665632394741207",
+                "single": "7357856582472719267",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "6204511865656271577": {
+        "-8613933399817663272": {
             "length": 36,
             "waveforms": {
-                "single": "6204511865656271577",
+                "single": "-8613933399817663272",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4722773610654843916": {
+        "-2661864142811125322": {
             "length": 36,
             "waveforms": {
-                "single": "4722773610654843916",
+                "single": "-2661864142811125322",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4313897322242290474": {
+        "7203250601713591910": {
             "length": 40,
             "waveforms": {
-                "single": "-4313897322242290474",
+                "single": "7203250601713591910",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4092403263043575226": {
+        "-464104454807958459": {
             "length": 40,
             "waveforms": {
-                "single": "-4092403263043575226",
+                "single": "-464104454807958459",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4779778529659077629": {
+        "-340144067702323271": {
             "length": 40,
             "waveforms": {
-                "single": "4779778529659077629",
+                "single": "-340144067702323271",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-6293000958024776491": {
+        "-961469835589016815": {
             "length": 40,
             "waveforms": {
-                "single": "-6293000958024776491",
+                "single": "-961469835589016815",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1912528331202215288": {
+        "-2443208090590444476": {
             "length": 44,
             "waveforms": {
-                "single": "1912528331202215288",
+                "single": "-2443208090590444476",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3338566241986355983": {
+        "-3591029907767313249": {
             "length": 44,
             "waveforms": {
-                "single": "3338566241986355983",
+                "single": "-3591029907767313249",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1415162950421156932": {
+        "7188359109420687998": {
             "length": 44,
             "waveforms": {
-                "single": "1415162950421156932",
+                "single": "7188359109420687998",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "5536325929989522846": {
+        "-6736067194198860302": {
             "length": 44,
             "waveforms": {
-                "single": "5536325929989522846",
+                "single": "-6736067194198860302",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-1214397121757139502": {
+        "-1171776160565431138": {
             "length": 48,
             "waveforms": {
-                "single": "-1214397121757139502",
+                "single": "-1171776160565431138",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-8166606314431310206": {
+        "-3206089691372238865": {
             "length": 48,
             "waveforms": {
-                "single": "-8166606314431310206",
+                "single": "-3206089691372238865",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4359434408188686555": {
+        "-2984595632173523617": {
             "length": 48,
             "waveforms": {
-                "single": "-4359434408188686555",
+                "single": "-2984595632173523617",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4980760176075380099": {
+        "-6179781128021226629": {
             "length": 48,
             "waveforms": {
-                "single": "-4980760176075380099",
+                "single": "-6179781128021226629",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7831814307452391781": {
+        "916396370029786155": {
             "length": 52,
             "waveforms": {
-                "single": "-7831814307452391781",
+                "single": "916396370029786155",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7610320248253676533": {
+        "-1408161712057050298": {
             "length": 52,
             "waveforms": {
-                "single": "-7610320248253676533",
+                "single": "-1408161712057050298",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3071535096841244654": {
+        "8844731255840775720": {
             "length": 52,
             "waveforms": {
-                "single": "3071535096841244654",
+                "single": "8844731255840775720",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3293029156039959902": {
+        "9066225315039490968": {
             "length": 52,
             "waveforms": {
-                "single": "3293029156039959902",
+                "single": "9066225315039490968",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3015834752623957688": {
+        "8347365875059717364": {
             "length": 56,
             "waveforms": {
-                "single": "3015834752623957688",
+                "single": "8347365875059717364",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7225380031858602149": {
+        "6865627620058289703": {
             "length": 56,
             "waveforms": {
-                "single": "-7225380031858602149",
+                "single": "6865627620058289703",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7003885972659886901": {
+        "-3375587164424270134": {
             "length": 56,
             "waveforms": {
-                "single": "-7003885972659886901",
+                "single": "-3375587164424270134",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7722745412639660505": {
+        "-1949549253640129439": {
             "length": 56,
             "waveforms": {
-                "single": "-7722745412639660505",
+                "single": "-1949549253640129439",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4806126284656720038": {
+        "1857622652602494212": {
             "length": 60,
             "waveforms": {
-                "single": "-4806126284656720038",
+                "single": "1857622652602494212",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "8094438588891594677": {
+        "248210434363037424": {
             "length": 60,
             "waveforms": {
-                "single": "8094438588891594677",
+                "single": "248210434363037424",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "427083532370044308": {
+        "-6502512617383624924": {
             "length": 60,
             "waveforms": {
-                "single": "427083532370044308",
+                "single": "-6502512617383624924",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "648577591568759556": {
+        "4276876399804376323": {
             "length": 60,
             "waveforms": {
-                "single": "648577591568759556",
+                "single": "4276876399804376323",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2624843220373211171": {
+        "8799194169894379639": {
             "length": 64,
             "waveforms": {
-                "single": "2624843220373211171",
+                "single": "8799194169894379639",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2846337279571926419": {
+        "6474636087807543186": {
             "length": 64,
             "waveforms": {
-                "single": "2846337279571926419",
+                "single": "6474636087807543186",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1698515462395057646": {
+        "5326814270630674413": {
             "length": 64,
             "waveforms": {
-                "single": "1698515462395057646",
+                "single": "5326814270630674413",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "8079547096598690765": {
+        "5548308329829389661": {
             "length": 64,
             "waveforms": {
-                "single": "8079547096598690765",
+                "single": "5548308329829389661",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7548111521221000444": {
+        "-2216580398785240768": {
             "length": 68,
             "waveforms": {
-                "single": "-7548111521221000444",
+                "single": "-2216580398785240768",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-8169437289107693988": {
+        "3347710634848188396": {
             "length": 68,
             "waveforms": {
-                "single": "-8169437289107693988",
+                "single": "3347710634848188396",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "7924941115839563408": {
+        "-4319644421673361973": {
             "length": 68,
             "waveforms": {
-                "single": "7924941115839563408",
+                "single": "-4319644421673361973",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2304949737988847278": {
+        "5933248546224464045": {
             "length": 68,
             "waveforms": {
-                "single": "2304949737988847278",
+                "single": "5933248546224464045",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-5750183541905811877": {
+        "6154742605423179293": {
             "length": 72,
             "waveforms": {
-                "single": "-5750183541905811877",
+                "single": "6154742605423179293",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4502709425992014141": {
+        "8131008234227630908": {
             "length": 72,
             "waveforms": {
-                "single": "4502709425992014141",
+                "single": "8131008234227630908",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-3090833452840056999": {
+        "8352502293426346156": {
             "length": 72,
             "waveforms": {
-                "single": "-3090833452840056999",
+                "single": "8352502293426346156",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4005344045210955785": {
+        "2806323093265109255": {
             "length": 72,
             "waveforms": {
-                "single": "4005344045210955785",
+                "single": "2806323093265109255",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-6235870739271604052": {
+        "-4861031963256441114": {
             "length": 76,
             "waveforms": {
-                "single": "-6235870739271604052",
+                "single": "-4861031963256441114",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-671579705638174888": {
+        "-4639537904057725866": {
             "length": 76,
             "waveforms": {
-                "single": "-671579705638174888",
+                "single": "-4639537904057725866",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-6291571083488891018": {
+        "-2663272275253274251": {
             "length": 76,
             "waveforms": {
-                "single": "-6291571083488891018",
+                "single": "-2663272275253274251",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-2484399177246267367": {
+        "-2441778216054559003": {
             "length": 76,
             "waveforms": {
-                "single": "-2484399177246267367",
+                "single": "-2441778216054559003",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2037918592843735949": {
+        "-3589600033231427776": {
             "length": 80,
             "waveforms": {
-                "single": "2037918592843735949",
+                "single": "-3589600033231427776",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-286639489243100504": {
+        "2791431600972205343": {
             "length": 80,
             "waveforms": {
-                "single": "-286639489243100504",
+                "single": "2791431600972205343",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-65145430044385256": {
+        "-5790197728212629041": {
             "length": 80,
             "waveforms": {
-                "single": "-65145430044385256",
+                "single": "-5790197728212629041",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-2654805276654381902": {
+        "1420991636853421448": {
             "length": 40,
             "waveforms": {
-                "I": "-2654805276654381902_i",
-                "Q": "-2654805276654381902_q",
+                "I": "1420991636853421448_i",
+                "Q": "1420991636853421448_q",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
     },
     "waveforms": {
-        "-3415895905877943771_i": {
+        "659901007629859579_i": {
             "samples": [0.0003245581697577897, 0.00041434379264958276, 0.0005192451877881844, 0.0006385249144990762, 0.000770192387926079, 0.0009108005732581571, 0.0010553365498202035, 0.0011972457129536531, 0.0013286216753579422, 0.0014405792538840596, 0.0015238070380387695, 0.001569271028816185, 0.0015690150341873355, 0.001516981055392401, 0.0014097580972250404, 0.0012471643221047002, 0.0010325773968537242, 0.0007729513005631867, 0.00047849244520435603, 0.00016200920159745652, -0.00016200920159745196, -0.0004784924452043516, -0.0007729513005631823, -0.0010325773968537198, -0.0012471643221046963, -0.001409758097225037, -0.0015169810553923976, -0.0015690150341873324, -0.0015692710288161824, -0.0015238070380387673, -0.0014405792538840579, -0.0013286216753579405, -0.0011972457129536518, -0.0010553365498202022, -0.0009108005732581562, -0.0007701923879260784, -0.0006385249144990755, -0.000519245187788184, -0.00041434379264958243, -0.0003245581697577895],
             "type": "arbitrary",
         },
-        "-3415895905877943771_q": {
+        "659901007629859579_q": {
             "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
             "type": "arbitrary",
         },
-        "1026877093097855471": {
+        "2401715869113018409": {
             "samples": [0.25] + [0.0] * 15,
             "type": "arbitrary",
         },
-        "5370586333104135786_i": {
+        "-3717283734561976361_i": {
             "sample": 0.0033,
             "type": "constant",
         },
-        "5370586333104135786_q": {
+        "-3717283734561976361_q": {
             "sample": 0.0,
             "type": "constant",
         },
-        "7407908727301488590": {
+        "8905053041377849346": {
             "samples": [0.25] * 2 + [0.0] * 14,
             "type": "arbitrary",
         },
-        "-4093833137579460699": {
+        "1237697984856298977": {
             "samples": [0.25] * 3 + [0.0] * 13,
             "type": "arbitrary",
         },
-        "428484632510542617": {
+        "4056783440746159384": {
             "samples": [0.25] * 4 + [0.0] * 12,
             "type": "arbitrary",
         },
-        "-192841135376150927": {
+        "-1391862087321997457": {
             "samples": [0.25] * 5 + [0.0] * 11,
             "type": "arbitrary",
         },
-        "8679340657326501928": {
+        "-6139104608147432921": {
             "samples": [0.25] * 6 + [0.0] * 10,
             "type": "arbitrary",
         },
-        "3337136367450470510": {
+        "-8935256756737912638": {
             "samples": [0.25] * 7 + [0.0] * 9,
             "type": "arbitrary",
         },
-        "-7569643728379882825": {
+        "-4814093777169546724": {
             "samples": [0.25] * 8 + [0.0] * 8,
             "type": "arbitrary",
         },
-        "-1617574471373344875": {
+        "-6737497068734745775": {
             "samples": [0.25] * 9 + [0.0] * 7,
             "type": "arbitrary",
         },
-        "-2160266587743370763": {
+        "6260601476906649000": {
             "samples": [0.25] * 10 + [0.0] * 6,
             "type": "arbitrary",
         },
-        "-2437460991159372977": {
+        "1513358956081213536": {
             "samples": [0.25] * 11 + [0.0] * 5,
             "type": "arbitrary",
         },
-        "-4360864282724572028": {
+        "8458361164909815863": {
             "samples": [0.25] * 12 + [0.0] * 4,
             "type": "arbitrary",
         },
-        "82819835848763632": {
+        "693472436295185434": {
             "samples": [0.25] * 13 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "3889991742091387283": {
+        "5313323878478268810": {
             "samples": [0.25] * 14 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "-7611750122789562006": {
+        "6867035752500438632": {
             "samples": [0.25] * 15 + [0.0],
             "type": "arbitrary",
         },
-        "5215002573069273480": {
+        "8843301381304890247": {
             "sample": 0.25,
             "type": "constant",
         },
-        "7689956664488442557": {
+        "9064795440503605495": {
             "samples": [0.25] * 17 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-1884605616518456204": {
+        "-5702450690201351597": {
             "samples": [0.25] * 18 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "-7226809906394487622": {
+        "-5480956631002636349": {
             "samples": [0.25] * 19 + [0.0],
             "type": "arbitrary",
         },
-        "6915396880291381987": {
+        "-8332010762379648031": {
             "sample": 0.25,
             "type": "constant",
         },
-        "4563031211529087767": {
+        "-1950979128176014912": {
             "samples": [0.25] * 21 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-3104323844992462602": {
+        "-4303344796938309132": {
             "samples": [0.25] * 22 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "5767857947710190253": {
+        "1950012874027294860": {
             "samples": [0.25] * 23 + [0.0],
             "type": "arbitrary",
         },
-        "4824011040818526963": {
+        "468274619025867199": {
             "sample": 0.25,
             "type": "constant",
         },
-        "4947971427924162151": {
+        "-7725576486785858399": {
             "samples": [0.25] * 25 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-8878921203602306089": {
+        "3127624708091622077": {
             "samples": [0.25] * 26 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "-5247916620969430154": {
+        "-8222941867566916755": {
             "samples": [0.25] * 27 + [0.0],
             "type": "arbitrary",
         },
-        "1697085587859172173": {
+        "-17412578339924976": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-5970269468662378196": {
+        "5546878455293504188": {
             "samples": [0.25] * 29 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-1447951698572374880": {
+        "-73112922557211942": {
             "samples": [0.25] * 30 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "4933079935631258239": {
+        "-3268298418404914954": {
             "samples": [0.25] * 31 + [0.0],
             "type": "arbitrary",
         },
-        "2082025804254246557": {
+        "-7172721112144941626": {
             "sample": 0.25,
             "type": "constant",
         },
-        "2303519863452961805": {
+        "5931818671688578572": {
             "samples": [0.25] * 33 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-891665632394741207": {
+        "7357856582472719267": {
             "samples": [0.25] * 34 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "6204511865656271577": {
+        "-8613933399817663272": {
             "samples": [0.25] * 35 + [0.0],
             "type": "arbitrary",
         },
-        "4722773610654843916": {
+        "-2661864142811125322": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-4313897322242290474": {
+        "7203250601713591910": {
             "samples": [0.25] * 37 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-4092403263043575226": {
+        "-464104454807958459": {
             "samples": [0.25] * 38 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "4779778529659077629": {
+        "-340144067702323271": {
             "samples": [0.25] * 39 + [0.0],
             "type": "arbitrary",
         },
-        "-6293000958024776491": {
+        "-961469835589016815": {
             "sample": 0.25,
             "type": "constant",
         },
-        "1912528331202215288": {
+        "-2443208090590444476": {
             "samples": [0.25] * 41 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "3338566241986355983": {
+        "-3591029907767313249": {
             "samples": [0.25] * 42 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "1415162950421156932": {
+        "7188359109420687998": {
             "samples": [0.25] * 43 + [0.0],
             "type": "arbitrary",
         },
-        "5536325929989522846": {
+        "-6736067194198860302": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-1214397121757139502": {
+        "-1171776160565431138": {
             "samples": [0.25] * 45 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-8166606314431310206": {
+        "-3206089691372238865": {
             "samples": [0.25] * 46 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "-4359434408188686555": {
+        "-2984595632173523617": {
             "samples": [0.25] * 47 + [0.0],
             "type": "arbitrary",
         },
-        "-4980760176075380099": {
+        "-6179781128021226629": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-7831814307452391781": {
+        "916396370029786155": {
             "samples": [0.25] * 49 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-7610320248253676533": {
+        "-1408161712057050298": {
             "samples": [0.25] * 50 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "3071535096841244654": {
+        "8844731255840775720": {
             "samples": [0.25] * 51 + [0.0],
             "type": "arbitrary",
         },
-        "3293029156039959902": {
+        "9066225315039490968": {
             "sample": 0.25,
             "type": "constant",
         },
-        "3015834752623957688": {
+        "8347365875059717364": {
             "samples": [0.25] * 53 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-7225380031858602149": {
+        "6865627620058289703": {
             "samples": [0.25] * 54 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "-7003885972659886901": {
+        "-3375587164424270134": {
             "samples": [0.25] * 55 + [0.0],
             "type": "arbitrary",
         },
-        "-7722745412639660505": {
+        "-1949549253640129439": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-4806126284656720038": {
+        "1857622652602494212": {
             "samples": [0.25] * 57 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "8094438588891594677": {
+        "248210434363037424": {
             "samples": [0.25] * 58 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "427083532370044308": {
+        "-6502512617383624924": {
             "samples": [0.25] * 59 + [0.0],
             "type": "arbitrary",
         },
-        "648577591568759556": {
+        "4276876399804376323": {
             "sample": 0.25,
             "type": "constant",
         },
-        "2624843220373211171": {
+        "8799194169894379639": {
             "samples": [0.25] * 61 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "2846337279571926419": {
+        "6474636087807543186": {
             "samples": [0.25] * 62 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "1698515462395057646": {
+        "5326814270630674413": {
             "samples": [0.25] * 63 + [0.0],
             "type": "arbitrary",
         },
-        "8079547096598690765": {
+        "5548308329829389661": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-7548111521221000444": {
+        "-2216580398785240768": {
             "samples": [0.25] * 65 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-8169437289107693988": {
+        "3347710634848188396": {
             "samples": [0.25] * 66 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "7924941115839563408": {
+        "-4319644421673361973": {
             "samples": [0.25] * 67 + [0.0],
             "type": "arbitrary",
         },
-        "2304949737988847278": {
+        "5933248546224464045": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-5750183541905811877": {
+        "6154742605423179293": {
             "samples": [0.25] * 69 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "4502709425992014141": {
+        "8131008234227630908": {
             "samples": [0.25] * 70 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "-3090833452840056999": {
+        "8352502293426346156": {
             "samples": [0.25] * 71 + [0.0],
             "type": "arbitrary",
         },
-        "4005344045210955785": {
+        "2806323093265109255": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-6235870739271604052": {
+        "-4861031963256441114": {
             "samples": [0.25] * 73 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-671579705638174888": {
+        "-4639537904057725866": {
             "samples": [0.25] * 74 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "-6291571083488891018": {
+        "-2663272275253274251": {
             "samples": [0.25] * 75 + [0.0],
             "type": "arbitrary",
         },
-        "-2484399177246267367": {
+        "-2441778216054559003": {
             "sample": 0.25,
             "type": "constant",
         },
-        "2037918592843735949": {
+        "-3589600033231427776": {
             "samples": [0.25] * 77 + [0.0] * 3,
             "type": "arbitrary",
         },
-        "-286639489243100504": {
+        "2791431600972205343": {
             "samples": [0.25] * 78 + [0.0] * 2,
             "type": "arbitrary",
         },
-        "-65145430044385256": {
+        "-5790197728212629041": {
             "samples": [0.25] * 79 + [0.0],
             "type": "arbitrary",
         },
-        "-2654805276654381902_i": {
+        "1420991636853421448_i": {
             "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
             "type": "arbitrary",
         },
-        "-2654805276654381902_q": {
+        "1420991636853421448_q": {
             "samples": [-0.0003245581697577896, -0.0004143437926495826, -0.0005192451877881842, -0.0006385249144990759, -0.0007701923879260787, -0.0009108005732581567, -0.0010553365498202029, -0.0011972457129536525, -0.0013286216753579413, -0.0014405792538840587, -0.0015238070380387684, -0.0015692710288161837, -0.001569015034187334, -0.0015169810553923994, -0.0014097580972250387, -0.0012471643221046982, -0.001032577396853722, -0.0007729513005631845, -0.0004784924452043538, -0.00016200920159745424, 0.00016200920159745424, 0.0004784924452043538, 0.0007729513005631845, 0.001032577396853722, 0.0012471643221046982, 0.0014097580972250387, 0.0015169810553923994, 0.001569015034187334, 0.0015692710288161837, 0.0015238070380387684, 0.0014405792538840587, 0.0013286216753579413, 0.0011972457129536525, 0.0010553365498202029, 0.0009108005732581567, 0.0007701923879260787, 0.0006385249144990759, 0.0005192451877881842, 0.0004143437926495826, 0.0003245581697577896],
             "type": "arbitrary",
         },
@@ -1716,47 +1716,6 @@ loaded_config = {
                 },
             },
         },
-        "con2": {
-            "type": "opx1",
-            "analog_outputs": {
-                "1": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                },
-                "2": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                },
-            },
-            "analog_inputs": {
-                "1": {
-                    "offset": 0.0,
-                    "gain_db": 10,
-                    "shareable": False,
-                },
-                "2": {
-                    "offset": 0.0,
-                    "gain_db": 10,
-                    "shareable": False,
-                },
-            },
-            "digital_outputs": {
-                "1": {
-                    "shareable": False,
-                    "inverted": False,
-                },
-            },
-        },
         "con3": {
             "type": "opx1",
             "analog_outputs": {
@@ -1793,6 +1752,47 @@ loaded_config = {
             },
             "digital_outputs": {
                 "7": {
+                    "shareable": False,
+                    "inverted": False,
+                },
+            },
+        },
+        "con2": {
+            "type": "opx1",
+            "analog_outputs": {
+                "1": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+                "2": {
+                    "offset": 0.0,
+                    "delay": 0,
+                    "shareable": False,
+                    "filter": {
+                        "feedforward": [],
+                        "feedback": [],
+                    },
+                },
+            },
+            "analog_inputs": {
+                "1": {
+                    "offset": 0.0,
+                    "gain_db": 10,
+                    "shareable": False,
+                },
+                "2": {
+                    "offset": 0.0,
+                    "gain_db": 10,
+                    "shareable": False,
+                },
+            },
+            "digital_outputs": {
+                "1": {
                     "shareable": False,
                     "inverted": False,
                 },
@@ -1854,25 +1854,25 @@ loaded_config = {
             "digitalOutputs": {},
             "intermediate_frequency": 0,
             "operations": {
-                "2624843220373211171": "2624843220373211171",
-                "2846337279571926419": "2846337279571926419",
-                "1698515462395057646": "1698515462395057646",
-                "8079547096598690765": "8079547096598690765",
-                "-7548111521221000444": "-7548111521221000444",
-                "-8169437289107693988": "-8169437289107693988",
-                "7924941115839563408": "7924941115839563408",
-                "2304949737988847278": "2304949737988847278",
-                "-5750183541905811877": "-5750183541905811877",
-                "4502709425992014141": "4502709425992014141",
-                "-3090833452840056999": "-3090833452840056999",
-                "4005344045210955785": "4005344045210955785",
-                "-6235870739271604052": "-6235870739271604052",
-                "-671579705638174888": "-671579705638174888",
-                "-6291571083488891018": "-6291571083488891018",
-                "-2484399177246267367": "-2484399177246267367",
-                "2037918592843735949": "2037918592843735949",
-                "-286639489243100504": "-286639489243100504",
-                "-65145430044385256": "-65145430044385256",
+                "8799194169894379639": "8799194169894379639",
+                "6474636087807543186": "6474636087807543186",
+                "5326814270630674413": "5326814270630674413",
+                "5548308329829389661": "5548308329829389661",
+                "-2216580398785240768": "-2216580398785240768",
+                "3347710634848188396": "3347710634848188396",
+                "-4319644421673361973": "-4319644421673361973",
+                "5933248546224464045": "5933248546224464045",
+                "6154742605423179293": "6154742605423179293",
+                "8131008234227630908": "8131008234227630908",
+                "8352502293426346156": "8352502293426346156",
+                "2806323093265109255": "2806323093265109255",
+                "-4861031963256441114": "-4861031963256441114",
+                "-4639537904057725866": "-4639537904057725866",
+                "-2663272275253274251": "-2663272275253274251",
+                "-2441778216054559003": "-2441778216054559003",
+                "-3589600033231427776": "-3589600033231427776",
+                "2791431600972205343": "2791431600972205343",
+                "-5790197728212629041": "-5790197728212629041",
             },
             "singleInput": {
                 "port": ('con4', 4),
@@ -1902,6 +1902,27 @@ loaded_config = {
                 "port": ('con9', 7),
             },
         },
+        "B4/drive": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con3', 7),
+                },
+            },
+            "digitalOutputs": {},
+            "intermediate_frequency": 109615374.0,
+            "operations": {
+                "659901007629859579": "659901007629859579",
+                "1420991636853421448": "1420991636853421448",
+            },
+            "mixInputs": {
+                "I": ('con3', 7),
+                "Q": ('con3', 8),
+                "mixer": "B4/drive_mixer_c45",
+                "lo_frequency": 6700000000.0,
+            },
+        },
         "B4/acquisition": {
             "digitalInputs": {
                 "output_switch": {
@@ -1919,60 +1940,39 @@ loaded_config = {
             "smearing": 0,
             "intermediate_frequency": 330300527.0,
             "operations": {
-                "457828904132122927": "457828904132122927_B4/acquisition",
+                "-7050225023228966441": "-7050225023228966441_B4/acquisition",
             },
             "mixInputs": {
                 "I": ('con2', 1),
                 "Q": ('con2', 2),
-                "mixer": "B4/acquisition_mixer_024",
+                "mixer": "B4/acquisition_mixer_534",
                 "lo_frequency": 7370000000.0,
-            },
-        },
-        "B4/drive": {
-            "digitalInputs": {
-                "output_switch": {
-                    "delay": 57,
-                    "buffer": 18,
-                    "port": ('con3', 7),
-                },
-            },
-            "digitalOutputs": {},
-            "intermediate_frequency": 109615374.0,
-            "operations": {
-                "-3415895905877943771": "-3415895905877943771",
-                "-2654805276654381902": "-2654805276654381902",
-            },
-            "mixInputs": {
-                "I": ('con3', 7),
-                "Q": ('con3', 8),
-                "mixer": "B4/drive_mixer_a0a",
-                "lo_frequency": 6700000000.0,
             },
         },
     },
     "pulses": {
-        "-3415895905877943771": {
+        "659901007629859579": {
             "length": 40,
             "waveforms": {
-                "I": "-3415895905877943771_i",
-                "Q": "-3415895905877943771_q",
+                "I": "659901007629859579_i",
+                "Q": "659901007629859579_q",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1026877093097855471": {
+        "2401715869113018409": {
             "length": 16,
             "waveforms": {
-                "single": "1026877093097855471",
+                "single": "2401715869113018409",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "457828904132122927_B4/acquisition": {
+        "-7050225023228966441_B4/acquisition": {
             "length": 2000,
             "waveforms": {
-                "I": "5370586333104135786_i",
-                "Q": "5370586333104135786_q",
+                "I": "-3717283734561976361_i",
+                "Q": "-3717283734561976361_q",
             },
             "digital_marker": "ON",
             "integration_weights": {
@@ -1982,1110 +1982,1110 @@ loaded_config = {
             },
             "operation": "measurement",
         },
-        "7407908727301488590": {
+        "8905053041377849346": {
             "length": 16,
             "waveforms": {
-                "single": "7407908727301488590",
+                "single": "8905053041377849346",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4093833137579460699": {
+        "1237697984856298977": {
             "length": 16,
             "waveforms": {
-                "single": "-4093833137579460699",
+                "single": "1237697984856298977",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "428484632510542617": {
+        "4056783440746159384": {
             "length": 16,
             "waveforms": {
-                "single": "428484632510542617",
+                "single": "4056783440746159384",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-192841135376150927": {
+        "-1391862087321997457": {
             "length": 16,
             "waveforms": {
-                "single": "-192841135376150927",
+                "single": "-1391862087321997457",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "8679340657326501928": {
+        "-6139104608147432921": {
             "length": 16,
             "waveforms": {
-                "single": "8679340657326501928",
+                "single": "-6139104608147432921",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3337136367450470510": {
+        "-8935256756737912638": {
             "length": 16,
             "waveforms": {
-                "single": "3337136367450470510",
+                "single": "-8935256756737912638",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7569643728379882825": {
+        "-4814093777169546724": {
             "length": 16,
             "waveforms": {
-                "single": "-7569643728379882825",
+                "single": "-4814093777169546724",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-1617574471373344875": {
+        "-6737497068734745775": {
             "length": 16,
             "waveforms": {
-                "single": "-1617574471373344875",
+                "single": "-6737497068734745775",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-2160266587743370763": {
+        "6260601476906649000": {
             "length": 16,
             "waveforms": {
-                "single": "-2160266587743370763",
+                "single": "6260601476906649000",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-2437460991159372977": {
+        "1513358956081213536": {
             "length": 16,
             "waveforms": {
-                "single": "-2437460991159372977",
+                "single": "1513358956081213536",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4360864282724572028": {
+        "8458361164909815863": {
             "length": 16,
             "waveforms": {
-                "single": "-4360864282724572028",
+                "single": "8458361164909815863",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "82819835848763632": {
+        "693472436295185434": {
             "length": 16,
             "waveforms": {
-                "single": "82819835848763632",
+                "single": "693472436295185434",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3889991742091387283": {
+        "5313323878478268810": {
             "length": 16,
             "waveforms": {
-                "single": "3889991742091387283",
+                "single": "5313323878478268810",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7611750122789562006": {
+        "6867035752500438632": {
             "length": 16,
             "waveforms": {
-                "single": "-7611750122789562006",
+                "single": "6867035752500438632",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "5215002573069273480": {
+        "8843301381304890247": {
             "length": 16,
             "waveforms": {
-                "single": "5215002573069273480",
+                "single": "8843301381304890247",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "7689956664488442557": {
+        "9064795440503605495": {
             "length": 20,
             "waveforms": {
-                "single": "7689956664488442557",
+                "single": "9064795440503605495",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-1884605616518456204": {
+        "-5702450690201351597": {
             "length": 20,
             "waveforms": {
-                "single": "-1884605616518456204",
+                "single": "-5702450690201351597",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7226809906394487622": {
+        "-5480956631002636349": {
             "length": 20,
             "waveforms": {
-                "single": "-7226809906394487622",
+                "single": "-5480956631002636349",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "6915396880291381987": {
+        "-8332010762379648031": {
             "length": 20,
             "waveforms": {
-                "single": "6915396880291381987",
+                "single": "-8332010762379648031",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4563031211529087767": {
+        "-1950979128176014912": {
             "length": 24,
             "waveforms": {
-                "single": "4563031211529087767",
+                "single": "-1950979128176014912",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-3104323844992462602": {
+        "-4303344796938309132": {
             "length": 24,
             "waveforms": {
-                "single": "-3104323844992462602",
+                "single": "-4303344796938309132",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "5767857947710190253": {
+        "1950012874027294860": {
             "length": 24,
             "waveforms": {
-                "single": "5767857947710190253",
+                "single": "1950012874027294860",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4824011040818526963": {
+        "468274619025867199": {
             "length": 24,
             "waveforms": {
-                "single": "4824011040818526963",
+                "single": "468274619025867199",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4947971427924162151": {
+        "-7725576486785858399": {
             "length": 28,
             "waveforms": {
-                "single": "4947971427924162151",
+                "single": "-7725576486785858399",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-8878921203602306089": {
+        "3127624708091622077": {
             "length": 28,
             "waveforms": {
-                "single": "-8878921203602306089",
+                "single": "3127624708091622077",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-5247916620969430154": {
+        "-8222941867566916755": {
             "length": 28,
             "waveforms": {
-                "single": "-5247916620969430154",
+                "single": "-8222941867566916755",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1697085587859172173": {
+        "-17412578339924976": {
             "length": 28,
             "waveforms": {
-                "single": "1697085587859172173",
+                "single": "-17412578339924976",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-5970269468662378196": {
+        "5546878455293504188": {
             "length": 32,
             "waveforms": {
-                "single": "-5970269468662378196",
+                "single": "5546878455293504188",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-1447951698572374880": {
+        "-73112922557211942": {
             "length": 32,
             "waveforms": {
-                "single": "-1447951698572374880",
+                "single": "-73112922557211942",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4933079935631258239": {
+        "-3268298418404914954": {
             "length": 32,
             "waveforms": {
-                "single": "4933079935631258239",
+                "single": "-3268298418404914954",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2082025804254246557": {
+        "-7172721112144941626": {
             "length": 32,
             "waveforms": {
-                "single": "2082025804254246557",
+                "single": "-7172721112144941626",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2303519863452961805": {
+        "5931818671688578572": {
             "length": 36,
             "waveforms": {
-                "single": "2303519863452961805",
+                "single": "5931818671688578572",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-891665632394741207": {
+        "7357856582472719267": {
             "length": 36,
             "waveforms": {
-                "single": "-891665632394741207",
+                "single": "7357856582472719267",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "6204511865656271577": {
+        "-8613933399817663272": {
             "length": 36,
             "waveforms": {
-                "single": "6204511865656271577",
+                "single": "-8613933399817663272",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4722773610654843916": {
+        "-2661864142811125322": {
             "length": 36,
             "waveforms": {
-                "single": "4722773610654843916",
+                "single": "-2661864142811125322",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4313897322242290474": {
+        "7203250601713591910": {
             "length": 40,
             "waveforms": {
-                "single": "-4313897322242290474",
+                "single": "7203250601713591910",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4092403263043575226": {
+        "-464104454807958459": {
             "length": 40,
             "waveforms": {
-                "single": "-4092403263043575226",
+                "single": "-464104454807958459",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4779778529659077629": {
+        "-340144067702323271": {
             "length": 40,
             "waveforms": {
-                "single": "4779778529659077629",
+                "single": "-340144067702323271",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-6293000958024776491": {
+        "-961469835589016815": {
             "length": 40,
             "waveforms": {
-                "single": "-6293000958024776491",
+                "single": "-961469835589016815",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1912528331202215288": {
+        "-2443208090590444476": {
             "length": 44,
             "waveforms": {
-                "single": "1912528331202215288",
+                "single": "-2443208090590444476",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3338566241986355983": {
+        "-3591029907767313249": {
             "length": 44,
             "waveforms": {
-                "single": "3338566241986355983",
+                "single": "-3591029907767313249",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1415162950421156932": {
+        "7188359109420687998": {
             "length": 44,
             "waveforms": {
-                "single": "1415162950421156932",
+                "single": "7188359109420687998",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "5536325929989522846": {
+        "-6736067194198860302": {
             "length": 44,
             "waveforms": {
-                "single": "5536325929989522846",
+                "single": "-6736067194198860302",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-1214397121757139502": {
+        "-1171776160565431138": {
             "length": 48,
             "waveforms": {
-                "single": "-1214397121757139502",
+                "single": "-1171776160565431138",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-8166606314431310206": {
+        "-3206089691372238865": {
             "length": 48,
             "waveforms": {
-                "single": "-8166606314431310206",
+                "single": "-3206089691372238865",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4359434408188686555": {
+        "-2984595632173523617": {
             "length": 48,
             "waveforms": {
-                "single": "-4359434408188686555",
+                "single": "-2984595632173523617",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4980760176075380099": {
+        "-6179781128021226629": {
             "length": 48,
             "waveforms": {
-                "single": "-4980760176075380099",
+                "single": "-6179781128021226629",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7831814307452391781": {
+        "916396370029786155": {
             "length": 52,
             "waveforms": {
-                "single": "-7831814307452391781",
+                "single": "916396370029786155",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7610320248253676533": {
+        "-1408161712057050298": {
             "length": 52,
             "waveforms": {
-                "single": "-7610320248253676533",
+                "single": "-1408161712057050298",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3071535096841244654": {
+        "8844731255840775720": {
             "length": 52,
             "waveforms": {
-                "single": "3071535096841244654",
+                "single": "8844731255840775720",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3293029156039959902": {
+        "9066225315039490968": {
             "length": 52,
             "waveforms": {
-                "single": "3293029156039959902",
+                "single": "9066225315039490968",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "3015834752623957688": {
+        "8347365875059717364": {
             "length": 56,
             "waveforms": {
-                "single": "3015834752623957688",
+                "single": "8347365875059717364",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7225380031858602149": {
+        "6865627620058289703": {
             "length": 56,
             "waveforms": {
-                "single": "-7225380031858602149",
+                "single": "6865627620058289703",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7003885972659886901": {
+        "-3375587164424270134": {
             "length": 56,
             "waveforms": {
-                "single": "-7003885972659886901",
+                "single": "-3375587164424270134",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7722745412639660505": {
+        "-1949549253640129439": {
             "length": 56,
             "waveforms": {
-                "single": "-7722745412639660505",
+                "single": "-1949549253640129439",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-4806126284656720038": {
+        "1857622652602494212": {
             "length": 60,
             "waveforms": {
-                "single": "-4806126284656720038",
+                "single": "1857622652602494212",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "8094438588891594677": {
+        "248210434363037424": {
             "length": 60,
             "waveforms": {
-                "single": "8094438588891594677",
+                "single": "248210434363037424",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "427083532370044308": {
+        "-6502512617383624924": {
             "length": 60,
             "waveforms": {
-                "single": "427083532370044308",
+                "single": "-6502512617383624924",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "648577591568759556": {
+        "4276876399804376323": {
             "length": 60,
             "waveforms": {
-                "single": "648577591568759556",
+                "single": "4276876399804376323",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2624843220373211171": {
+        "8799194169894379639": {
             "length": 64,
             "waveforms": {
-                "single": "2624843220373211171",
+                "single": "8799194169894379639",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2846337279571926419": {
+        "6474636087807543186": {
             "length": 64,
             "waveforms": {
-                "single": "2846337279571926419",
+                "single": "6474636087807543186",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "1698515462395057646": {
+        "5326814270630674413": {
             "length": 64,
             "waveforms": {
-                "single": "1698515462395057646",
+                "single": "5326814270630674413",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "8079547096598690765": {
+        "5548308329829389661": {
             "length": 64,
             "waveforms": {
-                "single": "8079547096598690765",
+                "single": "5548308329829389661",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-7548111521221000444": {
+        "-2216580398785240768": {
             "length": 68,
             "waveforms": {
-                "single": "-7548111521221000444",
+                "single": "-2216580398785240768",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-8169437289107693988": {
+        "3347710634848188396": {
             "length": 68,
             "waveforms": {
-                "single": "-8169437289107693988",
+                "single": "3347710634848188396",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "7924941115839563408": {
+        "-4319644421673361973": {
             "length": 68,
             "waveforms": {
-                "single": "7924941115839563408",
+                "single": "-4319644421673361973",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2304949737988847278": {
+        "5933248546224464045": {
             "length": 68,
             "waveforms": {
-                "single": "2304949737988847278",
+                "single": "5933248546224464045",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-5750183541905811877": {
+        "6154742605423179293": {
             "length": 72,
             "waveforms": {
-                "single": "-5750183541905811877",
+                "single": "6154742605423179293",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4502709425992014141": {
+        "8131008234227630908": {
             "length": 72,
             "waveforms": {
-                "single": "4502709425992014141",
+                "single": "8131008234227630908",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-3090833452840056999": {
+        "8352502293426346156": {
             "length": 72,
             "waveforms": {
-                "single": "-3090833452840056999",
+                "single": "8352502293426346156",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "4005344045210955785": {
+        "2806323093265109255": {
             "length": 72,
             "waveforms": {
-                "single": "4005344045210955785",
+                "single": "2806323093265109255",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-6235870739271604052": {
+        "-4861031963256441114": {
             "length": 76,
             "waveforms": {
-                "single": "-6235870739271604052",
+                "single": "-4861031963256441114",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-671579705638174888": {
+        "-4639537904057725866": {
             "length": 76,
             "waveforms": {
-                "single": "-671579705638174888",
+                "single": "-4639537904057725866",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-6291571083488891018": {
+        "-2663272275253274251": {
             "length": 76,
             "waveforms": {
-                "single": "-6291571083488891018",
+                "single": "-2663272275253274251",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-2484399177246267367": {
+        "-2441778216054559003": {
             "length": 76,
             "waveforms": {
-                "single": "-2484399177246267367",
+                "single": "-2441778216054559003",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "2037918592843735949": {
+        "-3589600033231427776": {
             "length": 80,
             "waveforms": {
-                "single": "2037918592843735949",
+                "single": "-3589600033231427776",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-286639489243100504": {
+        "2791431600972205343": {
             "length": 80,
             "waveforms": {
-                "single": "-286639489243100504",
+                "single": "2791431600972205343",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-65145430044385256": {
+        "-5790197728212629041": {
             "length": 80,
             "waveforms": {
-                "single": "-65145430044385256",
+                "single": "-5790197728212629041",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
-        "-2654805276654381902": {
+        "1420991636853421448": {
             "length": 40,
             "waveforms": {
-                "I": "-2654805276654381902_i",
-                "Q": "-2654805276654381902_q",
+                "I": "1420991636853421448_i",
+                "Q": "1420991636853421448_q",
             },
             "digital_marker": "ON",
             "operation": "control",
         },
     },
     "waveforms": {
-        "-3415895905877943771_i": {
+        "659901007629859579_i": {
             "samples": [0.0003245581697577897, 0.00041434379264958276, 0.0005192451877881844, 0.0006385249144990762, 0.000770192387926079, 0.0009108005732581571, 0.0010553365498202035, 0.0011972457129536531, 0.0013286216753579422, 0.0014405792538840596, 0.0015238070380387695, 0.001569271028816185, 0.0015690150341873355, 0.001516981055392401, 0.0014097580972250404, 0.0012471643221047002, 0.0010325773968537242, 0.0007729513005631867, 0.00047849244520435603, 0.00016200920159745652, -0.00016200920159745196, -0.0004784924452043516, -0.0007729513005631823, -0.0010325773968537198, -0.0012471643221046963, -0.001409758097225037, -0.0015169810553923976, -0.0015690150341873324, -0.0015692710288161824, -0.0015238070380387673, -0.0014405792538840579, -0.0013286216753579405, -0.0011972457129536518, -0.0010553365498202022, -0.0009108005732581562, -0.0007701923879260784, -0.0006385249144990755, -0.000519245187788184, -0.00041434379264958243, -0.0003245581697577895],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-3415895905877943771_q": {
+        "659901007629859579_q": {
             "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "1026877093097855471": {
+        "2401715869113018409": {
             "samples": [0.25] + [0.0] * 15,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "5370586333104135786_i": {
+        "-3717283734561976361_i": {
             "sample": 0.0033,
             "type": "constant",
         },
-        "5370586333104135786_q": {
+        "-3717283734561976361_q": {
             "sample": 0.0,
             "type": "constant",
         },
-        "7407908727301488590": {
+        "8905053041377849346": {
             "samples": [0.25] * 2 + [0.0] * 14,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-4093833137579460699": {
+        "1237697984856298977": {
             "samples": [0.25] * 3 + [0.0] * 13,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "428484632510542617": {
+        "4056783440746159384": {
             "samples": [0.25] * 4 + [0.0] * 12,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-192841135376150927": {
+        "-1391862087321997457": {
             "samples": [0.25] * 5 + [0.0] * 11,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "8679340657326501928": {
+        "-6139104608147432921": {
             "samples": [0.25] * 6 + [0.0] * 10,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "3337136367450470510": {
+        "-8935256756737912638": {
             "samples": [0.25] * 7 + [0.0] * 9,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-7569643728379882825": {
+        "-4814093777169546724": {
             "samples": [0.25] * 8 + [0.0] * 8,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-1617574471373344875": {
+        "-6737497068734745775": {
             "samples": [0.25] * 9 + [0.0] * 7,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-2160266587743370763": {
+        "6260601476906649000": {
             "samples": [0.25] * 10 + [0.0] * 6,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-2437460991159372977": {
+        "1513358956081213536": {
             "samples": [0.25] * 11 + [0.0] * 5,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-4360864282724572028": {
+        "8458361164909815863": {
             "samples": [0.25] * 12 + [0.0] * 4,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "82819835848763632": {
+        "693472436295185434": {
             "samples": [0.25] * 13 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "3889991742091387283": {
+        "5313323878478268810": {
             "samples": [0.25] * 14 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-7611750122789562006": {
+        "6867035752500438632": {
             "samples": [0.25] * 15 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "5215002573069273480": {
+        "8843301381304890247": {
             "sample": 0.25,
             "type": "constant",
         },
-        "7689956664488442557": {
+        "9064795440503605495": {
             "samples": [0.25] * 17 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-1884605616518456204": {
+        "-5702450690201351597": {
             "samples": [0.25] * 18 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-7226809906394487622": {
+        "-5480956631002636349": {
             "samples": [0.25] * 19 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "6915396880291381987": {
+        "-8332010762379648031": {
             "sample": 0.25,
             "type": "constant",
         },
-        "4563031211529087767": {
+        "-1950979128176014912": {
             "samples": [0.25] * 21 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-3104323844992462602": {
+        "-4303344796938309132": {
             "samples": [0.25] * 22 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "5767857947710190253": {
+        "1950012874027294860": {
             "samples": [0.25] * 23 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "4824011040818526963": {
+        "468274619025867199": {
             "sample": 0.25,
             "type": "constant",
         },
-        "4947971427924162151": {
+        "-7725576486785858399": {
             "samples": [0.25] * 25 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-8878921203602306089": {
+        "3127624708091622077": {
             "samples": [0.25] * 26 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-5247916620969430154": {
+        "-8222941867566916755": {
             "samples": [0.25] * 27 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "1697085587859172173": {
+        "-17412578339924976": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-5970269468662378196": {
+        "5546878455293504188": {
             "samples": [0.25] * 29 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-1447951698572374880": {
+        "-73112922557211942": {
             "samples": [0.25] * 30 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "4933079935631258239": {
+        "-3268298418404914954": {
             "samples": [0.25] * 31 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "2082025804254246557": {
+        "-7172721112144941626": {
             "sample": 0.25,
             "type": "constant",
         },
-        "2303519863452961805": {
+        "5931818671688578572": {
             "samples": [0.25] * 33 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-891665632394741207": {
+        "7357856582472719267": {
             "samples": [0.25] * 34 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "6204511865656271577": {
+        "-8613933399817663272": {
             "samples": [0.25] * 35 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "4722773610654843916": {
+        "-2661864142811125322": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-4313897322242290474": {
+        "7203250601713591910": {
             "samples": [0.25] * 37 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-4092403263043575226": {
+        "-464104454807958459": {
             "samples": [0.25] * 38 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "4779778529659077629": {
+        "-340144067702323271": {
             "samples": [0.25] * 39 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-6293000958024776491": {
+        "-961469835589016815": {
             "sample": 0.25,
             "type": "constant",
         },
-        "1912528331202215288": {
+        "-2443208090590444476": {
             "samples": [0.25] * 41 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "3338566241986355983": {
+        "-3591029907767313249": {
             "samples": [0.25] * 42 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "1415162950421156932": {
+        "7188359109420687998": {
             "samples": [0.25] * 43 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "5536325929989522846": {
+        "-6736067194198860302": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-1214397121757139502": {
+        "-1171776160565431138": {
             "samples": [0.25] * 45 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-8166606314431310206": {
+        "-3206089691372238865": {
             "samples": [0.25] * 46 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-4359434408188686555": {
+        "-2984595632173523617": {
             "samples": [0.25] * 47 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-4980760176075380099": {
+        "-6179781128021226629": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-7831814307452391781": {
+        "916396370029786155": {
             "samples": [0.25] * 49 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-7610320248253676533": {
+        "-1408161712057050298": {
             "samples": [0.25] * 50 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "3071535096841244654": {
+        "8844731255840775720": {
             "samples": [0.25] * 51 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "3293029156039959902": {
+        "9066225315039490968": {
             "sample": 0.25,
             "type": "constant",
         },
-        "3015834752623957688": {
+        "8347365875059717364": {
             "samples": [0.25] * 53 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-7225380031858602149": {
+        "6865627620058289703": {
             "samples": [0.25] * 54 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-7003885972659886901": {
+        "-3375587164424270134": {
             "samples": [0.25] * 55 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-7722745412639660505": {
+        "-1949549253640129439": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-4806126284656720038": {
+        "1857622652602494212": {
             "samples": [0.25] * 57 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "8094438588891594677": {
+        "248210434363037424": {
             "samples": [0.25] * 58 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "427083532370044308": {
+        "-6502512617383624924": {
             "samples": [0.25] * 59 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "648577591568759556": {
+        "4276876399804376323": {
             "sample": 0.25,
             "type": "constant",
         },
-        "2624843220373211171": {
+        "8799194169894379639": {
             "samples": [0.25] * 61 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "2846337279571926419": {
+        "6474636087807543186": {
             "samples": [0.25] * 62 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "1698515462395057646": {
+        "5326814270630674413": {
             "samples": [0.25] * 63 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "8079547096598690765": {
+        "5548308329829389661": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-7548111521221000444": {
+        "-2216580398785240768": {
             "samples": [0.25] * 65 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-8169437289107693988": {
+        "3347710634848188396": {
             "samples": [0.25] * 66 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "7924941115839563408": {
+        "-4319644421673361973": {
             "samples": [0.25] * 67 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "2304949737988847278": {
+        "5933248546224464045": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-5750183541905811877": {
+        "6154742605423179293": {
             "samples": [0.25] * 69 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "4502709425992014141": {
+        "8131008234227630908": {
             "samples": [0.25] * 70 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-3090833452840056999": {
+        "8352502293426346156": {
             "samples": [0.25] * 71 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "4005344045210955785": {
+        "2806323093265109255": {
             "sample": 0.25,
             "type": "constant",
         },
-        "-6235870739271604052": {
+        "-4861031963256441114": {
             "samples": [0.25] * 73 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-671579705638174888": {
+        "-4639537904057725866": {
             "samples": [0.25] * 74 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-6291571083488891018": {
+        "-2663272275253274251": {
             "samples": [0.25] * 75 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-2484399177246267367": {
+        "-2441778216054559003": {
             "sample": 0.25,
             "type": "constant",
         },
-        "2037918592843735949": {
+        "-3589600033231427776": {
             "samples": [0.25] * 77 + [0.0] * 3,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-286639489243100504": {
+        "2791431600972205343": {
             "samples": [0.25] * 78 + [0.0] * 2,
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-65145430044385256": {
+        "-5790197728212629041": {
             "samples": [0.25] * 79 + [0.0],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-2654805276654381902_i": {
+        "1420991636853421448_i": {
             "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
             "type": "arbitrary",
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
-        "-2654805276654381902_q": {
+        "1420991636853421448_q": {
             "samples": [-0.0003245581697577896, -0.0004143437926495826, -0.0005192451877881842, -0.0006385249144990759, -0.0007701923879260787, -0.0009108005732581567, -0.0010553365498202029, -0.0011972457129536525, -0.0013286216753579413, -0.0014405792538840587, -0.0015238070380387684, -0.0015692710288161837, -0.001569015034187334, -0.0015169810553923994, -0.0014097580972250387, -0.0012471643221046982, -0.001032577396853722, -0.0007729513005631845, -0.0004784924452043538, -0.00016200920159745424, 0.00016200920159745424, 0.0004784924452043538, 0.0007729513005631845, 0.001032577396853722, 0.0012471643221046982, 0.0014097580972250387, 0.0015169810553923994, 0.001569015034187334, 0.0015692710288161837, 0.0015238070380387684, 0.0014405792538840587, 0.0013286216753579413, 0.0011972457129536525, 0.0010553365498202029, 0.0009108005732581567, 0.0007701923879260787, 0.0006385249144990759, 0.0005192451877881842, 0.0004143437926495826, 0.0003245581697577896],
             "type": "arbitrary",
             "is_overridable": False,
@@ -3112,8 +3112,8 @@ loaded_config = {
         },
     },
     "mixers": {
-        "B4/acquisition_mixer_024": [{'intermediate_frequency': 330300527.0, 'lo_frequency': 7370000000.0, 'correction': [1, 0.0, 0.0, 1]}],
-        "B4/drive_mixer_a0a": [{'intermediate_frequency': 109615374.0, 'lo_frequency': 6700000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B4/drive_mixer_c45": [{'intermediate_frequency': 109615374.0, 'lo_frequency': 6700000000.0, 'correction': [1, 0.0, 0.0, 1]}],
+        "B4/acquisition_mixer_534": [{'intermediate_frequency': 330300527.0, 'lo_frequency': 7370000000.0, 'correction': [1, 0.0, 0.0, 1]}],
     },
 }
 
