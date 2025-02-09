@@ -7,7 +7,7 @@
 
 # Run the qq acquire command
 
-routine="classification"
+routine="chevron"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 folder="0.1"
 

@@ -8,12 +8,12 @@ actions:
 
     operation: chevron 
     parameters:
-      amplitude_min: 0.9
-      amplitude_max: 1.
-      amplitude_step: 0.001
+      amplitude_max_factor: 1.03
+      amplitude_min_factor: 0.97
+      amplitude_step_factor: 0.0005
+      duration_max: 80
       duration_min: 0
-      duration_max: 30 
       duration_step: 1
-      native: CZ  
-      nshots: 256 
-      relaxation_time: 100000 
+      native: CZ
+      nshots: 256
+      relaxation_time: 100000
