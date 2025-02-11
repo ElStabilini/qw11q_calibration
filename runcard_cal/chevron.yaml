@@ -11,9 +11,9 @@ actions:
       amplitude_min: -0.247 
       amplitude_max: -0.232
       amplitude_step: 0.0005
+      duration_max: 80
       duration_min: 0
-      duration_max: 80 
       duration_step: 1
-      native: CZ  
-      nshots: 256 
-      relaxation_time: 100000 
+      native: CZ
+      nshots: 256
+      relaxation_time: 100000
