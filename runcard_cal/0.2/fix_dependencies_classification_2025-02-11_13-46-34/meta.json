@@ -1,0 +1,30 @@
+{
+    "title": "fix_dependencies_classification_2025-02-11_13-46-34",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-02-11 13:46:47.741389+00:00",
+    "end_time": "2025-02-11 13:46:57.913973+00:00",
+    "stats": {
+        "single shot classification-0": {
+            "acquisition": 8.479357447009534,
+            "fit": 0.043053189758211374
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+    ],
+    "versions": {
+        "qibo": "0.2.15",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.3",
+        "qibocal": "0.1.2"
+    },
+    "date": "2025-02-11",
+    "start-time": "13:46:47",
+    "end-time": "13:46:57"
+}
