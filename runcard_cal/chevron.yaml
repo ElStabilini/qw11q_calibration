@@ -8,10 +8,10 @@ actions:
 
     operation: chevron 
     parameters:
-      amplitude_min: -0.49
-      amplitude_max: -0.46
+      amplitude_min: -0.4
+      amplitude_max: -0.2
       amplitude_step: 0.001
-      duration_max: 3330
+      duration_max: 30
       duration_min: 0
       duration_step: 1
       native: CZ
