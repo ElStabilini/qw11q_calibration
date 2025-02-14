@@ -11,7 +11,7 @@ actions:
       amplitude_min: -0.49
       amplitude_max: -0.43
       amplitude_step: 0.002
-      duration_max: 80
+      duration_max: 120 
       duration_min: 0
       duration_step: 1
       native: CZ
