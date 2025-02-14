@@ -9,7 +9,7 @@ actions:
     operation: chevron 
     parameters:
       amplitude_min: -0.49
-      amplitude_max: -0.33
+      amplitude_max: -0.43
       amplitude_step: 0.002
       duration_max: 20
       duration_min: 0
