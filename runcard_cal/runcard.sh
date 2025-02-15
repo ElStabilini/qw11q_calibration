@@ -9,6 +9,6 @@
 
 routine="chevron"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
-folder="test_chevron"
+folder="bad_chevron_slurm"
 
 qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/chevron_tests/${routine}_${current_time}
