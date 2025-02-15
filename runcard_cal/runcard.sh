@@ -7,8 +7,8 @@
 
 # Run the qq acquire command
 
-routine="chevron"
+routine="classification"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
-folder="bad_chevron_slurm"
+folder="0.2"
 
-qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/chevron_tests/${routine}_${current_time}
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/chevron_no_filters/monitor_${routine}_${current_time}
