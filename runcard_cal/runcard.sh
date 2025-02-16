@@ -7,7 +7,7 @@
 
 # Run the qq acquire command
 
-routine="cryoscope_amplitude"
+routine="cryoscope"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 folder="old_cryo"
 
