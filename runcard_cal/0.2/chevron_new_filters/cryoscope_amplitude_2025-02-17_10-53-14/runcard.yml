@@ -1,0 +1,19 @@
+actions:
+- id: cryoscope amplitude
+  operation: flux_amplitude_frequency
+  parameters:
+    amplitude_max: 0.35
+    amplitude_min: 0.0
+    amplitude_step: 0.001
+    duration: 60
+    relaxation_time: 50000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B1
+- B2
+- B3
+- B4
+update: true
