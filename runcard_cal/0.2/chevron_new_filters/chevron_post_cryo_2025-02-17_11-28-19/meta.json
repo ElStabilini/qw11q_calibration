@@ -1,0 +1,30 @@
+{
+    "title": "chevron_post_cryo_2025-02-17_11-28-19",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-02-17 11:28:33.205741+00:00",
+    "end_time": "2025-02-17 11:30:29.527727+00:00",
+    "stats": {
+        "chevron CZ-0": {
+            "acquisition": 116.28779746498913,
+            "fit": 0.010932386852800846
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        [
+            "B2",
+            "B4"
+        ]
+    ],
+    "versions": {
+        "qibo": "0.2.14",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.3",
+        "qibocal": "0.1.2"
+    },
+    "date": "2025-02-17",
+    "start-time": "11:28:33",
+    "end-time": "11:30:29"
+}
