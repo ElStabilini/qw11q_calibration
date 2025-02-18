@@ -7,7 +7,10 @@
 
 # Run the qq acquire command
 
-routine="chevron"
+export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
+source /home/users/elisa.stabilini/calibration/bin/activate
+
+routine="classification"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 folder="0.2"
 
