@@ -10,8 +10,8 @@
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 source /home/users/elisa.stabilini/calibration/bin/activate
 
-routine="cryoscope"
+routine="classification"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
-folder="qibocal_cryo"
+folder="test_dependencies"
 
 qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/${routine}_${current_time}
