@@ -3,9 +3,9 @@ platform: qw11q
 targets: [B4]
 
 actions:
-  - id: cryoscope
+  - id: cryoscope 
 
-    operation: cryoscope
+    operation: cryoscope 
     parameters:
       duration_max: 80
       duration_min: 1

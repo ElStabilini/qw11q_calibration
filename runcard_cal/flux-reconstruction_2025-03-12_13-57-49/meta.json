@@ -1,0 +1,27 @@
+{
+    "title": "flux-reconstruction_2025-03-12_13-57-49",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-03-12 13:58:02.909410+00:00",
+    "end_time": "2025-03-12 13:59:41.016028+00:00",
+    "stats": {
+        "flux_reconstruction-0": {
+            "acquisition": 98.07764623686671,
+            "fit": 0.015208702068775892
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B4"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.3",
+        "qibocal": "0.1.3"
+    },
+    "date": "2025-03-12",
+    "start-time": "13:58:02",
+    "end-time": "13:59:41"
+}

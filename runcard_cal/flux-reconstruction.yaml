@@ -3,9 +3,9 @@ platform: qw11q
 targets: [B4]
 
 actions:
-  - id: cryoscope
+  - id: flux_reconstruction 
 
-    operation: cryoscope
+    operation: flux_reconstruction
     parameters:
       duration_max: 80
       duration_min: 1
