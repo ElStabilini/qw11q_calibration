@@ -1,17 +1,23 @@
 platform: qw11q
 
-targets: [D1]
+targets: [B2]
 
 actions:
-  - id: dispersive_shift
-    operation: dispersive_shift
+  - id: classification
+    operation: single_shot_classification
     parameters:
-      freq_width: 10_000_000
-      freq_step: 100_000
+      nshots: 5000
 
-  - id: resonator_amplitude
-    operation: resonator_amplitude
+  - id: resonator optimization
+    operation: resonator_optimization
     parameters:
+      freq_width: 8000000
+      freq_step: 50000
       amplitude_step: 0.0005
-      amplitude_start: 0.001
-      amplitude_stop: 0.005
+      amplitude_start: 0.003
+      amplitude_stop: 0.004
+
+  - id: classification
+    operation: single_shot_classification
+    parameters:
+      nshots: 5000
