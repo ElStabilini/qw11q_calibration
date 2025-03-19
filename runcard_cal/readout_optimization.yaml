@@ -13,9 +13,9 @@ actions:
     parameters:
       freq_width: 8000000
       freq_step: 50000
-      amplitude_step: 0.0005
+      amplitude_step: 0.0001
       amplitude_start: 0.003
-      amplitude_stop: 0.004
+      amplitude_stop: 0.005
 
   - id: classification
     operation: single_shot_classification
