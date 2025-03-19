@@ -10,7 +10,7 @@
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 source /home/users/elisa.stabilini/calibration/bin/activate
 
-routine="freq_optimization"
+routine="readout_optimization"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 folder="readout_optimization"
 

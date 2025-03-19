@@ -1,0 +1,35 @@
+{
+    "title": "res_frequency_2025-03-19_10-43-01",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-03-19 10:43:15.791247+00:00",
+    "end_time": "2025-03-19 10:45:49.012089+00:00",
+    "stats": {
+        "classification-0": {
+            "acquisition": 5.349962895968929,
+            "fit": 0.0246098970528692
+        },
+        "resonator optimization-0": {
+            "acquisition": 139.77080061286688,
+            "fit": 2.466607838869095e-05
+        },
+        "classification-1": {
+            "acquisition": 5.939880180871114,
+            "fit": 0.019820967921987176
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.4",
+        "qibocal": "0.1.3"
+    },
+    "date": "2025-03-19",
+    "start-time": "10:43:15",
+    "end-time": "10:45:49"
+}

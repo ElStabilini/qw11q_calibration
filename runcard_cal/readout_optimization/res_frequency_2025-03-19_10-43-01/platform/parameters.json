@@ -114,7 +114,7 @@
         },
         "B2/probe": {
             "kind": "iq",
-            "frequency": 7379940944.0
+            "frequency": 7380040944.0
         },
         "B3/drive": {
             "kind": "iq",
@@ -286,8 +286,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.0017516802027001295,
-            "iq_angle": 0.4311089419394821,
+            "threshold": 0.0024378669440833717,
+            "iq_angle": 0.7436576203817697,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
