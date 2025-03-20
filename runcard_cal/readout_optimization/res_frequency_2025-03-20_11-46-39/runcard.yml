@@ -1,0 +1,28 @@
+actions:
+- id: classification
+  operation: single_shot_classification
+  parameters:
+    nshots: 5000
+  targets: null
+  update: true
+- id: resonator optimization
+  operation: resonator_optimization
+  parameters:
+    amplitude_start: 0.005
+    amplitude_step: 0.0005
+    amplitude_stop: 0.01
+    freq_step: 5000000
+    freq_width: 40000000
+  targets: null
+  update: true
+- id: classification
+  operation: single_shot_classification
+  parameters:
+    nshots: 5000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
