@@ -1,5 +1,5 @@
 
-# Single QUA script generated at 2025-03-23 18:59:15.197815
+# Single QUA script generated at 2025-03-23 19:00:56.936777
 # QUA library version: 1.2.1
 
 from qm import CompilerOptionArguments
@@ -29,9 +29,9 @@ with program() as prog:
         align()
         play("-1069109754447709049", "B2/drive")
         wait(11, "B2/flux")
-        play("8948892204450937425", "B2/flux")
+        play("5149159374505047244", "B2/flux")
         wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
+        play("-308019125224147180", "B2/drive")
         wait(66, "B2/acquisition")
         measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
         assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
@@ -39,360 +39,96 @@ with program() as prog:
         save(v4, r1)
         play("7424997495037455510", "B4/drive")
         wait(11, "B4/flux")
-        play("8948892204450937425", "B4/flux")
+        play("5149159374505047244", "B4/flux")
         wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
+        play("8186088124261017379", "B4/drive")
         wait(66, "B4/acquisition")
         measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
         assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
         r2 = declare_stream()
         save(v7, r2)
-        wait(25552, "B2/flux")
+        wait(25537, "B2/flux")
         wait(25501, "B4/drive")
         wait(25001, "B4/acquisition")
-        wait(25552, "B4/flux")
+        wait(25537, "B4/flux")
         wait(25001, "B2/acquisition")
         wait(25501, "B2/drive")
         play("-1069109754447709049", "B2/drive")
         wait(11, "B2/flux")
-        play("-87778728446196965", "B2/flux")
+        play("-6030061351370932299", "B2/flux")
         wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
+        play("-308019125224147180", "B2/drive")
         wait(66, "B2/acquisition")
         measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
         assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
         save(v4, r1)
         play("7424997495037455510", "B4/drive")
         wait(11, "B4/flux")
-        play("-87778728446196965", "B4/flux")
+        play("-6030061351370932299", "B4/flux")
         wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
+        play("8186088124261017379", "B4/drive")
         wait(66, "B4/acquisition")
         measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
         assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
         save(v7, r2)
-        wait(25551, "B2/flux")
+        wait(25536, "B2/flux")
         wait(25501, "B4/drive")
         wait(25001, "B4/acquisition")
-        wait(25551, "B4/flux")
+        wait(25536, "B4/flux")
         wait(25001, "B2/acquisition")
         wait(25501, "B2/drive")
         play("-1069109754447709049", "B2/drive")
         wait(11, "B2/flux")
-        play("5476512305187232199", "B2/flux")
+        play("-1507743581280928983", "B2/flux")
         wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
+        play("-308019125224147180", "B2/drive")
         wait(66, "B2/acquisition")
         measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
         assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
         save(v4, r1)
         play("7424997495037455510", "B4/drive")
         wait(11, "B4/flux")
-        play("5476512305187232199", "B4/flux")
+        play("-1507743581280928983", "B4/flux")
         wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
+        play("8186088124261017379", "B4/drive")
         wait(66, "B4/acquisition")
         measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
         assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
         save(v7, r2)
-        wait(25551, "B2/flux")
+        wait(25536, "B2/flux")
         wait(25501, "B4/drive")
         wait(25001, "B4/acquisition")
-        wait(25551, "B4/flux")
+        wait(25536, "B4/flux")
         wait(25001, "B2/acquisition")
         wait(25501, "B2/drive")
         play("-1069109754447709049", "B2/drive")
         wait(11, "B2/flux")
-        play("-2288376423427398230", "B2/flux")
+        play("-7842880822979024778", "B2/flux")
         wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
+        play("-308019125224147180", "B2/drive")
         wait(66, "B2/acquisition")
         measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
         assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
         save(v4, r1)
         play("7424997495037455510", "B4/drive")
         wait(11, "B4/flux")
-        play("-2288376423427398230", "B4/flux")
+        play("-7842880822979024778", "B4/flux")
         wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
+        play("8186088124261017379", "B4/drive")
         wait(66, "B4/acquisition")
         measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
         assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
         save(v7, r2)
-        wait(25551, "B2/flux")
+        wait(25536, "B2/flux")
         wait(25501, "B4/drive")
         wait(25001, "B4/acquisition")
-        wait(25551, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("-2066882364228682982", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("-2066882364228682982", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25551, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25551, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("-3214704181405551755", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("-3214704181405551755", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25550, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25550, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("130877323774483881", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("130877323774483881", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25550, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25550, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("6082946580781021831", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("6082946580781021831", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25550, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25550, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("-8684299549923935261", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("-8684299549923935261", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25550, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25550, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("-8462805490725220013", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("-8462805490725220013", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25549, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25549, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("1402309253799497219", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("1402309253799497219", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25549, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25549, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("-4932827987898598576", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("-4932827987898598576", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25549, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25549, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("-410510217808595260", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("-410510217808595260", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25549, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25549, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("-1031835985695288804", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("-1031835985695288804", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25548, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25548, "B4/flux")
-        wait(25001, "B2/acquisition")
-        wait(25501, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(11, "B2/flux")
-        play("-5087433968657725933", "B2/flux")
-        wait(46, "B2/drive")
-        play("-1069109754447709049", "B2/drive")
-        wait(66, "B2/acquisition")
-        measure("6494524314438032883", "B2/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
-        assign(v4, Cast.to_int((((v2*0.64974092063167)-(v3*0.7601557314502798))>0.0024960151101936427)))
-        save(v4, r1)
-        play("7424997495037455510", "B4/drive")
-        wait(11, "B4/flux")
-        play("-5087433968657725933", "B4/flux")
-        wait(46, "B4/drive")
-        play("7424997495037455510", "B4/drive")
-        wait(66, "B4/acquisition")
-        measure("-4554039990346288644", "B4/acquisition", None, dual_demod.full("cos", "sin", v5), dual_demod.full("minus_sin", "cos", v6))
-        assign(v7, Cast.to_int((((v5*0.3668872881069954)-(v6*0.9302654018211656))>-0.0006690936940747121)))
-        save(v7, r2)
-        wait(25548, "B2/flux")
-        wait(25501, "B4/drive")
-        wait(25001, "B4/acquisition")
-        wait(25548, "B4/flux")
+        wait(25536, "B4/flux")
         wait(25001, "B2/acquisition")
         wait(25501, "B2/drive")
         wait(25000, )
     with stream_processing():
-        r1.buffer(15).average().save("6494524314438032883_B2|acquisition_shots")
-        r2.buffer(15).average().save("-4554039990346288644_B4|acquisition_shots")
+        r1.buffer(4).average().save("6494524314438032883_B2|acquisition_shots")
+        r2.buffer(4).average().save("-4554039990346288644_B4|acquisition_shots")
 
 
 config = {
@@ -604,21 +340,10 @@ config = {
             },
             "intermediate_frequency": 0,
             "operations": {
-                "8948892204450937425": "8948892204450937425",
-                "-87778728446196965": "-87778728446196965",
-                "5476512305187232199": "5476512305187232199",
-                "-2288376423427398230": "-2288376423427398230",
-                "-2066882364228682982": "-2066882364228682982",
-                "-3214704181405551755": "-3214704181405551755",
-                "130877323774483881": "130877323774483881",
-                "6082946580781021831": "6082946580781021831",
-                "-8684299549923935261": "-8684299549923935261",
-                "-8462805490725220013": "-8462805490725220013",
-                "1402309253799497219": "1402309253799497219",
-                "-4932827987898598576": "-4932827987898598576",
-                "-410510217808595260": "-410510217808595260",
-                "-1031835985695288804": "-1031835985695288804",
-                "-5087433968657725933": "-5087433968657725933",
+                "5149159374505047244": "5149159374505047244",
+                "-6030061351370932299": "-6030061351370932299",
+                "-1507743581280928983": "-1507743581280928983",
+                "-7842880822979024778": "-7842880822979024778",
             },
         },
         "D2/flux": {
@@ -648,21 +373,10 @@ config = {
             },
             "intermediate_frequency": 0,
             "operations": {
-                "8948892204450937425": "8948892204450937425",
-                "-87778728446196965": "-87778728446196965",
-                "5476512305187232199": "5476512305187232199",
-                "-2288376423427398230": "-2288376423427398230",
-                "-2066882364228682982": "-2066882364228682982",
-                "-3214704181405551755": "-3214704181405551755",
-                "130877323774483881": "130877323774483881",
-                "6082946580781021831": "6082946580781021831",
-                "-8684299549923935261": "-8684299549923935261",
-                "-8462805490725220013": "-8462805490725220013",
-                "1402309253799497219": "1402309253799497219",
-                "-4932827987898598576": "-4932827987898598576",
-                "-410510217808595260": "-410510217808595260",
-                "-1031835985695288804": "-1031835985695288804",
-                "-5087433968657725933": "-5087433968657725933",
+                "5149159374505047244": "5149159374505047244",
+                "-6030061351370932299": "-6030061351370932299",
+                "-1507743581280928983": "-1507743581280928983",
+                "-7842880822979024778": "-7842880822979024778",
             },
         },
         "D4/flux": {
@@ -700,6 +414,7 @@ config = {
             "intermediate_frequency": 109615374.0,
             "operations": {
                 "7424997495037455510": "7424997495037455510",
+                "8186088124261017379": "8186088124261017379",
             },
         },
         "B4/acquisition": {
@@ -758,6 +473,7 @@ config = {
             "intermediate_frequency": 63761228.0,
             "operations": {
                 "-1069109754447709049": "-1069109754447709049",
+                "-308019125224147180": "-308019125224147180",
             },
         },
     },
@@ -1048,6 +764,416 @@ config = {
             "digital_marker": "ON",
             "operation": "control",
         },
+        "2008743529393286851": {
+            "length": 32,
+            "waveforms": {
+                "single": "2008743529393286851",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-5584799349438784289": {
+            "length": 32,
+            "waveforms": {
+                "single": "-5584799349438784289",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "7241953346420051197": {
+            "length": 36,
+            "waveforms": {
+                "single": "7241953346420051197",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "4917395264333214744": {
+            "length": 36,
+            "waveforms": {
+                "single": "4917395264333214744",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "2565029595570920524": {
+            "length": 36,
+            "waveforms": {
+                "single": "2565029595570920524",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-801501750059341777": {
+            "length": 36,
+            "waveforms": {
+                "single": "-801501750059341777",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-580007690860626529": {
+            "length": 40,
+            "waveforms": {
+                "single": "-580007690860626529",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-6126186891021863430": {
+            "length": 40,
+            "waveforms": {
+                "single": "-6126186891021863430",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-8450744973108699883": {
+            "length": 40,
+            "waveforms": {
+                "single": "-8450744973108699883",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-1354567475057687099": {
+            "length": 40,
+            "waveforms": {
+                "single": "-1354567475057687099",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "6850961814169304680": {
+            "length": 44,
+            "waveforms": {
+                "single": "6850961814169304680",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "7072455873368019928": {
+            "length": 44,
+            "waveforms": {
+                "single": "7072455873368019928",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-1509173455816814456": {
+            "length": 44,
+            "waveforms": {
+                "single": "-1509173455816814456",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-3445953314530542123": {
+            "length": 44,
+            "waveforms": {
+                "single": "-3445953314530542123",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "3724036361209949890": {
+            "length": 48,
+            "waveforms": {
+                "single": "3724036361209949890",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-3943318695311600479": {
+            "length": 48,
+            "waveforms": {
+                "single": "-3943318695311600479",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-1124233239421740072": {
+            "length": 48,
+            "waveforms": {
+                "single": "-1124233239421740072",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "6143290108411832001": {
+            "length": 48,
+            "waveforms": {
+                "single": "6143290108411832001",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "4206510249698104334": {
+            "length": 52,
+            "waveforms": {
+                "single": "4206510249698104334",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "8728828019788107650": {
+            "length": 52,
+            "waveforms": {
+                "single": "8728828019788107650",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "6404269937701271197": {
+            "length": 52,
+            "waveforms": {
+                "single": "6404269937701271197",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "6528230324806906385": {
+            "length": 52,
+            "waveforms": {
+                "single": "6528230324806906385",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "1079584796738749544": {
+            "length": 56,
+            "waveforms": {
+                "single": "1079584796738749544",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "3554538888157918621": {
+            "length": 56,
+            "waveforms": {
+                "single": "3554538888157918621",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "3277344484741916407": {
+            "length": 56,
+            "waveforms": {
+                "single": "3277344484741916407",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-4390010571779633962": {
+            "length": 56,
+            "waveforms": {
+                "single": "-4390010571779633962",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "132307198310369354": {
+            "length": 60,
+            "waveforms": {
+                "single": "132307198310369354",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "3939479104552993005": {
+            "length": 60,
+            "waveforms": {
+                "single": "3939479104552993005",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "5365517015337133700": {
+            "length": 60,
+            "waveforms": {
+                "single": "5365517015337133700",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "3883778760335706039": {
+            "length": 60,
+            "waveforms": {
+                "single": "3883778760335706039",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "688593264488003027": {
+            "length": 64,
+            "waveforms": {
+                "single": "688593264488003027",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "7784770762539015811": {
+            "length": 64,
+            "waveforms": {
+                "single": "7784770762539015811",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-6854801404927912154": {
+            "length": 64,
+            "waveforms": {
+                "single": "-6854801404927912154",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-2733638425359546240": {
+            "length": 64,
+            "waveforms": {
+                "single": "-2733638425359546240",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "8962382596603343028": {
+            "length": 68,
+            "waveforms": {
+                "single": "8962382596603343028",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "2010173403929172324": {
+            "length": 68,
+            "waveforms": {
+                "single": "2010173403929172324",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-5583369474902898816": {
+            "length": 68,
+            "waveforms": {
+                "single": "-5583369474902898816",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "3492787228084959522": {
+            "length": 68,
+            "waveforms": {
+                "single": "3492787228084959522",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "8015104998174962838": {
+            "length": 72,
+            "waveforms": {
+                "single": "8015104998174962838",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "2566459470106805997": {
+            "length": 72,
+            "waveforms": {
+                "single": "2566459470106805997",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-5198429258507824432": {
+            "length": 72,
+            "waveforms": {
+                "single": "-5198429258507824432",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "365861775125604732": {
+            "length": 72,
+            "waveforms": {
+                "single": "365861775125604732",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "4888179545215608048": {
+            "length": 76,
+            "waveforms": {
+                "single": "4888179545215608048",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "2951399686501880381": {
+            "length": 76,
+            "waveforms": {
+                "single": "2951399686501880381",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-8227821039374099162": {
+            "length": 76,
+            "waveforms": {
+                "single": "-8227821039374099162",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "5149159374505047244": {
+            "length": 76,
+            "waveforms": {
+                "single": "5149159374505047244",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-6030061351370932299": {
+            "length": 80,
+            "waveforms": {
+                "single": "-6030061351370932299",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-1507743581280928983": {
+            "length": 80,
+            "waveforms": {
+                "single": "-1507743581280928983",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-7842880822979024778": {
+            "length": 80,
+            "waveforms": {
+                "single": "-7842880822979024778",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "-308019125224147180": {
+            "length": 40,
+            "waveforms": {
+                "I": "-308019125224147180_i",
+                "Q": "-308019125224147180_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
+        "8186088124261017379": {
+            "length": 40,
+            "waveforms": {
+                "I": "8186088124261017379_i",
+                "Q": "8186088124261017379_q",
+            },
+            "digital_marker": "ON",
+            "operation": "control",
+        },
     },
     "waveforms": {
         "-1069109754447709049_i": {
@@ -1200,6 +1326,218 @@ config = {
         },
         "-5087433968657725933": {
             "samples": [0.25] * 30 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "2008743529393286851": {
+            "samples": [0.25] * 31 + [0.0],
+            "type": "arbitrary",
+        },
+        "-5584799349438784289": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "7241953346420051197": {
+            "samples": [0.25] * 33 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "4917395264333214744": {
+            "samples": [0.25] * 34 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "2565029595570920524": {
+            "samples": [0.25] * 35 + [0.0],
+            "type": "arbitrary",
+        },
+        "-801501750059341777": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "-580007690860626529": {
+            "samples": [0.25] * 37 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "-6126186891021863430": {
+            "samples": [0.25] * 38 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "-8450744973108699883": {
+            "samples": [0.25] * 39 + [0.0],
+            "type": "arbitrary",
+        },
+        "-1354567475057687099": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "6850961814169304680": {
+            "samples": [0.25] * 41 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "7072455873368019928": {
+            "samples": [0.25] * 42 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "-1509173455816814456": {
+            "samples": [0.25] * 43 + [0.0],
+            "type": "arbitrary",
+        },
+        "-3445953314530542123": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "3724036361209949890": {
+            "samples": [0.25] * 45 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "-3943318695311600479": {
+            "samples": [0.25] * 46 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "-1124233239421740072": {
+            "samples": [0.25] * 47 + [0.0],
+            "type": "arbitrary",
+        },
+        "6143290108411832001": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "4206510249698104334": {
+            "samples": [0.25] * 49 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "8728828019788107650": {
+            "samples": [0.25] * 50 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "6404269937701271197": {
+            "samples": [0.25] * 51 + [0.0],
+            "type": "arbitrary",
+        },
+        "6528230324806906385": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "1079584796738749544": {
+            "samples": [0.25] * 53 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "3554538888157918621": {
+            "samples": [0.25] * 54 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "3277344484741916407": {
+            "samples": [0.25] * 55 + [0.0],
+            "type": "arbitrary",
+        },
+        "-4390010571779633962": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "132307198310369354": {
+            "samples": [0.25] * 57 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "3939479104552993005": {
+            "samples": [0.25] * 58 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "5365517015337133700": {
+            "samples": [0.25] * 59 + [0.0],
+            "type": "arbitrary",
+        },
+        "3883778760335706039": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "688593264488003027": {
+            "samples": [0.25] * 61 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "7784770762539015811": {
+            "samples": [0.25] * 62 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "-6854801404927912154": {
+            "samples": [0.25] * 63 + [0.0],
+            "type": "arbitrary",
+        },
+        "-2733638425359546240": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "8962382596603343028": {
+            "samples": [0.25] * 65 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "2010173403929172324": {
+            "samples": [0.25] * 66 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "-5583369474902898816": {
+            "samples": [0.25] * 67 + [0.0],
+            "type": "arbitrary",
+        },
+        "3492787228084959522": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "8015104998174962838": {
+            "samples": [0.25] * 69 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "2566459470106805997": {
+            "samples": [0.25] * 70 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "-5198429258507824432": {
+            "samples": [0.25] * 71 + [0.0],
+            "type": "arbitrary",
+        },
+        "365861775125604732": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "4888179545215608048": {
+            "samples": [0.25] * 73 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "2951399686501880381": {
+            "samples": [0.25] * 74 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "-8227821039374099162": {
+            "samples": [0.25] * 75 + [0.0],
+            "type": "arbitrary",
+        },
+        "5149159374505047244": {
+            "sample": 0.25,
+            "type": "constant",
+        },
+        "-6030061351370932299": {
+            "samples": [0.25] * 77 + [0.0] * 3,
+            "type": "arbitrary",
+        },
+        "-1507743581280928983": {
+            "samples": [0.25] * 78 + [0.0] * 2,
+            "type": "arbitrary",
+        },
+        "-7842880822979024778": {
+            "samples": [0.25] * 79 + [0.0],
+            "type": "arbitrary",
+        },
+        "-308019125224147180_i": {
+            "samples": [0.0012493039327485741, 0.0016811221929452756, 0.0022271250587747485, 0.0029047186704985986, 0.0037297326012476254, 0.004714823786424647, 0.00586769300677935, 0.007189247754539428, 0.008671888112107319, 0.010298121937161474, 0.01203972431763831, 0.013857637745628482, 0.01570276077461938, 0.017517695516533722, 0.019239424678246013, 0.020802778144181227, 0.022144442064578468, 0.023207176028356858, 0.023943850873928398] + [0.024320911659934084] * 2 + [0.023943850873928398, 0.023207176028356858, 0.022144442064578468, 0.020802778144181227, 0.019239424678246013, 0.017517695516533722, 0.01570276077461938, 0.013857637745628482, 0.01203972431763831, 0.010298121937161474, 0.008671888112107319, 0.007189247754539428, 0.00586769300677935, 0.004714823786424647, 0.0037297326012476254, 0.0029047186704985986, 0.0022271250587747485, 0.0016811221929452756, 0.0012493039327485741],
+            "type": "arbitrary",
+        },
+        "-308019125224147180_q": {
+            "samples": [-0.00018478027949113372, -0.0002358978110714118, -0.0002956211855505884, -0.0003635305567912292, -0.00043849262771333716, -0.0005185449024836564, -0.0006008333815122076, -0.0006816263402774133, -0.0007564224456091558, -0.0008201631077734918, -0.0008675470735784872, -0.000893431028152493, -0.0008932852830643251, -0.000863660845781051, -0.0008026157388505532, -0.0007100464369202509, -0.0005878759426368707, -0.0004400633558467762, -0.00027241947976610573, -9.223648744893299e-05, 9.223648744893299e-05, 0.00027241947976610573, 0.0004400633558467762, 0.0005878759426368707, 0.0007100464369202509, 0.0008026157388505532, 0.000863660845781051, 0.0008932852830643251, 0.000893431028152493, 0.0008675470735784872, 0.0008201631077734918, 0.0007564224456091558, 0.0006816263402774133, 0.0006008333815122076, 0.0005185449024836564, 0.00043849262771333716, 0.0003635305567912292, 0.0002956211855505884, 0.0002358978110714118, 0.00018478027949113372],
+            "type": "arbitrary",
+        },
+        "8186088124261017379_i": {
+            "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
+            "type": "arbitrary",
+        },
+        "8186088124261017379_q": {
+            "samples": [-0.0003245581697577896, -0.0004143437926495826, -0.0005192451877881842, -0.0006385249144990759, -0.0007701923879260787, -0.0009108005732581567, -0.0010553365498202029, -0.0011972457129536525, -0.0013286216753579413, -0.0014405792538840587, -0.0015238070380387684, -0.0015692710288161837, -0.001569015034187334, -0.0015169810553923994, -0.0014097580972250387, -0.0012471643221046982, -0.001032577396853722, -0.0007729513005631845, -0.0004784924452043538, -0.00016200920159745424, 0.00016200920159745424, 0.0004784924452043538, 0.0007729513005631845, 0.001032577396853722, 0.0012471643221046982, 0.0014097580972250387, 0.0015169810553923994, 0.001569015034187334, 0.0015692710288161837, 0.0015238070380387684, 0.0014405792538840587, 0.0013286216753579413, 0.0011972457129536525, 0.0010553365498202029, 0.0009108005732581567, 0.0007701923879260787, 0.0006385249144990759, 0.0005192451877881842, 0.0004143437926495826, 0.0003245581697577896],
             "type": "arbitrary",
         },
     },
@@ -1547,21 +1885,10 @@ loaded_config = {
             "digitalOutputs": {},
             "outputs": {},
             "operations": {
-                "8948892204450937425": "8948892204450937425",
-                "-87778728446196965": "-87778728446196965",
-                "5476512305187232199": "5476512305187232199",
-                "-2288376423427398230": "-2288376423427398230",
-                "-2066882364228682982": "-2066882364228682982",
-                "-3214704181405551755": "-3214704181405551755",
-                "130877323774483881": "130877323774483881",
-                "6082946580781021831": "6082946580781021831",
-                "-8684299549923935261": "-8684299549923935261",
-                "-8462805490725220013": "-8462805490725220013",
-                "1402309253799497219": "1402309253799497219",
-                "-4932827987898598576": "-4932827987898598576",
-                "-410510217808595260": "-410510217808595260",
-                "-1031835985695288804": "-1031835985695288804",
-                "-5087433968657725933": "-5087433968657725933",
+                "5149159374505047244": "5149159374505047244",
+                "-6030061351370932299": "-6030061351370932299",
+                "-1507743581280928983": "-1507743581280928983",
+                "-7842880822979024778": "-7842880822979024778",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1639,21 +1966,10 @@ loaded_config = {
             "digitalOutputs": {},
             "outputs": {},
             "operations": {
-                "8948892204450937425": "8948892204450937425",
-                "-87778728446196965": "-87778728446196965",
-                "5476512305187232199": "5476512305187232199",
-                "-2288376423427398230": "-2288376423427398230",
-                "-2066882364228682982": "-2066882364228682982",
-                "-3214704181405551755": "-3214704181405551755",
-                "130877323774483881": "130877323774483881",
-                "6082946580781021831": "6082946580781021831",
-                "-8684299549923935261": "-8684299549923935261",
-                "-8462805490725220013": "-8462805490725220013",
-                "1402309253799497219": "1402309253799497219",
-                "-4932827987898598576": "-4932827987898598576",
-                "-410510217808595260": "-410510217808595260",
-                "-1031835985695288804": "-1031835985695288804",
-                "-5087433968657725933": "-5087433968657725933",
+                "5149159374505047244": "5149159374505047244",
+                "-6030061351370932299": "-6030061351370932299",
+                "-1507743581280928983": "-1507743581280928983",
+                "-7842880822979024778": "-7842880822979024778",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1738,6 +2054,7 @@ loaded_config = {
             "outputs": {},
             "operations": {
                 "7424997495037455510": "7424997495037455510",
+                "8186088124261017379": "8186088124261017379",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1751,7 +2068,7 @@ loaded_config = {
             "mixInputs": {
                 "I": ('con3', 1, 7),
                 "Q": ('con3', 1, 8),
-                "mixer": "B4/drive_mixer_c2d",
+                "mixer": "B4/drive_mixer_326",
                 "lo_frequency": 6700000000.0,
             },
             "intermediate_frequency": 109615374.0,
@@ -1784,7 +2101,7 @@ loaded_config = {
             "mixInputs": {
                 "I": ('con2', 1, 1),
                 "Q": ('con2', 1, 2),
-                "mixer": "B4/acquisition_mixer_0f6",
+                "mixer": "B4/acquisition_mixer_e8f",
                 "lo_frequency": 7370000000.0,
             },
             "smearing": 0,
@@ -1819,7 +2136,7 @@ loaded_config = {
             "mixInputs": {
                 "I": ('con2', 1, 1),
                 "Q": ('con2', 1, 2),
-                "mixer": "B2/acquisition_mixer_e3c",
+                "mixer": "B2/acquisition_mixer_f88",
                 "lo_frequency": 7370000000.0,
             },
             "smearing": 0,
@@ -1838,6 +2155,7 @@ loaded_config = {
             "outputs": {},
             "operations": {
                 "-1069109754447709049": "-1069109754447709049",
+                "-308019125224147180": "-308019125224147180",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1851,7 +2169,7 @@ loaded_config = {
             "mixInputs": {
                 "I": ('con2', 1, 7),
                 "Q": ('con2', 1, 8),
-                "mixer": "B2/drive_mixer_abd",
+                "mixer": "B2/drive_mixer_3ce",
                 "lo_frequency": 5900000000.0,
             },
             "intermediate_frequency": 63761228.0,
@@ -2176,6 +2494,467 @@ loaded_config = {
             "operation": "control",
             "digital_marker": "ON",
         },
+        "2008743529393286851": {
+            "length": 32,
+            "waveforms": {
+                "single": "2008743529393286851",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-5584799349438784289": {
+            "length": 32,
+            "waveforms": {
+                "single": "-5584799349438784289",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "7241953346420051197": {
+            "length": 36,
+            "waveforms": {
+                "single": "7241953346420051197",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "4917395264333214744": {
+            "length": 36,
+            "waveforms": {
+                "single": "4917395264333214744",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "2565029595570920524": {
+            "length": 36,
+            "waveforms": {
+                "single": "2565029595570920524",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-801501750059341777": {
+            "length": 36,
+            "waveforms": {
+                "single": "-801501750059341777",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-580007690860626529": {
+            "length": 40,
+            "waveforms": {
+                "single": "-580007690860626529",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-6126186891021863430": {
+            "length": 40,
+            "waveforms": {
+                "single": "-6126186891021863430",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-8450744973108699883": {
+            "length": 40,
+            "waveforms": {
+                "single": "-8450744973108699883",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-1354567475057687099": {
+            "length": 40,
+            "waveforms": {
+                "single": "-1354567475057687099",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "6850961814169304680": {
+            "length": 44,
+            "waveforms": {
+                "single": "6850961814169304680",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "7072455873368019928": {
+            "length": 44,
+            "waveforms": {
+                "single": "7072455873368019928",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-1509173455816814456": {
+            "length": 44,
+            "waveforms": {
+                "single": "-1509173455816814456",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-3445953314530542123": {
+            "length": 44,
+            "waveforms": {
+                "single": "-3445953314530542123",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "3724036361209949890": {
+            "length": 48,
+            "waveforms": {
+                "single": "3724036361209949890",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-3943318695311600479": {
+            "length": 48,
+            "waveforms": {
+                "single": "-3943318695311600479",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-1124233239421740072": {
+            "length": 48,
+            "waveforms": {
+                "single": "-1124233239421740072",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "6143290108411832001": {
+            "length": 48,
+            "waveforms": {
+                "single": "6143290108411832001",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "4206510249698104334": {
+            "length": 52,
+            "waveforms": {
+                "single": "4206510249698104334",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "8728828019788107650": {
+            "length": 52,
+            "waveforms": {
+                "single": "8728828019788107650",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "6404269937701271197": {
+            "length": 52,
+            "waveforms": {
+                "single": "6404269937701271197",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "6528230324806906385": {
+            "length": 52,
+            "waveforms": {
+                "single": "6528230324806906385",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "1079584796738749544": {
+            "length": 56,
+            "waveforms": {
+                "single": "1079584796738749544",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "3554538888157918621": {
+            "length": 56,
+            "waveforms": {
+                "single": "3554538888157918621",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "3277344484741916407": {
+            "length": 56,
+            "waveforms": {
+                "single": "3277344484741916407",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-4390010571779633962": {
+            "length": 56,
+            "waveforms": {
+                "single": "-4390010571779633962",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "132307198310369354": {
+            "length": 60,
+            "waveforms": {
+                "single": "132307198310369354",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "3939479104552993005": {
+            "length": 60,
+            "waveforms": {
+                "single": "3939479104552993005",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "5365517015337133700": {
+            "length": 60,
+            "waveforms": {
+                "single": "5365517015337133700",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "3883778760335706039": {
+            "length": 60,
+            "waveforms": {
+                "single": "3883778760335706039",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "688593264488003027": {
+            "length": 64,
+            "waveforms": {
+                "single": "688593264488003027",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "7784770762539015811": {
+            "length": 64,
+            "waveforms": {
+                "single": "7784770762539015811",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-6854801404927912154": {
+            "length": 64,
+            "waveforms": {
+                "single": "-6854801404927912154",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-2733638425359546240": {
+            "length": 64,
+            "waveforms": {
+                "single": "-2733638425359546240",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "8962382596603343028": {
+            "length": 68,
+            "waveforms": {
+                "single": "8962382596603343028",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "2010173403929172324": {
+            "length": 68,
+            "waveforms": {
+                "single": "2010173403929172324",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-5583369474902898816": {
+            "length": 68,
+            "waveforms": {
+                "single": "-5583369474902898816",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "3492787228084959522": {
+            "length": 68,
+            "waveforms": {
+                "single": "3492787228084959522",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "8015104998174962838": {
+            "length": 72,
+            "waveforms": {
+                "single": "8015104998174962838",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "2566459470106805997": {
+            "length": 72,
+            "waveforms": {
+                "single": "2566459470106805997",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-5198429258507824432": {
+            "length": 72,
+            "waveforms": {
+                "single": "-5198429258507824432",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "365861775125604732": {
+            "length": 72,
+            "waveforms": {
+                "single": "365861775125604732",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "4888179545215608048": {
+            "length": 76,
+            "waveforms": {
+                "single": "4888179545215608048",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "2951399686501880381": {
+            "length": 76,
+            "waveforms": {
+                "single": "2951399686501880381",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-8227821039374099162": {
+            "length": 76,
+            "waveforms": {
+                "single": "-8227821039374099162",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "5149159374505047244": {
+            "length": 76,
+            "waveforms": {
+                "single": "5149159374505047244",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-6030061351370932299": {
+            "length": 80,
+            "waveforms": {
+                "single": "-6030061351370932299",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-1507743581280928983": {
+            "length": 80,
+            "waveforms": {
+                "single": "-1507743581280928983",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-7842880822979024778": {
+            "length": 80,
+            "waveforms": {
+                "single": "-7842880822979024778",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "-308019125224147180": {
+            "length": 40,
+            "waveforms": {
+                "I": "-308019125224147180_i",
+                "Q": "-308019125224147180_q",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
+        "8186088124261017379": {
+            "length": 40,
+            "waveforms": {
+                "I": "8186088124261017379_i",
+                "Q": "8186088124261017379_q",
+            },
+            "integration_weights": {},
+            "operation": "control",
+            "digital_marker": "ON",
+        },
     },
     "waveforms": {
         "-1069109754447709049_i": {
@@ -2390,6 +3169,300 @@ loaded_config = {
             "is_overridable": False,
             "max_allowed_error": 0.0001,
         },
+        "2008743529393286851": {
+            "type": "arbitrary",
+            "samples": [0.25] * 31 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-5584799349438784289": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "7241953346420051197": {
+            "type": "arbitrary",
+            "samples": [0.25] * 33 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "4917395264333214744": {
+            "type": "arbitrary",
+            "samples": [0.25] * 34 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "2565029595570920524": {
+            "type": "arbitrary",
+            "samples": [0.25] * 35 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-801501750059341777": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "-580007690860626529": {
+            "type": "arbitrary",
+            "samples": [0.25] * 37 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-6126186891021863430": {
+            "type": "arbitrary",
+            "samples": [0.25] * 38 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-8450744973108699883": {
+            "type": "arbitrary",
+            "samples": [0.25] * 39 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-1354567475057687099": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "6850961814169304680": {
+            "type": "arbitrary",
+            "samples": [0.25] * 41 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "7072455873368019928": {
+            "type": "arbitrary",
+            "samples": [0.25] * 42 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-1509173455816814456": {
+            "type": "arbitrary",
+            "samples": [0.25] * 43 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-3445953314530542123": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "3724036361209949890": {
+            "type": "arbitrary",
+            "samples": [0.25] * 45 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-3943318695311600479": {
+            "type": "arbitrary",
+            "samples": [0.25] * 46 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-1124233239421740072": {
+            "type": "arbitrary",
+            "samples": [0.25] * 47 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "6143290108411832001": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "4206510249698104334": {
+            "type": "arbitrary",
+            "samples": [0.25] * 49 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "8728828019788107650": {
+            "type": "arbitrary",
+            "samples": [0.25] * 50 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "6404269937701271197": {
+            "type": "arbitrary",
+            "samples": [0.25] * 51 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "6528230324806906385": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "1079584796738749544": {
+            "type": "arbitrary",
+            "samples": [0.25] * 53 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "3554538888157918621": {
+            "type": "arbitrary",
+            "samples": [0.25] * 54 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "3277344484741916407": {
+            "type": "arbitrary",
+            "samples": [0.25] * 55 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-4390010571779633962": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "132307198310369354": {
+            "type": "arbitrary",
+            "samples": [0.25] * 57 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "3939479104552993005": {
+            "type": "arbitrary",
+            "samples": [0.25] * 58 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "5365517015337133700": {
+            "type": "arbitrary",
+            "samples": [0.25] * 59 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "3883778760335706039": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "688593264488003027": {
+            "type": "arbitrary",
+            "samples": [0.25] * 61 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "7784770762539015811": {
+            "type": "arbitrary",
+            "samples": [0.25] * 62 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-6854801404927912154": {
+            "type": "arbitrary",
+            "samples": [0.25] * 63 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-2733638425359546240": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "8962382596603343028": {
+            "type": "arbitrary",
+            "samples": [0.25] * 65 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "2010173403929172324": {
+            "type": "arbitrary",
+            "samples": [0.25] * 66 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-5583369474902898816": {
+            "type": "arbitrary",
+            "samples": [0.25] * 67 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "3492787228084959522": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "8015104998174962838": {
+            "type": "arbitrary",
+            "samples": [0.25] * 69 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "2566459470106805997": {
+            "type": "arbitrary",
+            "samples": [0.25] * 70 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-5198429258507824432": {
+            "type": "arbitrary",
+            "samples": [0.25] * 71 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "365861775125604732": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "4888179545215608048": {
+            "type": "arbitrary",
+            "samples": [0.25] * 73 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "2951399686501880381": {
+            "type": "arbitrary",
+            "samples": [0.25] * 74 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-8227821039374099162": {
+            "type": "arbitrary",
+            "samples": [0.25] * 75 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "5149159374505047244": {
+            "type": "constant",
+            "sample": 0.25,
+        },
+        "-6030061351370932299": {
+            "type": "arbitrary",
+            "samples": [0.25] * 77 + [0.0] * 3,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-1507743581280928983": {
+            "type": "arbitrary",
+            "samples": [0.25] * 78 + [0.0] * 2,
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-7842880822979024778": {
+            "type": "arbitrary",
+            "samples": [0.25] * 79 + [0.0],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-308019125224147180_i": {
+            "type": "arbitrary",
+            "samples": [0.0012493039327485741, 0.0016811221929452756, 0.0022271250587747485, 0.0029047186704985986, 0.0037297326012476254, 0.004714823786424647, 0.00586769300677935, 0.007189247754539428, 0.008671888112107319, 0.010298121937161474, 0.01203972431763831, 0.013857637745628482, 0.01570276077461938, 0.017517695516533722, 0.019239424678246013, 0.020802778144181227, 0.022144442064578468, 0.023207176028356858, 0.023943850873928398] + [0.024320911659934084] * 2 + [0.023943850873928398, 0.023207176028356858, 0.022144442064578468, 0.020802778144181227, 0.019239424678246013, 0.017517695516533722, 0.01570276077461938, 0.013857637745628482, 0.01203972431763831, 0.010298121937161474, 0.008671888112107319, 0.007189247754539428, 0.00586769300677935, 0.004714823786424647, 0.0037297326012476254, 0.0029047186704985986, 0.0022271250587747485, 0.0016811221929452756, 0.0012493039327485741],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "-308019125224147180_q": {
+            "type": "arbitrary",
+            "samples": [-0.00018478027949113372, -0.0002358978110714118, -0.0002956211855505884, -0.0003635305567912292, -0.00043849262771333716, -0.0005185449024836564, -0.0006008333815122076, -0.0006816263402774133, -0.0007564224456091558, -0.0008201631077734918, -0.0008675470735784872, -0.000893431028152493, -0.0008932852830643251, -0.000863660845781051, -0.0008026157388505532, -0.0007100464369202509, -0.0005878759426368707, -0.0004400633558467762, -0.00027241947976610573, -9.223648744893299e-05, 9.223648744893299e-05, 0.00027241947976610573, 0.0004400633558467762, 0.0005878759426368707, 0.0007100464369202509, 0.0008026157388505532, 0.000863660845781051, 0.0008932852830643251, 0.000893431028152493, 0.0008675470735784872, 0.0008201631077734918, 0.0007564224456091558, 0.0006816263402774133, 0.0006008333815122076, 0.0005185449024836564, 0.00043849262771333716, 0.0003635305567912292, 0.0002956211855505884, 0.0002358978110714118, 0.00018478027949113372],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "8186088124261017379_i": {
+            "type": "arbitrary",
+            "samples": [0.0019126784932123073, 0.0025737902352024828, 0.0034097180757614314, 0.004447110734432495, 0.005710203213836212, 0.0072183732230314875, 0.008983410621423042, 0.011006704775378151, 0.013276620246507487, 0.015766376646515118, 0.018432761766696917, 0.021215978744641418, 0.02404085349478909, 0.026819510118246643, 0.02945546943320567, 0.031848956296730166, 0.033903037500186334, 0.03553007824122775, 0.036657923993314044] + [0.03723520229775363] * 2 + [0.036657923993314044, 0.03553007824122775, 0.033903037500186334, 0.031848956296730166, 0.02945546943320567, 0.026819510118246643, 0.02404085349478909, 0.021215978744641418, 0.018432761766696917, 0.015766376646515118, 0.013276620246507487, 0.011006704775378151, 0.008983410621423042, 0.0072183732230314875, 0.005710203213836212, 0.004447110734432495, 0.0034097180757614314, 0.0025737902352024828, 0.0019126784932123073],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
+        "8186088124261017379_q": {
+            "type": "arbitrary",
+            "samples": [-0.0003245581697577896, -0.0004143437926495826, -0.0005192451877881842, -0.0006385249144990759, -0.0007701923879260787, -0.0009108005732581567, -0.0010553365498202029, -0.0011972457129536525, -0.0013286216753579413, -0.0014405792538840587, -0.0015238070380387684, -0.0015692710288161837, -0.001569015034187334, -0.0015169810553923994, -0.0014097580972250387, -0.0012471643221046982, -0.001032577396853722, -0.0007729513005631845, -0.0004784924452043538, -0.00016200920159745424, 0.00016200920159745424, 0.0004784924452043538, 0.0007729513005631845, 0.001032577396853722, 0.0012471643221046982, 0.0014097580972250387, 0.0015169810553923994, 0.001569015034187334, 0.0015692710288161837, 0.0015238070380387684, 0.0014405792538840587, 0.0013286216753579413, 0.0011972457129536525, 0.0010553365498202029, 0.0009108005732581567, 0.0007701923879260787, 0.0006385249144990759, 0.0005192451877881842, 0.0004143437926495826, 0.0003245581697577896],
+            "is_overridable": False,
+            "max_allowed_error": 0.0001,
+        },
     },
     "digital_waveforms": {
         "ON": {
@@ -2423,10 +3496,10 @@ loaded_config = {
         },
     },
     "mixers": {
-        "B4/drive_mixer_c2d": [{'intermediate_frequency': 109615374.0, 'lo_frequency': 6700000000.0, 'correction': (1, 0, 0, 1)}],
-        "B4/acquisition_mixer_0f6": [{'intermediate_frequency': 330300527.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
-        "B2/acquisition_mixer_e3c": [{'intermediate_frequency': 10040944.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
-        "B2/drive_mixer_abd": [{'intermediate_frequency': 63761228.0, 'lo_frequency': 5900000000.0, 'correction': (1, 0, 0, 1)}],
+        "B4/drive_mixer_326": [{'intermediate_frequency': 109615374.0, 'lo_frequency': 6700000000.0, 'correction': (1, 0, 0, 1)}],
+        "B4/acquisition_mixer_e8f": [{'intermediate_frequency': 330300527.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
+        "B2/acquisition_mixer_f88": [{'intermediate_frequency': 10040944.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
+        "B2/drive_mixer_3ce": [{'intermediate_frequency': 63761228.0, 'lo_frequency': 5900000000.0, 'correction': (1, 0, 0, 1)}],
     },
 }
 
