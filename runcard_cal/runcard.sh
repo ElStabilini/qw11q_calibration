@@ -10,7 +10,7 @@
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 source /home/users/elisa.stabilini/calibration/bin/activate
 
-routine="cryoscope"
+routine="classification"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 folder="cryoscope2_tests"
 
