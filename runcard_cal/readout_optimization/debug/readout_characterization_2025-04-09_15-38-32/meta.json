@@ -2,9 +2,14 @@
     "title": "readout_characterization_2025-04-09_15-38-32",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2025-04-09 15:38:46.271204+00:00",
+    "end_time": "2025-04-09 15:39:20.888493+00:00",
+    "stats": {
+        "readout-0": {
+            "acquisition": 34.31276817712933,
+            "fit": 0.008991846814751625
+        }
+    },
     "author": null,
     "tag": null,
     "targets": null,
@@ -14,7 +19,7 @@
         "qibolab": "0.2.4",
         "qibocal": "0.1.3"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2025-04-09",
+    "start-time": "15:38:46",
+    "end-time": "15:39:20"
 }
