@@ -1,5 +1,5 @@
 
-# Single QUA script generated at 2025-04-09 09:58:32.453606
+# Single QUA script generated at 2025-04-09 15:38:46.604379
 # QUA library version: 1.2.1
 
 from qm import CompilerOptionArguments
@@ -15,6 +15,18 @@ with program() as prog:
     v7 = declare(fixed, )
     v8 = declare(fixed, )
     v9 = declare(fixed, )
+    v10 = declare(fixed, )
+    v11 = declare(fixed, )
+    v12 = declare(fixed, )
+    v13 = declare(fixed, )
+    v14 = declare(fixed, )
+    v15 = declare(fixed, )
+    v16 = declare(fixed, )
+    v17 = declare(fixed, )
+    v18 = declare(fixed, )
+    v19 = declare(fixed, )
+    v20 = declare(fixed, )
+    v21 = declare(fixed, )
     set_dc_offset("B1/flux", "single", -0.25498290735703955)
     set_dc_offset("D1/flux", "single", -0.4530870218982913)
     set_dc_offset("B2/flux", "single", 0.10729465913983083)
@@ -29,46 +41,136 @@ with program() as prog:
     wait((4+(0*(Cast.to_int(v4)+Cast.to_int(v5)))), "B2/acquisition")
     wait((4+(0*(Cast.to_int(v6)+Cast.to_int(v7)))), "B3/acquisition")
     wait((4+(0*(Cast.to_int(v8)+Cast.to_int(v9)))), "B4/acquisition")
+    wait((4+(0*(Cast.to_int(v10)+Cast.to_int(v11)))), "B5/acquisition")
+    wait((4+(0*(Cast.to_int(v12)+Cast.to_int(v13)))), "D1/acquisition")
+    wait((4+(0*(Cast.to_int(v14)+Cast.to_int(v15)))), "D2/acquisition")
+    wait((4+(0*(Cast.to_int(v16)+Cast.to_int(v17)))), "D3/acquisition")
+    wait((4+(0*(Cast.to_int(v18)+Cast.to_int(v19)))), "D4/acquisition")
+    wait((4+(0*(Cast.to_int(v20)+Cast.to_int(v21)))), "D5/acquisition")
     with for_(v1,0,(v1<5000),(v1+1)):
         align()
-        play("-6658370554239732916", "B1/drive")
-        play("4968035204694886553", "B2/drive")
-        play("-2041609487497021751", "B3/drive")
-        play("-1637064838162168783", "B4/drive")
-        wait(11, "B4/acquisition")
-        wait(11, "B2/acquisition")
         wait(11, "B1/acquisition")
-        wait(11, "B3/acquisition")
-        measure("7637914142696858599", "B1/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
+        measure("-3097983578057558870", "B1/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
         r1 = declare_stream()
         save(v2, r1)
         r2 = declare_stream()
         save(v3, r2)
-        measure("-6313944708807425966", "B2/acquisition", None, dual_demod.full("cos", "sin", v4), dual_demod.full("minus_sin", "cos", v5))
+        wait(251, "B1/acquisition")
+        measure("-3097983578057558870", "B1/acquisition", None, dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
+        save(v2, r1)
+        save(v3, r2)
+        wait(11, "B2/acquisition")
+        measure("3329345518335900802", "B2/acquisition", None, dual_demod.full("cos", "sin", v4), dual_demod.full("minus_sin", "cos", v5))
         r3 = declare_stream()
         save(v4, r3)
         r4 = declare_stream()
         save(v5, r4)
-        measure("-7710039351215853454", "B3/acquisition", None, dual_demod.full("cos", "sin", v6), dual_demod.full("minus_sin", "cos", v7))
+        wait(251, "B2/acquisition")
+        measure("3329345518335900802", "B2/acquisition", None, dual_demod.full("cos", "sin", v4), dual_demod.full("minus_sin", "cos", v5))
+        save(v4, r3)
+        save(v5, r4)
+        wait(11, "B3/acquisition")
+        measure("-8777740371248684088", "B3/acquisition", None, dual_demod.full("cos", "sin", v6), dual_demod.full("minus_sin", "cos", v7))
         r5 = declare_stream()
         save(v6, r5)
         r6 = declare_stream()
         save(v7, r6)
-        measure("-8677636378334363604", "B4/acquisition", None, dual_demod.full("cos", "sin", v8), dual_demod.full("minus_sin", "cos", v9))
+        wait(251, "B3/acquisition")
+        measure("-8777740371248684088", "B3/acquisition", None, dual_demod.full("cos", "sin", v6), dual_demod.full("minus_sin", "cos", v7))
+        save(v6, r5)
+        save(v7, r6)
+        wait(11, "B4/acquisition")
+        measure("6639288563090313839", "B4/acquisition", None, dual_demod.full("cos", "sin", v8), dual_demod.full("minus_sin", "cos", v9))
         r7 = declare_stream()
         save(v8, r7)
         r8 = declare_stream()
         save(v9, r8)
-        wait(25000, )
+        wait(251, "B4/acquisition")
+        measure("6639288563090313839", "B4/acquisition", None, dual_demod.full("cos", "sin", v8), dual_demod.full("minus_sin", "cos", v9))
+        save(v8, r7)
+        save(v9, r8)
+        wait(11, "B5/acquisition")
+        measure("-1863676690395318626", "B5/acquisition", None, dual_demod.full("cos", "sin", v10), dual_demod.full("minus_sin", "cos", v11))
+        r9 = declare_stream()
+        save(v10, r9)
+        r10 = declare_stream()
+        save(v11, r10)
+        wait(251, "B5/acquisition")
+        measure("-1863676690395318626", "B5/acquisition", None, dual_demod.full("cos", "sin", v10), dual_demod.full("minus_sin", "cos", v11))
+        save(v10, r9)
+        save(v11, r10)
+        wait(11, "D1/acquisition")
+        measure("5524603356640612863", "D1/acquisition", None, dual_demod.full("cos", "sin", v12), dual_demod.full("minus_sin", "cos", v13))
+        r11 = declare_stream()
+        save(v12, r11)
+        r12 = declare_stream()
+        save(v13, r12)
+        wait(251, "D1/acquisition")
+        measure("5524603356640612863", "D1/acquisition", None, dual_demod.full("cos", "sin", v12), dual_demod.full("minus_sin", "cos", v13))
+        save(v12, r11)
+        save(v13, r12)
+        wait(11, "D2/acquisition")
+        measure("1029718134435345812", "D2/acquisition", None, dual_demod.full("cos", "sin", v14), dual_demod.full("minus_sin", "cos", v15))
+        r13 = declare_stream()
+        save(v14, r13)
+        r14 = declare_stream()
+        save(v15, r14)
+        wait(251, "D2/acquisition")
+        measure("1029718134435345812", "D2/acquisition", None, dual_demod.full("cos", "sin", v14), dual_demod.full("minus_sin", "cos", v15))
+        save(v14, r13)
+        save(v15, r14)
+        wait(11, "D3/acquisition")
+        measure("6261815664588527823", "D3/acquisition", None, dual_demod.full("cos", "sin", v16), dual_demod.full("minus_sin", "cos", v17))
+        r15 = declare_stream()
+        save(v16, r15)
+        r16 = declare_stream()
+        save(v17, r16)
+        wait(251, "D3/acquisition")
+        measure("6261815664588527823", "D3/acquisition", None, dual_demod.full("cos", "sin", v16), dual_demod.full("minus_sin", "cos", v17))
+        save(v16, r15)
+        save(v17, r16)
+        wait(11, "D4/acquisition")
+        measure("6671956485931387906", "D4/acquisition", None, dual_demod.full("cos", "sin", v18), dual_demod.full("minus_sin", "cos", v19))
+        r17 = declare_stream()
+        save(v18, r17)
+        r18 = declare_stream()
+        save(v19, r18)
+        wait(251, "D4/acquisition")
+        measure("6671956485931387906", "D4/acquisition", None, dual_demod.full("cos", "sin", v18), dual_demod.full("minus_sin", "cos", v19))
+        save(v18, r17)
+        save(v19, r18)
+        wait(11, "D5/acquisition")
+        measure("-5221108505199109234", "D5/acquisition", None, dual_demod.full("cos", "sin", v20), dual_demod.full("minus_sin", "cos", v21))
+        r19 = declare_stream()
+        save(v20, r19)
+        r20 = declare_stream()
+        save(v21, r20)
+        wait(251, "D5/acquisition")
+        measure("-5221108505199109234", "D5/acquisition", None, dual_demod.full("cos", "sin", v20), dual_demod.full("minus_sin", "cos", v21))
+        save(v20, r19)
+        save(v21, r20)
+        wait(50000, )
     with stream_processing():
-        r1.buffer(5000).save("7637914142696858599_B1|acquisition_I")
-        r2.buffer(5000).save("7637914142696858599_B1|acquisition_Q")
-        r3.buffer(5000).save("-6313944708807425966_B2|acquisition_I")
-        r4.buffer(5000).save("-6313944708807425966_B2|acquisition_Q")
-        r5.buffer(5000).save("-7710039351215853454_B3|acquisition_I")
-        r6.buffer(5000).save("-7710039351215853454_B3|acquisition_Q")
-        r7.buffer(5000).save("-8677636378334363604_B4|acquisition_I")
-        r8.buffer(5000).save("-8677636378334363604_B4|acquisition_Q")
+        r1.buffer(2).buffer(5000).save("-3097983578057558870_B1|acquisition_I")
+        r2.buffer(2).buffer(5000).save("-3097983578057558870_B1|acquisition_Q")
+        r3.buffer(2).buffer(5000).save("3329345518335900802_B2|acquisition_I")
+        r4.buffer(2).buffer(5000).save("3329345518335900802_B2|acquisition_Q")
+        r5.buffer(2).buffer(5000).save("-8777740371248684088_B3|acquisition_I")
+        r6.buffer(2).buffer(5000).save("-8777740371248684088_B3|acquisition_Q")
+        r7.buffer(2).buffer(5000).save("6639288563090313839_B4|acquisition_I")
+        r8.buffer(2).buffer(5000).save("6639288563090313839_B4|acquisition_Q")
+        r9.buffer(2).buffer(5000).save("-1863676690395318626_B5|acquisition_I")
+        r10.buffer(2).buffer(5000).save("-1863676690395318626_B5|acquisition_Q")
+        r11.buffer(2).buffer(5000).save("5524603356640612863_D1|acquisition_I")
+        r12.buffer(2).buffer(5000).save("5524603356640612863_D1|acquisition_Q")
+        r13.buffer(2).buffer(5000).save("1029718134435345812_D2|acquisition_I")
+        r14.buffer(2).buffer(5000).save("1029718134435345812_D2|acquisition_Q")
+        r15.buffer(2).buffer(5000).save("6261815664588527823_D3|acquisition_I")
+        r16.buffer(2).buffer(5000).save("6261815664588527823_D3|acquisition_Q")
+        r17.buffer(2).buffer(5000).save("6671956485931387906_D4|acquisition_I")
+        r18.buffer(2).buffer(5000).save("6671956485931387906_D4|acquisition_Q")
+        r19.buffer(2).buffer(5000).save("-5221108505199109234_D5|acquisition_I")
+        r20.buffer(2).buffer(5000).save("-5221108505199109234_D5|acquisition_Q")
 
 
 config = {
@@ -171,27 +273,9 @@ config = {
                     "offset": 0.0,
                     "filter": {},
                 },
-                "3": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-                "4": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-                "7": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-                "8": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
             },
             "digital_outputs": {
                 "1": {},
-                "3": {},
-                "7": {},
             },
             "analog_inputs": {
                 "1": {
@@ -204,17 +288,9 @@ config = {
                 },
             },
         },
-        "con3": {
+        "con8": {
             "type": "opx1",
             "analog_outputs": {
-                "7": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
-                "8": {
-                    "offset": 0.0,
-                    "filter": {},
-                },
                 "1": {
                     "offset": 0.0,
                     "filter": {},
@@ -225,15 +301,16 @@ config = {
                 },
             },
             "digital_outputs": {
-                "7": {},
                 "1": {},
             },
             "analog_inputs": {
                 "1": {
-                    "offset": 0,
+                    "offset": 0.0,
+                    "gain_db": 10,
                 },
                 "2": {
-                    "offset": 0,
+                    "offset": 0.0,
+                    "gain_db": 10,
                 },
             },
         },
@@ -248,18 +325,6 @@ config = {
                     "LO_source": "internal",
                     "output_mode": "triggered",
                 },
-                "2": {
-                    "LO_frequency": 4900000000.0,
-                    "gain": 0.0,
-                    "LO_source": "internal",
-                    "output_mode": "triggered",
-                },
-                "4": {
-                    "LO_frequency": 5900000000.0,
-                    "gain": 0.0,
-                    "LO_source": "internal",
-                    "output_mode": "triggered",
-                },
             },
             "RF_inputs": {
                 "1": {
@@ -270,23 +335,24 @@ config = {
                 },
             },
         },
-        "octave3": {
-            "connectivity": "con3",
+        "octave6": {
+            "connectivity": "con8",
             "RF_outputs": {
-                "4": {
-                    "LO_frequency": 6700000000.0,
-                    "gain": 0.0,
-                    "LO_source": "internal",
-                    "output_mode": "triggered",
-                },
                 "1": {
-                    "LO_frequency": 5800000000.0,
+                    "LO_frequency": 7450000000.0,
                     "gain": 0.0,
                     "LO_source": "internal",
                     "output_mode": "triggered",
                 },
             },
-            "RF_inputs": {},
+            "RF_inputs": {
+                "1": {
+                    "LO_frequency": 7450000000.0,
+                    "LO_source": "internal",
+                    "IF_mode_I": "direct",
+                    "IF_mode_Q": "direct",
+                },
+            },
         },
     },
     "elements": {
@@ -360,27 +426,6 @@ config = {
             "intermediate_frequency": 0,
             "operations": {},
         },
-        "B3/acquisition": {
-            "RF_inputs": {
-                "port": ('octave2', 1),
-            },
-            "RF_outputs": {
-                "port": ('octave2', 1),
-            },
-            "digitalInputs": {
-                "output_switch": {
-                    "port": ('con2', 1),
-                    "delay": 57,
-                    "buffer": 18,
-                },
-            },
-            "intermediate_frequency": 110622376.0,
-            "time_of_flight": 224.0,
-            "smearing": 0.0,
-            "operations": {
-                "-7710039351215853454": "-7710039351215853454_B3/acquisition",
-            },
-        },
         "B1/acquisition": {
             "RF_inputs": {
                 "port": ('octave2', 1),
@@ -399,7 +444,70 @@ config = {
             "time_of_flight": 224.0,
             "smearing": 0.0,
             "operations": {
-                "7637914142696858599": "7637914142696858599_B1/acquisition",
+                "-3097983578057558870": "-3097983578057558870_B1/acquisition",
+            },
+        },
+        "B3/acquisition": {
+            "RF_inputs": {
+                "port": ('octave2', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave2', 1),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con2', 1),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 110622376.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
+            "operations": {
+                "-8777740371248684088": "-8777740371248684088_B3/acquisition",
+            },
+        },
+        "B5/acquisition": {
+            "RF_inputs": {
+                "port": ('octave2', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave2', 1),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con2', 1),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 270679567.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
+            "operations": {
+                "-1863676690395318626": "-1863676690395318626_B5/acquisition",
+            },
+        },
+        "D3/acquisition": {
+            "RF_inputs": {
+                "port": ('octave6', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave6', 1),
+            },
+            "digitalInputs": {
+                "output_switch": {
+                    "port": ('con8', 1),
+                    "delay": 57,
+                    "buffer": 18,
+                },
+            },
+            "intermediate_frequency": 27730627.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
+            "operations": {
+                "6261815664588527823": "6261815664588527823_D3/acquisition",
             },
         },
         "B2/acquisition": {
@@ -420,7 +528,7 @@ config = {
             "time_of_flight": 224.0,
             "smearing": 0.0,
             "operations": {
-                "-6313944708807425966": "-6313944708807425966_B2/acquisition",
+                "3329345518335900802": "3329345518335900802_B2/acquisition",
             },
         },
         "B4/acquisition": {
@@ -441,80 +549,100 @@ config = {
             "time_of_flight": 224.0,
             "smearing": 0.0,
             "operations": {
-                "-8677636378334363604": "-8677636378334363604_B4/acquisition",
+                "6639288563090313839": "6639288563090313839_B4/acquisition",
             },
         },
-        "B4/drive": {
+        "D1/acquisition": {
             "RF_inputs": {
-                "port": ('octave3', 4),
+                "port": ('octave6', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave6', 1),
             },
             "digitalInputs": {
                 "output_switch": {
-                    "port": ('con3', 7),
+                    "port": ('con8', 1),
                     "delay": 57,
                     "buffer": 18,
                 },
             },
-            "intermediate_frequency": 109615374.0,
+            "intermediate_frequency": -320310131.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
             "operations": {
-                "-1637064838162168783": "-1637064838162168783",
+                "5524603356640612863": "5524603356640612863_D1/acquisition",
             },
         },
-        "B3/drive": {
+        "D2/acquisition": {
             "RF_inputs": {
-                "port": ('octave3', 1),
+                "port": ('octave6', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave6', 1),
             },
             "digitalInputs": {
                 "output_switch": {
-                    "port": ('con3', 1),
+                    "port": ('con8', 1),
                     "delay": 57,
                     "buffer": 18,
                 },
             },
-            "intermediate_frequency": -115376210.0,
+            "intermediate_frequency": -80885347.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
             "operations": {
-                "-2041609487497021751": "-2041609487497021751",
+                "1029718134435345812": "1029718134435345812_D2/acquisition",
             },
         },
-        "B1/drive": {
+        "D4/acquisition": {
             "RF_inputs": {
-                "port": ('octave2', 2),
+                "port": ('octave6', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave6', 1),
             },
             "digitalInputs": {
                 "output_switch": {
-                    "port": ('con2', 3),
+                    "port": ('con8', 1),
                     "delay": 57,
                     "buffer": 18,
                 },
             },
-            "intermediate_frequency": 100388701.0,
+            "intermediate_frequency": 242937024.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
             "operations": {
-                "-6658370554239732916": "-6658370554239732916",
+                "6671956485931387906": "6671956485931387906_D4/acquisition",
             },
         },
-        "B2/drive": {
+        "D5/acquisition": {
             "RF_inputs": {
-                "port": ('octave2', 4),
+                "port": ('octave6', 1),
+            },
+            "RF_outputs": {
+                "port": ('octave6', 1),
             },
             "digitalInputs": {
                 "output_switch": {
-                    "port": ('con2', 7),
+                    "port": ('con8', 1),
                     "delay": 57,
                     "buffer": 18,
                 },
             },
-            "intermediate_frequency": 63761228.0,
+            "intermediate_frequency": 178420035.0,
+            "time_of_flight": 224.0,
+            "smearing": 0.0,
             "operations": {
-                "4968035204694886553": "4968035204694886553",
+                "-5221108505199109234": "-5221108505199109234_D5/acquisition",
             },
         },
     },
     "pulses": {
-        "7637914142696858599_B1/acquisition": {
+        "-3097983578057558870_B1/acquisition": {
             "length": 2000.0,
             "waveforms": {
-                "I": "1957572916077493085_i",
-                "Q": "1957572916077493085_q",
+                "I": "-6407178238671874429_i",
+                "Q": "-6407178238671874429_q",
             },
             "digital_marker": "ON",
             "operation": "measurement",
@@ -524,11 +652,11 @@ config = {
                 "minus_sin": "minus_sine_weights_B1/acquisition",
             },
         },
-        "-6313944708807425966_B2/acquisition": {
+        "3329345518335900802_B2/acquisition": {
             "length": 2000.0,
             "waveforms": {
-                "I": "-8301196076749449014_i",
-                "Q": "-8301196076749449014_q",
+                "I": "-4378740732794182783_i",
+                "Q": "-4378740732794182783_q",
             },
             "digital_marker": "ON",
             "operation": "measurement",
@@ -538,11 +666,11 @@ config = {
                 "minus_sin": "minus_sine_weights_B2/acquisition",
             },
         },
-        "-7710039351215853454_B3/acquisition": {
+        "-8777740371248684088_B3/acquisition": {
             "length": 2000.0,
             "waveforms": {
-                "I": "-2123622803757277140_i",
-                "Q": "-2123622803757277140_q",
+                "I": "-2599524842786379037_i",
+                "Q": "-2599524842786379037_q",
             },
             "digital_marker": "ON",
             "operation": "measurement",
@@ -552,11 +680,11 @@ config = {
                 "minus_sin": "minus_sine_weights_B3/acquisition",
             },
         },
-        "-8677636378334363604_B4/acquisition": {
+        "6639288563090313839_B4/acquisition": {
             "length": 2000.0,
             "waveforms": {
-                "I": "-7893502018401007105_i",
-                "Q": "-7893502018401007105_q",
+                "I": "-9212223884515517794_i",
+                "Q": "-9212223884515517794_q",
             },
             "digital_marker": "ON",
             "operation": "measurement",
@@ -566,107 +694,171 @@ config = {
                 "minus_sin": "minus_sine_weights_B4/acquisition",
             },
         },
-        "-6658370554239732916": {
-            "length": 40,
+        "-1863676690395318626_B5/acquisition": {
+            "length": 2000.0,
             "waveforms": {
-                "I": "-6658370554239732916_i",
-                "Q": "-6658370554239732916_q",
+                "I": "3766978535068811432_i",
+                "Q": "3766978535068811432_q",
             },
             "digital_marker": "ON",
-            "operation": "control",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_B5/acquisition",
+                "sin": "sine_weights_B5/acquisition",
+                "minus_sin": "minus_sine_weights_B5/acquisition",
+            },
         },
-        "4968035204694886553": {
-            "length": 40,
+        "5524603356640612863_D1/acquisition": {
+            "length": 1000.0,
             "waveforms": {
-                "I": "4968035204694886553_i",
-                "Q": "4968035204694886553_q",
+                "I": "-2880618927533702486_i",
+                "Q": "-2880618927533702486_q",
             },
             "digital_marker": "ON",
-            "operation": "control",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_D1/acquisition",
+                "sin": "sine_weights_D1/acquisition",
+                "minus_sin": "minus_sine_weights_D1/acquisition",
+            },
         },
-        "-2041609487497021751": {
-            "length": 40,
+        "1029718134435345812_D2/acquisition": {
+            "length": 1000.0,
             "waveforms": {
-                "I": "-2041609487497021751_i",
-                "Q": "-2041609487497021751_q",
+                "I": "7378150065293239613_i",
+                "Q": "7378150065293239613_q",
             },
             "digital_marker": "ON",
-            "operation": "control",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_D2/acquisition",
+                "sin": "sine_weights_D2/acquisition",
+                "minus_sin": "minus_sine_weights_D2/acquisition",
+            },
         },
-        "-1637064838162168783": {
-            "length": 40,
+        "6261815664588527823_D3/acquisition": {
+            "length": 1000.0,
             "waveforms": {
-                "I": "-1637064838162168783_i",
-                "Q": "-1637064838162168783_q",
+                "I": "-7196499707889099993_i",
+                "Q": "-7196499707889099993_q",
             },
             "digital_marker": "ON",
-            "operation": "control",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_D3/acquisition",
+                "sin": "sine_weights_D3/acquisition",
+                "minus_sin": "minus_sine_weights_D3/acquisition",
+            },
+        },
+        "6671956485931387906_D4/acquisition": {
+            "length": 2000.0,
+            "waveforms": {
+                "I": "8286799166278541925_i",
+                "Q": "8286799166278541925_q",
+            },
+            "digital_marker": "ON",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_D4/acquisition",
+                "sin": "sine_weights_D4/acquisition",
+                "minus_sin": "minus_sine_weights_D4/acquisition",
+            },
+        },
+        "-5221108505199109234_D5/acquisition": {
+            "length": 2000.0,
+            "waveforms": {
+                "I": "8517985084161175822_i",
+                "Q": "8517985084161175822_q",
+            },
+            "digital_marker": "ON",
+            "operation": "measurement",
+            "integration_weights": {
+                "cos": "cosine_weights_D5/acquisition",
+                "sin": "sine_weights_D5/acquisition",
+                "minus_sin": "minus_sine_weights_D5/acquisition",
+            },
         },
     },
     "waveforms": {
-        "1957572916077493085_i": {
+        "-6407178238671874429_i": {
             "sample": 0.0031,
             "type": "constant",
         },
-        "1957572916077493085_q": {
+        "-6407178238671874429_q": {
             "sample": 0.0,
             "type": "constant",
         },
-        "-8301196076749449014_i": {
+        "-4378740732794182783_i": {
             "sample": 0.0021,
             "type": "constant",
         },
-        "-8301196076749449014_q": {
+        "-4378740732794182783_q": {
             "sample": 0.0,
             "type": "constant",
         },
-        "-2123622803757277140_i": {
+        "-2599524842786379037_i": {
             "sample": 0.0017,
             "type": "constant",
         },
-        "-2123622803757277140_q": {
+        "-2599524842786379037_q": {
             "sample": 0.0,
             "type": "constant",
         },
-        "-7893502018401007105_i": {
+        "-9212223884515517794_i": {
             "sample": 0.0033,
             "type": "constant",
         },
-        "-7893502018401007105_q": {
+        "-9212223884515517794_q": {
             "sample": 0.0,
             "type": "constant",
         },
-        "-6658370554239732916_i": {
-            "samples": [0.0022361110375831357, 0.003009016295098337, 0.0039862989265130756, 0.005199113930495341, 0.006675794431011323, 0.008438994893651268, 0.010502498834484402, 0.012867930560721863, 0.015521687089791392, 0.018432459489181957, 0.02154972839707475, 0.024803585345044128, 0.02810614436424776, 0.03135466980509781, 0.0344363679261974, 0.03723459168038863, 0.03963601652384273, 0.04153818867276975, 0.042856752322584096] + [0.04353164796913192] * 2 + [0.042856752322584096, 0.04153818867276975, 0.03963601652384273, 0.03723459168038863, 0.0344363679261974, 0.03135466980509781, 0.02810614436424776, 0.024803585345044128, 0.02154972839707475, 0.018432459489181957, 0.015521687089791392, 0.012867930560721863, 0.010502498834484402, 0.008438994893651268, 0.006675794431011323, 0.005199113930495341, 0.0039862989265130756, 0.003009016295098337, 0.0022361110375831357],
-            "type": "arbitrary",
+        "3766978535068811432_i": {
+            "sample": 0.0035,
+            "type": "constant",
         },
-        "-6658370554239732916_q": {
-            "samples": [0.0004428548031463476, 0.000565365952321211, 0.0007085023482669725, 0.0008712577641337897, 0.0010509160764443607, 0.0012427738573853625, 0.0014399910511343848, 0.0016336239969666426, 0.0018128845468154792, 0.0019656490002135448, 0.002079212075811509, 0.002141247016115138, 0.0021408977152454346, 0.0020698981238521604, 0.0019235939896274329, 0.001701737197892762, 0.001408936524870972, 0.0010546805717695444, 0.0006528958361643671, 0.00022105914984324804, -0.00022105914984324804, -0.0006528958361643671, -0.0010546805717695444, -0.001408936524870972, -0.001701737197892762, -0.0019235939896274329, -0.0020698981238521604, -0.0021408977152454346, -0.002141247016115138, -0.002079212075811509, -0.0019656490002135448, -0.0018128845468154792, -0.0016336239969666426, -0.0014399910511343848, -0.0012427738573853625, -0.0010509160764443607, -0.0008712577641337897, -0.0007085023482669725, -0.000565365952321211, -0.0004428548031463476],
-            "type": "arbitrary",
+        "3766978535068811432_q": {
+            "sample": 0.0,
+            "type": "constant",
         },
-        "4968035204694886553_i": {
-            "samples": [0.002498607865497148, 0.0033622443858905508, 0.004454250117549496, 0.005809437340997196, 0.00745946520249525, 0.009429647572849292, 0.011735386013558698, 0.014378495509078854, 0.017343776224214638, 0.020596243874322948, 0.024079448635276616, 0.02771527549125696, 0.03140552154923875, 0.035035391033067444, 0.03847884935649202, 0.04160555628836245, 0.04428888412915693, 0.04641435205671371, 0.04788770174785679] + [0.04864182331986816] * 2 + [0.04788770174785679, 0.04641435205671371, 0.04428888412915693, 0.04160555628836245, 0.03847884935649202, 0.035035391033067444, 0.03140552154923875, 0.02771527549125696, 0.024079448635276616, 0.020596243874322948, 0.017343776224214638, 0.014378495509078854, 0.011735386013558698, 0.009429647572849292, 0.00745946520249525, 0.005809437340997196, 0.004454250117549496, 0.0033622443858905508, 0.002498607865497148],
-            "type": "arbitrary",
+        "-2880618927533702486_i": {
+            "sample": 0.002,
+            "type": "constant",
         },
-        "4968035204694886553_q": {
-            "samples": [-0.0003695605589822674, -0.0004717956221428235, -0.0005912423711011767, -0.0007270611135824583, -0.0008769852554266742, -0.0010370898049673126, -0.001201666763024415, -0.0013632526805548264, -0.0015128448912183113, -0.0016403262155469834, -0.0017350941471569743, -0.0017868620563049856, -0.0017865705661286497, -0.0017273216915621018, -0.0016052314777011063, -0.0014200928738405017, -0.0011757518852737413, -0.0008801267116935522, -0.0005448389595322115, -0.00018447297489786595, 0.00018447297489786595, 0.0005448389595322115, 0.0008801267116935522, 0.0011757518852737413, 0.0014200928738405017, 0.0016052314777011063, 0.0017273216915621018, 0.0017865705661286497, 0.0017868620563049856, 0.0017350941471569743, 0.0016403262155469834, 0.0015128448912183113, 0.0013632526805548264, 0.001201666763024415, 0.0010370898049673126, 0.0008769852554266742, 0.0007270611135824583, 0.0005912423711011767, 0.0004717956221428235, 0.0003695605589822674],
-            "type": "arbitrary",
+        "-2880618927533702486_q": {
+            "sample": 0.0,
+            "type": "constant",
         },
-        "-2041609487497021751_i": {
-            "samples": [0.003281902155839329, 0.004416282062858765, 0.005850623167122966, 0.0076306511305401, 0.009797949997490538, 0.012385769341993818, 0.015414338996264144, 0.018886042928381978, 0.022780916272077543, 0.02705300743935812, 0.031628170021714405, 0.036403800548486256, 0.04125091027727048, 0.046018715841679235, 0.050541671784964645, 0.05464857721901986, 0.05817310763739141, 0.060964893363331246, 0.06290012681650281] + [0.06389065968367467] * 2 + [0.06290012681650281, 0.060964893363331246, 0.05817310763739141, 0.05464857721901986, 0.050541671784964645, 0.046018715841679235, 0.04125091027727048, 0.036403800548486256, 0.031628170021714405, 0.02705300743935812, 0.022780916272077543, 0.018886042928381978, 0.015414338996264144, 0.012385769341993818, 0.009797949997490538, 0.0076306511305401, 0.005850623167122966, 0.004416282062858765, 0.003281902155839329],
-            "type": "arbitrary",
+        "7378150065293239613_i": {
+            "sample": 0.003,
+            "type": "constant",
         },
-        "-2041609487497021751_q": {
-            "samples": [-0.0006034345805618549, -0.0007703684455470659, -0.0009654063009276765, -0.0011871770605762007, -0.0014319797308043336, -0.0016934054142272652, -0.001962133841115749, -0.002225978366727978, -0.0024702390452636764, -0.0026783961053341294, -0.002833137312619005, -0.002917666209937816, -0.0029171902520791645, -0.002820446108517724, -0.002621091888481888, -0.0023187895105601366, -0.001919818899746316, -0.001437109237454008, -0.0008896367889595412, -0.000301215509953357, 0.000301215509953357, 0.0008896367889595412, 0.001437109237454008, 0.001919818899746316, 0.0023187895105601366, 0.002621091888481888, 0.002820446108517724, 0.0029171902520791645, 0.002917666209937816, 0.002833137312619005, 0.0026783961053341294, 0.0024702390452636764, 0.002225978366727978, 0.001962133841115749, 0.0016934054142272652, 0.0014319797308043336, 0.0011871770605762007, 0.0009654063009276765, 0.0007703684455470659, 0.0006034345805618549],
-            "type": "arbitrary",
+        "7378150065293239613_q": {
+            "sample": 0.0,
+            "type": "constant",
         },
-        "-1637064838162168783_i": {
-            "samples": [0.0038253569864246145, 0.0051475804704049655, 0.006819436151522863, 0.00889422146886499, 0.011420406427672425, 0.014436746446062975, 0.017966821242846084, 0.022013409550756303, 0.026553240493014975, 0.031532753293030236, 0.03686552353339383, 0.042431957489282836, 0.04808170698957818, 0.053639020236493286, 0.05891093886641134, 0.06369791259346033, 0.06780607500037267, 0.0710601564824555, 0.07331584798662809] + [0.07447040459550726] * 2 + [0.07331584798662809, 0.0710601564824555, 0.06780607500037267, 0.06369791259346033, 0.05891093886641134, 0.053639020236493286, 0.04808170698957818, 0.042431957489282836, 0.03686552353339383, 0.031532753293030236, 0.026553240493014975, 0.022013409550756303, 0.017966821242846084, 0.014436746446062975, 0.011420406427672425, 0.00889422146886499, 0.006819436151522863, 0.0051475804704049655, 0.0038253569864246145],
-            "type": "arbitrary",
+        "-7196499707889099993_i": {
+            "sample": 0.0025,
+            "type": "constant",
         },
-        "-1637064838162168783_q": {
-            "samples": [-0.0006491163395155792, -0.0008286875852991652, -0.0010384903755763684, -0.0012770498289981517, -0.0015403847758521574, -0.0018216011465163134, -0.0021106730996404057, -0.002394491425907305, -0.0026572433507158827, -0.0028811585077681175, -0.0030476140760775368, -0.0031385420576323674, -0.003138030068374668, -0.0030339621107847987, -0.0028195161944500773, -0.0024943286442093964, -0.002065154793707444, -0.001545902601126369, -0.0009569848904087076, -0.0003240184031949085, 0.0003240184031949085, 0.0009569848904087076, 0.001545902601126369, 0.002065154793707444, 0.0024943286442093964, 0.0028195161944500773, 0.0030339621107847987, 0.003138030068374668, 0.0031385420576323674, 0.0030476140760775368, 0.0028811585077681175, 0.0026572433507158827, 0.002394491425907305, 0.0021106730996404057, 0.0018216011465163134, 0.0015403847758521574, 0.0012770498289981517, 0.0010384903755763684, 0.0008286875852991652, 0.0006491163395155792],
-            "type": "arbitrary",
+        "-7196499707889099993_q": {
+            "sample": 0.0,
+            "type": "constant",
+        },
+        "8286799166278541925_i": {
+            "sample": 0.002,
+            "type": "constant",
+        },
+        "8286799166278541925_q": {
+            "sample": 0.0,
+            "type": "constant",
+        },
+        "8517985084161175822_i": {
+            "sample": 0.0018,
+            "type": "constant",
+        },
+        "8517985084161175822_q": {
+            "sample": 0.0,
+            "type": "constant",
         },
     },
     "digital_waveforms": {
@@ -720,6 +912,78 @@ config = {
             "sine": [(1.0, 2000.0)],
         },
         "minus_sine_weights_B4/acquisition": {
+            "cosine": [(-0.0, 2000.0)],
+            "sine": [(-1.0, 2000.0)],
+        },
+        "cosine_weights_B5/acquisition": {
+            "cosine": [(1.0, 2000.0)],
+            "sine": [(-0.0, 2000.0)],
+        },
+        "sine_weights_B5/acquisition": {
+            "cosine": [(0.0, 2000.0)],
+            "sine": [(1.0, 2000.0)],
+        },
+        "minus_sine_weights_B5/acquisition": {
+            "cosine": [(-0.0, 2000.0)],
+            "sine": [(-1.0, 2000.0)],
+        },
+        "cosine_weights_D1/acquisition": {
+            "cosine": [(1.0, 1000.0)],
+            "sine": [(-0.0, 1000.0)],
+        },
+        "sine_weights_D1/acquisition": {
+            "cosine": [(0.0, 1000.0)],
+            "sine": [(1.0, 1000.0)],
+        },
+        "minus_sine_weights_D1/acquisition": {
+            "cosine": [(-0.0, 1000.0)],
+            "sine": [(-1.0, 1000.0)],
+        },
+        "cosine_weights_D2/acquisition": {
+            "cosine": [(1.0, 1000.0)],
+            "sine": [(-0.0, 1000.0)],
+        },
+        "sine_weights_D2/acquisition": {
+            "cosine": [(0.0, 1000.0)],
+            "sine": [(1.0, 1000.0)],
+        },
+        "minus_sine_weights_D2/acquisition": {
+            "cosine": [(-0.0, 1000.0)],
+            "sine": [(-1.0, 1000.0)],
+        },
+        "cosine_weights_D3/acquisition": {
+            "cosine": [(1.0, 1000.0)],
+            "sine": [(-0.0, 1000.0)],
+        },
+        "sine_weights_D3/acquisition": {
+            "cosine": [(0.0, 1000.0)],
+            "sine": [(1.0, 1000.0)],
+        },
+        "minus_sine_weights_D3/acquisition": {
+            "cosine": [(-0.0, 1000.0)],
+            "sine": [(-1.0, 1000.0)],
+        },
+        "cosine_weights_D4/acquisition": {
+            "cosine": [(1.0, 2000.0)],
+            "sine": [(-0.0, 2000.0)],
+        },
+        "sine_weights_D4/acquisition": {
+            "cosine": [(0.0, 2000.0)],
+            "sine": [(1.0, 2000.0)],
+        },
+        "minus_sine_weights_D4/acquisition": {
+            "cosine": [(-0.0, 2000.0)],
+            "sine": [(-1.0, 2000.0)],
+        },
+        "cosine_weights_D5/acquisition": {
+            "cosine": [(1.0, 2000.0)],
+            "sine": [(-0.0, 2000.0)],
+        },
+        "sine_weights_D5/acquisition": {
+            "cosine": [(0.0, 2000.0)],
+            "sine": [(1.0, 2000.0)],
+        },
+        "minus_sine_weights_D5/acquisition": {
             "cosine": [(-0.0, 2000.0)],
             "sine": [(-1.0, 2000.0)],
         },
@@ -895,46 +1159,6 @@ loaded_config = {
                     },
                     "crosstalk": {},
                 },
-                "3": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                    "crosstalk": {},
-                },
-                "4": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                    "crosstalk": {},
-                },
-                "7": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                    "crosstalk": {},
-                },
-                "8": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                    "crosstalk": {},
-                },
             },
             "analog_inputs": {
                 "1": {
@@ -952,16 +1176,6 @@ loaded_config = {
             },
             "digital_outputs": {
                 "1": {
-                    "shareable": False,
-                    "inverted": False,
-                    "level": "LVTTL",
-                },
-                "3": {
-                    "shareable": False,
-                    "inverted": False,
-                    "level": "LVTTL",
-                },
-                "7": {
                     "shareable": False,
                     "inverted": False,
                     "level": "LVTTL",
@@ -969,29 +1183,9 @@ loaded_config = {
             },
             "digital_inputs": {},
         },
-        "con3": {
+        "con8": {
             "type": "opx1",
             "analog_outputs": {
-                "7": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                    "crosstalk": {},
-                },
-                "8": {
-                    "offset": 0.0,
-                    "delay": 0,
-                    "shareable": False,
-                    "filter": {
-                        "feedforward": [],
-                        "feedback": [],
-                    },
-                    "crosstalk": {},
-                },
                 "1": {
                     "offset": 0.0,
                     "delay": 0,
@@ -1016,23 +1210,18 @@ loaded_config = {
             "analog_inputs": {
                 "1": {
                     "offset": 0.0,
-                    "gain_db": 0,
+                    "gain_db": 10,
                     "shareable": False,
                     "sampling_rate": 1000000000.0,
                 },
                 "2": {
                     "offset": 0.0,
-                    "gain_db": 0,
+                    "gain_db": 10,
                     "shareable": False,
                     "sampling_rate": 1000000000.0,
                 },
             },
             "digital_outputs": {
-                "7": {
-                    "shareable": False,
-                    "inverted": False,
-                    "level": "LVTTL",
-                },
                 "1": {
                     "shareable": False,
                     "inverted": False,
@@ -1234,41 +1423,6 @@ loaded_config = {
             },
             "intermediate_frequency": 0,
         },
-        "B3/acquisition": {
-            "digitalInputs": {
-                "output_switch": {
-                    "delay": 57,
-                    "buffer": 18,
-                    "port": ('con2', 1, 1),
-                },
-            },
-            "digitalOutputs": {},
-            "outputs": {
-                "out1": ('con2', 1, 1),
-                "out2": ('con2', 1, 2),
-            },
-            "operations": {
-                "-7710039351215853454": "-7710039351215853454_B3/acquisition",
-            },
-            "hold_offset": {
-                "duration": 0,
-            },
-            "sticky": {
-                "analog": False,
-                "digital": False,
-                "duration": 4,
-            },
-            "thread": "",
-            "mixInputs": {
-                "I": ('con2', 1, 1),
-                "Q": ('con2', 1, 2),
-                "mixer": "B3/acquisition_mixer_813",
-                "lo_frequency": 7370000000.0,
-            },
-            "smearing": 0,
-            "time_of_flight": 224,
-            "intermediate_frequency": 110622376.0,
-        },
         "B1/acquisition": {
             "digitalInputs": {
                 "output_switch": {
@@ -1283,7 +1437,7 @@ loaded_config = {
                 "out2": ('con2', 1, 2),
             },
             "operations": {
-                "7637914142696858599": "7637914142696858599_B1/acquisition",
+                "-3097983578057558870": "-3097983578057558870_B1/acquisition",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1297,12 +1451,117 @@ loaded_config = {
             "mixInputs": {
                 "I": ('con2', 1, 1),
                 "Q": ('con2', 1, 2),
-                "mixer": "B1/acquisition_mixer_33a",
+                "mixer": "B1/acquisition_mixer_3d5",
                 "lo_frequency": 7370000000.0,
             },
             "smearing": 0,
             "time_of_flight": 224,
             "intermediate_frequency": -237451236.0,
+        },
+        "B3/acquisition": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con2', 1, 1),
+                },
+            },
+            "digitalOutputs": {},
+            "outputs": {
+                "out1": ('con2', 1, 1),
+                "out2": ('con2', 1, 2),
+            },
+            "operations": {
+                "-8777740371248684088": "-8777740371248684088_B3/acquisition",
+            },
+            "hold_offset": {
+                "duration": 0,
+            },
+            "sticky": {
+                "analog": False,
+                "digital": False,
+                "duration": 4,
+            },
+            "thread": "",
+            "mixInputs": {
+                "I": ('con2', 1, 1),
+                "Q": ('con2', 1, 2),
+                "mixer": "B3/acquisition_mixer_c30",
+                "lo_frequency": 7370000000.0,
+            },
+            "smearing": 0,
+            "time_of_flight": 224,
+            "intermediate_frequency": 110622376.0,
+        },
+        "B5/acquisition": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con2', 1, 1),
+                },
+            },
+            "digitalOutputs": {},
+            "outputs": {
+                "out1": ('con2', 1, 1),
+                "out2": ('con2', 1, 2),
+            },
+            "operations": {
+                "-1863676690395318626": "-1863676690395318626_B5/acquisition",
+            },
+            "hold_offset": {
+                "duration": 0,
+            },
+            "sticky": {
+                "analog": False,
+                "digital": False,
+                "duration": 4,
+            },
+            "thread": "",
+            "mixInputs": {
+                "I": ('con2', 1, 1),
+                "Q": ('con2', 1, 2),
+                "mixer": "B5/acquisition_mixer_dbe",
+                "lo_frequency": 7370000000.0,
+            },
+            "smearing": 0,
+            "time_of_flight": 224,
+            "intermediate_frequency": 270679567.0,
+        },
+        "D3/acquisition": {
+            "digitalInputs": {
+                "output_switch": {
+                    "delay": 57,
+                    "buffer": 18,
+                    "port": ('con8', 1, 1),
+                },
+            },
+            "digitalOutputs": {},
+            "outputs": {
+                "out1": ('con8', 1, 1),
+                "out2": ('con8', 1, 2),
+            },
+            "operations": {
+                "6261815664588527823": "6261815664588527823_D3/acquisition",
+            },
+            "hold_offset": {
+                "duration": 0,
+            },
+            "sticky": {
+                "analog": False,
+                "digital": False,
+                "duration": 4,
+            },
+            "thread": "",
+            "mixInputs": {
+                "I": ('con8', 1, 1),
+                "Q": ('con8', 1, 2),
+                "mixer": "D3/acquisition_mixer_5bf",
+                "lo_frequency": 7450000000.0,
+            },
+            "smearing": 0,
+            "time_of_flight": 224,
+            "intermediate_frequency": 27730627.0,
         },
         "B2/acquisition": {
             "digitalInputs": {
@@ -1318,7 +1577,7 @@ loaded_config = {
                 "out2": ('con2', 1, 2),
             },
             "operations": {
-                "-6313944708807425966": "-6313944708807425966_B2/acquisition",
+                "3329345518335900802": "3329345518335900802_B2/acquisition",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1332,7 +1591,7 @@ loaded_config = {
             "mixInputs": {
                 "I": ('con2', 1, 1),
                 "Q": ('con2', 1, 2),
-                "mixer": "B2/acquisition_mixer_9f7",
+                "mixer": "B2/acquisition_mixer_923",
                 "lo_frequency": 7370000000.0,
             },
             "smearing": 0,
@@ -1353,7 +1612,7 @@ loaded_config = {
                 "out2": ('con2', 1, 2),
             },
             "operations": {
-                "-8677636378334363604": "-8677636378334363604_B4/acquisition",
+                "6639288563090313839": "6639288563090313839_B4/acquisition",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1367,25 +1626,28 @@ loaded_config = {
             "mixInputs": {
                 "I": ('con2', 1, 1),
                 "Q": ('con2', 1, 2),
-                "mixer": "B4/acquisition_mixer_7ac",
+                "mixer": "B4/acquisition_mixer_6f4",
                 "lo_frequency": 7370000000.0,
             },
             "smearing": 0,
             "time_of_flight": 224,
             "intermediate_frequency": 330300527.0,
         },
-        "B4/drive": {
+        "D1/acquisition": {
             "digitalInputs": {
                 "output_switch": {
                     "delay": 57,
                     "buffer": 18,
-                    "port": ('con3', 1, 7),
+                    "port": ('con8', 1, 1),
                 },
             },
             "digitalOutputs": {},
-            "outputs": {},
+            "outputs": {
+                "out1": ('con8', 1, 1),
+                "out2": ('con8', 1, 2),
+            },
             "operations": {
-                "-1637064838162168783": "-1637064838162168783",
+                "5524603356640612863": "5524603356640612863_D1/acquisition",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1397,25 +1659,30 @@ loaded_config = {
             },
             "thread": "",
             "mixInputs": {
-                "I": ('con3', 1, 7),
-                "Q": ('con3', 1, 8),
-                "mixer": "B4/drive_mixer_310",
-                "lo_frequency": 6700000000.0,
+                "I": ('con8', 1, 1),
+                "Q": ('con8', 1, 2),
+                "mixer": "D1/acquisition_mixer_907",
+                "lo_frequency": 7450000000.0,
             },
-            "intermediate_frequency": 109615374.0,
+            "smearing": 0,
+            "time_of_flight": 224,
+            "intermediate_frequency": -320310131.0,
         },
-        "B3/drive": {
+        "D2/acquisition": {
             "digitalInputs": {
                 "output_switch": {
                     "delay": 57,
                     "buffer": 18,
-                    "port": ('con3', 1, 1),
+                    "port": ('con8', 1, 1),
                 },
             },
             "digitalOutputs": {},
-            "outputs": {},
+            "outputs": {
+                "out1": ('con8', 1, 1),
+                "out2": ('con8', 1, 2),
+            },
             "operations": {
-                "-2041609487497021751": "-2041609487497021751",
+                "1029718134435345812": "1029718134435345812_D2/acquisition",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1427,25 +1694,30 @@ loaded_config = {
             },
             "thread": "",
             "mixInputs": {
-                "I": ('con3', 1, 1),
-                "Q": ('con3', 1, 2),
-                "mixer": "B3/drive_mixer_88f",
-                "lo_frequency": 5800000000.0,
+                "I": ('con8', 1, 1),
+                "Q": ('con8', 1, 2),
+                "mixer": "D2/acquisition_mixer_05c",
+                "lo_frequency": 7450000000.0,
             },
-            "intermediate_frequency": -115376210.0,
+            "smearing": 0,
+            "time_of_flight": 224,
+            "intermediate_frequency": -80885347.0,
         },
-        "B1/drive": {
+        "D4/acquisition": {
             "digitalInputs": {
                 "output_switch": {
                     "delay": 57,
                     "buffer": 18,
-                    "port": ('con2', 1, 3),
+                    "port": ('con8', 1, 1),
                 },
             },
             "digitalOutputs": {},
-            "outputs": {},
+            "outputs": {
+                "out1": ('con8', 1, 1),
+                "out2": ('con8', 1, 2),
+            },
             "operations": {
-                "-6658370554239732916": "-6658370554239732916",
+                "6671956485931387906": "6671956485931387906_D4/acquisition",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1457,25 +1729,30 @@ loaded_config = {
             },
             "thread": "",
             "mixInputs": {
-                "I": ('con2', 1, 3),
-                "Q": ('con2', 1, 4),
-                "mixer": "B1/drive_mixer_55d",
-                "lo_frequency": 4900000000.0,
+                "I": ('con8', 1, 1),
+                "Q": ('con8', 1, 2),
+                "mixer": "D4/acquisition_mixer_f5b",
+                "lo_frequency": 7450000000.0,
             },
-            "intermediate_frequency": 100388701.0,
+            "smearing": 0,
+            "time_of_flight": 224,
+            "intermediate_frequency": 242937024.0,
         },
-        "B2/drive": {
+        "D5/acquisition": {
             "digitalInputs": {
                 "output_switch": {
                     "delay": 57,
                     "buffer": 18,
-                    "port": ('con2', 1, 7),
+                    "port": ('con8', 1, 1),
                 },
             },
             "digitalOutputs": {},
-            "outputs": {},
+            "outputs": {
+                "out1": ('con8', 1, 1),
+                "out2": ('con8', 1, 2),
+            },
             "operations": {
-                "4968035204694886553": "4968035204694886553",
+                "-5221108505199109234": "-5221108505199109234_D5/acquisition",
             },
             "hold_offset": {
                 "duration": 0,
@@ -1487,20 +1764,22 @@ loaded_config = {
             },
             "thread": "",
             "mixInputs": {
-                "I": ('con2', 1, 7),
-                "Q": ('con2', 1, 8),
-                "mixer": "B2/drive_mixer_055",
-                "lo_frequency": 5900000000.0,
+                "I": ('con8', 1, 1),
+                "Q": ('con8', 1, 2),
+                "mixer": "D5/acquisition_mixer_97a",
+                "lo_frequency": 7450000000.0,
             },
-            "intermediate_frequency": 63761228.0,
+            "smearing": 0,
+            "time_of_flight": 224,
+            "intermediate_frequency": 178420035.0,
         },
     },
     "pulses": {
-        "7637914142696858599_B1/acquisition": {
+        "-3097983578057558870_B1/acquisition": {
             "length": 2000,
             "waveforms": {
-                "I": "1957572916077493085_i",
-                "Q": "1957572916077493085_q",
+                "I": "-6407178238671874429_i",
+                "Q": "-6407178238671874429_q",
             },
             "integration_weights": {
                 "cos": "cosine_weights_B1/acquisition",
@@ -1510,11 +1789,11 @@ loaded_config = {
             "operation": "measurement",
             "digital_marker": "ON",
         },
-        "-6313944708807425966_B2/acquisition": {
+        "3329345518335900802_B2/acquisition": {
             "length": 2000,
             "waveforms": {
-                "I": "-8301196076749449014_i",
-                "Q": "-8301196076749449014_q",
+                "I": "-4378740732794182783_i",
+                "Q": "-4378740732794182783_q",
             },
             "integration_weights": {
                 "cos": "cosine_weights_B2/acquisition",
@@ -1524,11 +1803,11 @@ loaded_config = {
             "operation": "measurement",
             "digital_marker": "ON",
         },
-        "-7710039351215853454_B3/acquisition": {
+        "-8777740371248684088_B3/acquisition": {
             "length": 2000,
             "waveforms": {
-                "I": "-2123622803757277140_i",
-                "Q": "-2123622803757277140_q",
+                "I": "-2599524842786379037_i",
+                "Q": "-2599524842786379037_q",
             },
             "integration_weights": {
                 "cos": "cosine_weights_B3/acquisition",
@@ -1538,11 +1817,11 @@ loaded_config = {
             "operation": "measurement",
             "digital_marker": "ON",
         },
-        "-8677636378334363604_B4/acquisition": {
+        "6639288563090313839_B4/acquisition": {
             "length": 2000,
             "waveforms": {
-                "I": "-7893502018401007105_i",
-                "Q": "-7893502018401007105_q",
+                "I": "-9212223884515517794_i",
+                "Q": "-9212223884515517794_q",
             },
             "integration_weights": {
                 "cos": "cosine_weights_B4/acquisition",
@@ -1552,127 +1831,171 @@ loaded_config = {
             "operation": "measurement",
             "digital_marker": "ON",
         },
-        "-6658370554239732916": {
-            "length": 40,
+        "-1863676690395318626_B5/acquisition": {
+            "length": 2000,
             "waveforms": {
-                "I": "-6658370554239732916_i",
-                "Q": "-6658370554239732916_q",
+                "I": "3766978535068811432_i",
+                "Q": "3766978535068811432_q",
             },
-            "integration_weights": {},
-            "operation": "control",
+            "integration_weights": {
+                "cos": "cosine_weights_B5/acquisition",
+                "sin": "sine_weights_B5/acquisition",
+                "minus_sin": "minus_sine_weights_B5/acquisition",
+            },
+            "operation": "measurement",
             "digital_marker": "ON",
         },
-        "4968035204694886553": {
-            "length": 40,
+        "5524603356640612863_D1/acquisition": {
+            "length": 1000,
             "waveforms": {
-                "I": "4968035204694886553_i",
-                "Q": "4968035204694886553_q",
+                "I": "-2880618927533702486_i",
+                "Q": "-2880618927533702486_q",
             },
-            "integration_weights": {},
-            "operation": "control",
+            "integration_weights": {
+                "cos": "cosine_weights_D1/acquisition",
+                "sin": "sine_weights_D1/acquisition",
+                "minus_sin": "minus_sine_weights_D1/acquisition",
+            },
+            "operation": "measurement",
             "digital_marker": "ON",
         },
-        "-2041609487497021751": {
-            "length": 40,
+        "1029718134435345812_D2/acquisition": {
+            "length": 1000,
             "waveforms": {
-                "I": "-2041609487497021751_i",
-                "Q": "-2041609487497021751_q",
+                "I": "7378150065293239613_i",
+                "Q": "7378150065293239613_q",
             },
-            "integration_weights": {},
-            "operation": "control",
+            "integration_weights": {
+                "cos": "cosine_weights_D2/acquisition",
+                "sin": "sine_weights_D2/acquisition",
+                "minus_sin": "minus_sine_weights_D2/acquisition",
+            },
+            "operation": "measurement",
             "digital_marker": "ON",
         },
-        "-1637064838162168783": {
-            "length": 40,
+        "6261815664588527823_D3/acquisition": {
+            "length": 1000,
             "waveforms": {
-                "I": "-1637064838162168783_i",
-                "Q": "-1637064838162168783_q",
+                "I": "-7196499707889099993_i",
+                "Q": "-7196499707889099993_q",
             },
-            "integration_weights": {},
-            "operation": "control",
+            "integration_weights": {
+                "cos": "cosine_weights_D3/acquisition",
+                "sin": "sine_weights_D3/acquisition",
+                "minus_sin": "minus_sine_weights_D3/acquisition",
+            },
+            "operation": "measurement",
+            "digital_marker": "ON",
+        },
+        "6671956485931387906_D4/acquisition": {
+            "length": 2000,
+            "waveforms": {
+                "I": "8286799166278541925_i",
+                "Q": "8286799166278541925_q",
+            },
+            "integration_weights": {
+                "cos": "cosine_weights_D4/acquisition",
+                "sin": "sine_weights_D4/acquisition",
+                "minus_sin": "minus_sine_weights_D4/acquisition",
+            },
+            "operation": "measurement",
+            "digital_marker": "ON",
+        },
+        "-5221108505199109234_D5/acquisition": {
+            "length": 2000,
+            "waveforms": {
+                "I": "8517985084161175822_i",
+                "Q": "8517985084161175822_q",
+            },
+            "integration_weights": {
+                "cos": "cosine_weights_D5/acquisition",
+                "sin": "sine_weights_D5/acquisition",
+                "minus_sin": "minus_sine_weights_D5/acquisition",
+            },
+            "operation": "measurement",
             "digital_marker": "ON",
         },
     },
     "waveforms": {
-        "1957572916077493085_i": {
+        "-6407178238671874429_i": {
             "type": "constant",
             "sample": 0.0031,
         },
-        "1957572916077493085_q": {
+        "-6407178238671874429_q": {
             "type": "constant",
             "sample": 0.0,
         },
-        "-8301196076749449014_i": {
+        "-4378740732794182783_i": {
             "type": "constant",
             "sample": 0.0021,
         },
-        "-8301196076749449014_q": {
+        "-4378740732794182783_q": {
             "type": "constant",
             "sample": 0.0,
         },
-        "-2123622803757277140_i": {
+        "-2599524842786379037_i": {
             "type": "constant",
             "sample": 0.0017,
         },
-        "-2123622803757277140_q": {
+        "-2599524842786379037_q": {
             "type": "constant",
             "sample": 0.0,
         },
-        "-7893502018401007105_i": {
+        "-9212223884515517794_i": {
             "type": "constant",
             "sample": 0.0033,
         },
-        "-7893502018401007105_q": {
+        "-9212223884515517794_q": {
             "type": "constant",
             "sample": 0.0,
         },
-        "-6658370554239732916_i": {
-            "type": "arbitrary",
-            "samples": [0.0022361110375831357, 0.003009016295098337, 0.0039862989265130756, 0.005199113930495341, 0.006675794431011323, 0.008438994893651268, 0.010502498834484402, 0.012867930560721863, 0.015521687089791392, 0.018432459489181957, 0.02154972839707475, 0.024803585345044128, 0.02810614436424776, 0.03135466980509781, 0.0344363679261974, 0.03723459168038863, 0.03963601652384273, 0.04153818867276975, 0.042856752322584096] + [0.04353164796913192] * 2 + [0.042856752322584096, 0.04153818867276975, 0.03963601652384273, 0.03723459168038863, 0.0344363679261974, 0.03135466980509781, 0.02810614436424776, 0.024803585345044128, 0.02154972839707475, 0.018432459489181957, 0.015521687089791392, 0.012867930560721863, 0.010502498834484402, 0.008438994893651268, 0.006675794431011323, 0.005199113930495341, 0.0039862989265130756, 0.003009016295098337, 0.0022361110375831357],
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
+        "3766978535068811432_i": {
+            "type": "constant",
+            "sample": 0.0035,
         },
-        "-6658370554239732916_q": {
-            "type": "arbitrary",
-            "samples": [0.0004428548031463476, 0.000565365952321211, 0.0007085023482669725, 0.0008712577641337897, 0.0010509160764443607, 0.0012427738573853625, 0.0014399910511343848, 0.0016336239969666426, 0.0018128845468154792, 0.0019656490002135448, 0.002079212075811509, 0.002141247016115138, 0.0021408977152454346, 0.0020698981238521604, 0.0019235939896274329, 0.001701737197892762, 0.001408936524870972, 0.0010546805717695444, 0.0006528958361643671, 0.00022105914984324804, -0.00022105914984324804, -0.0006528958361643671, -0.0010546805717695444, -0.001408936524870972, -0.001701737197892762, -0.0019235939896274329, -0.0020698981238521604, -0.0021408977152454346, -0.002141247016115138, -0.002079212075811509, -0.0019656490002135448, -0.0018128845468154792, -0.0016336239969666426, -0.0014399910511343848, -0.0012427738573853625, -0.0010509160764443607, -0.0008712577641337897, -0.0007085023482669725, -0.000565365952321211, -0.0004428548031463476],
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
+        "3766978535068811432_q": {
+            "type": "constant",
+            "sample": 0.0,
         },
-        "4968035204694886553_i": {
-            "type": "arbitrary",
-            "samples": [0.002498607865497148, 0.0033622443858905508, 0.004454250117549496, 0.005809437340997196, 0.00745946520249525, 0.009429647572849292, 0.011735386013558698, 0.014378495509078854, 0.017343776224214638, 0.020596243874322948, 0.024079448635276616, 0.02771527549125696, 0.03140552154923875, 0.035035391033067444, 0.03847884935649202, 0.04160555628836245, 0.04428888412915693, 0.04641435205671371, 0.04788770174785679] + [0.04864182331986816] * 2 + [0.04788770174785679, 0.04641435205671371, 0.04428888412915693, 0.04160555628836245, 0.03847884935649202, 0.035035391033067444, 0.03140552154923875, 0.02771527549125696, 0.024079448635276616, 0.020596243874322948, 0.017343776224214638, 0.014378495509078854, 0.011735386013558698, 0.009429647572849292, 0.00745946520249525, 0.005809437340997196, 0.004454250117549496, 0.0033622443858905508, 0.002498607865497148],
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
+        "-2880618927533702486_i": {
+            "type": "constant",
+            "sample": 0.002,
         },
-        "4968035204694886553_q": {
-            "type": "arbitrary",
-            "samples": [-0.0003695605589822674, -0.0004717956221428235, -0.0005912423711011767, -0.0007270611135824583, -0.0008769852554266742, -0.0010370898049673126, -0.001201666763024415, -0.0013632526805548264, -0.0015128448912183113, -0.0016403262155469834, -0.0017350941471569743, -0.0017868620563049856, -0.0017865705661286497, -0.0017273216915621018, -0.0016052314777011063, -0.0014200928738405017, -0.0011757518852737413, -0.0008801267116935522, -0.0005448389595322115, -0.00018447297489786595, 0.00018447297489786595, 0.0005448389595322115, 0.0008801267116935522, 0.0011757518852737413, 0.0014200928738405017, 0.0016052314777011063, 0.0017273216915621018, 0.0017865705661286497, 0.0017868620563049856, 0.0017350941471569743, 0.0016403262155469834, 0.0015128448912183113, 0.0013632526805548264, 0.001201666763024415, 0.0010370898049673126, 0.0008769852554266742, 0.0007270611135824583, 0.0005912423711011767, 0.0004717956221428235, 0.0003695605589822674],
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
+        "-2880618927533702486_q": {
+            "type": "constant",
+            "sample": 0.0,
         },
-        "-2041609487497021751_i": {
-            "type": "arbitrary",
-            "samples": [0.003281902155839329, 0.004416282062858765, 0.005850623167122966, 0.0076306511305401, 0.009797949997490538, 0.012385769341993818, 0.015414338996264144, 0.018886042928381978, 0.022780916272077543, 0.02705300743935812, 0.031628170021714405, 0.036403800548486256, 0.04125091027727048, 0.046018715841679235, 0.050541671784964645, 0.05464857721901986, 0.05817310763739141, 0.060964893363331246, 0.06290012681650281] + [0.06389065968367467] * 2 + [0.06290012681650281, 0.060964893363331246, 0.05817310763739141, 0.05464857721901986, 0.050541671784964645, 0.046018715841679235, 0.04125091027727048, 0.036403800548486256, 0.031628170021714405, 0.02705300743935812, 0.022780916272077543, 0.018886042928381978, 0.015414338996264144, 0.012385769341993818, 0.009797949997490538, 0.0076306511305401, 0.005850623167122966, 0.004416282062858765, 0.003281902155839329],
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
+        "7378150065293239613_i": {
+            "type": "constant",
+            "sample": 0.003,
         },
-        "-2041609487497021751_q": {
-            "type": "arbitrary",
-            "samples": [-0.0006034345805618549, -0.0007703684455470659, -0.0009654063009276765, -0.0011871770605762007, -0.0014319797308043336, -0.0016934054142272652, -0.001962133841115749, -0.002225978366727978, -0.0024702390452636764, -0.0026783961053341294, -0.002833137312619005, -0.002917666209937816, -0.0029171902520791645, -0.002820446108517724, -0.002621091888481888, -0.0023187895105601366, -0.001919818899746316, -0.001437109237454008, -0.0008896367889595412, -0.000301215509953357, 0.000301215509953357, 0.0008896367889595412, 0.001437109237454008, 0.001919818899746316, 0.0023187895105601366, 0.002621091888481888, 0.002820446108517724, 0.0029171902520791645, 0.002917666209937816, 0.002833137312619005, 0.0026783961053341294, 0.0024702390452636764, 0.002225978366727978, 0.001962133841115749, 0.0016934054142272652, 0.0014319797308043336, 0.0011871770605762007, 0.0009654063009276765, 0.0007703684455470659, 0.0006034345805618549],
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
+        "7378150065293239613_q": {
+            "type": "constant",
+            "sample": 0.0,
         },
-        "-1637064838162168783_i": {
-            "type": "arbitrary",
-            "samples": [0.0038253569864246145, 0.0051475804704049655, 0.006819436151522863, 0.00889422146886499, 0.011420406427672425, 0.014436746446062975, 0.017966821242846084, 0.022013409550756303, 0.026553240493014975, 0.031532753293030236, 0.03686552353339383, 0.042431957489282836, 0.04808170698957818, 0.053639020236493286, 0.05891093886641134, 0.06369791259346033, 0.06780607500037267, 0.0710601564824555, 0.07331584798662809] + [0.07447040459550726] * 2 + [0.07331584798662809, 0.0710601564824555, 0.06780607500037267, 0.06369791259346033, 0.05891093886641134, 0.053639020236493286, 0.04808170698957818, 0.042431957489282836, 0.03686552353339383, 0.031532753293030236, 0.026553240493014975, 0.022013409550756303, 0.017966821242846084, 0.014436746446062975, 0.011420406427672425, 0.00889422146886499, 0.006819436151522863, 0.0051475804704049655, 0.0038253569864246145],
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
+        "-7196499707889099993_i": {
+            "type": "constant",
+            "sample": 0.0025,
         },
-        "-1637064838162168783_q": {
-            "type": "arbitrary",
-            "samples": [-0.0006491163395155792, -0.0008286875852991652, -0.0010384903755763684, -0.0012770498289981517, -0.0015403847758521574, -0.0018216011465163134, -0.0021106730996404057, -0.002394491425907305, -0.0026572433507158827, -0.0028811585077681175, -0.0030476140760775368, -0.0031385420576323674, -0.003138030068374668, -0.0030339621107847987, -0.0028195161944500773, -0.0024943286442093964, -0.002065154793707444, -0.001545902601126369, -0.0009569848904087076, -0.0003240184031949085, 0.0003240184031949085, 0.0009569848904087076, 0.001545902601126369, 0.002065154793707444, 0.0024943286442093964, 0.0028195161944500773, 0.0030339621107847987, 0.003138030068374668, 0.0031385420576323674, 0.0030476140760775368, 0.0028811585077681175, 0.0026572433507158827, 0.002394491425907305, 0.0021106730996404057, 0.0018216011465163134, 0.0015403847758521574, 0.0012770498289981517, 0.0010384903755763684, 0.0008286875852991652, 0.0006491163395155792],
-            "is_overridable": False,
-            "max_allowed_error": 0.0001,
+        "-7196499707889099993_q": {
+            "type": "constant",
+            "sample": 0.0,
+        },
+        "8286799166278541925_i": {
+            "type": "constant",
+            "sample": 0.002,
+        },
+        "8286799166278541925_q": {
+            "type": "constant",
+            "sample": 0.0,
+        },
+        "8517985084161175822_i": {
+            "type": "constant",
+            "sample": 0.0018,
+        },
+        "8517985084161175822_q": {
+            "type": "constant",
+            "sample": 0.0,
         },
     },
     "digital_waveforms": {
@@ -1729,16 +2052,90 @@ loaded_config = {
             "cosine": [(-0.0, 2000)],
             "sine": [(-1.0, 2000)],
         },
+        "cosine_weights_B5/acquisition": {
+            "cosine": [(1.0, 2000)],
+            "sine": [(-0.0, 2000)],
+        },
+        "sine_weights_B5/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(1.0, 2000)],
+        },
+        "minus_sine_weights_B5/acquisition": {
+            "cosine": [(-0.0, 2000)],
+            "sine": [(-1.0, 2000)],
+        },
+        "cosine_weights_D1/acquisition": {
+            "cosine": [(1.0, 1000)],
+            "sine": [(-0.0, 1000)],
+        },
+        "sine_weights_D1/acquisition": {
+            "cosine": [(0.0, 1000)],
+            "sine": [(1.0, 1000)],
+        },
+        "minus_sine_weights_D1/acquisition": {
+            "cosine": [(-0.0, 1000)],
+            "sine": [(-1.0, 1000)],
+        },
+        "cosine_weights_D2/acquisition": {
+            "cosine": [(1.0, 1000)],
+            "sine": [(-0.0, 1000)],
+        },
+        "sine_weights_D2/acquisition": {
+            "cosine": [(0.0, 1000)],
+            "sine": [(1.0, 1000)],
+        },
+        "minus_sine_weights_D2/acquisition": {
+            "cosine": [(-0.0, 1000)],
+            "sine": [(-1.0, 1000)],
+        },
+        "cosine_weights_D3/acquisition": {
+            "cosine": [(1.0, 1000)],
+            "sine": [(-0.0, 1000)],
+        },
+        "sine_weights_D3/acquisition": {
+            "cosine": [(0.0, 1000)],
+            "sine": [(1.0, 1000)],
+        },
+        "minus_sine_weights_D3/acquisition": {
+            "cosine": [(-0.0, 1000)],
+            "sine": [(-1.0, 1000)],
+        },
+        "cosine_weights_D4/acquisition": {
+            "cosine": [(1.0, 2000)],
+            "sine": [(-0.0, 2000)],
+        },
+        "sine_weights_D4/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(1.0, 2000)],
+        },
+        "minus_sine_weights_D4/acquisition": {
+            "cosine": [(-0.0, 2000)],
+            "sine": [(-1.0, 2000)],
+        },
+        "cosine_weights_D5/acquisition": {
+            "cosine": [(1.0, 2000)],
+            "sine": [(-0.0, 2000)],
+        },
+        "sine_weights_D5/acquisition": {
+            "cosine": [(0.0, 2000)],
+            "sine": [(1.0, 2000)],
+        },
+        "minus_sine_weights_D5/acquisition": {
+            "cosine": [(-0.0, 2000)],
+            "sine": [(-1.0, 2000)],
+        },
     },
     "mixers": {
-        "B3/acquisition_mixer_813": [{'intermediate_frequency': 110622376.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
-        "B1/acquisition_mixer_33a": [{'intermediate_frequency': -237451236.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
-        "B2/acquisition_mixer_9f7": [{'intermediate_frequency': 10040944.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
-        "B4/acquisition_mixer_7ac": [{'intermediate_frequency': 330300527.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
-        "B4/drive_mixer_310": [{'intermediate_frequency': 109615374.0, 'lo_frequency': 6700000000.0, 'correction': (1, 0, 0, 1)}],
-        "B3/drive_mixer_88f": [{'intermediate_frequency': -115376210.0, 'lo_frequency': 5800000000.0, 'correction': (1, 0, 0, 1)}],
-        "B1/drive_mixer_55d": [{'intermediate_frequency': 100388701.0, 'lo_frequency': 4900000000.0, 'correction': (1, 0, 0, 1)}],
-        "B2/drive_mixer_055": [{'intermediate_frequency': 63761228.0, 'lo_frequency': 5900000000.0, 'correction': (1, 0, 0, 1)}],
+        "B1/acquisition_mixer_3d5": [{'intermediate_frequency': -237451236.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
+        "B3/acquisition_mixer_c30": [{'intermediate_frequency': 110622376.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
+        "B5/acquisition_mixer_dbe": [{'intermediate_frequency': 270679567.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
+        "D3/acquisition_mixer_5bf": [{'intermediate_frequency': 27730627.0, 'lo_frequency': 7450000000.0, 'correction': (1, 0, 0, 1)}],
+        "B2/acquisition_mixer_923": [{'intermediate_frequency': 10040944.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
+        "B4/acquisition_mixer_6f4": [{'intermediate_frequency': 330300527.0, 'lo_frequency': 7370000000.0, 'correction': (1, 0, 0, 1)}],
+        "D1/acquisition_mixer_907": [{'intermediate_frequency': -320310131.0, 'lo_frequency': 7450000000.0, 'correction': (1, 0, 0, 1)}],
+        "D2/acquisition_mixer_05c": [{'intermediate_frequency': -80885347.0, 'lo_frequency': 7450000000.0, 'correction': (1, 0, 0, 1)}],
+        "D4/acquisition_mixer_f5b": [{'intermediate_frequency': 242937024.0, 'lo_frequency': 7450000000.0, 'correction': (1, 0, 0, 1)}],
+        "D5/acquisition_mixer_97a": [{'intermediate_frequency': 178420035.0, 'lo_frequency': 7450000000.0, 'correction': (1, 0, 0, 1)}],
     },
 }
 

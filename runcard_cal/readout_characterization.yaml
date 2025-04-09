@@ -1,6 +1,6 @@
 platform: qw11q
 
-qubits: [D1]
+qubits: [D1,D2,D3]
 
 actions:
   - id: readout
@@ -8,4 +8,4 @@ actions:
     parameters:
       delay: 1000
       nshots: 5000
-      relaxation_time: 200000
+      relaxation_time: 200_000
