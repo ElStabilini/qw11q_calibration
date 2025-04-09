@@ -11,9 +11,9 @@ actions:
   - id: resonator optimization
     operation: resonator_optimization
     parameters:
-      freq_width: 4_000_000
-      freq_step: 1_000_000
-      amplitude_step: 0.001
+      freq_width: 400_000
+      freq_step: 50_000
+      amplitude_step: 0.005
       amplitude_start: 0.003
       amplitude_stop: 0.005
 
