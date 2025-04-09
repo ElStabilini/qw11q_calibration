@@ -1,6 +1,6 @@
 platform: qw11q
 
-qubits: [D1,D2,D3]
+qubits: [B1,B2,B3]
 
 actions:
   - id: readout
