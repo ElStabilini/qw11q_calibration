@@ -2,7 +2,7 @@
 
 # SBATCH directives (optional)
 #SBATCH --job-name=qq  # Job name
-#SBATCH --time=3:00:00            # Time limit
+#SBATCH --time=10:00:00            # Time limit
 #SBATCH --partition=qw11q          # Partition name
 
 # Run the qq acquire command
