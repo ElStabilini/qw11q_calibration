@@ -12,8 +12,8 @@ actions:
     operation: resonator_optimization
     parameters:
       freq_width: 2_000_000 
-      freq_step: 100_000
-      amplitude_step: 0.0002
+      freq_step: 125_000 
+      amplitude_step: 0.00025
       amplitude_start: 0.0015
       amplitude_stop: 0.0055
       delay: 1000
