@@ -1,0 +1,17 @@
+id: readout
+operation: readout_characterization
+parameters:
+  delay: 1000
+  relaxation_time: 200000
+targets:
+- B1
+- B2
+- B3
+- B4
+- B5
+- D1
+- D2
+- D3
+- D4
+- D5
+update: true

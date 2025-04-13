@@ -1,11 +1,10 @@
 platform: qw11q
 
-qubits: [B1,B2,B3]
+qubits: [B1]
 
 actions:
   - id: readout
     operation: readout_characterization
     parameters:
       delay: 1000
-      nshots: 5000
       relaxation_time: 200_000

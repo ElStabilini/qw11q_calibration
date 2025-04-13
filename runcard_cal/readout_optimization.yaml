@@ -16,6 +16,7 @@ actions:
       amplitude_step: 0.0002
       amplitude_start: 0.0015
       amplitude_stop: 0.0055
+      delay: 1000
 
   - id: classification
     operation: single_shot_classification
