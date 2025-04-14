@@ -1,0 +1,35 @@
+{
+    "title": "readout_optimization_2025-04-13_16-26-07",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-13 16:26:21.397078+00:00",
+    "end_time": "2025-04-13 22:05:58.101516+00:00",
+    "stats": {
+        "classification-0": {
+            "acquisition": 5.556296274997294,
+            "fit": 0.021925410255789757
+        },
+        "resonator optimization-0": {
+            "acquisition": 20351.78712586779,
+            "fit": 10.095794876106083
+        },
+        "classification-1": {
+            "acquisition": 5.879932451061904,
+            "fit": 0.021204179152846336
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.4",
+        "qibocal": "0.1.3"
+    },
+    "date": "2025-04-13",
+    "start-time": "16:26:21",
+    "end-time": "22:05:58"
+}
