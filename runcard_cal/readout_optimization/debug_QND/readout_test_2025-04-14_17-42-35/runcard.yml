@@ -1,0 +1,17 @@
+actions:
+- id: resonator optimization
+  operation: resonator_optimization
+  parameters:
+    amplitude_start: 0.0015
+    amplitude_step: 0.00025
+    amplitude_stop: 0.00175
+    delay: 1000
+    freq_step: 125000
+    freq_width: 125000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
