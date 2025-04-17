@@ -1,0 +1,12 @@
+id: resonator optimization
+operation: resonator_optimization
+parameters:
+  amplitude_start: 0.0015
+  amplitude_step: 0.001
+  amplitude_stop: 0.0055
+  delay: 1000
+  freq_step: 500000
+  freq_width: 2000000
+targets:
+- B2
+update: true
