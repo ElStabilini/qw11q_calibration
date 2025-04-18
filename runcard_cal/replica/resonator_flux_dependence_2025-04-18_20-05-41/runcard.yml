@@ -1,0 +1,17 @@
+actions:
+- id: resonator flux dependence
+  operation: resonator_flux
+  parameters:
+    bias_step: 0.01
+    bias_width: 0.4
+    freq_step: 100000
+    freq_width: 5000000
+    nshots: 2000
+    relaxation_time: 2000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
