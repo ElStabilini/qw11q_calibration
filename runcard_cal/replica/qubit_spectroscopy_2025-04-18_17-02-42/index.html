@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>qubit_spectroscopy_2025-04-18_17-02-42</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-container button {
+  background: #6400FF;
+  color: white;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="https://github.com/qiboteam/qibocal" target="_blank" class="btn p-0 border-0 bg-transparent me-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-github"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.6c.4.074.547-.174.547-.387 0-.191-.007-.696-.01-1.366-2.226.483-2.695-1.073-2.695-1.073-.364-.922-.89-1.167-.89-1.167-.727-.497.055-.487.055-.487.803.056 1.226.825 1.226.825.714 1.223 1.872.87 2.33.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.889-3.644-3.953 0-.872.311-1.587.824-2.146-.083-.203-.357-1.02.078-2.127 0 0 .672-.215 2.2.82a7.684 7.684 0 0 1 4.004 0c1.527-1.035 2.2-.82 2.2-.82.435 1.107.161 1.924.079 2.127.513.559.824 1.274.824 2.146 0 3.072-1.869 3.748-3.653 3.947.287.247.543.735.543 1.482 0 1.07-.01 1.933-.01 2.194 0 .215.145.466.55.387A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+      </svg>
+    </a>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </button>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Protocols
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Qubit Spectroscopy 01"> Qubit Spectroscopy 01</a>
+                        
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#qubit spectroscopy 01-0-B2">  B2</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                          </div>
+
+
+                      </li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </button>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>qubit_spectroscopy_2025-04-18_17-02-42</h1>
+        <div class="button-container">
+          <button id="export-pdf">Export to pdf</button>
+          <button id="export-platform" onclick="redirectToPlatform()">Calibrated platform</button>
+          <button id="export-runcard" onclick="redirectToRuncard()">Runcard</button>
+        </div>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2025-04-18<br>
+        Start time (UTC): 17:03:24<br>
+        End time (UTC): 17:03:28
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Qubit Spectroscopy 01" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Qubit Spectroscopy 01</h4>
+        
+        <div id="qubit spectroscopy 01-0-B2" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B2</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B2</td>
+      <td>Qubit Frequency [Hz]</td>
+      <td>5.967526e+09</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>Amplitude</td>
+      <td>1.000000e-02</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="8ecef11e-7f66-4240-9c0f-e891322d85ef" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("8ecef11e-7f66-4240-9c0f-e891322d85ef")) {                    Plotly.newPlot(                        "8ecef11e-7f66-4240-9c0f-e891322d85ef",                        [{"legendgroup":"Frequency","name":"Frequency","opacity":1,"showlegend":true,"x":[5.958761228,5.958861228,5.958961228000001,5.959061228,5.959161228,5.959261228000001,5.959361228000001,5.959461228,5.959561228,5.959661228000001,5.9597612280000005,5.959861228,5.959961228,5.960061228000001,5.9601612280000005,5.960261228,5.960361228,5.960461228000001,5.960561228,5.960661228,5.960761228,5.960861228000001,5.960961228,5.961061228,5.961161228000001,5.961261228000001,5.961361228,5.961461228,5.961561228000001,5.9616612280000005,5.961761228,5.961861228,5.961961228000001,5.9620612280000005,5.962161228,5.962261228,5.962361228000001,5.9624612280000004,5.962561228,5.962661228,5.962761228000001,5.962861228,5.962961228,5.963061228,5.963161228000001,5.963261228,5.963361228,5.963461228000001,5.9635612280000005,5.963661228,5.963761228,5.963861228000001,5.9639612280000005,5.964061228,5.964161228,5.964261228000001,5.9643612280000005,5.964461228,5.964561228,5.964661228000001,5.964761228,5.964861228,5.964961228,5.965061228000001,5.965161228,5.965261228,5.965361228000001,5.965461228000001,5.965561228,5.965661228,5.965761228000001,5.9658612280000005,5.965961228,5.966061228,5.966161228000001,5.9662612280000005,5.966361228,5.966461228,5.966561228000001,5.966661228,5.966761228,5.966861228,5.966961228000001,5.967061228,5.967161228,5.967261228000001,5.967361228000001,5.967461228,5.967561228,5.967661228000001,5.9677612280000005,5.967861228,5.967961228,5.968061228000001,5.9681612280000005,5.968261228,5.968361228,5.968461228000001,5.968561228,5.968661228],"y":[0.0032028494773117034,0.0031766067474120426,0.0031821434781790785,0.0031500740576610327,0.003217066014786017,0.0031737064876948976,0.00321642009510658,0.003203403806958981,0.0032220028858688707,0.0031618826188587186,0.0031792126650863482,0.003159093888430456,0.003175833800391578,0.0031824733060098415,0.00315534962859268,0.0032014860213772202,0.003151328893429809,0.003150747709496701,0.003197475946007766,0.0032073173497217215,0.003172469687629115,0.0032094280272203617,0.0031897145559261777,0.003155399795611568,0.0031768823552184742,0.0031756417316548065,0.00315790698091085,0.0031561892812635457,0.0031648749363446956,0.0031909012228214075,0.003215550173201485,0.0031664419979346853,0.0032028616704063207,0.0031815190503489683,0.0031818793218366297,0.0031599331280419106,0.003201091441171784,0.0031590940850665466,0.003175353457002653,0.0031905907872574967,0.0031971178628423204,0.003212541490291817,0.0031904852157646005,0.0032525955450392044,0.00316664015702794,0.0031643542285664985,0.0031411517550545384,0.0031712373024140213,0.0031455862959559448,0.0032001674646163127,0.0032331409259576944,0.0032213246195542423,0.0031729613657110823,0.0031662406631637607,0.0031750807244506295,0.003186427182184942,0.003162429135661841,0.0031767184206314106,0.003192542895947316,0.0032390246021677654,0.0031909551705493907,0.0031863483537995525,0.003226148297226206,0.0032211603134060037,0.0031902751883060737,0.0031911022524539765,0.0032060636573841552,0.003169568669473331,0.0031953089809409196,0.003201063159161657,0.00320719324630815,0.003141429808713232,0.003176036554515325,0.0032369905280236655,0.0031910977212026258,0.003218706882106125,0.0031788643650810847,0.0032078253095202984,0.003226363100518119,0.003261483208518958,0.003222539316796882,0.003273241719528224,0.0034085107474307896,0.003495399491544455,0.0036829171151332952,0.003601272255134377,0.0036574375125746897,0.003622354896000963,0.003635459208108894,0.003627156141230693,0.0036643509843508277,0.0035855909238101534,0.0035803307082619795,0.0034295160874832347,0.003335207196651016,0.003243892782261592,0.0032386075032759597,0.003237767225139452,0.0031846844643289222,0.0032234837588485904],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[5.958761228,5.958861228,5.958961228000001,5.959061228,5.959161228,5.959261228000001,5.959361228000001,5.959461228,5.959561228,5.959661228000001,5.9597612280000005,5.959861228,5.959961228,5.960061228000001,5.9601612280000005,5.960261228,5.960361228,5.960461228000001,5.960561228,5.960661228,5.960761228,5.960861228000001,5.960961228,5.961061228,5.961161228000001,5.961261228000001,5.961361228,5.961461228,5.961561228000001,5.9616612280000005,5.961761228,5.961861228,5.961961228000001,5.9620612280000005,5.962161228,5.962261228,5.962361228000001,5.9624612280000004,5.962561228,5.962661228,5.962761228000001,5.962861228,5.962961228,5.963061228,5.963161228000001,5.963261228,5.963361228,5.963461228000001,5.9635612280000005,5.963661228,5.963761228,5.963861228000001,5.9639612280000005,5.964061228,5.964161228,5.964261228000001,5.9643612280000005,5.964461228,5.964561228,5.964661228000001,5.964761228,5.964861228,5.964961228,5.965061228000001,5.965161228,5.965261228,5.965361228000001,5.965461228000001,5.965561228,5.965661228,5.965761228000001,5.9658612280000005,5.965961228,5.966061228,5.966161228000001,5.9662612280000005,5.966361228,5.966461228,5.966561228000001,5.966661228,5.966761228,5.966861228,5.966961228000001,5.967061228,5.967161228,5.967261228000001,5.967361228000001,5.967461228,5.967561228,5.967661228000001,5.9677612280000005,5.967861228,5.967961228,5.968061228000001,5.9681612280000005,5.968261228,5.968361228,5.968461228000001,5.968561228,5.968661228],"y":[-2.651855530310364,-2.6315908716449474,-2.6210275365152222,-2.6409964088317412,-2.6329368959263024,-2.6260790497118105,-2.6284081847149605,-2.6238864255308427,-2.628441747113284,-2.6335342212374253,-2.639527616569677,-2.628134605654844,-2.6268905566192084,-2.6211708928834025,-2.623248015332079,-2.6303066240980697,-2.6413734610892,-2.6217301240677737,-2.62680024638558,-2.627755896256063,-2.613055994249236,-2.6238507111763556,-2.630933722685899,-2.6087585266515028,-2.6202414238051404,-2.6089937321564696,-2.6226384169181163,-2.618820451787293,-2.6156567134246598,-2.6128616383014585,-2.623205476331335,-2.625918215163306,-2.6280089432198745,-2.6251490525137036,-2.614853546531263,-2.6331706493593523,-2.629798428455893,-2.619309347400994,-2.6322279470714247,-2.6295567068754866,-2.628748432912669,-2.625877869659334,-2.6362298045729116,-2.6330799346206644,-2.6307607591683975,-2.6170341986547876,-2.6186384316224602,-2.624398476162055,-2.626381837880125,-2.6334160730487124,-2.624880303656669,-2.6265957991719158,-2.6284316476174503,-2.620882663833972,-2.6268298725014767,-2.6165629362487186,-2.6196125327007302,-2.624347391430091,-2.618882807192275,-2.6248779667018725,-2.632281011797566,-2.629874705945933,-2.6368837029125896,-2.637128652602126,-2.6282630088109387,-2.6255540269400677,-2.6302551902509137,-2.6199984836652312,-2.645027460415142,-2.628819980222368,-2.6416724106256937,-2.638546397342176,-2.6301976473566566,-2.6472218120166784,-2.6439092271254743,-2.6403108069487446,-2.657968895920165,-2.653909992746895,-2.6592376677328433,-2.661680997839268,-2.669650355116985,-2.714817253828909,-2.7604311987588144,-2.839761940330839,-2.8954256883999387,-2.8889027121843887,-2.885392011882767,-2.8795284157546654,-2.8763181671015654,-2.896533582804048,-2.901584400548115,-2.8807278929694147,-2.846750180838353,-2.788017058927156,-2.7263804668556344,-2.6986865502481883,-2.6955939922140058,-2.675811038941607,-2.642034175718109,-2.646576566363486],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"name":"Fit","x":[5.958761228,5.9588109767437185,5.958860725487438,5.958910474231156,5.958960222974874,5.959009971718594,5.959059720462312,5.95910946920603,5.959159217949749,5.959208966693468,5.959258715437186,5.959308464180904,5.959358212924624,5.959407961668342,5.95945771041206,5.9595074591557795,5.959557207899498,5.959606956643216,5.9596567053869345,5.959706454130654,5.959756202874372,5.95980595161809,5.95985570036181,5.959905449105528,5.959955197849246,5.960004946592965,5.960054695336684,5.960104444080402,5.96015419282412,5.96020394156784,5.960253690311558,5.960303439055276,5.9603531877989955,5.960402936542714,5.960452685286432,5.960502434030151,5.96055218277387,5.960601931517588,5.960651680261306,5.9607014290050255,5.960751177748744,5.960800926492462,5.960850675236181,5.9609004239799,5.960950172723618,5.960999921467337,5.961049670211056,5.961099418954774,5.961149167698492,5.9611989164422114,5.96124866518593,5.961298413929648,5.961348162673367,5.961397911417086,5.961447660160804,5.961497408904523,5.9615471576482415,5.96159690639196,5.961646655135678,5.961696403879397,5.961746152623116,5.961795901366834,5.961845650110553,5.9618953988542716,5.96194514759799,5.961994896341709,5.962044645085427,5.962094393829146,5.962144142572865,5.962193891316583,5.962243640060302,5.96229338880402,5.962343137547739,5.9623928862914575,5.962442635035176,5.962492383778895,5.962542132522613,5.962591881266332,5.962641630010051,5.962691378753769,5.9627411274974875,5.962790876241206,5.962840624984925,5.962890373728643,5.962940122472362,5.962989871216081,5.963039619959799,5.963089368703518,5.963139117447237,5.963188866190955,5.963238614934673,5.963288363678392,5.963338112422111,5.963387861165829,5.963437609909548,5.963487358653267,5.963537107396985,5.9635868561407035,5.963636604884423,5.963686353628141,5.963736102371859,5.963785851115578,5.963835599859297,5.963885348603015,5.9639350973467335,5.963984846090453,5.964034594834171,5.964084343577889,5.964134092321609,5.964183841065327,5.964233589809045,5.964283338552764,5.964333087296483,5.964382836040201,5.9644325847839195,5.964482333527639,5.964532082271357,5.964581831015075,5.9646315797587945,5.964681328502513,5.964731077246231,5.9647808259899495,5.964830574733669,5.964880323477387,5.964930072221105,5.964979820964825,5.965029569708543,5.965079318452261,5.9651290671959805,5.965178815939699,5.965228564683417,5.965278313427135,5.965328062170855,5.965377810914573,5.965427559658291,5.9654773084020105,5.965527057145729,5.965576805889447,5.965626554633166,5.965676303376885,5.965726052120603,5.965775800864322,5.965825549608041,5.965875298351759,5.965925047095477,5.965974795839196,5.966024544582915,5.966074293326633,5.966124042070352,5.966173790814071,5.966223539557789,5.966273288301508,5.9663230370452265,5.966372785788945,5.966422534532663,5.966472283276382,5.966522032020101,5.966571780763819,5.966621529507538,5.9666712782512565,5.966721026994975,5.966770775738694,5.966820524482412,5.966870273226131,5.966920021969849,5.966969770713568,5.967019519457287,5.967069268201005,5.967119016944724,5.9671687656884425,5.967218514432161,5.96726826317588,5.967318011919598,5.967367760663317,5.967417509407035,5.967467258150754,5.9675170068944725,5.967566755638191,5.96761650438191,5.967666253125628,5.967716001869347,5.967765750613066,5.967815499356784,5.967865248100503,5.967914996844221,5.96796474558794,5.968014494331658,5.968064243075377,5.968113991819096,5.968163740562814,5.968213489306533,5.968263238050252,5.96831298679397,5.9683627355376885,5.968412484281407,5.968462233025126,5.968511981768844,5.968561730512563,5.968611479256282,5.968661228],"y":[0.003173803895880921,0.0031738210373530827,0.0031738384737784796,0.0031738562119564898,0.003173874258883359,0.003173892621759073,0.0031739113079945103,0.003173930325218894,0.003173949681287546,0.0031739693842899688,0.003173989442558262,0.0031740098646759,0.0031740306594868735,0.003174051836105227,0.0031740734039250036,0.003174095372630621,0.0031741177522076913,0.0031741405529543266,0.0031741637854929283,0.003174187460782508,0.00317421159013155,0.0031742361852114577,0.003174261258070601,0.003174286821149001,0.003174312887293691,0.00317433946977478,0.003174366582302257,0.0031743942390435875,0.0031744224546421253,0.0031744512442363998,0.0031744806234803168,0.0031745106085643284,0.0031745412162376236,0.003174572463831389,0.0031746043692832166,0.0031746369511627005,0.003174670228698309,0.003174704221805596,0.0031747389511168267,0.0031747744380121045,0.003174810704652081,0.00317484777401235,0.003174885669919615,0.0031749244170897395,0.0031749640411678,0.0031750045687702474,0.0031750460275293177,0.003175088446139829,0.0031751318544084996,0.003175176283305961,0.0031752217650216187,0.0031752683330215567,0.003175316022109664,0.0031753648684921952,0.003175414909845995,0.003175466185390615,0.0031755187359645736,0.003175572604106059,0.003175627834138336,0.003175684472260205,0.003175742566641828,0.003175802167526319,0.003175863327337469,0.0031759261007940423,0.003175990545031119,0.0031760567197289574,0.003176124687249927,0.003176194512784102,0.003176266264504125,0.0031763400137300286,0.0031764158351047654,0.0031764938067812207,0.003176574010621593,0.0031766565324100673,0.003176741462079823,0.003176828893955462,0.0031769189270120708,0.0031770116651522505,0.003177107217502513,0.0031772056987306205,0.003177307229385582,0.003177411936262142,0.0031775199527918083,0.003177631419462636,0.0031777464842702137,0.0031778653032024993,0.003177988040761436,0.003178114870524582,0.0031782459757502507,0.0031783815500300524,0.003178521797993137,0.0031786669360668067,0.0031788171932987234,0.00317897281224643,0.0031791340499405614,0.0031793011789287237,0.0031794744884078375,0.003179654285453602,0.0031798408963566098,0.003180034668075785,0.003180235969821034,0.0031804451947782535,0.0031806627619914993,0.0031808891184187337,0.003181124741179639,0.0031813701400160684,0.0031816258599883045,0.0031818924844331767,0.0031821706382131995,0.003182460991289713,0.0031827642626572287,0.0031830812246808797,0.0031834127078845514,0.0031837596062434647,0.003184122883042419,0.0031845035773690558,0.0031849028113213203,0.003185321798019455,0.003185761850525554,0.0031862243917888406,0.003186710965752181,0.0031872232497753266,0.0031877630685541764,0.0031883324097426173,0.0031889334415159238,0.0031895685323521175,0.0031902402733522822,0.0031909515034731026,0.003191705338106226,0.003192505201512227,0.003193354863703388,0.003194258482471705,0.003195220651381072,0.0031962464546877296,0.003197341530327399,0.0031985121423150084,0.003199765264152844,0.0032011086751426113,0.0032025510718564996,0.0032041021974564534,0.0032057729920732924,0.00320757576808595,0.0032095244148999166,0.00321163463873635,0.003213924244037678,0.0032164134644069435,0.0032191253525559217,0.0032220862405768847,0.003225326283992988,0.0032288801054906635,0.0032327875569523085,0.0032370946212728017,0.0032418544782121914,0.003247128760716872,0.0032529890288402787,0.0032595184860570135,0.003266813954709877,0.003274988109090418,0.0032841719288392423,0.003294517270022669,0.0033061993374037123,0.003319418649692911,0.0033344017761640296,0.0033513996264760847,0.0033706813184092087,0.0033925205542306366,0.0034171699854868387,0.0034448174093500853,0.0034755164551399645,0.003509085249440402,0.0035449723887888396,0.0035821047380149265,0.003618759450279862,0.0036525387249316836,0.0036805477026760646,0.003699841444973597,0.003708084773789237,0.0037042005083527223,0.0036887022451084616,0.003663533134455561,0.0036314988301088744,0.0035955781604877146,0.00355838348480891,0.003521888254441278,0.0034873900075240625,0.0034556119498299308,0.003426853111751567,0.0034011318327530427,0.003378299435598461,0.003358120570354025,0.0033403254067579493,0.0033246410704377274,0.0033108090186926235,0.0032985934683393,0.0032877844331969334,0.0032781977015214235,0.003269673211915704,0.003262072704610109,0.0032552771531994323,0.0032491842519639957],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Frequency [GHz]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Frequency [GHz]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in /home/users/elisa.stabilini/cal_qw11q/runcard_cal/replica/qubit_spectroscopy_2025-04-18_17-02-42.</p>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-sm w-100">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.16</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.2.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.1.3</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+    <script>
+function redirectToRuncard() {
+    window.location.href = './action.yml';
+}
+
+function redirectToPlatform() {
+    window.location.href = './new_platform/parameters.json';
+}
+
+
+// To Download PDF
+var exportPDFButton = document.getElementById("export-pdf");
+
+exportPDFButton.addEventListener("click", function() {
+
+document.body.classList.add("impresion");
+
+var doc = new jsPDF({orientation: 'landscape',});
+
+var iframes = document.querySelectorAll("iframe.gh-fit")
+source = ""
+for(var id = 0; id < iframes.length; id++) {
+    var win = iframes[id].contentWindow
+    var doc = win.document
+    var html = doc.documentElement
+    var body = doc.body
+    var ifrm = iframes[id] // or win.frameElement
+    source = source + html
+}
+
+print(source)
+
+doc.fromHTML(source, 0, 0, {
+width: 210,
+margins: {
+    left: 10,
+    right: 10,
+    top: 10,
+    bottom: 10
+}
+});
+doc.save("report.pdf");
+});
+
+</script>
+</body>
+
+</html>
