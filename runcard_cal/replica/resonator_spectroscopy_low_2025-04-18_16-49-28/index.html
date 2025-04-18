@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>resonator_spectroscopy_low_2025-04-18_16-49-28</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-container button {
+  background: #6400FF;
+  color: white;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="https://github.com/qiboteam/qibocal" target="_blank" class="btn p-0 border-0 bg-transparent me-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-github"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.6c.4.074.547-.174.547-.387 0-.191-.007-.696-.01-1.366-2.226.483-2.695-1.073-2.695-1.073-.364-.922-.89-1.167-.89-1.167-.727-.497.055-.487.055-.487.803.056 1.226.825 1.226.825.714 1.223 1.872.87 2.33.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.889-3.644-3.953 0-.872.311-1.587.824-2.146-.083-.203-.357-1.02.078-2.127 0 0 .672-.215 2.2.82a7.684 7.684 0 0 1 4.004 0c1.527-1.035 2.2-.82 2.2-.82.435 1.107.161 1.924.079 2.127.513.559.824 1.274.824 2.146 0 3.072-1.869 3.748-3.653 3.947.287.247.543.735.543 1.482 0 1.07-.01 1.933-.01 2.194 0 .215.145.466.55.387A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+      </svg>
+    </a>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </button>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Protocols
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Resonator_Spectroscopy Low Power"> Resonator_Spectroscopy Low Power</a>
+                        
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#resonator_spectroscopy low power-0-B2">  B2</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                          </div>
+
+
+                      </li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </button>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>resonator_spectroscopy_low_2025-04-18_16-49-28</h1>
+        <div class="button-container">
+          <button id="export-pdf">Export to pdf</button>
+          <button id="export-platform" onclick="redirectToPlatform()">Calibrated platform</button>
+          <button id="export-runcard" onclick="redirectToRuncard()">Runcard</button>
+        </div>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2025-04-18<br>
+        Start time (UTC): 16:49:41<br>
+        End time (UTC): 16:49:43
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Resonator_Spectroscopy Low Power" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Resonator_Spectroscopy Low Power</h4>
+        
+        <div id="resonator_spectroscopy low power-0-B2" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B2</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B2</td>
+      <td>Readout Frequency [Hz]</td>
+      <td>7.379749668822412e9</td>
+      <td>0.000000000000009e9</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>Amplitude</td>
+      <td>1.0e-2</td>
+      <td>0e-2</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>Chi2 reduced</td>
+      <td>1.0193e3</td>
+      <td>0.0002e3</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="5b4938cc-b1ac-4ff2-adaa-0447cae26946" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("5b4938cc-b1ac-4ff2-adaa-0447cae26946")) {                    Plotly.newPlot(                        "5b4938cc-b1ac-4ff2-adaa-0447cae26946",                        [{"legendgroup":"Frequency","name":"Frequency","opacity":1,"showlegend":true,"x":[7.379540944,7.379565944,7.379590944,7.379615944,7.379640944,7.379665944,7.379690944,7.379715944000001,7.379740944000001,7.379765944000001,7.379790944000001,7.379815944000001,7.379840944000001,7.3798659440000005,7.3798909440000005,7.379915944,7.379940944,7.379965944,7.379990944,7.380015944,7.380040944,7.380065944,7.380090944000001,7.380115944000001,7.380140944000001,7.380165944000001,7.380190944000001,7.380215944000001,7.3802409440000005,7.3802659440000005,7.380290944,7.380315944,7.380340944,7.380365944,7.380390944,7.380415944,7.380440944,7.380465944000001,7.380490944000001,7.380515944000001],"y":[0.011981229557058925,0.012024013923356256,0.011965037524530332,0.011890696790654206,0.01171915903161468,0.011578913777990146,0.011219971410511575,0.011148607996164293,0.01082197215656222,0.01045087753995569,0.01016214158797566,0.01033592625379997,0.011328148922365848,0.01232182490096294,0.012857661015674964,0.012903446881627168,0.012832750198979483,0.012905486048695292,0.012855594462668717,0.012872604163872092,0.01297087452917219,0.0129907925339674,0.012961084548476814,0.013019149002632256,0.013115179192109713,0.013137066354515755,0.013221102637484083,0.013214546966956139,0.013230236631117607,0.013325426607291342,0.013309588083863908,0.013218397948169465,0.013187001632573494,0.013196680093388136,0.013057895885870724,0.01304629537868021,0.01282623529604114,0.012747100771618738,0.012581052902375534,0.012572075440027475],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[7.379540944,7.379565944,7.379590944,7.379615944,7.379640944,7.379665944,7.379690944,7.379715944000001,7.379740944000001,7.379765944000001,7.379790944000001,7.379815944000001,7.379840944000001,7.3798659440000005,7.3798909440000005,7.379915944,7.379940944,7.379965944,7.379990944,7.380015944,7.380040944,7.380065944,7.380090944000001,7.380115944000001,7.380140944000001,7.380165944000001,7.380190944000001,7.380215944000001,7.3802409440000005,7.3802659440000005,7.380290944,7.380315944,7.380340944,7.380365944,7.380390944,7.380415944,7.380440944,7.380465944000001,7.380490944000001,7.380515944000001],"y":[2.2185227896423148,2.3245604825506407,2.4101010333821,2.5000051349075445,2.577539419882642,2.662941127613269,2.749246344507668,2.8220290883244394,2.8997145616665723,2.9708877239487945,2.99974752541976,2.9530949225556933,2.860984141815073,2.8235973733594713,2.8387741731346523,2.884428354654545,2.9290812753763764,2.9861411342692747,3.0389553013792896,3.0875436468696007,3.1452387092743535,3.2014118006464494,3.2482904784145896,3.3065266404174642,3.3558195515102813,3.41346450109258,3.4750797788964127,3.5257963782205737,3.5825463081017435,3.639454253578088,3.691151346574111,3.7393542675630735,3.7942564455637906,3.8392236423038644,3.879917255592719,3.924926097936044,3.957646736129345,3.9945118069811194,4.028678057028447,4.073397358266732],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Signal Errors","showlegend":true,"x":[7.379540944,7.379565944,7.379590944,7.379615944,7.379640944,7.379665944,7.379690944,7.379715944000001,7.379740944000001,7.379765944000001,7.379790944000001,7.379815944000001,7.379840944000001,7.3798659440000005,7.3798909440000005,7.379915944,7.379940944,7.379965944,7.379990944,7.380015944,7.380040944,7.380065944,7.380090944000001,7.380115944000001,7.380140944000001,7.380165944000001,7.380190944000001,7.380215944000001,7.3802409440000005,7.3802659440000005,7.380290944,7.380315944,7.380340944,7.380365944,7.380390944,7.380415944,7.380440944,7.380465944000001,7.380490944000001,7.380515944000001,7.380515944000001,7.380490944000001,7.380465944000001,7.380440944,7.380415944,7.380390944,7.380365944,7.380340944,7.380315944,7.380290944,7.3802659440000005,7.3802409440000005,7.380215944000001,7.380190944000001,7.380165944000001,7.380140944000001,7.380115944000001,7.380090944000001,7.380065944,7.380040944,7.380015944,7.379990944,7.379965944,7.379940944,7.379915944,7.3798909440000005,7.3798659440000005,7.379840944000001,7.379815944000001,7.379790944000001,7.379765944000001,7.379740944000001,7.379715944000001,7.379690944,7.379665944,7.379640944,7.379615944,7.379590944,7.379565944,7.379540944],"y":[0.012011530051586646,0.012053725620859075,0.011993103164011844,0.011918329188322911,0.011747232527061459,0.011609249066221575,0.011250791225571991,0.01118119074252577,0.010857288446415944,0.010490359030175856,0.010210519760473,0.010401041291575975,0.011406786151489282,0.012394401172122368,0.012920816665930217,0.012962353860665951,0.012894017310674822,0.012967383379406512,0.01291689857267791,0.012936577636843031,0.013032927634847865,0.013053397731785253,0.013025497566462102,0.013079571366755556,0.013174129064544366,0.013195348270222881,0.013277270386572304,0.013271443939798127,0.013284959598808698,0.013379403947283429,0.013363937847178873,0.013274335469853005,0.013244860857870112,0.013255162867098125,0.013116952935542938,0.013103996832011975,0.012884793298536628,0.01280440417285855,0.012635794571913926,0.0126238973322543,0.012520253547800649,0.012526311232837142,0.012689797370378926,0.012767677293545651,0.012988593925348445,0.01299883883619851,0.013138197319678148,0.013129142407276875,0.013162460426485924,0.013255238320548942,0.013271449267299255,0.013175513663426517,0.01315764999411415,0.013164934888395862,0.013078784438808628,0.01305622931967506,0.012958726638508956,0.012896671530491526,0.012928187336149548,0.012908821423496517,0.012808630690901154,0.012794290352659525,0.012843588717984071,0.012771483087284144,0.012844539902588385,0.012794505365419711,0.012249248629803512,0.011249511693242415,0.010270811216023964,0.010113763415478321,0.010411396049735525,0.010786655866708498,0.011116025249802815,0.011189151595451158,0.011548578489758717,0.0116910855361679,0.011863064392985501,0.01193697188504882,0.011994302225853437,0.011950929062531203],"type":"scatter","xaxis":"x","yaxis":"y"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Phase Errors","showlegend":true,"x":[7.379540944,7.379565944,7.379590944,7.379615944,7.379640944,7.379665944,7.379690944,7.379715944000001,7.379740944000001,7.379765944000001,7.379790944000001,7.379815944000001,7.379840944000001,7.3798659440000005,7.3798909440000005,7.379915944,7.379940944,7.379965944,7.379990944,7.380015944,7.380040944,7.380065944,7.380090944000001,7.380115944000001,7.380140944000001,7.380165944000001,7.380190944000001,7.380215944000001,7.3802409440000005,7.3802659440000005,7.380290944,7.380315944,7.380340944,7.380365944,7.380390944,7.380415944,7.380440944,7.380465944000001,7.380490944000001,7.380515944000001,7.380515944000001,7.380490944000001,7.380465944000001,7.380440944,7.380415944,7.380390944,7.380365944,7.380340944,7.380315944,7.380290944,7.3802659440000005,7.3802409440000005,7.380215944000001,7.380190944000001,7.380165944000001,7.380140944000001,7.380115944000001,7.380090944000001,7.380065944,7.380040944,7.380015944,7.379990944,7.379965944,7.379940944,7.379915944,7.3798909440000005,7.3798659440000005,7.379840944000001,7.379815944000001,7.379790944000001,7.379765944000001,7.379740944000001,7.379715944000001,7.379690944,7.379665944,7.379640944,7.379615944,7.379590944,7.379565944,7.379540944],"y":[2.2269376343362977,2.3322482057143357,2.4176277792909233,2.5072254146776056,2.5847022367535124,2.669914937222775,2.7559637801141608,2.8287453730153405,2.906192681292114,2.9771731558801107,3.006450430820271,2.960317217470363,2.8672182823004135,2.8282590911381957,2.8423500544137807,2.887946388591676,2.932433735974948,2.9893554648291376,3.0420050980894477,3.0904149958468627,3.1481504506783797,3.204306381321451,3.2513852983285774,3.309663839462783,3.3591039124991258,3.4169249534649375,3.4784886927303327,3.5292459446475863,3.586021106586754,3.642977114873381,3.6948963078292634,3.743304649470005,3.798475825905753,3.843590307257292,3.88458789282507,3.929777836202892,3.9627449406202846,3.999696063070444,4.033779111340212,4.078437099030223,4.06835761750324,4.023577002716682,3.9893275508917947,3.9525485316384055,3.920074359669196,3.8752466183603675,3.834856977350437,3.7900370652218283,3.735403885656142,3.6874063853189583,3.635931392282795,3.5790715096167327,3.522346811793561,3.471670865062493,3.410004048720223,3.352535190521437,3.3033894413721456,3.245195658500602,3.1985172199714476,3.142326967870327,3.0846722978923387,3.0359055046691314,2.982926803709412,2.9257288147778047,2.880910320717414,2.835198291855524,2.8189356555807468,2.854750001329733,2.9458726276410236,2.9930446200192486,2.9646022920174784,2.8932364420410304,2.8153128036335384,2.7425289089011753,2.655967318003763,2.570376603011771,2.4927848551374834,2.4025742874732763,2.316872759386946,2.210107944948332],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"name":"Fit","x":[7.379540944,7.379553285772152,7.379565627544304,7.379577969316456,7.379590311088608,7.37960265286076,7.379614994632912,7.379627336405064,7.379639678177216,7.379652019949368,7.379664361721519,7.379676703493671,7.379689045265823,7.379701387037975,7.379713728810127,7.379726070582279,7.379738412354431,7.379750754126583,7.379763095898735,7.379775437670887,7.379787779443038,7.37980012121519,7.379812462987342,7.379824804759494,7.379837146531646,7.379849488303798,7.37986183007595,7.379874171848102,7.379886513620254,7.379898855392406,7.3799111971645575,7.379923538936709,7.379935880708861,7.379948222481013,7.379960564253165,7.379972906025317,7.379985247797469,7.379997589569621,7.380009931341773,7.380022273113925,7.3800346148860765,7.380046956658228,7.38005929843038,7.380071640202532,7.380083981974684,7.380096323746836,7.380108665518988,7.38012100729114,7.380133349063292,7.380145690835444,7.3801580326075955,7.380170374379747,7.380182716151899,7.380195057924051,7.380207399696203,7.3802197414683555,7.380232083240507,7.380244425012659,7.380256766784811,7.380269108556963,7.3802814503291145,7.380293792101266,7.380306133873418,7.38031847564557,7.380330817417722,7.3803431591898745,7.380355500962026,7.380367842734178,7.38038018450633,7.380392526278482,7.380404868050634,7.380417209822785,7.380429551594937,7.380441893367089,7.380454235139241,7.3804665769113935,7.380478918683545,7.380491260455697,7.380503602227849,7.380515944000001],"y":[0.01246180455439915,0.012398101485974696,0.012326990889723142,0.012247635273595453,0.012159193702617612,0.012060885358507478,0.011952090740870456,0.01183250372758392,0.011702347107956769,0.011562657721021765,0.011415629953123743,0.011264972640189478,0.011116182916803182,0.010976582496230586,0.010854931194207704,0.010760484438141638,0.0107015400372254,0.010683793037667986,0.010709038020270376,0.01077473341108854,0.010874614810993107,0.011000096028167601,0.011141915505032953,0.011291514618066345,0.011441878877684946,0.0115878374150425,0.011725971644032532,0.011854317163842746,0.01197200388486136,0.012078920737588986,0.012175442638547185,0.012262226857917823,0.012340070887807123,0.012409818783593742,0.012472302984158279,0.01252831074799735,0.012578566937698701,0.012623727224308573,0.012664377636754844,0.012701037748513706,0.012734165755590204,0.012764164354792771,0.012791386765641297,0.012816142520867225,0.012838702828981917,0.012859305422704389,0.012878158872998476,0.012895446386114826,0.012911329120792356,0.01292594907170234,0.012939431567545723,0.012951887430869882,0.012963414843351305,0.012974100956081178,0.01298402327992818,0.012993250886701044,0.0130018454477795,0.013009862133237737,0.013017350391220296,0.01302435462452044,0.013030914778843073,0.01303706685512804,0.013042843356501166,0.01304827367887709,0.013053384452923505,0.013058199843978307,0.013062741815558084,0.013067030361295286,0.013071083709442205,0.013074918503507537,0.013078549962086199,0.01308199202052154,0.013085257456676843,0.013088358002784042,0.01309130444507317,0.013094106712659892,0.013096773956972842,0.013099314622839834,0.013101736512201447,0.013104046841303804],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Frequency [GHz]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Frequency [GHz]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in /home/users/elisa.stabilini/cal_qw11q/runcard_cal/replica/resonator_spectroscopy_low_2025-04-18_16-49-28.</p>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-sm w-100">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.16</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.2.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.1.3</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+    <script>
+function redirectToRuncard() {
+    window.location.href = './action.yml';
+}
+
+function redirectToPlatform() {
+    window.location.href = './new_platform/parameters.json';
+}
+
+
+// To Download PDF
+var exportPDFButton = document.getElementById("export-pdf");
+
+exportPDFButton.addEventListener("click", function() {
+
+document.body.classList.add("impresion");
+
+var doc = new jsPDF({orientation: 'landscape',});
+
+var iframes = document.querySelectorAll("iframe.gh-fit")
+source = ""
+for(var id = 0; id < iframes.length; id++) {
+    var win = iframes[id].contentWindow
+    var doc = win.document
+    var html = doc.documentElement
+    var body = doc.body
+    var ifrm = iframes[id] // or win.frameElement
+    source = source + html
+}
+
+print(source)
+
+doc.fromHTML(source, 0, 0, {
+width: 210,
+margins: {
+    left: 10,
+    right: 10,
+    top: 10,
+    bottom: 10
+}
+});
+doc.save("report.pdf");
+});
+
+</script>
+</body>
+
+</html>
