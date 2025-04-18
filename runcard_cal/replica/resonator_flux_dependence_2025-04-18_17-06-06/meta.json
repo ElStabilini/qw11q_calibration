@@ -2,9 +2,14 @@
     "title": "resonator_flux_dependence_2025-04-18_17-06-06",
     "backend": "qibolab",
     "platform": "qw11q",
-    "start_time": null,
-    "end_time": null,
-    "stats": {},
+    "start_time": "2025-04-18 17:06:18.949614+00:00",
+    "end_time": "2025-04-18 17:06:55.309183+00:00",
+    "stats": {
+        "resonator flux dependence-0": {
+            "acquisition": 36.3240228202194,
+            "fit": 0.011468357406556606
+        }
+    },
     "author": null,
     "tag": null,
     "targets": [
@@ -16,7 +21,7 @@
         "qibolab": "0.2.4",
         "qibocal": "0.1.3"
     },
-    "date": null,
-    "start-time": null,
-    "end-time": null
+    "date": "2025-04-18",
+    "start-time": "17:06:18",
+    "end-time": "17:06:55"
 }
