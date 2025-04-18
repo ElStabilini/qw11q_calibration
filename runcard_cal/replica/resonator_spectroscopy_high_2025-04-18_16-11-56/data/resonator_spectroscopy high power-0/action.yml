@@ -3,7 +3,7 @@ operation: resonator_spectroscopy
 parameters:
   amplitude: 0.6
   freq_step: 100000
-  freq_width: 10000000
+  freq_width: 100000000
   nshots: 1024
   power_level: high
   relaxation_time: 10000

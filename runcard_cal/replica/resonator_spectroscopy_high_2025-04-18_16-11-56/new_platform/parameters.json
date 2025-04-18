@@ -114,7 +114,7 @@
         },
         "B2/probe": {
             "kind": "iq",
-            "frequency": 7388737140.0855465
+            "frequency": 7369928131.361124
         },
         "B3/drive": {
             "kind": "iq",
