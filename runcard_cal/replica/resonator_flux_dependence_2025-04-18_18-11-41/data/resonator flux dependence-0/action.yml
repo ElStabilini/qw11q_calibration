@@ -1,0 +1,12 @@
+id: resonator flux dependence
+operation: resonator_flux
+parameters:
+  bias_step: 0.005
+  bias_width: 0.2
+  freq_step: 100000
+  freq_width: 10000000
+  nshots: 2000
+  relaxation_time: 2000
+targets:
+- B2
+update: true
