@@ -1,0 +1,27 @@
+{
+    "title": "resonator_spectroscopy_high_2025-04-18_16-03-51",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-18 16:04:37.302641+00:00",
+    "end_time": "2025-04-18 16:04:40.903415+00:00",
+    "stats": {
+        "resonator_spectroscopy high power-0": {
+            "acquisition": 3.5216464083641768,
+            "fit": 0.0018726512789726257
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.4",
+        "qibocal": "0.1.3"
+    },
+    "date": "2025-04-18",
+    "start-time": "16:04:37",
+    "end-time": "16:04:40"
+}
