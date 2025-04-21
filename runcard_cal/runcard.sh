@@ -10,8 +10,8 @@
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 source /home/users/elisa.stabilini/calibration/bin/activate
 
-routine="readout_optimization"
+routine="rabi_amplitude"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
-folder="readout_optimization"
+folder="replica"
 
-qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/debug_QND/${routine}_${current_time}
+qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/${routine}_${current_time}
