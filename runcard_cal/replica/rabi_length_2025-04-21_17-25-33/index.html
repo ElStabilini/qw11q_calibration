@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>rabi_length_2025-04-21_17-25-33</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-container button {
+  background: #6400FF;
+  color: white;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="https://github.com/qiboteam/qibocal" target="_blank" class="btn p-0 border-0 bg-transparent me-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-github"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.6c.4.074.547-.174.547-.387 0-.191-.007-.696-.01-1.366-2.226.483-2.695-1.073-2.695-1.073-.364-.922-.89-1.167-.89-1.167-.727-.497.055-.487.055-.487.803.056 1.226.825 1.226.825.714 1.223 1.872.87 2.33.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.889-3.644-3.953 0-.872.311-1.587.824-2.146-.083-.203-.357-1.02.078-2.127 0 0 .672-.215 2.2.82a7.684 7.684 0 0 1 4.004 0c1.527-1.035 2.2-.82 2.2-.82.435 1.107.161 1.924.079 2.127.513.559.824 1.274.824 2.146 0 3.072-1.869 3.748-3.653 3.947.287.247.543.735.543 1.482 0 1.07-.01 1.933-.01 2.194 0 .215.145.466.55.387A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+      </svg>
+    </a>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </button>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Protocols
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Rabi Length"> Rabi Length</a>
+                        
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length-0-B2">  B2</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                          </div>
+
+
+                      </li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </button>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>rabi_length_2025-04-21_17-25-33</h1>
+        <div class="button-container">
+          <button id="export-pdf">Export to pdf</button>
+          <button id="export-platform" onclick="redirectToPlatform()">Calibrated platform</button>
+          <button id="export-runcard" onclick="redirectToRuncard()">Runcard</button>
+        </div>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2025-04-21<br>
+        Start time (UTC): 17:25:47<br>
+        End time (UTC): 17:26:04
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Rabi Length" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Rabi Length</h4>
+        
+        <div id="Rabi length-0-B2" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B2</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+      <th>Errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B2</td>
+      <td>Pi pulse amplitude [a.u.]</td>
+      <td>1.0e-1</td>
+      <td>0e-1</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>Pi pulse length [ns]</td>
+      <td>4.6e1</td>
+      <td>0.1e1</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>chi2 reduced</td>
+      <td>5.745e2</td>
+      <td>0.002e2</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="87a651ed-5545-4402-8363-6f92fe92e7fb" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("87a651ed-5545-4402-8363-6f92fe92e7fb")) {                    Plotly.newPlot(                        "87a651ed-5545-4402-8363-6f92fe92e7fb",                        [{"legendgroup":"Probability","mode":"lines","name":"Probability","opacity":1,"showlegend":true,"x":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0],"y":[0.011,0.009,0.008,0.0115,0.0075,0.008,0.0085,0.01,0.009,0.0075,0.013,0.009,0.0065,0.007,0.008,0.009,0.011,0.0135,0.011,0.0085,0.0085,0.0075,0.009,0.006,0.007,0.467,0.48,0.4875,0.453,0.677,0.6735,0.7105,0.7275,0.7955,0.802,0.805,0.803,0.826,0.824,0.841,0.819,0.804,0.8055,0.789,0.7755,0.7655,0.743,0.703,0.6985,0.662,0.6405,0.6135,0.595,0.5445,0.5265,0.476,0.437,0.394,0.389,0.3555,0.3245,0.2885,0.248,0.19,0.197,0.1655,0.1355,0.113,0.1,0.0745,0.062,0.047,0.0305,0.0215,0.0135,0.012,0.01,0.0135,0.011,0.0215],"type":"scatter"},{"fill":"toself","fillcolor":"rgba(0,100,80,0.2)","line":{"color":"rgba(255,255,255,0)"},"name":"Errors","showlegend":true,"x":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,79.0,78.0,77.0,76.0,75.0,74.0,73.0,72.0,71.0,70.0,69.0,68.0,67.0,66.0,65.0,64.0,63.0,62.0,61.0,60.0,59.0,58.0,57.0,56.0,55.0,54.0,53.0,52.0,51.0,50.0,49.0,48.0,47.0,46.0,45.0,44.0,43.0,42.0,41.0,40.0,39.0,38.0,37.0,36.0,35.0,34.0,33.0,32.0,31.0,30.0,29.0,28.0,27.0,26.0,25.0,24.0,23.0,22.0,21.0,20.0,19.0,18.0,17.0,16.0,15.0,14.0,13.0,12.0,11.0,10.0,9.0,8.0,7.0,6.0,5.0,4.0,3.0,2.0,1.0,0.0],"y":[0.013332273568859365,0.011111752826445368,0.009991983935678198,0.013884087875897195,0.009429216162072047,0.009991983935678198,0.010552772515404471,0.012224859546128699,0.011111752826445368,0.009429216162072047,0.01553288373203351,0.011111752826445368,0.008296907064931294,0.008864269293852152,0.009991983935678198,0.011111752826445368,0.013332273568859365,0.01608047960658479,0.013332273568859365,0.010552772515404471,0.010552772515404471,0.009429216162072047,0.011111752826445368,0.007726846837446796,0.008864269293852152,0.4781559625313104,0.49117139203501514,0.4986768454851984,0.4641308355481518,0.6874563616999414,0.6839856509096955,0.7206412462251934,0.7374559969365203,0.8045188621787895,0.8109105555382367,0.8138593171294407,0.8118935650894341,0.8344771457460634,0.8325153978180705,0.8491767658643256,0.8276092682615888,0.8128764857911226,0.814350699124928,0.7981235683808475,0.7848300522506575,0.7749739049499137,0.7527711565333894,0.7132174116096005,0.7087615240096197,0.6725772397155402,0.6512298590391487,0.6243884744110458,0.6059766798258854,0.555635972117422,0.5376646260573295,0.4871674527086529,0.4480912352783628,0.4049262070271435,0.3999013531270205,0.36620326468886943,0.3349689958926346,0.298630837823201,0.25765650040128407,0.19877211491032806,0.20589356508943404,0.17380992629329528,0.14315309577883356,0.12007923018413726,0.10670820393249937,0.08037153089066215,0.06739240206216117,0.05173238840333293,0.03434511053157123,0.024743281517229113,0.01608047960658479,0.014434748446965313,0.012224859546128699,0.01608047960658479,0.013332273568859365,0.024743281517229113,0.018256718482770884,0.008667726431140634,0.010919520393415209,0.0077751404538713015,0.009565251553034688,0.010919520393415209,0.018256718482770884,0.02665488946842877,0.04226761159666707,0.05660759793783883,0.06862846910933784,0.09329179606750064,0.10592076981586275,0.12784690422116646,0.15719007370670474,0.18810643491056597,0.18122788508967194,0.2383434995987159,0.27836916217679897,0.3140310041073654,0.34479673531113053,0.3780986468729795,0.38307379297285654,0.4259087647216372,0.46483254729134704,0.5153353739426705,0.533364027882578,0.5840233201741145,0.6026115255889543,0.6297701409608513,0.6514227602844599,0.6882384759903803,0.6927825883903994,0.7332288434666105,0.7560260950500862,0.7661699477493424,0.7798764316191525,0.796649300875072,0.7951235142088775,0.8103907317384111,0.8328232341356744,0.8154846021819294,0.8175228542539366,0.794106434910566,0.7961406828705594,0.7930894444617634,0.7864811378212104,0.7175440030634798,0.7003587537748066,0.6630143490903044,0.6665436383000587,0.4418691644518482,0.47632315451480156,0.4688286079649848,0.4558440374686897,0.005135730706147848,0.004273153162553204,0.006888247173554631,0.005570783837927952,0.006447227484595529,0.006447227484595529,0.008667726431140634,0.010919520393415209,0.008667726431140634,0.006888247173554631,0.006008016064321803,0.005135730706147848,0.0047030929350687055,0.006888247173554631,0.01046711626796649,0.005570783837927952,0.006888247173554631,0.0077751404538713015,0.006447227484595529,0.006008016064321803,0.005570783837927952,0.009115912124102805,0.006008016064321803,0.006888247173554631,0.008667726431140634],"type":"scatter"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[0.0,0.4968553459119497,0.9937106918238994,1.490566037735849,1.9874213836477987,2.4842767295597485,2.981132075471698,3.4779874213836477,3.9748427672955975,4.471698113207547,4.968553459119497,5.465408805031447,5.962264150943396,6.459119496855346,6.955974842767295,7.452830188679245,7.949685534591195,8.446540880503145,8.943396226415095,9.440251572327044,9.937106918238994,10.433962264150944,10.930817610062894,11.427672955974844,11.924528301886792,12.421383647798741,12.918238993710691,13.415094339622641,13.91194968553459,14.40880503144654,14.90566037735849,15.40251572327044,15.89937106918239,16.39622641509434,16.89308176100629,17.38993710691824,17.88679245283019,18.38364779874214,18.88050314465409,19.37735849056604,19.87421383647799,20.371069182389938,20.867924528301888,21.364779874213838,21.861635220125788,22.358490566037737,22.855345911949687,23.352201257861637,23.849056603773583,24.345911949685533,24.842767295597483,25.339622641509433,25.836477987421382,26.333333333333332,26.830188679245282,27.32704402515723,27.82389937106918,28.32075471698113,28.81761006289308,29.31446540880503,29.81132075471698,30.30817610062893,30.80503144654088,31.30188679245283,31.79874213836478,32.295597484276726,32.79245283018868,33.289308176100626,33.78616352201258,34.283018867924525,34.77987421383648,35.276729559748425,35.77358490566038,36.270440251572325,36.76729559748428,37.264150943396224,37.76100628930818,38.257861635220124,38.75471698113208,39.25157232704402,39.74842767295598,40.24528301886792,40.742138364779876,41.23899371069182,41.735849056603776,42.23270440251572,42.729559748427675,43.22641509433962,43.723270440251575,44.22012578616352,44.716981132075475,45.21383647798742,45.710691823899374,46.20754716981132,46.704402515723274,47.20125786163522,47.698113207547166,48.19496855345912,48.691823899371066,49.18867924528302,49.685534591194966,50.18238993710692,50.679245283018865,51.17610062893082,51.672955974842765,52.16981132075472,52.666666666666664,53.16352201257862,53.660377358490564,54.15723270440252,54.65408805031446,55.15094339622642,55.64779874213836,56.144654088050316,56.64150943396226,57.138364779874216,57.63522012578616,58.132075471698116,58.62893081761006,59.125786163522015,59.62264150943396,60.119496855345915,60.61635220125786,61.113207547169814,61.61006289308176,62.106918238993714,62.60377358490566,63.100628930817614,63.59748427672956,64.09433962264151,64.59119496855345,65.0880503144654,65.58490566037736,66.08176100628931,66.57861635220125,67.0754716981132,67.57232704402516,68.06918238993711,68.56603773584905,69.062893081761,69.55974842767296,70.05660377358491,70.55345911949685,71.0503144654088,71.54716981132076,72.04402515723271,72.54088050314465,73.0377358490566,73.53459119496856,74.03144654088051,74.52830188679245,75.0251572327044,75.52201257861635,76.01886792452831,76.51572327044025,77.0125786163522,77.50943396226415,78.00628930817611,78.50314465408805,79.0],"y":[0.11571991206557952,0.10262803763847606,0.08992414821872233,0.07763370274531375,0.06578132441829967,0.054390751369021634,0.04348478911846004,0.03308526491890229,0.023212984070339115,0.01388768829901299,0.005128016281378767,-0.00304853360758911,-0.0106256382472949,-0.017588182355811277,-0.023922288640518152,-0.029615345454956532,-0.034656031906780016,-0.039034340366825626,-0.04274159633455443,-0.04577047562043657,-0.0481150188112528,-0.04977064298975353,-0.050734150685640134,-0.051003736040398984,-0.05057898817412698,-0.04946089174810797,-0.047651824722538316,-0.045155553314438546,-0.041977224166411975,-0.038123353742516075,-0.03360181497308218,-0.0284218211758423,-0.02259390728619398,-0.01612990843483353,-0.009042935916310724,-0.001347350597298902,0.006941266181495709,0.015806144150830426,0.025229358041965966,0.03519186383061129,0.04567353722249212,0.05665321430277481,0.0681087342672374,0.08001698414891692,0.09235394544996431,0.105094742584627,0.11821369303565779,0.13168435912302245,0.14547960128055826,0.15957163273322306,0.17393207546478198,0.18853201736320455,0.20334207042869837,0.2183324299271961,0.2334729343702293,0.24873312620048507,0.26408231306094976,0.2794896295243898,0.29492409915902085,0.3103546968055608,0.32575041094046575,0.341080305999993,0.35631358453984263,0.371419649105479,0.3863681636888403,0.4011291146480024,0.4156728709674591,0.42997024373803094,0.44399254473701666,0.4577116439910103,0.4711000262059011,0.48413084595084205,0.49677798148552943,0.5090160871228555,0.5208206440219804,0.5321680093100314,0.5430354634340245,0.5534012556481722,0.563244647545509,0.5725459545467162,0.5812865852631488,0.589449078655347,0.5970171389127785,0.6039756679851296,0.6103107957002172,0.6160099074084364,0.6210616690986597,0.625456049935582,0.6291843421737048,0.6322391784084289,0.634614546130092,0.6363057995522042,0.637309668690627,0.6376242656759648,0.6372490882870074,0.6361850206986431,0.6344343314432664,0.6320006685903039,0.6288890521540695,0.625105863745733,0.6206588334907157,0.6155570242383279,0.6098108130958884,0.6034318703249462,0.5964331356425183,0.5888287919754598,0.5806342367211939,0.5718660505730366,0.5625419639732271,0.5526808212615342,0.5423025425919279,0.5314280836942749,0.5200793935623398,0.5082793701535153,0.49605181418969546,0.4834213811524985,0.4704135315696606,0.45705447969283564,0.44337114067025374,0.4293910763206885,0.4151424396179908,0.40065391799799294,0.38595467560195784,0.37107429457284685,0.3560427155225699,0.3408901772900165,0.32564715611108774,0.31034430432307925,0.2950123887267086,0.27968222872972276,0.2643846343964484,0.2491503445278076,0.23400996489624554,0.21899390675966487,0.20413232577790252,0.18945506145441965,0.17499157722483744,0.16077090131258517,0.14682156847039918,0.13317156272457722,0.11984826123689402,0.10687837939676265,0.09428791725379579,0.0821021073981402,0.070345364393093,0.05904123586130752,0.04821235532260537,0.03788039687783551,0.028066031829520666,0.018788887326095793,0.010067507112480223,0.0019193144654735539,-0.005639422611954992,-0.012593623867949988,-0.018929426885798184,-0.024634214714684854,-0.02969664099211622,-0.03410665250798184,-0.0378555091654007,-0.04093580129871577],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"showlegend":true,"xaxis":{"title":{"text":"Time [ns]"}},"yaxis":{"title":{"text":"Excited state probability"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in /home/users/elisa.stabilini/cal_qw11q/runcard_cal/replica/rabi_length_2025-04-21_17-25-33.</p>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-sm w-100">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.16</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.2.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.1.3</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+    <script>
+function redirectToRuncard() {
+    window.location.href = './action.yml';
+}
+
+function redirectToPlatform() {
+    window.location.href = './new_platform/parameters.json';
+}
+
+
+// To Download PDF
+var exportPDFButton = document.getElementById("export-pdf");
+
+exportPDFButton.addEventListener("click", function() {
+
+document.body.classList.add("impresion");
+
+var doc = new jsPDF({orientation: 'landscape',});
+
+var iframes = document.querySelectorAll("iframe.gh-fit")
+source = ""
+for(var id = 0; id < iframes.length; id++) {
+    var win = iframes[id].contentWindow
+    var doc = win.document
+    var html = doc.documentElement
+    var body = doc.body
+    var ifrm = iframes[id] // or win.frameElement
+    source = source + html
+}
+
+print(source)
+
+doc.fromHTML(source, 0, 0, {
+width: 210,
+margins: {
+    left: 10,
+    right: 10,
+    top: 10,
+    bottom: 10
+}
+});
+doc.save("report.pdf");
+});
+
+</script>
+</body>
+
+</html>
