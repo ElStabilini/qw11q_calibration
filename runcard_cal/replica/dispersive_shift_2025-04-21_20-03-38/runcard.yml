@@ -1,0 +1,14 @@
+actions:
+- id: dispersive_shift
+  operation: dispersive_shift_qutrit
+  parameters:
+    freq_step: 200000
+    freq_width: 1000000
+    nshots: 1024
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true

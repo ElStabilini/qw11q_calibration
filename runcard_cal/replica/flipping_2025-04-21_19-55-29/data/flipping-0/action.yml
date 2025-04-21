@@ -1,0 +1,9 @@
+id: flipping
+operation: flipping
+parameters:
+  delta_amplitude: 0.005
+  nflips_max: 50
+  nflips_step: 1
+targets:
+- B2
+update: true

@@ -1,0 +1,8 @@
+{
+    "\"resonator_type\"": "2D",
+    "\"delta_amplitude\"": 0.005,
+    "\"pulse_amplitudes\"": {
+        "\"B2\"": 0.09747383943677225
+    },
+    "\"rx90\"": false
+}
