@@ -1,0 +1,19 @@
+actions:
+- id: rabi amplitude frequency
+  operation: rabi_amplitude_frequency_signal
+  parameters:
+    max_amp: 0.2
+    max_freq: 50000000
+    min_amp: 0.0
+    min_freq: -50000000
+    nshots: 1024
+    pulse_length: 40
+    step_amp: 0.002
+    step_freq: 1000000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
