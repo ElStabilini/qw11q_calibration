@@ -1,0 +1,27 @@
+{
+    "title": "rabi_length_signal_2025-04-22_09-03-38",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-22 09:03:55.004755+00:00",
+    "end_time": "2025-04-22 09:04:02.362787+00:00",
+    "stats": {
+        "Rabi length signal-0": {
+            "acquisition": 7.318240523338318,
+            "fit": 0.011940831318497658
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B4"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.4",
+        "qibocal": "0.1.3"
+    },
+    "date": "2025-04-22",
+    "start-time": "09:03:55",
+    "end-time": "09:04:02"
+}
