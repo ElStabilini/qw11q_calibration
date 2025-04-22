@@ -16,11 +16,11 @@ actions:
   #      relaxation_time: 5000
  
   - id: rabi
-    operation: rabi_amplitude_signal
+    operation: rabi_amplitude
     parameters:
-      max_amp: 1.
-      min_amp: 0.01
-      step_amp: 0.002    
+      max_amp: 0.8
+      min_amp: 0.1
+      step_amp: 0.005    
       pulse_length: 40
       relaxation_time: 80000
       nshots: 1024

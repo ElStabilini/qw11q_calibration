@@ -1,12 +1,12 @@
 platform: qw11q
 
-targets: [D1]
+targets: [B2]
 
 actions:
   - id: flipping
 
     operation: flipping
     parameters:
-        nflips_max: 20
-        delta_amplitude: 0.000060
+        nflips_max: 50
+        delta_amplitude: 0.0050
         nflips_step: 1

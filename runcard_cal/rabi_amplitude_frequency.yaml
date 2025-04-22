@@ -1,19 +1,19 @@
 platform: qw11q
 
-targets: [D1]
+targets: [B2]
 
 actions:
 
-  - id: resonator_spectroscopy low power
-    operation: resonator_spectroscopy
-    parameters:
-        freq_width: 8000000
-        freq_step: 50000
-        amplitude: 0.001
-        power_level: low
-        fit_function: "s21"
-        nshots: 1024
-        relaxation_time: 5000
+  #- id: resonator_spectroscopy low power
+  #  operation: resonator_spectroscopy
+  #  parameters:
+  #     freq_width: 8000000
+  #      freq_step: 50000
+  #      amplitude: 0.001
+  #      power_level: low
+  #      fit_function: "s21"
+  #      nshots: 1024
+  #      relaxation_time: 5000
 
           #  - id: rabi
 

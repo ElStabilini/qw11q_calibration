@@ -1,0 +1,12 @@
+platform: qw11q
+
+targets: [B2]
+
+actions:
+  - id: dispersive_shift 
+
+    operation: dispersive_shift
+    parameters:
+        freq_step: 200000
+        freq_width: 1000000
+        nshots: 1024
