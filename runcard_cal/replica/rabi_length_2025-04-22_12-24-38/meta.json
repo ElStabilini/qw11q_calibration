@@ -1,0 +1,27 @@
+{
+    "title": "rabi_length_2025-04-22_12-24-38",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-22 12:24:50.696537+00:00",
+    "end_time": "2025-04-22 12:25:00.071810+00:00",
+    "stats": {
+        "Rabi length-0": {
+            "acquisition": 9.350927826948464,
+            "fit": 0.004223988391458988
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.4",
+        "qibocal": "0.1.3"
+    },
+    "date": "2025-04-22",
+    "start-time": "12:24:50",
+    "end-time": "12:25:00"
+}
