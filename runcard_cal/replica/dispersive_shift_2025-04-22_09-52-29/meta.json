@@ -1,0 +1,27 @@
+{
+    "title": "dispersive_shift_2025-04-22_09-52-29",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-22 09:52:41.858677+00:00",
+    "end_time": "2025-04-22 09:52:59.473179+00:00",
+    "stats": {
+        "dispersive_shift-0": {
+            "acquisition": 17.583292881026864,
+            "fit": 0.006896620616316795
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.4",
+        "qibocal": "0.1.3"
+    },
+    "date": "2025-04-22",
+    "start-time": "09:52:41",
+    "end-time": "09:52:59"
+}
