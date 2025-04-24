@@ -1,0 +1,18 @@
+actions:
+- id: standard rb
+  operation: standard_rb
+  parameters:
+    depths:
+    - 1
+    - 5
+    - 10
+    - 20
+    niter: 20
+    nshots: 1000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
