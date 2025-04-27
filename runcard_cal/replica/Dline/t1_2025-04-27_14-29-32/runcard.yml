@@ -1,0 +1,19 @@
+actions:
+- id: t1
+  operation: t1
+  parameters:
+    delay_before_readout_end: 100000
+    delay_before_readout_start: 10
+    delay_before_readout_step: 500
+    nshots: 1024
+    relaxation_time: 30000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- D2
+- D3
+- D4
+- D5
+update: true
