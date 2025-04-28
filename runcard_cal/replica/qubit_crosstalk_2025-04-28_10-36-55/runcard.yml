@@ -1,0 +1,11 @@
+actions:
+- id: qubit crosstalk
+  operation: qubit_crosstalk
+  parameters: null
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
