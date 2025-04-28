@@ -1,0 +1,13 @@
+id: resonator punchout
+operation: resonator_punchout
+parameters:
+  freq_step: 100000
+  freq_width: 5000000
+  max_amp: 1.0
+  min_amp: 0.05
+  nshots: 2048
+  relaxation_time: 5000
+  step_amp: 0.05
+targets:
+- B4
+update: true
