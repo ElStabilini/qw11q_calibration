@@ -1,0 +1,27 @@
+actions:
+- id: qubit crosstalk
+  operation: qubit_crosstalk
+  parameters:
+    bias_point:
+      B2: 0.25
+    bias_step: 0.001
+    bias_width: 0.05
+    drive_amplitude: 0.002
+    drive_duration: 4000
+    flux_qubits:
+    - B1
+    - B3
+    - B4
+    - B5
+    freq_step: 200000
+    freq_width: 10000000
+    nshots: 1024
+    relaxation_time: 20000
+  targets:
+  - B2
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
