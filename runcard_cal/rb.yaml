@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [D1]
+targets: [D2,D3,D4,D5]
 
 actions:
   - id: standard rb

@@ -19,8 +19,8 @@ actions:
     operation: rabi_amplitude
     parameters:
       max_amp: 0.8
-      min_amp: 0.1
-      step_amp: 0.005    
+      min_amp: 0.005
+      step_amp: 0.001    
       pulse_length: 40
       relaxation_time: 80000
-      nshots: 1024
+      nshots: 2048

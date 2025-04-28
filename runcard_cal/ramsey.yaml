@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [B2]
+targets: [D2,D3,D4,D5]
 
 actions:
   - id: ramsey
@@ -11,5 +11,5 @@ actions:
         delay_between_pulses_start: 10
         delay_between_pulses_step: 20
         detuning: 3_000_000
-        nshots: 1024
+        nshots: 2048 
         relaxation_time: 200000

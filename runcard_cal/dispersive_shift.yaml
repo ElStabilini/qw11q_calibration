@@ -7,6 +7,6 @@ actions:
 
     operation: dispersive_shift
     parameters:
-        freq_step: 200000
-        freq_width: 1000000
-        nshots: 1024
+        freq_step: 100_000
+        freq_width: 4_500_000
+        nshots: 3000 
