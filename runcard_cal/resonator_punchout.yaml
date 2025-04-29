@@ -1,16 +1,16 @@
 platform: qw11q
 
-targets: [B4]
+targets: [B2]
 
 actions:
   - id: resonator punchout
 
     operation: resonator_punchout
     parameters:
-        freq_width: 5_000_000
-        freq_step: 100_000
-        min_amp: 0.05
-        max_amp: 0.9
-        step_amp: 0.05
+        freq_width: 2_000_000
+        freq_step: 20_000
+        min_amp: 0.01
+        max_amp: 0.1 
+        step_amp: 0.0005
         nshots: 2048
         relaxation_time: 5000
