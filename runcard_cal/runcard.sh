@@ -10,8 +10,8 @@
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 source /home/users/elisa.stabilini/calibration/bin/activate
 
-routine="rb"
+routine="rabi_amplitude"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
-folder="replica"
+folder="rx90_calibration"
 
 qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/${routine}_${current_time}

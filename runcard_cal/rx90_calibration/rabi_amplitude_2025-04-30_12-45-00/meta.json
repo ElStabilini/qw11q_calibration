@@ -1,0 +1,34 @@
+{
+    "title": "rabi_amplitude_2025-04-30_12-45-00",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-30 12:45:15.190740+00:00",
+    "end_time": "2025-04-30 12:47:41.338546+00:00",
+    "stats": {
+        "rabi-0": {
+            "acquisition": 72.47013476025313,
+            "fit": 0.0065893931314349174
+        },
+        "rabi-1": {
+            "acquisition": 73.57460479717702,
+            "fit": 0.006227785721421242
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-04-30",
+    "start-time": "12:45:15",
+    "end-time": "12:47:41"
+}
