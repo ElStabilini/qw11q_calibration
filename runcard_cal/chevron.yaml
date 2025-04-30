@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [ [B2, B4], [B1, B3], [B1,B2] ]
+targets: [ [B1, B3] ]
 
 actions:
   
@@ -8,8 +8,8 @@ actions:
 
     operation: chevron 
     parameters:
-      amplitude_min: -0.5
-      amplitude_max: -0.45
+      amplitude_min: -0.47
+      amplitude_max: -0.42
       amplitude_step: 0.001
       duration_max: 60
       duration_min: 0
