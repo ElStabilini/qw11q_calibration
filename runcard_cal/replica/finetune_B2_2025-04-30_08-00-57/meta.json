@@ -1,0 +1,35 @@
+{
+    "title": "finetune_B2_2025-04-30_08-00-57",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-30 08:01:11.290779+00:00",
+    "end_time": "2025-04-30 08:19:12.495268+00:00",
+    "stats": {
+        "ramsey-0": {
+            "acquisition": 23.84349520970136,
+            "fit": 0.005670870654284954
+        },
+        "rabi amplitude frequency-0": {
+            "acquisition": 1049.950870201923,
+            "fit": 0.012338380329310894
+        },
+        "Rabi length-0": {
+            "acquisition": 7.307200690731406,
+            "fit": 0.010072638280689716
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-04-30",
+    "start-time": "08:01:11",
+    "end-time": "08:19:12"
+}
