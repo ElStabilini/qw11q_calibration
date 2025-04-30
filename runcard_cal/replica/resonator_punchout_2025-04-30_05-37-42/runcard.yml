@@ -1,0 +1,18 @@
+actions:
+- id: resonator punchout
+  operation: resonator_punchout
+  parameters:
+    freq_step: 25000
+    freq_width: 1300000
+    max_amp: 0.7
+    min_amp: 0.01
+    nshots: 2048
+    relaxation_time: 5000
+    step_amp: 0.001
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
