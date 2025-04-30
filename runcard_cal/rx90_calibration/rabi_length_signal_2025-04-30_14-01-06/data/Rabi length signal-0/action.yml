@@ -1,0 +1,15 @@
+id: Rabi length signal
+operation: rabi_length_signal
+parameters:
+  nshots: 2000
+  pulse_amplitude: 0.67
+  pulse_duration_end: 90
+  pulse_duration_start: 40
+  pulse_duration_step: 1
+  relaxation_time: 50000
+targets:
+- B1
+- B2
+- B3
+- B4
+update: true

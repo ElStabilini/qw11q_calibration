@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>rabi_length_signal_2025-04-30_14-01-06</title>
+  
+
+  <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.6.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+  
+  <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+  <!-- Reading the plotly js library from online to save space (not the latest version) -->
+  <!-- This is required for the report plots to remain interactive -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.list-group-item.active {
+  background-color: #6600ff1c;
+  border-color: #6600ff1c;
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-width: 0px;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  background-color: #6400FF;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Side bar buttom menu
+ */
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #6600ff1c;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #6600ff1c;
+}
+
+.gh-fullwidth {
+    min-height: 550px;
+    width: 100%;
+}
+
+.refresh-area
+{
+  display: flex;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  font-size: 0.7em;
+}
+
+.interval-refresh
+{
+  width: 12em;
+  margin-left: 0.3em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
+.latest-timestamp
+{
+  margin-top: 3.6em;
+  margin-left: -15em;
+  font-style: italic;
+}
+
+.refresh-text
+{
+  width: 8em;
+  margin-top: -0.4em;
+  font-weight: bold;
+}
+
+.fitting-table
+{
+  width: 30%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.8em;
+  border-radius: 15px;
+}
+
+.fitting-table th
+{
+  background-color: #f0e6ff;
+  padding: 8px;
+  text-align: center;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.fitting-table td
+{
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.button-container button {
+  background: #6400FF;
+  color: white;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.8em;
+}
+
+@media print {
+
+  .impresion main
+  {
+    transform: scale(0.7) translate(0%, 0%);
+    transform-origin: top left;
+  }
+
+  .impresion header
+  {
+    display: none;
+  }
+
+  .sidebar
+  {
+    width:0px;
+    overflow-y: hidden;
+    display: none;
+  }
+
+  .impresion #export-pdf
+  {
+    display: none;
+  }
+
+  .impresion #margin
+  {
+    display: none;
+  }
+
+  .impresion #actions
+  {
+    display: none;
+  }
+
+  #margin_iframes
+  {
+    margin-top:-20px;
+  }
+
+  .refresh-area
+  {
+    display: none;
+  }
+
+  .ms-sm-auto
+  {
+    width:2800px;
+    margin-left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .div-fitting
+  {
+    margin-left: -50%;
+  }
+}
+
+</style>
+  
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"><span class="fs-4">Qibocal Reports</span></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="https://github.com/qiboteam/qibocal" target="_blank" class="btn p-0 border-0 bg-transparent me-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-github"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.6c.4.074.547-.174.547-.387 0-.191-.007-.696-.01-1.366-2.226.483-2.695-1.073-2.695-1.073-.364-.922-.89-1.167-.89-1.167-.727-.497.055-.487.055-.487.803.056 1.226.825 1.226.825.714 1.223 1.872.87 2.33.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.889-3.644-3.953 0-.872.311-1.587.824-2.146-.083-.203-.357-1.02.078-2.127 0 0 .672-.215 2.2.82a7.684 7.684 0 0 1 4.004 0c1.527-1.035 2.2-.82 2.2-.82.435 1.107.161 1.924.079 2.127.513.559.824 1.274.824 2.146 0 3.072-1.869 3.748-3.653 3.947.287.247.543.735.543 1.482 0 1.07-.01 1.933-.01 2.194 0 .215.145.466.55.387A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+      </svg>
+    </a>
+  </header>
+
+  <div class="container-fluid">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-4 p-2 sidebar-sticky">
+        <ul class="list-unstyled ps-0">
+          
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#home-collapse" aria-expanded="true">
+              Home
+            </button>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Timestamp</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#actions-collapse" aria-expanded="true">
+              Protocols
+            </button>
+            <div class="collapse show" id="actions-collapse">
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Rabi Length Signal"> Rabi Length Signal</a>
+                        
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length signal-0-B1">  B1</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length signal-0-B2">  B2</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length signal-0-B3">  B3</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length signal-0-B4">  B4</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                          </div>
+
+
+                      </li>
+                  </ul>
+                </ul>
+              
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                        href="#Rabi Length Signal"> Rabi Length Signal</a>
+                        
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length signal-1-B1">  B1</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length signal-1-B2">  B2</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length signal-1-B3">  B3</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                        <div class="collapse show" id="action-collapse">
+                          <ul class="list-unstyled ps-4">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              <li><a class="link-dark d-inline-flex text-decoration-none rounded"
+                                href="#Rabi length signal-1-B4">  B4</a>
+                                </li>
+                            </ul>
+                          </ul>
+                          
+                          </div>
+
+
+                      </li>
+                  </ul>
+                </ul>
+              
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+              data-bs-target="#summary-collapse" aria-expanded="true">
+              Summary
+            </button>
+            <div class="collapse show" id="summary-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#summary" class="link-dark d-inline-flex text-decoration-none rounded">
+                    Versions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          
+          
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1>rabi_length_signal_2025-04-30_14-01-06</h1>
+        <div class="button-container">
+          <button id="export-pdf">Export to pdf</button>
+          <button id="export-platform" onclick="redirectToPlatform()">Calibrated platform</button>
+          <button id="export-runcard" onclick="redirectToRuncard()">Runcard</button>
+        </div>
+      </div>
+      <p>
+        Platform: qw11q<br>
+        Run date: 2025-04-30<br>
+        Start time (UTC): 14:01:19<br>
+        End time (UTC): 14:01:52
+      </p>
+
+      <h3 id="actions"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        </h3>
+
+
+      
+      <div id="Rabi Length Signal" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Rabi Length Signal</h4>
+        
+        <div id="Rabi length signal-0-B1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B1</td>
+      <td>Pi pulse amplitude [a.u.]</td>
+      <td>0.670</td>
+    </tr>
+    <tr>
+      <td>B1</td>
+      <td>Pi pulse length [ns]</td>
+      <td>6.259</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="4886dd8a-e1b2-4db9-add6-938f2f112f61" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("4886dd8a-e1b2-4db9-add6-938f2f112f61")) {                    Plotly.newPlot(                        "4886dd8a-e1b2-4db9-add6-938f2f112f61",                        [{"legendgroup":"Signal","name":"Signal","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.0037450615058936348,0.0036533721561196573,0.0034931972118270953,0.0033810692833919614,0.003311518157540758,0.0033311115494722883,0.0033184307125916036,0.0033045280410242,0.0033579978658547665,0.003567855107822159,0.003767514210852332,0.003840912987475818,0.00376400787350533,0.0035059302716870635,0.003369601775332282,0.003308380283425097,0.003324049345209163,0.0033387990768326795,0.0032891323444663523,0.0033835679061111515,0.003509176400186193,0.003738994000266499,0.0038584382830567816,0.00375755922931935,0.0035615284238108506,0.0033837719073350277,0.0033144177557460235,0.003321360478209427,0.003333935820603525,0.0032883838115601357,0.0033518781985292746,0.00347700572892989,0.0036888736178372758,0.0038224897737886756,0.0037844806935262362,0.0035557177604809043,0.0033881464686075467,0.003324088908466954,0.0033054786629718464,0.0033209520981194725,0.0033189317335276937,0.003322613589527633,0.003496906020389841,0.0036700293279495243,0.0038355729625160736,0.003786146133352708,0.0036182492742987517,0.0034226541109386925,0.0033167631830192975,0.0033283776738132625],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[2.7226019409478623,2.7703850815131856,2.892271650217682,2.997181782258409,3.159075217568919,3.3197673858422023,3.28113035306612,3.1799080444799928,3.0455673103133187,2.8078194929591214,2.709901564393856,2.6790349931572592,2.7103360074652607,2.883604495330408,3.0490567676516296,3.2088888306236125,3.308306982904067,3.2938592629783083,3.186632123159315,3.0097826877833076,2.8512980062006053,2.7151613764314138,2.671516852413664,2.7234105354390823,2.819739445292309,3.019506360413329,3.1995571409141967,3.309989290789231,3.324889412399581,3.2128841525395213,3.0399580814833325,2.8689730687881014,2.7351510333785662,2.6870397295914743,2.6984048983563462,2.8269755818903644,2.9659872077529807,3.1857389925464332,3.294883745582163,3.324356576273462,3.2711214794357466,3.084300202534821,2.879715355587549,2.758408245981366,2.6808058719667067,2.6944904742296925,2.786028702150328,2.947411519779451,3.1362177967494844,3.282481929202022],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[40.0,40.494949494949495,40.98989898989899,41.484848484848484,41.97979797979798,42.474747474747474,42.96969696969697,43.464646464646464,43.95959595959596,44.45454545454545,44.94949494949495,45.44444444444444,45.93939393939394,46.43434343434343,46.92929292929293,47.42424242424242,47.91919191919192,48.41414141414141,48.90909090909091,49.4040404040404,49.898989898989896,50.39393939393939,50.888888888888886,51.38383838383838,51.878787878787875,52.37373737373737,52.868686868686865,53.36363636363637,53.85858585858586,54.35353535353536,54.84848484848485,55.343434343434346,55.83838383838384,56.333333333333336,56.82828282828283,57.323232323232325,57.81818181818182,58.313131313131315,58.80808080808081,59.303030303030305,59.7979797979798,60.292929292929294,60.78787878787879,61.282828282828284,61.77777777777778,62.27272727272727,62.76767676767677,63.26262626262626,63.75757575757576,64.25252525252526,64.74747474747474,65.24242424242425,65.73737373737373,66.23232323232324,66.72727272727273,67.22222222222223,67.71717171717172,68.21212121212122,68.70707070707071,69.20202020202021,69.6969696969697,70.1919191919192,70.68686868686869,71.18181818181819,71.67676767676768,72.17171717171718,72.66666666666667,73.16161616161617,73.65656565656566,74.15151515151516,74.64646464646465,75.14141414141415,75.63636363636364,76.13131313131314,76.62626262626263,77.12121212121212,77.61616161616162,78.11111111111111,78.60606060606061,79.1010101010101,79.5959595959596,80.0909090909091,80.58585858585859,81.08080808080808,81.57575757575758,82.07070707070707,82.56565656565657,83.06060606060606,83.55555555555556,84.05050505050505,84.54545454545455,85.04040404040404,85.53535353535354,86.03030303030303,86.52525252525253,87.02020202020202,87.51515151515152,88.01010101010101,88.5050505050505,89.0],"y":[0.0038203261639146216,0.003798399848894693,0.003759055432027399,0.0037053388651791816,0.0036414087581370922,0.0035722144288570486,0.0035031127389524475,0.003439453378114938,0.0033861647037684837,0.0033473721992728503,0.003326079088741662,0.003323933834521775,0.0033411025171302053,0.0033762559776925978,0.003426672718285295,0.0034884495938794554,0.003556803984614336,0.0036264440549357204,0.0036919784350111363,0.0037483336078539186,0.00379114668903035,0.0038171031908722747,0.003824193622287264,0.003811869058814824,0.0037810836390621844,0.003734220697545927,0.0036749082525604896,0.0036077381335671076,0.0035379104925976988,0.0034708312207614674,0.0034116934369179033,0.0033650754486749942,0.003334586310623053,0.0033225864198488824,0.003330004779565921,0.0033562670778787287,0.003399340149654048,0.0034558893793653614,0.0035215368591543362,0.0035912003161214933,0.0036594865698954633,0.0037211090599246774,0.0037712971185143444,0.003806165304656412,0.0038230142056993443,0.003820539419502623,0.0037989325381709285,0.0037598663154457175,0.003706365166059736,0.0036425710226886793,0.003573422677302056,0.0035042734315487854,0.003440476656782058,0.0033869713486878133,0.003347899761899127,0.0033262867264218714,0.0033238054724369225,0.0033406480927698533,0.0033755106715178825,0.0034256942301406855,0.0034873136760070157,0.003555598577093984,0.00362526247757186,0.003690912162733717,0.0037474651889453166,0.0037905433544322374,0.0038168116493248363,0.003824236444248809,0.003812242929110187,0.003781759613535761,0.0037351464438498683,0.003676012101601517,0.003608934627958523,0.0035391070025684946,0.0034719351153345225,0.003412619255181534,0.003365751515964973,0.003334960287405905,0.003322629353724993,0.003329713346695964,0.0033556638403074578,0.003398471808610059,0.0034548231597622335,0.0035203553051965245,0.0035899949009269108,0.0036583506138626273,0.0037201305060877987,0.003770551724201228,0.0038057107765349894,0.003822885732263692,0.0038207469468628194,0.003799460000048694,0.0037606728769877494,0.003707388385175643,0.003643731684170208,0.003574630925477485,0.003505435726696905,0.003441503016756537,0.0033877823151225402,0.0033484325516873192],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Time [ns]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Time [ns]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Signal [a.u.]","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"phase [rad]","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+        <div id="Rabi length signal-0-B2" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B2</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B2</td>
+      <td>Pi pulse amplitude [a.u.]</td>
+      <td>0.670</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>Pi pulse length [ns]</td>
+      <td>6.457</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="945929da-e07c-458e-80f7-297ddc2869d4" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("945929da-e07c-458e-80f7-297ddc2869d4")) {                    Plotly.newPlot(                        "945929da-e07c-458e-80f7-297ddc2869d4",                        [{"legendgroup":"Signal","name":"Signal","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.003288589007802347,0.003645279021789452,0.0038583665958229806,0.0039053170321345465,0.003908211827559371,0.003719856453285581,0.003511099011105818,0.003316703267425238,0.003207368244877553,0.0031068107804694167,0.003095924649455289,0.0032098935463363166,0.0033568522560393,0.0035942851446576153,0.003772423902143511,0.0038478790691819677,0.00393977213783511,0.003765064558531977,0.0036433655649211407,0.003395090594408344,0.0032077703462237094,0.003109089798983281,0.003068240595394325,0.0031291629411171187,0.003312430346237456,0.0034734425856782435,0.0037310614450339072,0.0038589307663105237,0.0038542683171191488,0.0038268680902428603,0.00369890519358808,0.0033842437829165735,0.0032262785619240225,0.0031609971930862983,0.003091417121053494,0.0031173672833392225,0.0032389016393104065,0.003427627306378259,0.003624110866080519,0.003775087815134751,0.003912608854303389,0.0038452878216058044,0.0037228631605278994,0.0035095602368405694,0.0033240263978049807,0.0031596496983250233,0.003129542597152881,0.003127712280801494,0.0032133500739655253,0.0033402971306461175],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[-2.878622009039918,-3.0460246974448943,-3.122002588898367,-3.1400837896804794,-3.1300731144100014,-3.0738307372895357,-3.004359972181426,-2.8982326477217084,-2.810691816316373,-2.756560356844536,-2.7779872470809885,-2.831102627364269,-2.9292415748049963,-3.028969080594378,-3.098089876860926,-3.1260367823113056,-3.143077183078357,-3.087005451564223,-3.043245909471317,-2.9221439471063517,-2.8308145733837726,-2.7627180590594373,-2.7585062270241494,-2.794679802634581,-2.8888289463364494,-2.9852780045246425,-3.0693420084828724,-3.116711157568828,-3.119835926124713,-3.1058318835615384,-3.0608443164602033,-2.9367308455337655,-2.8526139429127664,-2.7903511216413945,-2.758284129957077,-2.7745034060164495,-2.857468381847928,-2.962420820488577,-3.0455858156335056,-3.0978395966567436,-3.1316317444065747,-3.107528006604205,-3.065242653085585,-2.9993978759973,-2.897545272132347,-2.814955020218914,-2.7742052195754456,-2.7792152387401736,-2.839129009805432,-2.9160760360073255],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[40.0,40.494949494949495,40.98989898989899,41.484848484848484,41.97979797979798,42.474747474747474,42.96969696969697,43.464646464646464,43.95959595959596,44.45454545454545,44.94949494949495,45.44444444444444,45.93939393939394,46.43434343434343,46.92929292929293,47.42424242424242,47.91919191919192,48.41414141414141,48.90909090909091,49.4040404040404,49.898989898989896,50.39393939393939,50.888888888888886,51.38383838383838,51.878787878787875,52.37373737373737,52.868686868686865,53.36363636363637,53.85858585858586,54.35353535353536,54.84848484848485,55.343434343434346,55.83838383838384,56.333333333333336,56.82828282828283,57.323232323232325,57.81818181818182,58.313131313131315,58.80808080808081,59.303030303030305,59.7979797979798,60.292929292929294,60.78787878787879,61.282828282828284,61.77777777777778,62.27272727272727,62.76767676767677,63.26262626262626,63.75757575757576,64.25252525252526,64.74747474747474,65.24242424242425,65.73737373737373,66.23232323232324,66.72727272727273,67.22222222222223,67.71717171717172,68.21212121212122,68.70707070707071,69.20202020202021,69.6969696969697,70.1919191919192,70.68686868686869,71.18181818181819,71.67676767676768,72.17171717171718,72.66666666666667,73.16161616161617,73.65656565656566,74.15151515151516,74.64646464646465,75.14141414141415,75.63636363636364,76.13131313131314,76.62626262626263,77.12121212121212,77.61616161616162,78.11111111111111,78.60606060606061,79.1010101010101,79.5959595959596,80.0909090909091,80.58585858585859,81.08080808080808,81.57575757575758,82.07070707070707,82.56565656565657,83.06060606060606,83.55555555555556,84.05050505050505,84.54545454545455,85.04040404040404,85.53535353535354,86.03030303030303,86.52525252525253,87.02020202020202,87.51515151515152,88.01010101010101,88.5050505050505,89.0],"y":[0.003449207202344422,0.0035549519391228335,0.003657352941026529,0.0037498956989611256,0.0038266993985807676,0.00388289062146298,0.0039149125693757995,0.003920750191517094,0.003900056966045011,0.0038541753604338157,0.0037860497700357917,0.003700037579016601,0.0036016304668287764,0.003497103784564919,0.0033931163867590764,0.0032962864362546126,0.0032127702046450216,0.0031478706742918555,0.0031057008254571756,0.003088922987650882,0.003098580772451719,0.0031340341965632916,0.0031930020257828957,0.0032717085422190356,0.003365125293348627,0.00346729234504718,0.0035716985151878202,0.003671696329982983,0.0037609252583738965,0.0038337162781698977,0.003885452041616892,0.003912859758723614,0.003914218220990022,0.0038894658708097745,0.003840203132668395,0.0037695889588605013,0.003682138275619035,0.003583433316731734,0.0034797673002650927,0.0033777431926532817,0.0032838531413002026,0.0032040653628105124,0.003143444773810695,0.0031058314785099165,0.003093597521578673,0.003107497313911917,0.003146621161939946,0.0032084547597107365,0.003289040755824842,0.00338323201407424,0.0034850203603633977,0.003587919819372446,0.0036853798962884657,0.003771202569969789,0.003839936452858292,0.0038872230516460056,0.003910073135400774,0.003907055687464842,0.0038783874981378123,0.0038259177906747404,0.0037530089595007024,0.0036643211108496805,0.0035655142115479,0.003462886882608474,0.0033629748885872514,0.003272134916928303,0.0031961401533307124,0.0031398133830215333,0.0031067209347373074,0.003098946889353638,0.003116961847779387,0.003159594520475672,0.0032241078485813887,0.003306374711675298,0.003401141943357706,0.0035023657659277252,0.0036035972258367578,0.003698393049585916,0.0037807257452555664,0.003845366847896706,0.003888218941333547,0.003906575372548099,0.003899291197260999,0.0038668545610948055,0.0038113540681890402,0.003736344313668599,0.003646618236040032,0.0035479008681182926,0.003446484054040516,0.0033488254386547043,0.0032611372873092687,0.003188991316915328,0.003136964675021812,0.0031083495605852035,0.003104944907887542,0.0031269433142176372,0.0031729203171715482,0.0032399266061984055,0.003323677200812136,0.0034188254617785524],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Time [ns]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Time [ns]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Signal [a.u.]","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"phase [rad]","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+        <div id="Rabi length signal-0-B3" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B3</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B3</td>
+      <td>Pi pulse amplitude [a.u.]</td>
+      <td>0.670</td>
+    </tr>
+    <tr>
+      <td>B3</td>
+      <td>Pi pulse length [ns]</td>
+      <td>8.738</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="b02fe931-dcf0-4aff-b654-986515a14473" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b02fe931-dcf0-4aff-b654-986515a14473")) {                    Plotly.newPlot(                        "b02fe931-dcf0-4aff-b654-986515a14473",                        [{"legendgroup":"Signal","name":"Signal","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.0034954329161558245,0.00359543353901015,0.0035062665496223425,0.0032490127058553636,0.003047509401177939,0.002450478431816482,0.0021265644981404916,0.0018168946846842454,0.0015410543528047225,0.0014450456668245262,0.001528028146740152,0.0017722554775290633,0.0021990447880823765,0.0027075806845707068,0.003071355977170164,0.003350615123286582,0.003547073830451449,0.0035552808380990013,0.0035033336498087072,0.0032336404945753484,0.0030486847047699705,0.0025382815650736674,0.0021732068264641736,0.001856557041325117,0.0015898403110892491,0.0014385224348819334,0.0015364288508722135,0.001791918188087657,0.0021453440726726097,0.0026525140962515,0.0031040045076537693,0.0033546480775144922,0.003560034520299518,0.00359443685243576,0.0034872105056170995,0.003402646849229002,0.0030367279339670824,0.0027214244270919096,0.0022505261007400444,0.001861595922958475,0.0015519459480160477,0.0014525531196860333,0.0014990315694138059,0.0017671668097813207,0.0021820174797214016,0.00260413405812028,0.0030218556109149197,0.0033494761037066363,0.0035327520915173377,0.0035981119609285114],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[-0.9965681985345193,-0.9949906784201497,-0.9971148345009196,-0.9985788122410694,-1.0029196481351705,-1.001451678207361,-0.9990554404627376,-1.0115616799554077,-0.9976878938544004,-0.9896120588031563,-0.9887384428260135,-0.9997742751172378,-0.9909572986466555,-0.999816222627963,-1.0009463141933341,-0.9966852631206573,-1.0031004951132627,-0.9902094244129205,-0.9927126913982799,-0.997100355403248,-0.9991861936682621,-0.9967578715622463,-1.008503173078834,-0.995392786862783,-0.9861927954043748,-0.9949804749086272,-0.9945554365037134,-0.9919435206595634,-1.0012297713474831,-1.0039628936673337,-0.9940464329042481,-0.9984101574112161,-0.9991432447525914,-0.9959651270096124,-0.9935651659203559,-0.9874348906489189,-1.002961999114176,-0.9914160766935641,-0.9960351286650984,-0.9873415224145025,-1.0009413484406784,-0.9992236431579328,-0.9823088576034433,-0.9956774436162138,-0.9936558190656396,-0.9960955757997364,-0.9958296250621456,-0.997276021380331,-0.9909759065059986,-0.9906355790538591],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[40.0,40.494949494949495,40.98989898989899,41.484848484848484,41.97979797979798,42.474747474747474,42.96969696969697,43.464646464646464,43.95959595959596,44.45454545454545,44.94949494949495,45.44444444444444,45.93939393939394,46.43434343434343,46.92929292929293,47.42424242424242,47.91919191919192,48.41414141414141,48.90909090909091,49.4040404040404,49.898989898989896,50.39393939393939,50.888888888888886,51.38383838383838,51.878787878787875,52.37373737373737,52.868686868686865,53.36363636363637,53.85858585858586,54.35353535353536,54.84848484848485,55.343434343434346,55.83838383838384,56.333333333333336,56.82828282828283,57.323232323232325,57.81818181818182,58.313131313131315,58.80808080808081,59.303030303030305,59.7979797979798,60.292929292929294,60.78787878787879,61.282828282828284,61.77777777777778,62.27272727272727,62.76767676767677,63.26262626262626,63.75757575757576,64.25252525252526,64.74747474747474,65.24242424242425,65.73737373737373,66.23232323232324,66.72727272727273,67.22222222222223,67.71717171717172,68.21212121212122,68.70707070707071,69.20202020202021,69.6969696969697,70.1919191919192,70.68686868686869,71.18181818181819,71.67676767676768,72.17171717171718,72.66666666666667,73.16161616161617,73.65656565656566,74.15151515151516,74.64646464646465,75.14141414141415,75.63636363636364,76.13131313131314,76.62626262626263,77.12121212121212,77.61616161616162,78.11111111111111,78.60606060606061,79.1010101010101,79.5959595959596,80.0909090909091,80.58585858585859,81.08080808080808,81.57575757575758,82.07070707070707,82.56565656565657,83.06060606060606,83.55555555555556,84.05050505050505,84.54545454545455,85.04040404040404,85.53535353535354,86.03030303030303,86.52525252525253,87.02020202020202,87.51515151515152,88.01010101010101,88.5050505050505,89.0],"y":[0.0035826489585183267,0.0036329059952318046,0.0036435289556328025,0.003614121145808302,0.00354578074354606,0.003441059789008831,0.0033038688837297384,0.0031393311567605164,0.002953590951324405,0.002753584376200703,0.002546780290155727,0.002340901391855827,0.002143635830620192,0.0019623501073521934,0.0018038139868088187,0.0016739476938275228,0.001577600833978439,0.0015183712944227608,0.00149847088777446,0.0015186427562355208,0.0015781336203875278,0.0016747219089548165,0.0018048007190876042,0.0019635125091737016,0.0021449304943363095,0.002342279970753751,0.0025481913038724676,0.002754975133157698,0.002954909516392603,0.003140528290677339,0.003304899881844137,0.003441886150690013,0.003546371609915099,0.0036144544521032862,0.0036435922551747105,0.0036326969242216544,0.0035821753243086823,0.003493914086883612,0.003371209157174552,0.0032186427134892003,0.0030419120546271695,0.0028476168452739982,0.00264301266428622,0.002435740059130087,0.0022335392244121144,0.002043960959279826,0.0018740846974296525,0.0017302541393460595,0.0016178403590747163,0.0015410412318490523,0.001502724672557723,0.0015043215390091822,0.0015457721993138926,0.0016255287587219214,0.0017406128627589727,0.00188672691811458,0.002058414577953391,0.002249264498636001,0.002452149758948636,0.0026594940011935306,0.0028635543556156146,0.003056710582900047,0.003231749637273049,0.003382135023747419,0.0035022508908872643,0.003587611743919689,0.0036350299468628318,0.0036427347586272286,0.003610438457917446,0.0035393470876274587,0.0034321154175010753,0.003292747806889755,0.00312644866969646,0.002939428125602957,0.0027386700951597173,0.0025316714987787784,0.002326162298738831,0.0021298168386924845,0.001949967260143526,0.0017933296978017012,0.0016657534785199358,0.0015720026894947036,0.0015155782726426793,0.0014985872886951403,0.0015216642330896813,0.0015839473419651119,0.0016831107730663534,0.0018154514598256026,0.0019760273952221822,0.0021588421814776387,0.0023570689539346786,0.0025633053171157,0.0027698497728668187,0.002968989317912922,0.003153287471049231,0.0033158619741508874,0.003450641796793416,0.0035525938471434723,0.0036179109230401853,0.0036441538845972733],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Time [ns]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Time [ns]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Signal [a.u.]","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"phase [rad]","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+        <div id="Rabi length signal-0-B4" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B4</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B4</td>
+      <td>Pi pulse amplitude [a.u.]</td>
+      <td>0.670</td>
+    </tr>
+    <tr>
+      <td>B4</td>
+      <td>Pi pulse length [ns]</td>
+      <td>8.842</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="02ca8d07-6177-464e-9382-bce57ba72308" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("02ca8d07-6177-464e-9382-bce57ba72308")) {                    Plotly.newPlot(                        "02ca8d07-6177-464e-9382-bce57ba72308",                        [{"legendgroup":"Signal","name":"Signal","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.0033711190833089822,0.0032156846105180687,0.003144439699872313,0.00310362549420543,0.003101241953332086,0.003090024727168451,0.00310325978018454,0.003096537863207709,0.0030794839147824673,0.0030757350870687333,0.0030774104560667725,0.0031376991592216123,0.0031937749479608838,0.003301227758791311,0.003410957716747826,0.0034211740893072035,0.0034507565258628634,0.003417194370511538,0.0033443069835088664,0.0032441997612170873,0.003176173328575373,0.0031178306988669663,0.003110768910935991,0.003089744945637427,0.003105729971345767,0.003098265015382637,0.0030962362036105044,0.0030754739860022755,0.0030844527973121053,0.003120788394798564,0.003172789855572288,0.003262162938170546,0.0033417260389480043,0.0034155180395178085,0.0034457357638897628,0.0034262981114014444,0.00336066729996053,0.003300718689698701,0.0031749846101905197,0.0030919071690486397,0.0030928118299292434,0.003079317397491162,0.003095802673920571,0.003093232708562899,0.0031003395569655333,0.003086738175649913,0.0030740862494187163,0.003133492866624998,0.0031654368182991643,0.003218449066529772],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[-1.6549159207162152,-1.7804221816739254,-1.8819222482387312,-1.9571693356251745,-2.027545595724623,-2.1274369505102517,-2.1496732311672484,-2.1410079733534557,-2.1176407891933304,-2.0585059308172955,-1.9769675314008754,-1.874482388296023,-1.7916843855230997,-1.7076108498194498,-1.6388559757454264,-1.6130426578868184,-1.6062564031497362,-1.625303597765206,-1.672384027225255,-1.7566832834612085,-1.8307845601520052,-1.934717529407015,-2.036154451208432,-2.089817456465907,-2.1431402284579173,-2.149141287135349,-2.1269902295996816,-2.0763170654078396,-2.011774439745775,-1.907803487646162,-1.8231363473728288,-1.739231939116807,-1.6737456875984418,-1.6191952894185238,-1.6019188641217934,-1.6118251061685525,-1.6502761785737592,-1.715531251565304,-1.8147643020436757,-1.9001214114441007,-1.980404413102016,-2.0739477110715994,-2.125394572942593,-2.15559686849416,-2.139637470781698,-2.1055160966406534,-2.021760195467136,-1.9570448980597186,-1.871522114148184,-1.774401523426884],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[40.0,40.494949494949495,40.98989898989899,41.484848484848484,41.97979797979798,42.474747474747474,42.96969696969697,43.464646464646464,43.95959595959596,44.45454545454545,44.94949494949495,45.44444444444444,45.93939393939394,46.43434343434343,46.92929292929293,47.42424242424242,47.91919191919192,48.41414141414141,48.90909090909091,49.4040404040404,49.898989898989896,50.39393939393939,50.888888888888886,51.38383838383838,51.878787878787875,52.37373737373737,52.868686868686865,53.36363636363637,53.85858585858586,54.35353535353536,54.84848484848485,55.343434343434346,55.83838383838384,56.333333333333336,56.82828282828283,57.323232323232325,57.81818181818182,58.313131313131315,58.80808080808081,59.303030303030305,59.7979797979798,60.292929292929294,60.78787878787879,61.282828282828284,61.77777777777778,62.27272727272727,62.76767676767677,63.26262626262626,63.75757575757576,64.25252525252526,64.74747474747474,65.24242424242425,65.73737373737373,66.23232323232324,66.72727272727273,67.22222222222223,67.71717171717172,68.21212121212122,68.70707070707071,69.20202020202021,69.6969696969697,70.1919191919192,70.68686868686869,71.18181818181819,71.67676767676768,72.17171717171718,72.66666666666667,73.16161616161617,73.65656565656566,74.15151515151516,74.64646464646465,75.14141414141415,75.63636363636364,76.13131313131314,76.62626262626263,77.12121212121212,77.61616161616162,78.11111111111111,78.60606060606061,79.1010101010101,79.5959595959596,80.0909090909091,80.58585858585859,81.08080808080808,81.57575757575758,82.07070707070707,82.56565656565657,83.06060606060606,83.55555555555556,84.05050505050505,84.54545454545455,85.04040404040404,85.53535353535354,86.03030303030303,86.52525252525253,87.02020202020202,87.51515151515152,88.01010101010101,88.5050505050505,89.0],"y":[0.0033560605295204294,0.0033283453478087283,0.00329884099147833,0.0032683622980000777,0.003237750146060574,0.0032078482573383096,0.003179479942964149,0.0031534254355265394,0.003130400430709607,0.00311103642869845,0.0030958634153033424,0.0030852953577421216,0.003079618911984081,0.003078985649662593,0.0030834080152680305,0.003092759121326772,0.0031067763834005347,0.003125068890923236,0.0031471283070461107,0.0031723429936170986,0.0032000149688460725,0.0032293792275358275,0.0032596248891194526,0.0032899175889060856,0.003319422494257952,0.00334732731081386,0.0033728646447789595,0.0033953331056749926,0.0034141165692659564,0.0034287010716508265,0.0034386888713188526,0.0034438092944661814,0.0034439260678991827,0.003439040940936129,0.003429293500181311,0.00341495718605538,0.003396431624626345,0.003374231489713408,0.0033489722056388315,0.0033213528877582324,0.0032921369936248705,0.0032621312202629417,0.0032321632308258304,0.0032030588255952475,0.0031756191869792357,0.0031505988255026585,0.003128684833843922,0.003110478019322757,0.0030964764329125313,0.003087061746294439,0.003082488849538246,0.0030828789528725255,0.003088216379162552,0.0030983491318227353,0.003112993218765425,0.0031317406095008877,0.003154070602505256,0.003179364286216668,0.0032069216920819917,0.003235981164289481,0.0032657404102086527,0.003295378649774971,0.0033240792523504684,0.0033510522367649026,0.0033755560146322317,0.003396917778505841,0.0034145519743747246,0.0034279763513496617,0.003436825148658083,0.003440859059391137,0.0034399716996285088,0.0034341924081383907,0.00342368530314312,0.0034087446258592173,0.0033897865028176826,0.0033673373575281956,0.0033420192941571226,0.0033145328590121342,0.0032856376574840183,0.0032561313627200066,0.003226827696090106,0.00319853398726674,0.003172028932719344,0.0031480411653434445,0.0031272292249828063,0.0031101634804128774,0.0030973104990301334,0.003089020292547037,0.0030855167873121195,0.0030868917786665276,0.003093102532480123,0.0031039730963417183,0.0031191992805878676,0.003138357168263173,0.0031609149159970464,0.003186247517329272,0.0032136541187055842,0.0032423774084265676,0.0032716245421842874,0.0033005890270093132],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Time [ns]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Time [ns]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Signal [a.u.]","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"phase [rad]","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+      <div id="Rabi Length Signal" style="scroll-margin-top: 4em;">
+        <h4
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          Rabi Length Signal</h4>
+        
+        <div id="Rabi length signal-1-B1" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B1</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B1</td>
+      <td>Pi-half pulse amplitude [a.u.]</td>
+      <td>0.670</td>
+    </tr>
+    <tr>
+      <td>B1</td>
+      <td>Pi-half pulse length [ns]</td>
+      <td>2.924</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="90750b4b-7f70-40db-8334-3027495d53f0" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("90750b4b-7f70-40db-8334-3027495d53f0")) {                    Plotly.newPlot(                        "90750b4b-7f70-40db-8334-3027495d53f0",                        [{"legendgroup":"Signal","name":"Signal","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.003253301584923607,0.003467935855174311,0.0036893154433135676,0.0034740155880443025,0.003276131608182263,0.003261693886907733,0.0033541942598079924,0.0037073185556838768,0.0037550567226889912,0.0033800437158762655,0.0032946470631796503,0.0032702351733526103,0.003364336526091223,0.0036655052440083455,0.003572344323811159,0.0032952857044669577,0.0032795701783498317,0.003285826310292513,0.00361689102539374,0.003796239898755993,0.003431599936157771,0.0032873753797383054,0.0032854109215305904,0.003346972649148963,0.003648863522443962,0.003619544875768436,0.0033092987812706307,0.0032908650686418687,0.003241014420278747,0.003510364896415398,0.0038049849270338624,0.0035433904911606634,0.00327779810731618,0.003283987531125273,0.003291390884479959,0.0036134616258394667,0.003709072982721034,0.003406004575493784,0.003276290379975275,0.003255440373422703,0.0034110924086617886,0.0037879837483826683,0.003649843577808283,0.0032984041376057124,0.0033052382423746206,0.003274426915097053,0.003527489714483099,0.0037233510290031295,0.0034465232805310454,0.0032890582561952266],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[-3.0619358921618436,-3.396789837946131,-3.54768042486481,-3.43224152155596,-3.144560922449131,-3.058504949612489,-3.3099241220206235,-3.5712822724877857,-3.581010966353442,-3.3094315237640184,-3.00230437845275,-3.0273948356946683,-3.315198594330461,-3.554125427793625,-3.4841570148623995,-3.182849864706607,-3.0029225159932973,-3.1894688879462336,-3.5168437605835985,-3.6089173641100465,-3.386941781828876,-3.0494442909138626,-2.9754394871879444,-3.2623398346075585,-3.550236166149578,-3.525205279564085,-3.231526367828476,-2.994248653607643,-3.080422468370812,-3.4329881028771383,-3.615696553209405,-3.4646023433437385,-3.130622546314452,-2.9658590290876945,-3.190577357940249,-3.514905738700617,-3.5598848043673517,-3.3291253121512385,-3.0112313266427875,-3.0237703350848624,-3.3574369196890324,-3.598544279230037,-3.5240696294515037,-3.1907350269270656,-2.9732336305830454,-3.124234216329155,-3.4553911997058404,-3.575473132002602,-3.3966794047965365,-3.0572389416293633],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[40.0,40.494949494949495,40.98989898989899,41.484848484848484,41.97979797979798,42.474747474747474,42.96969696969697,43.464646464646464,43.95959595959596,44.45454545454545,44.94949494949495,45.44444444444444,45.93939393939394,46.43434343434343,46.92929292929293,47.42424242424242,47.91919191919192,48.41414141414141,48.90909090909091,49.4040404040404,49.898989898989896,50.39393939393939,50.888888888888886,51.38383838383838,51.878787878787875,52.37373737373737,52.868686868686865,53.36363636363637,53.85858585858586,54.35353535353536,54.84848484848485,55.343434343434346,55.83838383838384,56.333333333333336,56.82828282828283,57.323232323232325,57.81818181818182,58.313131313131315,58.80808080808081,59.303030303030305,59.7979797979798,60.292929292929294,60.78787878787879,61.282828282828284,61.77777777777778,62.27272727272727,62.76767676767677,63.26262626262626,63.75757575757576,64.25252525252526,64.74747474747474,65.24242424242425,65.73737373737373,66.23232323232324,66.72727272727273,67.22222222222223,67.71717171717172,68.21212121212122,68.70707070707071,69.20202020202021,69.6969696969697,70.1919191919192,70.68686868686869,71.18181818181819,71.67676767676768,72.17171717171718,72.66666666666667,73.16161616161617,73.65656565656566,74.15151515151516,74.64646464646465,75.14141414141415,75.63636363636364,76.13131313131314,76.62626262626263,77.12121212121212,77.61616161616162,78.11111111111111,78.60606060606061,79.1010101010101,79.5959595959596,80.0909090909091,80.58585858585859,81.08080808080808,81.57575757575758,82.07070707070707,82.56565656565657,83.06060606060606,83.55555555555556,84.05050505050505,84.54545454545455,85.04040404040404,85.53535353535354,86.03030303030303,86.52525252525253,87.02020202020202,87.51515151515152,88.01010101010101,88.5050505050505,89.0],"y":[0.0033568878683773225,0.0034725158996781373,0.0036033476426005967,0.0037099817621479183,0.003760304288327054,0.0037391600709615644,0.0036529169101975774,0.0035275478275095997,0.0034008090211634333,0.0033108691958968106,0.0032848146620018466,0.0033304920123253022,0.00343414503953023,0.0035645575604707947,0.0036824544931938,0.0037523299548184274,0.0037531402260606835,0.0036846412853406047,0.0035674622984094182,0.0034368929313339756,0.0033322555019061006,0.00328506265620063,0.003309527008691105,0.0033982808661368663,0.0035245950847430586,0.0036504288287690753,0.0037378859623727243,0.0037606278635806574,0.0037118055732037265,0.003606122429862335,0.0034754060072119,0.0033590229103544235,0.0032920231148141684,0.003294584303237548,0.003365935147192772,0.003484587600719301,0.0036148082480177523,0.003717379791870412,0.0037614117490491444,0.003733643439411845,0.003642437577127956,0.0035152617526558252,0.0033904162832701285,0.003305499675665088,0.0032860854460858573,0.0033380203909308633,0.0034456637634348126,0.0035765976466190434,0.003691389944888575,0.003755469768197012,0.003749538813790902,0.0036753832500436307,0.0035553357933422736,0.0034255499791466504,0.0033251121501800276,0.0032842701993240726,0.0033153241032634713,0.003408921657060951,0.003536874987577297,0.0036606496235364813,0.003742969550826138,0.0037590432703836574,0.0037040300150164075,0.0035944975965994347,0.0034634328378614857,0.003350307248926596,0.003289189773055402,0.003298486571376194,0.003375397816745425,0.0034967608907025237,0.003626026046019305,0.0037242637417887066,0.0037618886780381223,0.0037275697153647935,0.0036316423649746794,0.0035029961423910998,0.0033803741905155393,0.003300705380705007,0.00328798280052367,0.0033460379868181216,0.003457387018695569,0.003588495981460768,0.0036998800524888627,0.003757994764681633,0.003745338270305738,0.003665722203783282,0.003543123768491178,0.0034144647535238578,0.0033184921543416178,0.003284109113609975,0.003321670440305553,0.0034198641517012686,0.0035491181941740323,0.003670506373564801,0.0037474713818841194,0.003756834409402402,0.003695775683367604,0.0035826836717865605,0.0034516172057521585,0.003342048309558444],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Time [ns]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Time [ns]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Signal [a.u.]","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"phase [rad]","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+        <div id="Rabi length signal-1-B2" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B2</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B2</td>
+      <td>Pi-half pulse amplitude [a.u.]</td>
+      <td>0.670</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td>Pi-half pulse length [ns]</td>
+      <td>2.299</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="2acc19c2-115e-418a-b0a2-ba7367296cae" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("2acc19c2-115e-418a-b0a2-ba7367296cae")) {                    Plotly.newPlot(                        "2acc19c2-115e-418a-b0a2-ba7367296cae",                        [{"legendgroup":"Signal","name":"Signal","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.003585023789435244,0.003393593331784374,0.0032015936486435317,0.003116510096952402,0.0032755430953151725,0.0036587522224114616,0.0037982069348876974,0.0036427299140866414,0.0032690354583749326,0.003113954599126128,0.0031505720865123064,0.00337639864832547,0.003591914595314801,0.003449384371201869,0.0032373362607917523,0.0031440877866149948,0.0031663631078209056,0.0035006371858036654,0.0037469813808133348,0.003683947607676193,0.003373697552860092,0.003126087316055358,0.0030841340308792285,0.0032805125116667825,0.0034586346987524196,0.003447760457400902,0.003261134373428063,0.0031308690370570958,0.00315563643549324,0.0033906642106944886,0.0036974403772777526,0.003722575251727574,0.003507174024680289,0.003219832004426199,0.003088319926814741,0.0031597650892295184,0.0034176417209866193,0.0034756588563322395,0.0033332344101413293,0.003167033356086033,0.00313205144074005,0.003293078767610542,0.003611498087501619,0.0038399297839429277,0.003617975046673036,0.003326023931320227,0.0031217875561628306,0.0031385341990889924,0.0033608050692350167,0.003428946810638551],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[-3.044829111062611,-2.9582357689919028,-2.815447191493084,-2.7918440946412177,-2.881048335703618,-3.058492856975931,-3.096757805117835,-3.0548566304033082,-2.883303443482367,-2.752155165914778,-2.7954297678741145,-2.9443120267243463,-3.037967399065711,-2.9750237627311273,-2.8544537454474743,-2.7828010650922814,-2.83137336461044,-3.010471214045807,-3.1008826003185552,-3.0769759108970214,-2.942092066159647,-2.793598341493076,-2.7610946272517634,-2.8924995641658127,-2.9775512465339022,-2.978111866904209,-2.8839157991505506,-2.7815974717409815,-2.8000483957650313,-2.9534505891036584,-3.080708964269527,-3.0950155306367173,-3.0009529334541223,-2.834395067399847,-2.75105525307641,-2.810217179150094,-2.9568792519454106,-2.9957283624874864,-2.937813148226092,-2.8252791891534015,-2.787485224020401,-2.9051413614048824,-3.0395466122510046,-3.128911003468829,-3.0415214792729794,-2.9050837296920635,-2.7742519264073233,-2.7947680122327667,-2.9226300598231263,-2.9792074569872202],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[40.0,40.494949494949495,40.98989898989899,41.484848484848484,41.97979797979798,42.474747474747474,42.96969696969697,43.464646464646464,43.95959595959596,44.45454545454545,44.94949494949495,45.44444444444444,45.93939393939394,46.43434343434343,46.92929292929293,47.42424242424242,47.91919191919192,48.41414141414141,48.90909090909091,49.4040404040404,49.898989898989896,50.39393939393939,50.888888888888886,51.38383838383838,51.878787878787875,52.37373737373737,52.868686868686865,53.36363636363637,53.85858585858586,54.35353535353536,54.84848484848485,55.343434343434346,55.83838383838384,56.333333333333336,56.82828282828283,57.323232323232325,57.81818181818182,58.313131313131315,58.80808080808081,59.303030303030305,59.7979797979798,60.292929292929294,60.78787878787879,61.282828282828284,61.77777777777778,62.27272727272727,62.76767676767677,63.26262626262626,63.75757575757576,64.25252525252526,64.74747474747474,65.24242424242425,65.73737373737373,66.23232323232324,66.72727272727273,67.22222222222223,67.71717171717172,68.21212121212122,68.70707070707071,69.20202020202021,69.6969696969697,70.1919191919192,70.68686868686869,71.18181818181819,71.67676767676768,72.17171717171718,72.66666666666667,73.16161616161617,73.65656565656566,74.15151515151516,74.64646464646465,75.14141414141415,75.63636363636364,76.13131313131314,76.62626262626263,77.12121212121212,77.61616161616162,78.11111111111111,78.60606060606061,79.1010101010101,79.5959595959596,80.0909090909091,80.58585858585859,81.08080808080808,81.57575757575758,82.07070707070707,82.56565656565657,83.06060606060606,83.55555555555556,84.05050505050505,84.54545454545455,85.04040404040404,85.53535353535354,86.03030303030303,86.52525252525253,87.02020202020202,87.51515151515152,88.01010101010101,88.5050505050505,89.0],"y":[0.0037368716379269154,0.0036527576728288776,0.003522377816206712,0.00337772242992717,0.0032541549042441166,0.003181766903836324,0.0031780508006450667,0.0032436734990795787,0.003362372500902572,0.0035049851593165087,0.0036366130344859288,0.0037251614103013505,0.0037491644840496182,0.0037029884338984267,0.0035981513597874723,0.0034604514588262416,0.003323619174877557,0.003221055129196467,0.003177677475776312,0.0032038685316708605,0.0032929910928464912,0.0034230682655213033,0.0035622021629429616,0.003676395567161395,0.00373785871489341,0.003731771647820214,0.003659856698268146,0.0035399001518644224,0.0034013540328011556,0.003278105424223611,0.003200188396160988,0.0031864655345259832,0.003240062272347915,0.003347658967893154,0.0034828000505777858,0.0036123983468514215,0.003704835562855967,0.003737675839804815,0.0037031106937494944,0.0036098140523036426,0.0034807670952493185,0.0033475980026679494,0.0032428305918283788,0.0031919414312035557,0.0032071651283340883,0.003284553935240916,0.0034049980974660277,0.003538943999757124,0.0036536453709983137,0.0037211685128895433,0.0037251946683590988,0.003664963136257975,0.003555402538770941,0.0034234315336042153,0.003301345448081089,0.0032189134937757047,0.0031961203104072947,0.0032383215273418067,0.003334987526315488,0.0034623295247894334,0.0035891533136081827,0.003684500334499456,0.003725204494956979,0.003701520236857659,0.003619454676590588,0.003499246023999426,0.003370373214008433,0.0032643271423736294,0.0032069160318178628,0.0032119849815784914,0.0032780779432017458,0.00338884670974113,0.003517093965071721,0.0036314506842436353,0.0037040485728123394,0.0037173110587704152,0.0036682080962826776,0.0035689449673979353,0.0034439294076886048,0.003323770466363717,0.0032377844917509577,0.0032068429131191854,0.0032383066307891607,0.003324276336332602,0.003443574294679198,0.0035669607372148487,0.0036643001163659612,0.003711920964891804,0.0036983719850393446,0.0036271747957608257,0.0035159118424754926,0.003391884952752788,0.0032854163752874905,0.0032224359090339584,0.00321816625907981,0.0032734443149887507,0.0033745671826509115,0.0034966882238195345,0.0036099216371294597,0.003686655846276308],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Time [ns]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Time [ns]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Signal [a.u.]","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"phase [rad]","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+        <div id="Rabi length signal-1-B3" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B3</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B3</td>
+      <td>Pi-half pulse amplitude [a.u.]</td>
+      <td>0.67</td>
+    </tr>
+    <tr>
+      <td>B3</td>
+      <td>Pi-half pulse length [ns]</td>
+      <td>4.06</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="17091709-d4bf-478a-8c29-66e291510e00" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("17091709-d4bf-478a-8c29-66e291510e00")) {                    Plotly.newPlot(                        "17091709-d4bf-478a-8c29-66e291510e00",                        [{"legendgroup":"Signal","name":"Signal","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.001444478997341996,0.0015199031492022952,0.0021488363791708144,0.00307646924607424,0.003507051495580244,0.0034280007392745713,0.002893510196611361,0.002250723882021072,0.0016071718360506355,0.0015265324507753146,0.0021946613613742297,0.0030501946717050336,0.003505220864432153,0.003494454874862991,0.0030124408514147854,0.0023276855427069552,0.0016712812600217105,0.0014809973025984493,0.0020713703767311978,0.002886058619440046,0.0035167776740152104,0.003492090397938312,0.003053536910738897,0.002307592459805582,0.0016752470988337512,0.0014971239683920481,0.0020280828661092833,0.002940927263213152,0.0035175949774740763,0.0035646928682891736,0.0031672258401358243,0.0024173232894925453,0.001725765179909275,0.0014657465211742639,0.001913674122181469,0.0027841294052599543,0.003510452448568881,0.003545235571978945,0.0031733092652547336,0.0024041046435047536,0.001732126394896284,0.0014864737290597111,0.0019337984007853336,0.0027685366701772503,0.0034890288087713103,0.0035432027963580304,0.0032559982826073303,0.002507219335709664,0.001857330397597948,0.0014454116525902242],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[-0.9642085028749007,-0.9727213512454862,-0.9929568656456303,-0.9908209396412041,-0.9871252039309135,-0.9874461748420352,-0.9850940390566203,-0.9773296347563959,-0.9870625851972635,-0.9733309921761149,-0.9922173931204753,-0.990697767336128,-0.9836833614640993,-0.9807092774015911,-0.9959428452817595,-0.9901010046971972,-0.9906002809172015,-0.9654764225407463,-0.988703275755064,-0.9898266254394404,-0.9898754683223838,-0.9931552487344786,-0.9820991101846843,-0.9979568363408439,-0.9800622005815833,-0.9761212553515141,-0.9794167225308721,-0.9869626977077013,-0.9921229382932839,-0.9884057036140607,-0.9935471156826075,-0.9794819645286325,-0.9896422017617562,-1.0002504726309502,-0.9880852284681798,-0.9900987953964272,-0.9887536144681064,-0.9955790614540511,-0.9958722290924346,-0.9886964307066937,-0.9916011018703385,-0.9701506744232189,-0.9854243980922556,-0.9923478268323815,-0.9940653133551374,-0.9881599925912637,-0.9978063396228487,-0.9940768299523962,-0.9768100511722693,-0.9960777076325268],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[40.0,40.494949494949495,40.98989898989899,41.484848484848484,41.97979797979798,42.474747474747474,42.96969696969697,43.464646464646464,43.95959595959596,44.45454545454545,44.94949494949495,45.44444444444444,45.93939393939394,46.43434343434343,46.92929292929293,47.42424242424242,47.91919191919192,48.41414141414141,48.90909090909091,49.4040404040404,49.898989898989896,50.39393939393939,50.888888888888886,51.38383838383838,51.878787878787875,52.37373737373737,52.868686868686865,53.36363636363637,53.85858585858586,54.35353535353536,54.84848484848485,55.343434343434346,55.83838383838384,56.333333333333336,56.82828282828283,57.323232323232325,57.81818181818182,58.313131313131315,58.80808080808081,59.303030303030305,59.7979797979798,60.292929292929294,60.78787878787879,61.282828282828284,61.77777777777778,62.27272727272727,62.76767676767677,63.26262626262626,63.75757575757576,64.25252525252526,64.74747474747474,65.24242424242425,65.73737373737373,66.23232323232324,66.72727272727273,67.22222222222223,67.71717171717172,68.21212121212122,68.70707070707071,69.20202020202021,69.6969696969697,70.1919191919192,70.68686868686869,71.18181818181819,71.67676767676768,72.17171717171718,72.66666666666667,73.16161616161617,73.65656565656566,74.15151515151516,74.64646464646465,75.14141414141415,75.63636363636364,76.13131313131314,76.62626262626263,77.12121212121212,77.61616161616162,78.11111111111111,78.60606060606061,79.1010101010101,79.5959595959596,80.0909090909091,80.58585858585859,81.08080808080808,81.57575757575758,82.07070707070707,82.56565656565657,83.06060606060606,83.55555555555556,84.05050505050505,84.54545454545455,85.04040404040404,85.53535353535354,86.03030303030303,86.52525252525253,87.02020202020202,87.51515151515152,88.01010101010101,88.5050505050505,89.0],"y":[0.001561885236978476,0.00150681977149316,0.0016068876886679675,0.0018474392871648958,0.0021932738745198853,0.002593790797751286,0.002990393057898804,0.003325060251601823,0.0035488365890490184,0.0036289922450100393,0.0035538104662155854,0.003334300266517812,0.003002584356987006,0.0026071983690692355,0.002205989273537407,0.0018576520762095365,0.0016131430146003579,0.0015082254644209348,0.001558238972142275,0.0017558565264674663,0.0020721579681748123,0.0024608622836972396,0.0028650994114794884,0.003225730715070637,0.0034900007817290973,0.0036192548153466167,0.0035945926750536768,0.003419632543105697,0.0031199801055921714,0.002739481121237292,0.002333805820475587,0.001962303878576467,0.0016793216492915063,0.0015262519343710564,0.0015254793138484099,0.0016771066747292734,0.001958941643168406,0.0023297446879192467,0.0027352634986934246,0.003116170658492011,0.003416743246650692,0.0035930145464266243,0.0036192053436410387,0.003491494068396104,0.0032285744067223126,0.0028689190206858967,0.0024651498985780885,0.0020763391137627934,0.001759366485385195,0.0015605985290349763,0.0015091059983489794,0.0016124121503268193,0.0018553935705130646,0.0022024941511348192,0.0026029281090778566,0.0029981106725743877,0.0033302292208683094,0.0035507008917227156,0.0036272793642613595,0.0035487712250360593,0.003326672098882769,0.0029934833930338805,0.0025979561263596634,0.002197957849235642,0.0018520063415557225,0.0016107087497065293,0.0015093585745678208,0.0015627734521464684,0.001763128781058708,0.0020811039253645705,0.002470173089154933,0.0028734129228094566,0.0032318307790776624,0.003492995141019005,0.003618705618957265,0.003590580503306992,0.0034127445846354543,0.0031112242212328915,0.0027301383716764284,0.002325243036136484,0.00195577369435768,0.0016757792587821989,0.0015262153702492779,0.0015289536917497048,0.001683583479018493,0.0019674731541044848,0.002339082656935975,0.0027440417801090464,0.0031231050767358734,0.003420819458415694,0.003593636415378342,0.003616282123934003,0.003485453646617887,0.003220300669968602,0.0028596225185155686,0.0024561907247142188,0.002069027922125672,0.001754772752140821,0.0015593941103524821,0.0015114668681304442],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Time [ns]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Time [ns]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Signal [a.u.]","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"phase [rad]","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+        <div id="Rabi length signal-1-B4" style="scroll-margin-top: 4em;">
+            <h5
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               - B4</h5>
+
+
+            
+            <table class="dataframe fitting-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Qubit</th>
+      <th>Parameters</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B4</td>
+      <td>Pi-half pulse amplitude [a.u.]</td>
+      <td>0.670</td>
+    </tr>
+    <tr>
+      <td>B4</td>
+      <td>Pi-half pulse length [ns]</td>
+      <td>5.001</td>
+    </tr>
+  </tbody>
+</table>
+            <div>                            <div id="bd402b50-6e61-4c76-9d93-cbba59559d94" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("bd402b50-6e61-4c76-9d93-cbba59559d94")) {                    Plotly.newPlot(                        "bd402b50-6e61-4c76-9d93-cbba59559d94",                        [{"legendgroup":"Signal","name":"Signal","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[0.003078791601512769,0.003099434049596121,0.003052050854167061,0.00305570614759207,0.0031274269628889604,0.003266951512925593,0.0033857574631575476,0.003391812460978146,0.003226217372692279,0.0030757376852761577,0.003068617806950273,0.0030579613965523206,0.0030611913061279793,0.0031242922281378314,0.003242811784071428,0.003407842827955021,0.003397898404111231,0.003255130486772674,0.0030993769527144764,0.0030695248125648523,0.0030659237248719592,0.0030472781156356803,0.0030899945301684703,0.0031934002554750767,0.0033724177665099236,0.0033956926691653825,0.0033122479721906903,0.0031239183231188904,0.0030466995004015582,0.003086505200332088,0.003030450825344143,0.0030607450061355458,0.003174229525918235,0.0033519043666228447,0.0034051556971117594,0.003317737970223085,0.00316808831367112,0.0030616605674341486,0.003057517447749109,0.0030553785284545484,0.003059964367468896,0.0031272710072366952,0.0032897278703451593,0.003411305169786767,0.003341518250284225,0.0031920713303980885,0.003086882301528627,0.0030664612087864633,0.0030692818113994364,0.0030520074514176774],"type":"scatter","xaxis":"x","yaxis":"y"},{"legendgroup":"Phase","name":"Phase","opacity":1,"showlegend":true,"x":[40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0],"y":[-1.9957181033018336,-2.120158802281113,-2.134528372383757,-2.0475053786369077,-1.8776127340872126,-1.7054410053842195,-1.616027037971705,-1.6231932041388395,-1.7540252835910706,-1.9458035493340076,-2.100319274666625,-2.1377565757425097,-2.067331759266887,-1.8878547227462537,-1.721064330561791,-1.6172417196462368,-1.6215999989793242,-1.714108766424376,-1.9074326344551586,-2.0775392414311153,-2.143348245376052,-2.109848545572082,-1.9401092536098559,-1.764984003998238,-1.6370233200460762,-1.609129729457133,-1.688879615824203,-1.852128571348886,-2.0462347628745134,-2.130959213071198,-2.1212967369693154,-1.9825882071078977,-1.7992260332588639,-1.6549021690198775,-1.604685578389687,-1.6669319621095677,-1.8187855283741405,-2.0082476719417137,-2.1297309359559042,-2.134402461260342,-2.029546888743648,-1.8553679522695474,-1.6846375216040326,-1.6124615668394309,-1.6425962906533993,-1.7881944757025234,-1.9546836281743398,-2.095882499765513,-2.1346028474156262,-2.046419484957043],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"dash":"dot"},"marker":{"color":"rgb(255, 130, 67)"},"name":"Fit","x":[40.0,40.494949494949495,40.98989898989899,41.484848484848484,41.97979797979798,42.474747474747474,42.96969696969697,43.464646464646464,43.95959595959596,44.45454545454545,44.94949494949495,45.44444444444444,45.93939393939394,46.43434343434343,46.92929292929293,47.42424242424242,47.91919191919192,48.41414141414141,48.90909090909091,49.4040404040404,49.898989898989896,50.39393939393939,50.888888888888886,51.38383838383838,51.878787878787875,52.37373737373737,52.868686868686865,53.36363636363637,53.85858585858586,54.35353535353536,54.84848484848485,55.343434343434346,55.83838383838384,56.333333333333336,56.82828282828283,57.323232323232325,57.81818181818182,58.313131313131315,58.80808080808081,59.303030303030305,59.7979797979798,60.292929292929294,60.78787878787879,61.282828282828284,61.77777777777778,62.27272727272727,62.76767676767677,63.26262626262626,63.75757575757576,64.25252525252526,64.74747474747474,65.24242424242425,65.73737373737373,66.23232323232324,66.72727272727273,67.22222222222223,67.71717171717172,68.21212121212122,68.70707070707071,69.20202020202021,69.6969696969697,70.1919191919192,70.68686868686869,71.18181818181819,71.67676767676768,72.17171717171718,72.66666666666667,73.16161616161617,73.65656565656566,74.15151515151516,74.64646464646465,75.14141414141415,75.63636363636364,76.13131313131314,76.62626262626263,77.12121212121212,77.61616161616162,78.11111111111111,78.60606060606061,79.1010101010101,79.5959595959596,80.0909090909091,80.58585858585859,81.08080808080808,81.57575757575758,82.07070707070707,82.56565656565657,83.06060606060606,83.55555555555556,84.05050505050505,84.54545454545455,85.04040404040404,85.53535353535354,86.03030303030303,86.52525252525253,87.02020202020202,87.51515151515152,88.01010101010101,88.5050505050505,89.0],"y":[0.0031584724293872643,0.0031068995994693806,0.0030682503642815323,0.0030469044134262815,0.0030452797758501434,0.0030635589102323223,0.0030996682153167482,0.0031495132609243586,0.0032074430548662183,0.003266890702600783,0.0033211178272999978,0.0033639783632225225,0.0033906151466066145,0.0033980103529527603,0.0033853274024893344,0.003354005597536138,0.00330759678604013,0.003251362587183125,0.0031916778530814206,0.0031353079993524428,0.003088642128185772,0.0030569688713477437,0.003043877030898538,0.0030508489428487167,0.0030770926384832125,0.0031196318069956403,0.0031736433402936976,0.003233004178873304,0.0032909854571709194,0.0033410152560781076,0.003377423500590507,0.00339608457177867,0.003394884803337269,0.0033739618881189863,0.003335689078049417,0.003284405990194693,0.003225926553176481,0.003166879886113664,0.003113958834181922,0.0030731613453772863,0.003049110677201882,0.003044531479440577,0.0030599411244175926,0.003093591253254204,0.0031416661422748243,0.003198715383201587,0.0032582718138064112,0.0033135846422038006,0.0033583846570513793,0.0033875947861873733,0.003397905468289503,0.00338814963215772,0.0033594347978010888,0.003315017346804733,0.0032599332352212054,0.003200427027656824,0.003143243987438357,0.0030948654744591135,0.0030607743213633127,0.003044833453328276,0.003048848173681111,0.0030723617134745503,0.003112707198991915,0.00316531012481634,0.0032242070264076393,0.0032827215433800447,0.0033342212298593833,0.003372869322380692,0.0033942862546896624,0.003396045946083279,0.0033779506243687453,0.003342053051903393,0.003292423657094566,0.0032346889883001786,0.003175393824858328,0.003121259263526335,0.0030784208833472904,0.0030517333428168266,0.0030442202258823426,0.0030567314829496313,0.0030878472773381224,0.0031340391148398047,0.0031900699706886456,0.003249588040037232,0.003305846795170657,0.0033524697218939724,0.0033841730502488067,0.003397364563384222,0.003390550621667719,0.0033645052832754346,0.0033221823722401887,0.0032683804828595245,0.003209198912574479,0.0031513462099250914,0.0031013797246259704,0.0030649623608302295,0.0030462207773232384,0.0030472777724046265,0.0030680118415715133,0.0031060711420886904],"type":"scatter","xaxis":"x","yaxis":"y"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.45],"title":{"text":"Time [ns]"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Signal [a.u.]"}},"xaxis2":{"anchor":"y2","domain":[0.55,1.0],"title":{"text":"Time [ns]"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"title":{"text":"Phase [rad]"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Signal [a.u.]","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"phase [rad]","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"showlegend":true},                        {"responsive": true}                    )                };                            </script>        </div>
+
+            </div>
+            
+      </div>
+      
+
+      
+
+      <h3 id="summary" style="scroll-margin-top: 2.5em;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        Summary</h3>
+
+      <p>In the table below we show the libraries and respective versions used in /home/users/elisa.stabilini/cal_qw11q/runcard_cal/rx90_calibration/rabi_length_signal_2025-04-30_14-01-06.</p>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-sm w-100">
+          <thead>
+            <tr>
+              <th scope="col">Library</th>
+              <th scope="col">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>qibo</td>
+              <td>0.2.16</td>
+            </tr>
+            
+            <tr>
+              <td>numpy</td>
+              <td>1.26.4</td>
+            </tr>
+            
+            <tr>
+              <td>qibolab</td>
+              <td>0.2.6</td>
+            </tr>
+            
+            <tr>
+              <td>qibocal</td>
+              <td>0.2.1</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+    <script>
+function redirectToRuncard() {
+    window.location.href = './action.yml';
+}
+
+function redirectToPlatform() {
+    window.location.href = './new_platform/parameters.json';
+}
+
+
+// To Download PDF
+var exportPDFButton = document.getElementById("export-pdf");
+
+exportPDFButton.addEventListener("click", function() {
+
+document.body.classList.add("impresion");
+
+var doc = new jsPDF({orientation: 'landscape',});
+
+var iframes = document.querySelectorAll("iframe.gh-fit")
+source = ""
+for(var id = 0; id < iframes.length; id++) {
+    var win = iframes[id].contentWindow
+    var doc = win.document
+    var html = doc.documentElement
+    var body = doc.body
+    var ifrm = iframes[id] // or win.frameElement
+    source = source + html
+}
+
+print(source)
+
+doc.fromHTML(source, 0, 0, {
+width: 210,
+margins: {
+    left: 10,
+    right: 10,
+    top: 10,
+    bottom: 10
+}
+});
+doc.save("report.pdf");
+});
+
+</script>
+</body>
+
+</html>
