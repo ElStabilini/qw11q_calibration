@@ -1,0 +1,42 @@
+actions:
+- id: ramsey
+  operation: ramsey
+  parameters:
+    delay_between_pulses_end: 1000
+    delay_between_pulses_start: 10
+    delay_between_pulses_step: 20
+    detuning: 3000000
+    nshots: 2048
+    relaxation_time: 200000
+  targets: null
+  update: true
+- id: rabi amplitude frequency
+  operation: rabi_amplitude_frequency_signal
+  parameters:
+    max_amp: 0.2
+    max_freq: 50000000
+    min_amp: 0.0
+    min_freq: -50000000
+    nshots: 1024
+    pulse_length: 40
+    step_amp: 0.002
+    step_freq: 1000000
+  targets: null
+  update: true
+- id: Rabi length
+  operation: rabi_length
+  parameters:
+    interpolated_sweeper: true
+    nshots: 2048
+    pulse_amplitude: 0.67
+    pulse_duration_end: 80
+    pulse_duration_start: 38
+    pulse_duration_step: 1
+    relaxation_time: 50000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
