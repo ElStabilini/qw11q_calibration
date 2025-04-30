@@ -1,0 +1,30 @@
+{
+    "title": "classification_2025-04-30_15-05-46",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-30 15:05:59.142635+00:00",
+    "end_time": "2025-04-30 15:06:08.495533+00:00",
+    "stats": {
+        "single shot classification-0": {
+            "acquisition": 7.636001018807292,
+            "fit": 0.04646229278296232
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-04-30",
+    "start-time": "15:05:59",
+    "end-time": "15:06:08"
+}
