@@ -1,0 +1,30 @@
+{
+    "title": "rabi_amplitude_signal_2025-04-30_14-06-09",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-30 14:06:22.531997+00:00",
+    "end_time": "2025-04-30 14:06:28.474004+00:00",
+    "stats": {
+        "rabi-0": {
+            "acquisition": 5.876412090845406,
+            "fit": 0.021915768273174763
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-04-30",
+    "start-time": "14:06:22",
+    "end-time": "14:06:28"
+}

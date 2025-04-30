@@ -20,18 +20,18 @@ actions:
     parameters:
       max_amp: 0.5
       min_amp: 0.1
-      step_amp: 0.001    
+      step_amp: 0.05    
       pulse_length: 40
       relaxation_time: 80000
       nshots: 2048
 
-  - id: rabi                 
-    operation: rabi_amplitude_signal
-    parameters:              
-      max_amp: 0.5           
-      min_amp: 0.1         
-      step_amp: 0.001        
-      pulse_length: 40       
-      relaxation_time: 80000 
-      nshots: 2048           
-      rx90: True 
+        #- id: rabi                 
+        #operation: rabi_amplitude_signal
+        #parameters:              
+        #max_amp: 0.5           
+        #min_amp: 0.1         
+        #step_amp: 0.001        
+        #pulse_length: 40       
+        #relaxation_time: 80000 
+        #nshots: 2048           
+        #rx90: True 
