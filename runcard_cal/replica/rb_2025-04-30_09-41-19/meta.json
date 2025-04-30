@@ -1,0 +1,27 @@
+{
+    "title": "rb_2025-04-30_09-41-19",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-30 09:41:33.847544+00:00",
+    "end_time": "2025-04-30 09:51:30.106079+00:00",
+    "stats": {
+        "standard rb-0": {
+            "acquisition": 596.2354449685663,
+            "fit": 0.004796198569238186
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-04-30",
+    "start-time": "09:41:33",
+    "end-time": "09:51:30"
+}
