@@ -1,3 +1,5 @@
+platform: qw11q
+
 targets: [B2]
 
 actions:

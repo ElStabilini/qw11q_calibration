@@ -1,0 +1,31 @@
+{
+    "title": "evaluation_B2_2025-04-30_09-02-48",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-30 09:03:03.656901+00:00",
+    "end_time": "2025-04-30 09:13:14.174977+00:00",
+    "stats": {
+        "single shot classification-0": {
+            "acquisition": 5.331009844318032,
+            "fit": 0.023244662210345268
+        },
+        "standard rb-0": {
+            "acquisition": 602.973570629023,
+            "fit": 0.0036712484434247017
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-04-30",
+    "start-time": "09:03:03",
+    "end-time": "09:13:14"
+}
