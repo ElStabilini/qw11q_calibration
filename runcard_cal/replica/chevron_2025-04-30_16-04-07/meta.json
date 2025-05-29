@@ -1,0 +1,30 @@
+{
+    "title": "chevron_2025-04-30_16-04-07",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-04-30 16:04:20.751705+00:00",
+    "end_time": "2025-04-30 16:05:44.931594+00:00",
+    "stats": {
+        "chevron CZ-0": {
+            "acquisition": 84.14422396849841,
+            "fit": 0.013171845115721226
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        [
+            "B2",
+            "B4"
+        ]
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-04-30",
+    "start-time": "16:04:20",
+    "end-time": "16:05:44"
+}
