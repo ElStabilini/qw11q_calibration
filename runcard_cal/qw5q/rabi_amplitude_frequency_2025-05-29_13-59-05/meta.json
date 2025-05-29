@@ -1,0 +1,31 @@
+{
+    "title": "rabi_amplitude_frequency_2025-05-29_13-59-05",
+    "backend": "qibolab",
+    "platform": "qw5q_platinum",
+    "start_time": "2025-05-29 13:59:13.562925+00:00",
+    "end_time": "2025-05-29 14:16:29.816853+00:00",
+    "stats": {
+        "rabi amplitude frequency-0": {
+            "acquisition": 1036.1525662271306,
+            "fit": 0.021891375072300434
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-05-29",
+    "start-time": "13:59:13",
+    "end-time": "14:16:29"
+}
