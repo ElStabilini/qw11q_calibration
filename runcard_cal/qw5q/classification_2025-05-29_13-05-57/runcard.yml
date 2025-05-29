@@ -1,0 +1,15 @@
+actions:
+- id: single shot classification
+  operation: single_shot_classification
+  parameters:
+    nshots: 5000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw5q_platinum
+targets:
+- 0
+- 1
+- 2
+- 4
+update: true
