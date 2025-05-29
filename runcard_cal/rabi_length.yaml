@@ -1,6 +1,6 @@
-platform: qw11q
+platform: qw5q_platinum
 
-targets: [B1,B2,B3,B4]
+targets: [0,1,2,3,4]
 
 actions:
 
@@ -8,21 +8,10 @@ actions:
   operation: rabi_length
   parameters:
     pulse_duration_start: 36 
-    pulse_duration_end: 80 
-    pulse_duration_step: 0.5 
-    pulse_amplitude: 0.67
+    pulse_duration_end: 200 
+    pulse_duration_step: 2 
+    pulse_amplitude: 0.22
     interpolated_sweeper: False 
     nshots: 2048
     relaxation_time: 50000
 
-- id: Rabi length               
-  operation: rabi_length        
-  parameters:                   
-    pulse_duration_start: 36    
-    pulse_duration_end: 80      
-    pulse_duration_step: 0.5      
-    pulse_amplitude: 0.67       
-    interpolated_sweeper: False 
-    nshots: 2048                
-    relaxation_time: 50000      
-    rx90: True

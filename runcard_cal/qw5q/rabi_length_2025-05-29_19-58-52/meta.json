@@ -1,0 +1,26 @@
+{
+    "title": "rabi_length_2025-05-29_19-58-52",
+    "backend": "qibolab",
+    "platform": "qw5q_platinum",
+    "start_time": null,
+    "end_time": null,
+    "stats": {},
+    "author": null,
+    "tag": null,
+    "targets": [
+        0,
+        1,
+        2,
+        3,
+        4
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": null,
+    "start-time": null,
+    "end-time": null
+}
