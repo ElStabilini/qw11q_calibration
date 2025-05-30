@@ -10,7 +10,7 @@
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 source /home/users/elisa.stabilini/calibration/bin/activate
 
-routine="rabi_amplitude_frequency"
+routine="rabi_af_rx90"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 folder="qw5q"
 

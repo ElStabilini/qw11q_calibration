@@ -1,0 +1,23 @@
+{
+    "title": "rabi_af_rx90_2025-05-30_19-51-26",
+    "backend": "qibolab",
+    "platform": "qw5q_platinum",
+    "start_time": null,
+    "end_time": null,
+    "stats": {},
+    "author": null,
+    "tag": null,
+    "targets": [
+        3,
+        4
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": null,
+    "start-time": null,
+    "end-time": null
+}

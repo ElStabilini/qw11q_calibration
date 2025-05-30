@@ -10,7 +10,7 @@ actions:
     parameters:
       max_amp: 0.16
       max_freq: 15_000_000
-      min_amp: 0.4
+      min_amp: 0.04
       min_freq: -15_000_000
       nshots: 500 
       pulse_length: 40
