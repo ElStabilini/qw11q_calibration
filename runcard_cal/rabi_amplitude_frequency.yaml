@@ -6,13 +6,13 @@ actions:
 
   - id: rabi amplitude frequency
     
-    operation: rabi_amplitude_frequency_signal
+    operation: rabi_amplitude_frequency
     parameters:
-      max_amp: 0.2 
-      max_freq: 50_000_000
-      min_amp: 0.1
-      min_freq: -50_000_000
-      nshots: 1024 
+      max_amp: 0.45 
+      max_freq: 30_000_000
+      min_amp: 0.15
+      min_freq: -30_000_000
+      nshots: 500 
       pulse_length: 40
-      step_amp: 0.002
+      step_amp: 0.01
       step_freq: 1_000_000

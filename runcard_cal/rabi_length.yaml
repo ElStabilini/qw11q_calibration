@@ -1,16 +1,16 @@
 platform: qw5q_platinum
 
-targets: [0,1,2,3,4]
+targets: [2,3,4]
 
 actions:
 
 - id: Rabi length
   operation: rabi_length
   parameters:
-    pulse_duration_start: 36 
+    pulse_duration_start: 40 
     pulse_duration_end: 200 
-    pulse_duration_step: 2 
-    pulse_amplitude: 0.22
+    pulse_duration_step: 1 
+    pulse_amplitude: 0.20
     interpolated_sweeper: False 
     nshots: 2048
     relaxation_time: 50000
