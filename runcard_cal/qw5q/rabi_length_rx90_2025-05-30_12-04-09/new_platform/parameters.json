@@ -331,8 +331,8 @@
                         "0/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.15835299614585804,
+                            "duration": 29.0,
+                            "amplitude": 0.22,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.6,
@@ -440,7 +440,22 @@
                         }
                     ]
                 ],
-                "RX90": null,
+                "RX90": [
+                    [
+                        "2/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.07366287278358177,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.6,
+                                "beta": -2.7
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
                 "RX12": null,
                 "MZ": [
                     [
@@ -482,7 +497,22 @@
                         }
                     ]
                 ],
-                "RX90": null,
+                "RX90": [
+                    [
+                        "3/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.07366287278358177,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.6,
+                                "beta": -2.7
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
                 "RX12": null,
                 "MZ": [
                     [
