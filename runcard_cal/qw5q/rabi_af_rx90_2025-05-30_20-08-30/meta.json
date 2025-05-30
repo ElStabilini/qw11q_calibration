@@ -1,0 +1,27 @@
+{
+    "title": "rabi_af_rx90_2025-05-30_20-08-30",
+    "backend": "qibolab",
+    "platform": "qw5q_platinum",
+    "start_time": "2025-05-30 16:08:38.028522+00:00",
+    "end_time": "2025-05-30 16:09:36.831944+00:00",
+    "stats": {
+        "rabi amplitude frequency-0": {
+            "acquisition": 58.77387111191638,
+            "fit": 0.004592966055497527
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        0
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-05-30",
+    "start-time": "16:08:38",
+    "end-time": "16:09:36"
+}
