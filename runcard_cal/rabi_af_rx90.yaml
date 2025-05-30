@@ -8,10 +8,10 @@ actions:
     
     operation: rabi_amplitude_frequency
     parameters:
-      max_amp: 0.45 
-      max_freq: 30_000_000
+      max_amp: 0.30
+      max_freq: 15_000_000
       min_amp: 0.15
-      min_freq: -30_000_000
+      min_freq: -15_000_000
       nshots: 500 
       pulse_length: 40
       step_amp: 0.01
