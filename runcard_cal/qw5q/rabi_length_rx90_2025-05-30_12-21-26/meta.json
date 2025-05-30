@@ -1,0 +1,27 @@
+{
+    "title": "rabi_length_rx90_2025-05-30_12-21-26",
+    "backend": "qibolab",
+    "platform": "qw5q_platinum",
+    "start_time": "2025-05-30 08:21:35.225531+00:00",
+    "end_time": "2025-05-30 08:22:25.159402+00:00",
+    "stats": {
+        "Rabi length-0": {
+            "acquisition": 49.91045513888821,
+            "fit": 0.003022800898179412
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        1
+    ],
+    "versions": {
+        "qibo": "0.2.16",
+        "numpy": "1.26.4",
+        "qibolab": "0.2.6",
+        "qibocal": "0.2.1"
+    },
+    "date": "2025-05-30",
+    "start-time": "08:21:35",
+    "end-time": "08:22:25"
+}
