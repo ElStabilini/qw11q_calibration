@@ -1,6 +1,6 @@
 platform: qw5q_platinum 
 
-targets: [0,1,2,3,4]
+targets: [3,4]
 
 actions:
 
@@ -8,9 +8,9 @@ actions:
     
     operation: rabi_amplitude_frequency
     parameters:
-      max_amp: 0.30
+      max_amp: 0.16
       max_freq: 15_000_000
-      min_amp: 0.15
+      min_amp: 0.4
       min_freq: -15_000_000
       nshots: 500 
       pulse_length: 40
