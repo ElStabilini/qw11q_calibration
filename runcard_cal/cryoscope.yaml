@@ -12,3 +12,4 @@ actions:
       duration_step: 1
       flux_pulse_amplitude: 0.5
       relaxation_time: 50000
+      fir: 30

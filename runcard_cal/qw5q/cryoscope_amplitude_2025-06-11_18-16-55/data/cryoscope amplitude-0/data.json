@@ -1,0 +1,10 @@
+{
+    "\"crosstalk_qubit\"": null,
+    "\"flux_pulse_duration\"": 60,
+    "\"qubit_frequency\"": {
+        "1": 4.813610914000001
+    },
+    "\"detuning\"": {
+        "1": 0
+    }
+}

@@ -1,6 +1,6 @@
-platform: qw11q
+platform: qw5q_platinum
 
-targets: [B1, B2, B3, B4]
+targets: [1]
 
 actions:
   - id: cryoscope amplitude
