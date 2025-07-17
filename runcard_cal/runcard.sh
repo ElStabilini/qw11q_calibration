@@ -12,6 +12,6 @@ source /home/users/elisa.stabilini/new_env/bin/activate
 
 routine="classification"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
-folder="post_fridge_cycle"
+folder="qw5q"
 
 qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/${routine}_${current_time}
