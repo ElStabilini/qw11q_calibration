@@ -8,7 +8,7 @@
 # Run the qq acquire command
 
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
-source /home/users/elisa.stabilini/calibration/bin/activate
+source /home/users/elisa.stabilini/new_env/bin/activate
 
 routine="classification"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")

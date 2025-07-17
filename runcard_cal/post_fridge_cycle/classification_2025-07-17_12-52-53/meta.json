@@ -1,5 +1,5 @@
 {
-    "title": "classification_2025-06-24_20-24-49",
+    "title": "classification_2025-07-17_12-52-53",
     "backend": "qibolab",
     "platform": "qw11q",
     "start_time": null,
@@ -15,10 +15,10 @@
         "B5"
     ],
     "versions": {
-        "qibo": "0.2.16",
-        "numpy": "1.26.4",
-        "qibolab": "0.2.6",
-        "qibocal": "0.2.1"
+        "qibo": "0.2.19",
+        "numpy": "2.2.6",
+        "qibolab": "0.2.8",
+        "qibocal": "0.2.3"
     },
     "date": null,
     "start-time": null,
