@@ -1,6 +1,6 @@
-platform: qw11q
+platform: qw5q_platinum
 
-targets: [B1,B2,B3,B4,B5] 
+targets: [0, 1, 2, 3, 4] 
 
 actions:
   - id: single shot classification 
