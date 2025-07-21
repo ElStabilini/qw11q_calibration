@@ -3,7 +3,7 @@
 # SBATCH directives (optional)
 #SBATCH --job-name=qq  # Job name
 #SBATCH --time=20:00:00            # Time limit
-#SBATCH --partition=qw5q_platinum	# Partition name
+#SBATCH --partition=qw11q # Partition name
 
 # Run the qq acquire command
 
@@ -12,6 +12,6 @@ source /home/users/elisa.stabilini/new_env/bin/activate
 
 routine="classification"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
-folder="qw5q"
+folder="post_fridge_cycle"
 
 qq run /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${routine}.yaml -o /home/users/elisa.stabilini/cal_qw11q/runcard_cal/${folder}/${routine}_${current_time}
