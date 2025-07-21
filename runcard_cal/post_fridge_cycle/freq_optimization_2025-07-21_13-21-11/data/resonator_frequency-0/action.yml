@@ -1,0 +1,8 @@
+id: resonator_frequency
+operation: resonator_frequency
+parameters:
+  freq_step: 10000
+  freq_width: 300000
+targets:
+- B2
+update: true

@@ -1,0 +1,27 @@
+{
+    "title": "freq_optimization_2025-07-21_13-21-11",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-07-21 13:21:25.625960+00:00",
+    "end_time": "2025-07-21 13:21:49.420476+00:00",
+    "stats": {
+        "resonator_frequency-0": {
+            "acquisition": 23.773771127918735,
+            "fit": 1.8257880583405495e-05
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.19",
+        "numpy": "2.2.6",
+        "qibolab": "0.2.8",
+        "qibocal": "0.2.3"
+    },
+    "date": "2025-07-21",
+    "start-time": "13:21:25",
+    "end-time": "13:21:49"
+}
