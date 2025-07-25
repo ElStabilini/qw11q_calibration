@@ -1,0 +1,13 @@
+actions:
+- id: resonator_frequency
+  operation: resonator_frequency
+  parameters:
+    freq_step: 10000
+    freq_width: 300000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
