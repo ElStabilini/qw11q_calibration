@@ -1,0 +1,12 @@
+actions:
+- id: readout
+  operation: readout_characterization
+  parameters:
+    delay: 1000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
