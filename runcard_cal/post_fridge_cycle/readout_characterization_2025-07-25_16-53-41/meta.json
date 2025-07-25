@@ -1,0 +1,27 @@
+{
+    "title": "readout_characterization_2025-07-25_16-53-41",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-07-25 16:53:55.540025+00:00",
+    "end_time": "2025-07-25 16:54:06.463225+00:00",
+    "stats": {
+        "readout-0": {
+            "acquisition": 10.881628847680986,
+            "fit": 0.0015293178148567677
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.20",
+        "numpy": "2.2.6",
+        "qibolab": "0.2.8",
+        "qibocal": "0.2.4"
+    },
+    "date": "2025-07-25",
+    "start-time": "16:53:55",
+    "end-time": "16:54:06"
+}
