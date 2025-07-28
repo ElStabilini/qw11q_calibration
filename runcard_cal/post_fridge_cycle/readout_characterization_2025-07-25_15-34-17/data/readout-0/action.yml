@@ -1,7 +1,0 @@
-id: readout
-operation: readout_characterization
-parameters:
-  delay: 1000
-targets:
-- B2
-update: true
