@@ -10,7 +10,7 @@
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 source /home/users/elisa.stabilini/new_env/bin/activate
 
-routine="resonator_spectroscopy_low"
+routine="resonator_punchout"
 current_time=$(date +"%Y-%m-%d_%H-%M-%S")
 folder="post_fridge_cycle"
 
