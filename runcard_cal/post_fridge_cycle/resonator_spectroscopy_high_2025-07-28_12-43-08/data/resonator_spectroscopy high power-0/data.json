@@ -1,0 +1,9 @@
+{
+    "\"resonator_type\"": "2D",
+    "\"amplitudes\"": {
+        "\"B2\"": 0.6
+    },
+    "\"fit_function\"": "lorentzian",
+    "\"phase_sign\"": true,
+    "\"power_level\"": "high"
+}
