@@ -1,5 +1,5 @@
 
-# Single QUA script generated at 2025-07-28 12:43:21.523672
+# Single QUA script generated at 2025-07-28 12:50:16.874983
 # QUA library version: 1.2.2
 
 from qm import CompilerOptionArguments
@@ -12,18 +12,18 @@ with program() as prog:
     v4 = declare(int, )
     wait((4+(0*(Cast.to_int(v2)+Cast.to_int(v3)))), "B2/acquisition")
     with for_(v1,0,(v1<1024),(v1+1)):
-        with for_(v4,-12667365,(v4<=-2767365),(v4+100000)):
+        with for_(v4,-32856453,(v4<=-27881453),(v4+25000)):
             update_frequency("B2/acquisition", v4, "Hz", False)
             align()
-            measure("6710795341543925245", "B2/acquisition", dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
+            measure("-4376999542093877457", "B2/acquisition", dual_demod.full("cos", "sin", v2), dual_demod.full("minus_sin", "cos", v3))
             r1 = declare_stream()
             save(v2, r1)
             r2 = declare_stream()
             save(v3, r2)
-            wait(2500, )
+            wait(1250, )
     with stream_processing():
-        r1.buffer(100).buffer(1024).save("6710795341543925245_B2|acquisition_I")
-        r2.buffer(100).buffer(1024).save("6710795341543925245_B2|acquisition_Q")
+        r1.buffer(200).buffer(1024).save("-4376999542093877457_B2|acquisition_I")
+        r2.buffer(200).buffer(1024).save("-4376999542093877457_B2|acquisition_Q")
 
 
 config = {
@@ -232,20 +232,20 @@ config = {
                     "buffer": 18,
                 },
             },
-            "intermediate_frequency": -30556453.0,
+            "intermediate_frequency": -36576.43393802643,
             "time_of_flight": 308.0,
             "smearing": 0.0,
             "operations": {
-                "6710795341543925245": "6710795341543925245_B2/acquisition",
+                "-4376999542093877457": "-4376999542093877457_B2/acquisition",
             },
         },
     },
     "pulses": {
-        "6710795341543925245_B2/acquisition": {
+        "-4376999542093877457_B2/acquisition": {
             "length": 2000.0,
             "waveforms": {
-                "I": "6015889667010388801_i",
-                "Q": "6015889667010388801_q",
+                "I": "6375985432007730726_i",
+                "Q": "6375985432007730726_q",
             },
             "digital_marker": "ON",
             "operation": "measurement",
@@ -257,11 +257,11 @@ config = {
         },
     },
     "waveforms": {
-        "6015889667010388801_i": {
-            "sample": 0.3,
+        "6375985432007730726_i": {
+            "sample": 0.005,
             "type": "constant",
         },
-        "6015889667010388801_q": {
+        "6375985432007730726_q": {
             "sample": 0.0,
             "type": "constant",
         },
@@ -651,7 +651,7 @@ loaded_config = {
                 "out2": ('con2', 1, 2),
             },
             "operations": {
-                "6710795341543925245": "6710795341543925245_B2/acquisition",
+                "-4376999542093877457": "-4376999542093877457_B2/acquisition",
             },
             "hold_offset": {
                 "duration": 0,
@@ -664,20 +664,20 @@ loaded_config = {
             "mixInputs": {
                 "I": ('con2', 1, 1),
                 "Q": ('con2', 1, 2),
-                "mixer": "B2/acquisition_mixer_39d",
+                "mixer": "B2/acquisition_mixer_b77",
                 "lo_frequency": 7400000000.0,
             },
             "smearing": 0,
             "time_of_flight": 308,
-            "intermediate_frequency": -30556453.0,
+            "intermediate_frequency": -36576.43393802643,
         },
     },
     "pulses": {
-        "6710795341543925245_B2/acquisition": {
+        "-4376999542093877457_B2/acquisition": {
             "length": 2000,
             "waveforms": {
-                "I": "6015889667010388801_i",
-                "Q": "6015889667010388801_q",
+                "I": "6375985432007730726_i",
+                "Q": "6375985432007730726_q",
             },
             "integration_weights": {
                 "cos": "cosine_weights_B2/acquisition",
@@ -689,11 +689,11 @@ loaded_config = {
         },
     },
     "waveforms": {
-        "6015889667010388801_i": {
+        "6375985432007730726_i": {
             "type": "constant",
-            "sample": 0.3,
+            "sample": 0.005,
         },
-        "6015889667010388801_q": {
+        "6375985432007730726_q": {
             "type": "constant",
             "sample": 0.0,
         },
@@ -718,7 +718,7 @@ loaded_config = {
         },
     },
     "mixers": {
-        "B2/acquisition_mixer_39d": [{'intermediate_frequency': -30556453.0, 'lo_frequency': 7400000000.0, 'correction': (1, 0, 0, 1)}],
+        "B2/acquisition_mixer_b77": [{'intermediate_frequency': -36576.43393802643, 'lo_frequency': 7400000000.0, 'correction': (1, 0, 0, 1)}],
     },
 }
 

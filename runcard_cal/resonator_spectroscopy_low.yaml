@@ -4,7 +4,7 @@ targets: [B2]
 
 actions:
 
-  - id: resonator_spectroscopy low power
+  - id: resonator spectroscopy low power
     operation: resonator_spectroscopy
     parameters:
       freq_width: 5_000_000

@@ -1,0 +1,17 @@
+actions:
+- id: resonator spectroscopy low power
+  operation: resonator_spectroscopy
+  parameters:
+    amplitude: 0.01
+    freq_step: 25000
+    freq_width: 5000000
+    nshots: 1024
+    power_level: low
+    relaxation_time: 5000
+  targets: null
+  update: true
+backend: qibolab
+platform: qw11q
+targets:
+- B2
+update: true
