@@ -1,0 +1,27 @@
+{
+    "title": "qubit_spectroscopy_2025-07-28_13-13-36",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-07-28 13:13:49.684528+00:00",
+    "end_time": "2025-07-28 13:13:58.222265+00:00",
+    "stats": {
+        "qubit spectroscopy 01-0": {
+            "acquisition": 8.507763132918626,
+            "fit": 0.005075017921626568
+        }
+    },
+    "author": null,
+    "tag": null,
+    "targets": [
+        "B2"
+    ],
+    "versions": {
+        "qibo": "0.2.20",
+        "numpy": "2.2.6",
+        "qibolab": "0.2.8",
+        "qibocal": "0.2.4"
+    },
+    "date": "2025-07-28",
+    "start-time": "13:13:49",
+    "end-time": "13:13:58"
+}
