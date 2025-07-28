@@ -1,0 +1,36 @@
+{
+    "title": "readout_optimization_2025-07-17_16-12-13",
+    "backend": "qibolab",
+    "platform": "qw11q",
+    "start_time": "2025-07-17 16:12:31.045660+00:00",
+    "end_time": "2025-07-17 16:53:23.928525+00:00",
+    "stats": {
+        "classification-0": {
+            "acquisition": 8.083664353005588,
+            "fit": 0.05370615515857935
+        },
+        "resonator optimization-0": {
+            "acquisition": 2071.5564856079873,
+            "fit": 343.13944118702784
+        },
+        "classification-1": {
+            "acquisition": 8.591911316849291,
+            "fit": 0.031093386933207512
+        }
+    },
+    "author": "elisa.stabilini",
+    "tag": null,
+    "targets": [
+        "B2",
+        "B3"
+    ],
+    "versions": {
+        "qibo": "0.2.19",
+        "numpy": "2.2.6",
+        "qibolab": "0.2.8",
+        "qibocal": "0.2.3"
+    },
+    "date": "2025-07-17",
+    "start-time": "16:12:31",
+    "end-time": "16:53:23"
+}

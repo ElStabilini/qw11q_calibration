@@ -1,12 +1,12 @@
 platform: qw11q
 
-qubits: [D1]
+targets: [D1]
 
 actions:
   - id: resonator spectroscopy high power
     operation: resonator_spectroscopy
     parameters:
-      freq_width: 80_000_000
+      freq_width: 10_000_000
       freq_step: 50_000
       amplitude: 0.6
       fit_function: s21  
@@ -18,7 +18,7 @@ actions:
   - id: resonator spectroscopy low power
     operation: resonator_spectroscopy
     parameters:
-      freq_width: 80_000_000
+      freq_width: 10_000_000
       freq_step: 50_000
       amplitude: 0.001
       fit_function: s21  

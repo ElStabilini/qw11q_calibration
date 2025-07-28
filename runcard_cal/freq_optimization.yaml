@@ -6,5 +6,5 @@ actions:
     - id: resonator_frequency
       operation: resonator_frequency
       parameters:
-        freq_width: 1_000_000
-        freq_step: 100_000
+        freq_width: 300_000
+        freq_step: 10_000

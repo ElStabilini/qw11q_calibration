@@ -1,6 +1,6 @@
 platform: qw11q
 
-qubits: [B2]
+targets: [B2]
 
 actions:
   - id: readout
